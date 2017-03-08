@@ -11,23 +11,8 @@ namespace MicrosoftHouse
     {
         public App()
         {
-            // The root page of your application
-            var content = new ContentPage
-            {
-                Title = "MicrosoftHouse",
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Menne and Filo APP!"
-                        }
-                    }
-                }
-            };
-
-            MainPage = new NavigationPage(content);
+            // The root page of your applicati
+			MainPage = new MainPage();
         }
 
         protected override void OnStart()
