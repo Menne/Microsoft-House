@@ -13,7 +13,7 @@ namespace MicrosoftHouse
         {
             InitializeComponent();
 
-            MainPage = new MicrosoftHouse.MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
