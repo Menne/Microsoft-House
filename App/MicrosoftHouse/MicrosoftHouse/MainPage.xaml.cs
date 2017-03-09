@@ -27,5 +27,10 @@ namespace MicrosoftHouse
 				callButton.Text = "Call";
 			}
 		}
+
+		async void OnCallHistory(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new SecondaryPage());
+		}
 	}
 }

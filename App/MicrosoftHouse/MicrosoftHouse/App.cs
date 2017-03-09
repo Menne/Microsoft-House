@@ -9,10 +9,13 @@ namespace MicrosoftHouse
 {
     public class App : Application
     {
+		public static IList<string> PhoneNumbers { get; set; }
+
+
         public App()
-        {
-            // The root page of your applicati
-			MainPage = new MainPage();
+		{
+			// The root page of your applicati
+			MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
