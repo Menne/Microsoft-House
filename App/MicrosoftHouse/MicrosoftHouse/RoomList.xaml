@@ -7,17 +7,6 @@
 	<ContentPage.Content>
 			<StackLayout>
 					<StackLayout.Children>
-						<!--<local:RoomView RoomName="I.0.1" Available="true"></local:RoomView>
-						<local:RoomView RoomName="I.0.1" Available="true"></local:RoomView>
-						<local:RoomView RoomName="I.0.1" Available="true"></local:RoomView>
-						<local:RoomView RoomName="I.0.1" Available="true"></local:RoomView>
-						<local:RoomView RoomName="I.0.1" Available="true"></local:RoomView>
-						<local:RoomView RoomName="I.0.1" Available="true"></local:RoomView>
-						<local:RoomView RoomName="I.0.1" Available="true"></local:RoomView>
-						<local:RoomView RoomName="I.0.1" Available="true"></local:RoomView>
-						<local:RoomView RoomName="I.0.1" Available="true"></local:RoomView>
-						<local:RoomView RoomName="I.0.1" Available="true"></local:RoomView>
-						<local:RoomView RoomName="I.0.1" Available="true"></local:RoomView>-->
 					</StackLayout.Children>
 			</StackLayout>
 	</ContentPage.Content>
