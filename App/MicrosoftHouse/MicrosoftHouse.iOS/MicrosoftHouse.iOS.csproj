@@ -135,7 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MicrosoftHouse\MicrosoftHouse.csproj">
-      <Project>{0bd2c8c4-ebe3-4db0-82f0-771c1e04b310}</Project>
+      <Project>{A7138995-B32E-4E0D-8E34-954FD7D920C0}</Project>
       <Name>MicrosoftHouse</Name>
     </ProjectReference>
   </ItemGroup>

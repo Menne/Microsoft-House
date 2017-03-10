@@ -9,6 +9,7 @@
 	<ContentPage.Content>
 		<StackLayout>
 			 <Label Text="Enter a Phoneword:" />
+			 <Button Text="Tab" Clicked="OnTab"/>
 		</StackLayout>		
 	</ContentPage.Content>
 </ContentPage>

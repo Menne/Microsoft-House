@@ -11,8 +11,8 @@ namespace MicrosoftHouse
     {
         public App()
         {
-            InitializeComponent();
-            MainPage = new NavigationPage(new MainPage());
+			MainPage = new NavigationPage(new MainPage());
+			//MainPage = new RoomList();
         }
 
         protected override void OnStart()

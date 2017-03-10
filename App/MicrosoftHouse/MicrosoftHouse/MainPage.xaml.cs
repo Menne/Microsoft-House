@@ -37,5 +37,11 @@ namespace MicrosoftHouse
 		{
 			await Navigation.PushAsync(new SecondaryPage());
 		}
+
+		async void OnRoomList(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new RoomList());
+		}
+
     }
 }
