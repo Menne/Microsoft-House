@@ -83,7 +83,19 @@ namespace MicrosoftHouse
 			room.RoomName = name;
 			room.Available = available;
 
+			TapGestureRecognizer tapGesture = new TapGestureRecognizer();
+			tapGesture.Tapped += OnRoomTapped;
+			room.GestureRecognizers.Add(tapGesture);
+
 			return room;
 		}
+
+		async void OnRoomTapped(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new RoomPage());
+		}
+
+
+
 	}
 }
