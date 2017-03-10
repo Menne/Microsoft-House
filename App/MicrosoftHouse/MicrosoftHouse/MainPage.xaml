@@ -22,11 +22,6 @@
 	</ContentPage.ToolbarItems>-->
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Enter a Phoneword:" />
-            <Entry x:Name="phoneNumberText" Text="1-855-XAMARIN"/>
-            <Button x:Name="translateButton" Text="Translate" Clicked="Translate"/>
-            <Button x:Name="callButton" Text="Call" IsEnabled="false" />
-			<Button x:Name="callHistoryButton" Text="Call History" Clicked="OnCallHistory" />
 			<Button x:Name ="roomsButton" Text="Go to All Rooms" Clicked="OnRoomList"/> 
         </StackLayout>
     </ContentPage.Content>
