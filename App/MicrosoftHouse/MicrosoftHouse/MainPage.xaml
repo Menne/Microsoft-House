@@ -2,13 +2,24 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MicrosoftHouse"
-             x:Class="MicrosoftHouse.MainPage">
+             x:Class="MicrosoftHouse.MainPage"
+			 Title="Home">
 	<ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness"
                     iOS="20, 40, 20, 20"
                     Android="20, 20, 20, 20"
                     WinPhone="20, 20, 20, 20" />
      </ContentPage.Padding>
+	<!--<ContentPage.ToolbarItems>
+		<ToolbarItem Text="edit" Order="Primary">
+			<ToolbarItem.Icon>
+				<OnPlatform x:TypeArguments="FileImageSource"
+							iOS="edit.png"
+							Android="ic_action_edit.png"
+							WinPhone="Images/edit.png" />
+			</ToolbarItem.Icon>
+		</ToolbarItem>
+	</ContentPage.ToolbarItems>-->
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Enter a Phoneword:" />
