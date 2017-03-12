@@ -22,7 +22,8 @@
 	</ContentPage.ToolbarItems>-->
     <ContentPage.Content>
         <StackLayout>
-			<Button x:Name ="roomsButton" Text="Go to All Rooms" Clicked="OnRoomList"/> 
+			<Button x:Name ="roomsButton" Text="Go to All Rooms" Clicked="OnRoomList"/>
+			<Button x:Name ="parkingButton" Text="Go Parking" Clicked="OnParking"/>
         </StackLayout>
     </ContentPage.Content>
 
