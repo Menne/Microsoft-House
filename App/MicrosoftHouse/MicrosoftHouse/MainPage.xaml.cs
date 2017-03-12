@@ -20,11 +20,6 @@ namespace MicrosoftHouse
 			await Navigation.PushAsync(new RoomList());
 		}
 
-		async void OnCalendar(object sender, EventArgs e)
-		{
-			await Navigation.PushAsync(new Calendar());
-		}
-
 		async void OnParking(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new CarPark());
