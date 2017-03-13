@@ -114,6 +114,8 @@
     <BundleResource Include="Resources\Icon-Small%402x.png" />
     <BundleResource Include="Resources\Icon-Small%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\SplashIcon.png" />
+    <BundleResource Include="Resources\iTunesArtwork%401x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
