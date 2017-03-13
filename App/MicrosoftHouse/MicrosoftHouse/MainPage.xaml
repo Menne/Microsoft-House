@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MicrosoftHouse"
+             xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.MainPage"
-			 Title="Home">
+			 Title="Home"
+			 BackgroundColor="{x:Static local:Constants.LightBackGround}">
 	<ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness"
                     iOS="20, 40, 20, 20"
                     Android="20, 20, 20, 20"
                     WinPhone="20, 20, 20, 20" />
      </ContentPage.Padding>
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="buttonStyle" TargetType="Button">
+				<Setter Property="HorizontalOptions" Value="Center"/>
+				<Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+				<Setter Property="BorderWidth" Value="3"/>
+				<Setter Property="TextColor" Value="Red"/>
+				<Setter Property="FontSize" Value="Large"/>
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 	<!--<ContentPage.ToolbarItems>
 		<ToolbarItem Text="edit" Order="Primary">
 			<ToolbarItem.Icon>
@@ -22,8 +34,10 @@
 	</ContentPage.ToolbarItems>-->
     <ContentPage.Content>
         <StackLayout>
-			<Button x:Name ="roomsButton" Text="Go to All Rooms" Clicked="OnRoomList"/>
-			<Button x:Name ="parkingButton" Text="Go Parking" Clicked="OnParking"/>
+			<Label Text="Using Constants" 
+				   TextColor="{x:Static local:Constants.DarkForeGround}"/>
+			<Button x:Name ="roomsButton" Text="Go to All Rooms" Style="{StaticResource buttonStyle}" Clicked="OnRoomList"/>
+			<Button x:Name ="parkingButton" Text="Go Parking" Style="{StaticResource buttonStyle}" Clicked="OnParking"/>
         </StackLayout>
     </ContentPage.Content>
 

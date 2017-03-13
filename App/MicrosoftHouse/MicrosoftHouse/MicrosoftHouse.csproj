@@ -54,6 +54,7 @@
     <Compile Include="CarPark.xaml.cs">
       <DependentUpon>CarPark.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">

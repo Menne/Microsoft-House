@@ -16,6 +16,35 @@ namespace MicrosoftHouse
 		{
 			InitializeComponent();
 
+
+			//Styles form Code
+			Resources = new ResourceDictionary
+			{
+				{ "labelStyle", new Style(typeof(Label))
+					{
+						Setters =
+						{
+							new Setter
+							{
+								Property = Label.TextColorProperty,
+								Value = Color.Red
+							},
+							new Setter
+							{
+								Property = Label.VerticalTextAlignmentProperty,
+								Value = LayoutOptions.Center
+							},
+							new Setter
+							{
+								Property = Label.FontSizeProperty,
+								Value = Device.GetNamedSize(NamedSize.Large, typeof(Label))
+							}
+						}
+					}
+				}
+			};
+
+
 			StackLayout roomStack = new StackLayout()
 			{
 				HorizontalOptions = LayoutOptions.StartAndExpand,
@@ -36,8 +65,7 @@ namespace MicrosoftHouse
 					piano = new Label
 					{
 						Text = String.Concat("Piano ", j.ToString()),
-						TextColor = Color.Black,
-						FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
+						Style = (Style)Resources["labelStyle"]
 					};
 
 					pianoStack.Children.Add(piano);
