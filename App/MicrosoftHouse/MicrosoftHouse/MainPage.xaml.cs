@@ -13,6 +13,20 @@ namespace MicrosoftHouse
         {
             InitializeComponent();
 
+			// How to add images from code
+			/*Image image = new Image
+			{
+				Source = new FileImageSource
+				{
+					File = Device.OnPlatform(iOS: "Icon-76.png",
+											 Android: "icon.png"
+											 WinPhone: "Assets/StoreLogo.png")
+				},
+				HorizontalOptions = LayoutOptions.Center,
+				VerticalOptions = LayoutOptions.CenterAndExpand
+			};
+			*/
+
         }
 
 		async void OnRoomList(object sender, EventArgs e)

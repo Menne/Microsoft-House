@@ -22,18 +22,29 @@
 			<Style x:Key="visualStyle" TargetType="VisualElement">
 				<Setter Property="BackgroundColor" Value="Blue"/>
 			</Style>
+			<Color x:Key="accentColor1">#F85A2F</Color>
+            <Color x:Key="accentColor2">#C94A28</Color>
+            <Color x:Key="primaryColor1">#222222</Color>
+            <Color x:Key="primaryColor2">#2E2E2E</Color>
+            <Color x:Key="backgroundColor1">#FFFFFF</Color>
+            <Color x:Key="backgroundColor2">#F8F8F8</Color>
+            <Color x:Key="textColor">#757575</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="Color.Red"/>
+                <Setter Property="BarTextColor" Value="#FFFFFF"/>
+            </Style>   	
 		</ResourceDictionary>
 	</ContentPage.Resources>
-	<!--<ContentPage.ToolbarItems>
-		<ToolbarItem Text="edit" Order="Primary">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Order="Primary">
 			<ToolbarItem.Icon>
 				<OnPlatform x:TypeArguments="FileImageSource"
-							iOS="edit.png"
-							Android="ic_action_edit.png"
-							WinPhone="Images/edit.png" />
+							iOS="Icon-Small.png"
+							Android="icon.png"
+							WinPhone="Images/StoreLogo.png" />
 			</ToolbarItem.Icon>
 		</ToolbarItem>
-	</ContentPage.ToolbarItems>-->
+	</ContentPage.ToolbarItems>
 	<ContentPage.Style>
 		<StaticResourceExtension Key="visualStyle"/>
 	</ContentPage.Style>
@@ -41,9 +52,21 @@
         <StackLayout>
 			<Label Text="Using Constants" 
 				   TextColor="{x:Static local:Constants.DarkForeGround}"/>
+			<ContentView>
+				<Image>
+					<Image.Source>
+						<OnPlatform x:TypeArguments="ImageSource"
+									iOS="Icon-76.png"
+									Android="icon.png"
+									WinPhone="Assets/StoreLogo.png"/>
+					</Image.Source>
+					<Image.GestureRecognizers>
+						<TapGestureRecognizer Tapped="OnRoomList"/>
+					</Image.GestureRecognizers>
+				</Image>
+			</ContentView>
 			<Button x:Name ="roomsButton" Text="Go to All Rooms" Style="{StaticResource buttonStyle}" Clicked="OnRoomList"/>
 			<Button x:Name ="parkingButton" Text="Go Parking" Style="{StaticResource buttonStyle}" Clicked="OnParking"/>
         </StackLayout>
     </ContentPage.Content>
-
 </ContentPage>
