@@ -11,7 +11,7 @@ namespace MicrosoftHouse
 		}
 
 		public static Color LightBackGround = Color.Yellow;
-		public static Color DarkForeGround = Color.White;
+		public static Color DarkForeGround = Color.Yellow;
 
 		public static double NormalFontSize = 18;
 		public static double TitleFontSize = 1.4 * NormalFontSize;

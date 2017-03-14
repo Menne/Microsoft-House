@@ -20,7 +20,7 @@
 				<Setter Property="FontSize" Value="Large"/>
 			</Style>
 			<Style x:Key="visualStyle" TargetType="VisualElement">
-				<Setter Property="BackgroundColor" Value="Blue"/>
+				<Setter Property="BackgroundColor" Value="White"/>
 			</Style>
 			<Color x:Key="accentColor1">#F85A2F</Color>
             <Color x:Key="accentColor2">#C94A28</Color>
@@ -65,8 +65,18 @@
 					</Image.GestureRecognizers>
 				</Image>
 			</ContentView>
-			<Button x:Name ="roomsButton" Text="Go to All Rooms" Style="{StaticResource buttonStyle}" Clicked="OnRoomList"/>
-			<Button x:Name ="parkingButton" Text="Go Parking" Style="{StaticResource buttonStyle}" Clicked="OnParking"/>
+			<Button x:Name="roomsButton" Text="Go to All Rooms" Style="{StaticResource buttonStyle}" Clicked="OnRoomList"/>
+			<Button x:Name="parkingButton" Text="Go Parking" Style="{StaticResource buttonStyle}" Clicked="OnParking"/>
+			<Button x:Name="signInButton"
+                    BackgroundColor="#FF00BAFF"
+                    HeightRequest="40"
+					WidthRequest="120"
+					VerticalOptions="Center"
+					HorizontalOptions="Center"
+                    Text="SIGN IN"
+                    TextColor="#ffffff"
+					BorderRadius="0"
+					FontFamily="Avenir"/>				
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
