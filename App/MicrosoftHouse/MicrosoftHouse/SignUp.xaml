@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MicrosoftHouse.SignUp">
+	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout>
+				<StackLayout.Resources>
+					<ResourceDictionary>
+						<Style TargetType="Entry">
+							<Setter Property="VerticalOptions" Value="Center"/>
+							<Setter Property="FontFamily" Value="Avenir"/>
+						</Style>
+						<Style TargetType="DatePicker">
+							<Setter Property="Format" Value="D" />
+							<Setter Property="VerticalOptions" Value="Center"/>
+							<Setter Property="HorizontalOptions" Value="Center"/>
+						</Style>
+					</ResourceDictionary>
+				</StackLayout.Resources>
+				<Entry Placeholder="FULL NAME"
+					   Keyboard="Default"/>
+				<Entry x:Name="emailEntry"
+					   Placeholder="EMAIL"
+					   TextChanged="OnEntryTextChanged"
+					   Completed="OnEntryCompleted"
+					   Keyboard="Email"/>
+				<Entry Placeholder="PASSWORD"
+					   Keyboard="Default"
+					   IsPassword="true"/>
+				<DatePicker x:Name="birthDay"/>
+				<TimePicker x:Name="time"/>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

@@ -76,7 +76,8 @@
                     Text="SIGN IN"
                     TextColor="#ffffff"
 					BorderRadius="0"
-					FontFamily="Avenir"/>				
+					FontFamily="Avenir"
+					Clicked="OnSignUp"/>				
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

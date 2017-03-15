@@ -39,5 +39,10 @@ namespace MicrosoftHouse
 			await Navigation.PushAsync(new CarPark());
 		}
 
+		async void OnSignUp(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new SignUp());
+		}
+
     }
 }
