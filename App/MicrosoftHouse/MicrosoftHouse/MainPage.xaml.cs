@@ -44,5 +44,15 @@ namespace MicrosoftHouse
 			await Navigation.PushAsync(new SignUp());
 		}
 
+		async void OnPiani(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new Piani());
+		}
+
+		async void OnPianiCode(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new PianiCode());
+		}
+
     }
 }
