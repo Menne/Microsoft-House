@@ -67,6 +67,7 @@
 			</ContentView>
 			<Button x:Name="roomsButton" Text="Go to All Rooms" Style="{StaticResource buttonStyle}" Clicked="OnRoomList"/>
 			<Button x:Name="tuttiPiani" Text="Piani" Clicked="OnPiani"/>
+			<Button x:Name="availableRooms" Text="Available Rooms" Clicked="OnAvailableRooms"/>
 			<Button x:Name="tuttiPianiCode" Text="PianiCode" Clicked="OnPianiCode"/>
 			<Button x:Name="parkingButton" Text="Go Parking" Style="{StaticResource buttonStyle}" Clicked="OnParking"/>
 			<Button x:Name="signInButton"

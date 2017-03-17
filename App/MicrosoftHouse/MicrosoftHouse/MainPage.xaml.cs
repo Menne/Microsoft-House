@@ -54,5 +54,10 @@ namespace MicrosoftHouse
 			await Navigation.PushAsync(new PianiCode());
 		}
 
+		async void OnAvailableRooms(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new NewRoomList());
+		}
+
     }
 }
