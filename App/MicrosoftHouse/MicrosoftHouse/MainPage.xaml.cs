@@ -59,5 +59,10 @@ namespace MicrosoftHouse
 			await Navigation.PushAsync(new NewRoomList());
 		}
 
+		async void OnAvailableRoomsMVVC(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new AllRoomsView());
+		}
+
     }
 }

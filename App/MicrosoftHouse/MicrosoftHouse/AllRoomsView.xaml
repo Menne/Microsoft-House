@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
+			 x:Class="MicrosoftHouse.AllRoomsView">
+	<ContentPage.BindingContext>
+		<local:AllRoomsViewModel />
+	</ContentPage.BindingContext>
+	
+	<ContentPage.Content>	
+		<StackLayout    BindingContext="{Binding Path=RoomsBody}"
+						VerticalOptions="Center">
+			<ListView ItemsSource="{Binding Path=Rooms}"
+					  HasUnevenRows="true"
+					  ItemTapped="OnNewRoom">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<ContentView Padding="10">
+								<StackLayout Orientation="Horizontal">
+									<BoxView x:Name="boxView"
+											 Color="Green"
+											 WidthRequest="20"
+											 HeightRequest="20"/>
+									<StackLayout>
+										<Label Text="{Binding Path=Name, StringFormat='{0}'}"
+											   FontSize="22"
+											   VerticalOptions="StartAndExpand" />
+										<Label Text="{Binding Path=Piano, StringFormat='{0}'}"
+											   FontSize="16"
+											   VerticalOptions="CenterAndExpand" />
+									</StackLayout>
+								</StackLayout>
+							</ContentView>
+							<ViewCell.ContextActions> 
+								<MenuItem Text="Remove"
+										  IsDestructive="true"
+										  Command="{Binding RemoveCommand}"/>
+								<MenuItem Text="Move to Top"
+										  Command="{Binding MoveToTopCommand}"/>
+							</ViewCell.ContextActions>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

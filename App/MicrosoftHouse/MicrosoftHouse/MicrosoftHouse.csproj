@@ -71,6 +71,13 @@
       <DependentUpon>NewRoomPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AllRooms.cs" />
+    <Compile Include="AllRoomsViewModel.cs" />
+    <Compile Include="Room.cs" />
+    <Compile Include="AllRoomsView.xaml.cs">
+      <DependentUpon>AllRoomsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModelBase.cs" />
+    <Compile Include="AllRoomsBody.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
@@ -108,6 +115,9 @@
     <EmbeddedResource Include="NewRoomPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="AllRoomsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -122,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Spiegazione delle Classi.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

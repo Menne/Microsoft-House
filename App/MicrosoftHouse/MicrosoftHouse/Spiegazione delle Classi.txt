@@ -1,0 +1,5 @@
+﻿1. AllRooms.cs - Classe che contiene la collection delle room che sono mappate in NewRoomList.xaml.cs (ListView con le Room e CustomCell)
+
+2. AllRoomsBody.cs, AllRoomsView.xaml.cs, AllRoomsViewModel.cs e Room.cs - Implementano la List View utilizzando il Paradigma MVVC.
+
+3. ViewModelBase.cs - Classe di XamarinToolkit necessario per implementare il Paradigma MVVC.

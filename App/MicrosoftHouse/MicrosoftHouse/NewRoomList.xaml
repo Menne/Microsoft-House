@@ -5,11 +5,31 @@
 			 x:Class="MicrosoftHouse.NewRoomList">
 	<ContentPage.Content>
 		<ListView ItemsSource="{x:Static local:AllRooms.All}"
-				  HasUnevenRows="true">
+				  HasUnevenRows="true"
+				  ItemTapped="OnNewRoom">
 			<ListView.ItemTemplate>
 				<DataTemplate>
-					<TextCell Text="{Binding Name}"
-							  Detail="{Binding Piano}"/>
+					<ViewCell>
+						<ContentView Padding="10">
+							<StackLayout Orientation="Horizontal">
+								<BoxView x:Name="boxView"
+										 Color="{Binding Available}"
+										 WidthRequest="20"
+										 HeightRequest="20"/>
+								<StackLayout>
+									<Label Text="{Binding Name}"
+										   FontSize="22"
+										   VerticalOptions="StartAndExpand" />
+									<Label Text="{Binding Piano, StringFormat='Piano = {0}'}"
+										   FontSize="16"
+										   VerticalOptions="CenterAndExpand" />
+								</StackLayout>
+							</StackLayout>
+						</ContentView>
+						<ViewCell.ContextActions>
+							<!-- Implementare il Comdando -->
+						</ViewCell.ContextActions>
+					</ViewCell>
 				</DataTemplate>
 			</ListView.ItemTemplate>
 		</ListView>
