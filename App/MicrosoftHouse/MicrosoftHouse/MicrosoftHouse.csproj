@@ -78,6 +78,10 @@
     </Compile>
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="AllRoomsBody.cs" />
+    <Compile Include="NewEvent.xaml.cs">
+      <DependentUpon>NewEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EventInformation.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
@@ -116,6 +120,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="AllRoomsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewEvent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

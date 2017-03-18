@@ -70,6 +70,7 @@
 			<Button x:Name="availableRooms" Text="Available Rooms" Clicked="OnAvailableRooms"/>
 			<Button x:Name="availableRoomsMVVC" Text="Available Rooms MVVC" Clicked="OnAvailableRoomsMVVC"/>
 			<Button x:Name="tuttiPianiCode" Text="PianiCode" Clicked="OnPianiCode"/>
+			<Button x:Name="newEvent" Text="Nuovo Evento" Clicked="OnCreateEvent"/>
 			<Button x:Name="parkingButton" Text="Go Parking" Style="{StaticResource buttonStyle}" Clicked="OnParking"/>
 			<Button x:Name="signInButton"
                     BackgroundColor="#FF00BAFF"
