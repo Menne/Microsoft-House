@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.CarPark">
-	<ContentPage.Content>
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="20, 40, 20, 20"
+                    Android="20, 20, 20, 20"
+                    WinPhone="20, 20, 20, 20" />
+    </ContentPage.Padding>
+    <ContentPage.Content>
         <StackLayout>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -23,6 +30,49 @@
 				       VerticalOptions="Center"
 				       Grid.Column="2"/>
             </Grid>
-        </StackLayout>
+            <Button x:Name="parkCar"
+                    BackgroundColor="#FF00BAFF"
+                    HeightRequest="40"
+					WidthRequest="120"
+					VerticalOptions="Center"
+					HorizontalOptions="Center"
+                    Text="PARK"
+                    TextColor="#ffffff"
+					BorderRadius="0"
+					FontFamily="Avenir"/>
+<!--            <charting:Chart x:Name="CombinationChart" Color="White" WidthRequest="450" HeightRequest="750" Spacing="10">
+
+                <charting:Chart.Series>
+                    <charting:Series Type="Bar" Color="Red">
+
+                        <charting:Series.Points>
+                            <charting:DataPoint Label="Jan" Value="25"/>
+                            <charting:DataPoint Label="Feb" Value="40"/>
+                            <charting:DataPoint Label="March" Value="45"/>
+                        </charting:Series.Points>
+
+                    </charting:Series>
+                    <charting:Series Type="Bar" Color="Blue">
+
+                        <charting:Series.Points>
+                            <charting:DataPoint Label="Jan" Value="30"/>
+                            <charting:DataPoint Label="Feb" Value="35"/>
+                            <charting:DataPoint Label="March" Value="40"/>
+                        </charting:Series.Points>
+
+                    </charting:Series>
+                    <charting:Series Type="Line" Color="Green">
+
+                        <charting:Series.Points>
+                            <charting:DataPoint Label="Jan" Value="27.5"/>
+                            <charting:DataPoint Label="Feb" Value="37.5"/>
+                            <charting:DataPoint Label="March" Value="42.5"/>
+                        </charting:Series.Points>
+
+                    </charting:Series>
+                </charting:Chart.Series>
+
+            </charting:Chart>   -->
+        </StackLayout> 
     </ContentPage.Content>
 </ContentPage>
