@@ -13,7 +13,7 @@ namespace MicrosoftHouse
         {
             InitializeComponent();
 
-			/// How to add images from code
+			/// How to add images from code.
 			/*Image image = new Image
 			{
 				Source = new FileImageSource
