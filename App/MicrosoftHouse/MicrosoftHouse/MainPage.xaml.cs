@@ -69,5 +69,14 @@ namespace MicrosoftHouse
 			await Navigation.PushAsync(new NewEvent());
 		}
 
-    }
+		/* ALLERT BOX */
+		async void OnAlertBox(object sender, EventArgs e)
+		{
+			Task<bool> task = DisplayAlert("Simple Alert", "Decide on an option", "Ok", "Cancel");
+			label.Text = "Alert is currently displayed";
+			bool result = await task;
+			label.Text = String.Format("Alert {0} button was pressed",
+			result ? "OK" : "Cancel");
+		}
+	}
 }
