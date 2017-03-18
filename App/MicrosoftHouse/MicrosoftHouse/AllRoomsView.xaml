@@ -14,21 +14,44 @@
 					  HasUnevenRows="true"
 					  ItemTapped="OnNewRoom">
 				<ListView.ItemTemplate>
-					<DataTemplate>
+					<DataTemplate> <!-- Può essere utilizzata anche ImageCell -->
 						<ViewCell>
-							<ContentView Padding="10">
-								<StackLayout Orientation="Horizontal">
-									<BoxView x:Name="boxView"
+							<ContentView Padding="5">
+								<StackLayout Orientation="Horizontal"><!-- bisogna mettere una grid -->
+									<BoxView x:Name="boxView" 
 											 Color="Green"
-											 WidthRequest="20"
-											 HeightRequest="20"/>
-									<StackLayout>
+											 WidthRequest="25"
+											 HeightRequest="25"
+											 VerticalOptions="Center"
+											 /> 
+								    <!--<ShapeView ShapeType=”CircleIndicator” 
+											   StrokeColor=”#FF21A0DB” 
+											   StrokeWidth=”3″
+											   HorizontalOptions=”Center” 
+											   VerticalOptions=”Center”
+											   WidthRequest=”200″ 
+											   HeightRequest=”200″/>
+									<Label x:Name=”BeatLabel” 
+										   Text=”200″ 
+										   FontSize=”48″ 
+										   FontAttributes=”Bold” 
+										   BackgroundColor=”Transparent” 
+										   TextColor=”White” 
+										   VerticalOptions=”Center” 
+										   HorizontalOptions=”Center” />-->
+									
+									<!-- Creare Converter per Available -->
+									<StackLayout Spacing="0">
 										<Label Text="{Binding Path=Name, StringFormat='{0}'}"
-											   FontSize="22"
+											   FontSize="18"
 											   VerticalOptions="StartAndExpand" />
 										<Label Text="{Binding Path=Piano, StringFormat='{0}'}"
-											   FontSize="16"
+											   FontSize="12"
 											   VerticalOptions="CenterAndExpand" />
+									</StackLayout>
+									<StackLayout Spacing="0">
+										<Label Text="Posti:"
+											   VerticalOptions="Center"/>
 									</StackLayout>
 								</StackLayout>
 							</ContentView>
@@ -39,7 +62,7 @@
 								<MenuItem Text="Move to Top"
 										  Command="{Binding MoveToTopCommand}"/>
 							</ViewCell.ContextActions>
-						</ViewCell>
+						</ViewCell> 
 					</DataTemplate>
 				</ListView.ItemTemplate>
 			</ListView>
