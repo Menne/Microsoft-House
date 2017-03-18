@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MicrosoftHouse.CarPark">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MicrosoftHouse.CarPark">
 	<ContentPage.Content>
-		
-
-		
-	</ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="100 posti disponibili"
+				       HorizontalOptions="Center"
+				       VerticalOptions="Center"
+				       Grid.Column="0"/>
+                <Label Text="15 min all'arrivo"
+				       HorizontalOptions="Center"
+				       VerticalOptions="Center"
+				       Grid.Column="1"/>
+                <Label Text="3 km all'arrivo"
+				       HorizontalOptions="Center"
+				       VerticalOptions="Center"
+				       Grid.Column="2"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
