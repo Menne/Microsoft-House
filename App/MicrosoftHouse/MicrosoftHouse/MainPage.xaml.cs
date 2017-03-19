@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.WindowsAzure.MobileServices;
 using Xamarin.Forms;
 
 namespace MicrosoftHouse
 {
     public partial class MainPage : ContentPage
     {
+
+		AzureManager manager;
+		
         public MainPage()
         {
             InitializeComponent();
+
+			manager = new AzureManager();
+
+			//CurrentPlatform.Init();
+
 
 			/// How to add images from code.
 			/*Image image = new Image
@@ -67,6 +76,22 @@ namespace MicrosoftHouse
 		async void OnCreateEvent(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new NewEvent());
+		}
+
+		public async void Insert(object sender, EventArgs e)
+		{
+			Room room = new Room
+			{
+				Name = "Prova",
+				Piano = "Piano 1"
+			};
+
+			await AddRoom(room);
+		}
+
+		async Task AddRoom(Room room)
+		{
+			await manager.SaveTaskAsync(room);
 		}
 
 		/* ALLERT BOX */

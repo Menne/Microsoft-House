@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace MicrosoftHouse
 {
 	public class AllRoomsViewModel : ViewModelBase
 	{
 		AllRoomsBody roomsBody;
+		//IMobileServiceTable<Room> roomTable;
+		//MobileServiceClient client;
 
 		public AllRoomsViewModel()
 		{
+			//client = new MobileServiceClient("https://microsofthouse.azurewebsites.net");
+			//roomTable = client.GetTable<Room>();
+
+
 			RoomsBody = new AllRoomsBody();
 			Room room;
 

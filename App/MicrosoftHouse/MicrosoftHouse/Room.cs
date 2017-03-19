@@ -7,7 +7,7 @@ namespace MicrosoftHouse
 {
 	public class Room : ViewModelBase
 	{
-		string name, piano;
+		string name, piano,id;
 		bool available;
 
 		public Room()
@@ -20,6 +20,12 @@ namespace MicrosoftHouse
 		{
 			set { SetProperty(ref name, value); }
 			get { return name; }
+		}
+
+		public string Id
+		{
+			set { SetProperty(ref id, value); }
+			get { return id; }
 		}
 
 		public string Piano
