@@ -83,6 +83,7 @@
     </Compile>
     <Compile Include="EventInformation.cs" />
     <Compile Include="AzureManager.cs" />
+    <Compile Include="ValidEmail.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">

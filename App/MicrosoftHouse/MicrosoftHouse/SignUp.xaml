@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MicrosoftHouse.SignUp">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
+			x:Class="MicrosoftHouse.SignUp">
 	<ContentPage.Content>
 		<ScrollView>
 			<StackLayout>
@@ -22,12 +25,20 @@
 					   Placeholder="EMAIL"
 					   TextChanged="OnEntryTextChanged"
 					   Completed="OnEntryCompleted"
-					   Keyboard="Email"/>
+					   Keyboard="Email">
+					<Entry.Behaviors>
+						<local:ValidEmail x:Name="validEmail" />
+					</Entry.Behaviors>
+				</Entry>
 				<Entry Placeholder="PASSWORD"
 					   Keyboard="Default"
 					   IsPassword="true"/>
 				<DatePicker x:Name="birthDay"/>
 				<TimePicker x:Name="time"/>
+				 <Button Text="Create!"
+ 						 FontSize="Large"
+						 HorizontalOptions="Center"
+ 						 IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}" />
 			</StackLayout>
 		</ScrollView>
 	</ContentPage.Content>
