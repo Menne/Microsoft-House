@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Azure.Mobile.Server;
 
-namespace Backend
+namespace Backend.DataObjects
 {
 	public class Reservation : EntityData
 	{
