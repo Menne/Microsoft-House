@@ -68,13 +68,7 @@
 				</ContentView>
 				<Button x:Name="roomsButton" Text="Go to All Rooms" Style="{StaticResource buttonStyle}" Clicked="OnRoomList"/>
 				<Button x:Name="tuttiPiani" Text="Piani" Clicked="OnPiani"/>
-				<Button x:Name="azureProva" Text="Azure" Clicked="Insert"/>
 				<Button x:Name="alertBox" Text="Alert Box" Clicked="OnAlertBox"/>
-				<Label x:Name="label"
-	 					Text="Tap button to invoke alert"
-	 					FontSize="Large"
-	 					HorizontalTextAlignment="Center"
-	 					VerticalOptions="CenterAndExpand" />
 				<Button x:Name="availableRooms" Text="Available Rooms" Clicked="OnAvailableRooms"/>
 				<Button x:Name="availableRoomsMVVC" Text="Available Rooms MVVC" Clicked="OnAvailableRoomsMVVC"/>
 				<Button x:Name="tuttiPianiCode" Text="PianiCode" Clicked="OnPianiCode"/>

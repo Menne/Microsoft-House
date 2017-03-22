@@ -27,6 +27,8 @@ namespace Backend.Models
         }
 
         public DbSet<TodoItem> TodoItems { get; set; }
+		public DbSet<Room> Rooms { get; set; }
+		public DbSet<CarPark> CarPark { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

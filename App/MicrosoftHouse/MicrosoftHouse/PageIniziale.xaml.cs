@@ -8,16 +8,16 @@ using Xamarin.Forms;
 
 namespace MicrosoftHouse
 {
-    public partial class MainPage : ContentPage
+    public partial class PageIniziale : ContentPage
     {
 
-		AzureManager manager;
+		//AzureManager manager;
 		
-        public MainPage()
+		public PageIniziale()
         {
-            InitializeComponent();
+            //InitializeComponent();
 
-			manager = new AzureManager();
+			//manager = new AzureManager();
 
 			//CurrentPlatform.Init();
 
@@ -78,30 +78,11 @@ namespace MicrosoftHouse
 			await Navigation.PushAsync(new NewEvent());
 		}
 
-		public async void Insert(object sender, EventArgs e)
-		{
-			Room room = new Room
-			{
-				Name = "Prova",
-				Piano = "Piano 1"
-			};
-
-			await AddRoom(room);
-		}
-
-		async Task AddRoom(Room room)
-		{
-			await manager.SaveTaskAsync(room);
-		}
-
 		/* ALLERT BOX */
 		async void OnAlertBox(object sender, EventArgs e)
 		{
 			Task<bool> task = DisplayAlert("Simple Alert", "Decide on an option", "Ok", "Cancel");
-			label.Text = "Alert is currently displayed";
 			bool result = await task;
-			label.Text = String.Format("Alert {0} button was pressed",
-			result ? "OK" : "Cancel");
 		}
 	}
 }

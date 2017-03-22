@@ -1,10 +1,13 @@
 ﻿using System;
-namespace Backend
+using Microsoft.Azure.Mobile.Server;
+
+namespace Backend.DataObjects
 {
-	public class User
+	public class User : EntityData
 	{
-		public User()
-		{
-		}
+		public string Name { get; set; }
+
+		public string Surname { get; set; }
+		
 	}
 }

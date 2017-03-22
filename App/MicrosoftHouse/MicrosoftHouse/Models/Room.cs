@@ -1,9 +1,9 @@
 ﻿using System;
-using Microsoft.Azure.Mobile.Server;
+using MicrosoftHouse.Abstractions;
 
-namespace Backend
+namespace MicrosoftHouse.Models
 {
-	public class Room : EntityData
+	public class Room : TableData
 	{
 		public string Name { get; set; }
 

@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using MicrosoftHouse.Abstractions;
+using MicrosoftHouse.Services;
 using Xamarin.Forms;
 
 namespace MicrosoftHouse
 {
     public partial class App : Application
     {
+		public static ICloudService CloudService { get; set; }
+
         public App()
         {
-			MainPage = new NavigationPage(new MainPage());
+			CloudService = new AzureCloudService();
+			MainPage = new NavigationPage(new EntryPage());
 			//MainPage = new RoomList();
         }
 

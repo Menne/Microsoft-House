@@ -1,10 +1,10 @@
 ﻿using System;
-namespace Backend
+using Microsoft.Azure.Mobile.Server;
+
+namespace Backend.DataObjects
 {
-	public class CarPark
+	public class CarPark : EntityData
 	{
-		public CarPark()
-		{
-		}
+		public int Park { get; set; }
 	}
 }

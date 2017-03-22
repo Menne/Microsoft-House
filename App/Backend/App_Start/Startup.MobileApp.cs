@@ -48,16 +48,49 @@ namespace Backend
     {
         protected override void Seed(MobileServiceContext context)
         {
-			/*List<Room> allRooms = new List<Room>
+			// Tutte le Stanze
+
+			List<Room> allRooms = new List<Room>
 			{
-				Creating all the useful rooms
+
+				//Piano Terra - 5 Stanze
+				new Room { Id = Guid.NewGuid().ToString(), Name = "EG1", Floor = 0, Seats=10  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "EG2", Floor = 0, Seats=20  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "EG3", Floor = 0, Seats=30  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "EG4", Floor = 0, Seats=20  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "EG5", Floor = 0, Seats=10  },
+
+				//Primo Piano - 6 Stanze
+				new Room { Id = Guid.NewGuid().ToString(), Name = "I01", Floor = 1, Seats=10  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "I02", Floor = 1, Seats=20  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "I03", Floor = 1, Seats=30  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "I04", Floor = 1, Seats=30  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "I05", Floor = 1, Seats=20  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "I06", Floor = 1, Seats=10  },
+
+				//Secondo Piano - 4 Stanze
+				new Room { Id = Guid.NewGuid().ToString(), Name = "L2601", Floor = 2, Seats=10  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "L2602", Floor = 2, Seats=20  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "L2603", Floor = 2, Seats=20  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "L2604", Floor = 2, Seats=30  },
+
+				//Terzo Piano - 5 Stanze
+				new Room { Id = Guid.NewGuid().ToString(), Name = "N01", Floor = 3, Seats=30  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "N02", Floor = 3, Seats=20  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "N03", Floor = 3, Seats=10  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "N04", Floor = 3, Seats=20  },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "N05", Floor = 3, Seats=10  },
 
 			};
 
 			foreach (Room room in allRooms)
 			{
 				context.Set<Room>().Add(room);
-			}*/
+			}
+
+			// Parcheggio
+
+			context.Set<CarPark>().Add(new CarPark { Id = Guid.NewGuid().ToString(), Park = 30 });
 
 			List<TodoItem> todoItems = new List<TodoItem>
             {
