@@ -48,7 +48,18 @@ namespace Backend
     {
         protected override void Seed(MobileServiceContext context)
         {
-            List<TodoItem> todoItems = new List<TodoItem>
+			/*List<Room> allRooms = new List<Room>
+			{
+				Creating all the useful rooms
+
+			};
+
+			foreach (Room room in allRooms)
+			{
+				context.Set<Room>().Add(room);
+			}*/
+
+			List<TodoItem> todoItems = new List<TodoItem>
             {
                 new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
                 new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false }
