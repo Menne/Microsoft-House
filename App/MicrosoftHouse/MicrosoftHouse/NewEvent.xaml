@@ -4,27 +4,35 @@
 			 xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 			 x:Class="MicrosoftHouse.NewEvent">
 	<ContentPage.Content>
-		<StackLayout>
-			<TableView x:Name="tableView"
+        <StackLayout>
+            <TableView x:Name="tableView"
 					   Intent="Form">
-				<TableView.BindingContext>
-					<local:EventInformation />
-				</TableView.BindingContext>
-				<TableRoot Title="Data Form">
-					<TableSection Title="Event Information">
-						<EntryCell Text="{Binding Name}"
+                <TableView.BindingContext>
+                    <local:EventInformation />
+                </TableView.BindingContext>
+                <TableRoot Title="Data Form">
+                    <TableSection Title="Event Information">
+                        <EntryCell Text="{Binding Name}"
 								   Placeholder="Event Name"
 								   Keyboard="Text"/>
-						<EntryCell Text="{Binding Description}"
+                        <EntryCell Text="{Binding Description}"
 								   Placeholder="Description"
 								   Keyboard="Text" />
-						<!--<DatePicker x:Name="date"/> How to put a normal Picker?-->
-						<SwitchCell Text="Notifica"
+                        <EntryCell Text="{Binding Place}"
+								   Placeholder="Place"
+								   Keyboard="Text" />
+                        <ViewCell>
+                            <DatePicker x:Name="Date"/>
+                        </ViewCell>
+                        <ViewCell>
+                            <TimePicker x:Name="Time"/>
+                        </ViewCell>
+                        <SwitchCell Text="Notifica"
  									On="{Binding Notifica}" />
-		 			</TableSection>
- 				</TableRoot>
- 			</TableView>
- 			<Button Text="CREATE"
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <Button Text="CREATE"
  					HorizontalOptions="CenterAndExpand"/>
 		</StackLayout>
 	</ContentPage.Content>
