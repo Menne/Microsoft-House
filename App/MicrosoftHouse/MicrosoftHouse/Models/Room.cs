@@ -7,8 +7,8 @@ namespace MicrosoftHouse.Models
 	{
 		public string Name { get; set; }
 
-		public int Floor { get; set; }
+		public string Floor { get; set; }
 
-		public int Seats { get; set; }
+		public string Seats { get; set; }
 	}
 }

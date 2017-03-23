@@ -170,8 +170,8 @@
     <Compile Include="DataObjects\CarPark.cs" />
     <Compile Include="DataObjects\User.cs" />
     <Compile Include="DataObjects\Reservation.cs" />
-    <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\ParkController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />

@@ -79,7 +79,7 @@ namespace Backend
 				new Room { Id = Guid.NewGuid().ToString(), Name = "N02", Floor = "3", Seats="10" },
 				new Room { Id = Guid.NewGuid().ToString(), Name = "N03", Floor = "3", Seats="10" },
 				new Room { Id = Guid.NewGuid().ToString(), Name = "N04", Floor = "3", Seats="10" },
-				new Room { Id = Guid.NewGuid().ToString(), Name = "N05", Floor = "3", Seats="10" },
+				new Room { Id = Guid.NewGuid().ToString(), Name = "N05", Floor = "3", Seats="10" }
 
 			};
 
