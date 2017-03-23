@@ -60,7 +60,7 @@ namespace MicrosoftHouse.ViewModels
 			}
 			catch (Exception ex)
 			{
-				Debug.WriteLine($"[TaskList] Error loading items: {ex.Message}");
+				Debug.WriteLine($"[RoomList] Error loading items: {ex.Message}");
 			}
 			finally
 			{
@@ -83,7 +83,7 @@ namespace MicrosoftHouse.ViewModels
 			}
 			catch (Exception ex)
 			{
-				Debug.WriteLine($"[TaskList] Error in AddNewItem: {ex.Message}");
+				Debug.WriteLine($"[RoomList] Error in AddNewItem: {ex.Message}");
 			}
 			finally
 			{

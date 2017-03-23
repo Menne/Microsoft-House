@@ -50,7 +50,7 @@ namespace Backend
         {
 			// Tutte le Stanze
 
-			List<Room> allRooms = new List<Room>
+			/*List<Room> allRooms = new List<Room>
 			{
 
 				//Piano Terra - 5 Stanze
@@ -90,7 +90,7 @@ namespace Backend
 
 			// Parcheggio
 
-			context.Set<CarPark>().Add(new CarPark { Id = Guid.NewGuid().ToString(), Park = 30 });
+			context.Set<CarPark>().Add(new CarPark { Id = Guid.NewGuid().ToString(), Park = 30 });*/
 
 			List<TodoItem> todoItems = new List<TodoItem>
             {
