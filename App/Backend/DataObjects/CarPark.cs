@@ -5,6 +5,6 @@ namespace Backend.DataObjects
 {
 	public class CarPark : EntityData
 	{
-		public int Park { get; set; }
+		public string Park { get; set; }
 	}
 }
