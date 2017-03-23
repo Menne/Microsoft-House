@@ -9,6 +9,7 @@ namespace MicrosoftHouse
 	{
 		public EntryPage()
 		{
+            //Prova Visual Studio WIN
 			InitializeComponent();
 			BindingContext = new EntryPageViewModel();
 		}
