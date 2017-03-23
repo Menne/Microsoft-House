@@ -20,7 +20,7 @@ namespace MicrosoftHouse
 			}
 			else
 			{
-				Room = new Room { Name = "New Room", Floor = 1, Seats = 30 };
+				Room = new Room { Name = "New Room", Floor = "1", Seats = "30" };
 				Title = "New Item";
 			}
 		}

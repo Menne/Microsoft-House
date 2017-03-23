@@ -5,8 +5,10 @@
 			 Title="{Binding Title}">
 	<ContentPage.Content>
     <StackLayout Padding="10" Spacing="10">
-      		<Label Text="What should I be doing?"/>
-      		<Entry Text="{Binding Item.Name}"/>
+      		<Label Text="Create a new Room"/>
+      		<Entry Text="{Binding Room.Name}"/>
+			<Entry Text="{Binding Room.Floor}"/>
+			<Entry Text="{Binding Room.Seats}"/>
       <StackLayout VerticalOptions="CenterAndExpand"/>
       <StackLayout Orientation="Vertical" VerticalOptions="End">
         <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
