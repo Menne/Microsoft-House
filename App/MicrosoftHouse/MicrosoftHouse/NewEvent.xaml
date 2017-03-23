@@ -32,8 +32,17 @@
                     </TableSection>
                 </TableRoot>
             </TableView>
-            <Button Text="CREATE"
- 					HorizontalOptions="CenterAndExpand"/>
-		</StackLayout>
+            <Button x:Name="newEvent"
+                    BackgroundColor="#FF00BAFF"
+                    HeightRequest="40"
+					WidthRequest="120"
+					VerticalOptions="Center"
+					HorizontalOptions="Center"
+                    Text="CREATE"
+                    TextColor="#ffffff"
+					BorderRadius="0"
+					FontFamily="Avenir"
+                    Clicked="OnButtonClicked"/>
+        </StackLayout>
 	</ContentPage.Content>
 </ContentPage>

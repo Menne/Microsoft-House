@@ -5,10 +5,11 @@ namespace MicrosoftHouse
 	{
 		string eventName, description;
 		bool notifica;
+        DateTime dateAndTime;
 
-		//Notifiche, data, ora...
+        //Notifiche, data, ora...
 
-		public EventInformation()
+        public EventInformation()
 		{
 
 		}
@@ -25,12 +26,25 @@ namespace MicrosoftHouse
 			get { return description; }
 		}
 
-		public bool Notifica
+        public DateTime DateAndTime
+        {
+            set { SetProperty(ref dateAndTime, value); }
+            get { return dateAndTime; }
+        }
+
+        public bool Notifica
 		{
 			set { SetProperty(ref notifica, value); }
 			get { return notifica; }
 		}
 
+        public bool EventNameNotEmpty(String eventName)
+        {
+            if (String.IsNullOrEmpty(eventName))
+                return false;
+            else
+                return true;
+        }
 
-	}
+    }
 }

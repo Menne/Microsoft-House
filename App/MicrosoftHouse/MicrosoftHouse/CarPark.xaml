@@ -42,7 +42,7 @@
 					BorderRadius="0"
 					FontFamily="Avenir"/>
 
- <!--           <Grid RowSpacing="0">
+            <Grid RowSpacing="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height=".3*"/>
                     <RowDefinition Height=".7*"/>
@@ -55,7 +55,7 @@
                                     <RowDefinition Height="*"/>           
                                     <RowDefinition Height="Auto"/>        
                                 </Grid.RowDefinitions>     
-                                <Image Grid.RowSpan="2" Aspect="AspectFill" Source="{Binding ImageUrl}"/>   
+                   <!--             <Image Grid.RowSpan="2" Aspect="AspectFill" Source="{Binding ImageUrl}"/>   -->
                                 <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">            
                                     <Label TextColor="White" Text="{Binding Name}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>           
                                 </StackLayout>         
@@ -63,9 +63,9 @@
                         </DataTemplate>
                     </cv:CarouselView.ItemTemplate>
                 </cv:CarouselView>
-            </Grid>  -->
+            </Grid>
 
-            
+
 <!--            <charting:Chart x:Name="CombinationChart" Color="White" WidthRequest="450" HeightRequest="750" Spacing="10">
 
                 <charting:Chart.Series>
