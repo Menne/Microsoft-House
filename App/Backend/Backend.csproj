@@ -189,6 +189,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\MicrosoftHouseAdmin - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\MicrosoftHouseOfficial - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
