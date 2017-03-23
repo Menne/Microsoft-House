@@ -38,13 +38,7 @@ namespace MicrosoftHouse
 			get { return notifica; }
 		}
 
-        public bool EventNameNotEmpty(String eventName)
-        {
-            if (String.IsNullOrEmpty(eventName))
-                return false;
-            else
-                return true;
-        }
+        
 
     }
 }

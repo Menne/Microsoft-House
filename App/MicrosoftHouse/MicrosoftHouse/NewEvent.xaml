@@ -5,6 +5,11 @@
 			 x:Class="MicrosoftHouse.NewEvent">
 	<ContentPage.Content>
         <StackLayout>
+            <StackLayout.Resources>
+                <Entry.Behaviors>
+                    <local:ValidEmail x:Name="validEmail" />
+                </Entry.Behaviors>
+            </StackLayout.Resources>
             <TableView x:Name="tableView"
 					   Intent="Form">
                 <TableView.BindingContext>
@@ -14,7 +19,8 @@
                     <TableSection Title="Event Information">
                         <EntryCell Text="{Binding Name}"
 								   Placeholder="Event Name"
-								   Keyboard="Text"/>
+								   Keyboard="Text"
+                                   TextChanged="OnEntryTextChanged"/>
                         <EntryCell Text="{Binding Description}"
 								   Placeholder="Description"
 								   Keyboard="Text" />
@@ -42,7 +48,9 @@
                     TextColor="#ffffff"
 					BorderRadius="0"
 					FontFamily="Avenir"
-                    Clicked="OnButtonClicked"/>
+                    Clicked="OnButtonClicked"
+                    IsEnabled="{Binding Source={x:Reference Name},Path=NonEmptyEventName}" />
+                
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>
