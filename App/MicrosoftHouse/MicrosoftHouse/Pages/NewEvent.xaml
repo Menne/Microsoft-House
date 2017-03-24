@@ -5,34 +5,30 @@
 			 x:Class="MicrosoftHouse.NewEvent">
 	<ContentPage.Content>
         <StackLayout>
-            <StackLayout.Resources>
-                <Entry.Behaviors>
-                    <local:ValidEmail x:Name="validEmail" />
-                </Entry.Behaviors>
-            </StackLayout.Resources>
             <TableView x:Name="tableView"
 					   Intent="Form">
-                <TableView.BindingContext>
-                    <local:EventInformation />
-                </TableView.BindingContext>
                 <TableRoot Title="Data Form">
                     <TableSection Title="Event Information">
-                        <EntryCell Text="{Binding Name}"
+                        <EntryCell Text="{Binding EventName}"
 								   Placeholder="Event Name"
 								   Keyboard="Text"
-                                   TextChanged="OnEntryTextChanged"/>
+                                   TextChanged="OnEventNameChanged">
+                            <EntryCell.Behaviors>
+                                <local:ValidEmail x:Name="nonEmptyInput" />
+                            </EntryCell.Behaviors>
+                        </EntryCell>
                         <EntryCell Text="{Binding Description}"
-								   Placeholder="Description"
-								   Keyboard="Text" />
+								Placeholder="Description"
+								Keyboard="Text" />
                         <EntryCell Text="{Binding Place}"
 								   Placeholder="Place"
 								   Keyboard="Text" />
-                        <ViewCell>
-                            <DatePicker x:Name="Date"/>
+             <!--           <ViewCell>
+                            <DatePicker Date="{Binding StartingDateTime, Mode=TwoWay}"/>
                         </ViewCell>
                         <ViewCell>
-                            <TimePicker x:Name="Time"/>
-                        </ViewCell>
+                            <TimePicker Time="{Binding StartingDateTime, Mode=TwoWay}"/>
+                        </ViewCell>    -->
                         <SwitchCell Text="Notifica"
  									On="{Binding Notifica}" />
                     </TableSection>
@@ -49,8 +45,7 @@
 					BorderRadius="0"
 					FontFamily="Avenir"
                     Clicked="OnButtonClicked"
-                    IsEnabled="{Binding Source={x:Reference Name},Path=NonEmptyEventName}" />
-                
+         /> <!-- IsEnabled="{Binding Source={x:Reference nonEmptyInput},Path=CheckIfNonEmptyInput}" --> 
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>

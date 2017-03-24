@@ -1,17 +1,19 @@
 ﻿using System;
+using Xamarin.Forms;
+
 namespace MicrosoftHouse
 {
-	public class EventInformation : ViewModelBase
+	public class NewEventViewModel : ViewModelBase
 	{
 		string eventName, description;
 		bool notifica;
-        DateTime dateAndTime;
+        DateTime startingDateTime;
 
-        //Notifiche, data, ora...
+        public bool NonEmptyEventName;
 
-        public EventInformation()
+        public NewEventViewModel()
 		{
-
+            
 		}
 
 		public string EventName
@@ -26,10 +28,12 @@ namespace MicrosoftHouse
 			get { return description; }
 		}
 
-        public DateTime DateAndTime
+
+
+        public DateTime StartingDateTime
         {
-            set { SetProperty(ref dateAndTime, value); }
-            get { return dateAndTime; }
+            set { SetProperty(ref startingDateTime, value); }
+            get { return startingDateTime; }
         }
 
         public bool Notifica
@@ -38,7 +42,11 @@ namespace MicrosoftHouse
 			get { return notifica; }
 		}
 
-        
+
+        public void OnButtonClicked(object sender, EventArgs args)
+        {
+            // crea l'evento
+        }
 
     }
 }

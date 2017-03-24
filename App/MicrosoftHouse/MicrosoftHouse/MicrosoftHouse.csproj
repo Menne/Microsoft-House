@@ -74,10 +74,10 @@
     <Compile Include="AllRoomsView.xaml.cs">
       <DependentUpon>AllRoomsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewEvent.xaml.cs">
+    <Compile Include="Pages\NewEvent.xaml.cs">
       <DependentUpon>NewEvent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EventInformation.cs" />
+    <Compile Include="ViewModels\NewEventViewModel.cs" />
     <Compile Include="ValidEmail.cs" />
     <Compile Include="Abstractions\ViewModelBase.cs" />
     <Compile Include="Abstractions\ICloudService.cs" />
@@ -142,7 +142,7 @@
     <EmbeddedResource Include="AllRoomsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewEvent.xaml">
+    <EmbeddedResource Include="Pages\NewEvent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\EntryPage.xaml">
