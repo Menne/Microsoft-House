@@ -28,8 +28,6 @@ namespace MicrosoftHouse
 			get { return description; }
 		}
 
-
-
         public DateTime StartingDateTime
         {
             set { SetProperty(ref startingDateTime, value); }
@@ -41,12 +39,6 @@ namespace MicrosoftHouse
 			set { SetProperty(ref notifica, value); }
 			get { return notifica; }
 		}
-
-
-        public void OnButtonClicked(object sender, EventArgs args)
-        {
-            // crea l'evento
-        }
 
     }
 }

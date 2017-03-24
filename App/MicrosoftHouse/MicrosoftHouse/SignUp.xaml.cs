@@ -12,17 +12,5 @@ namespace MicrosoftHouse
 			InitializeComponent();
 		}
 
-		void OnEntryTextChanged(object sender, TextChangedEventArgs args)
-		{
-			//Entry entry = (Entry)sender;
-			//if mail is not valid
-			//entry.TextColor = Color.Red;
-			//signInButton.isEnabled = false;
-		}
-
-		void OnEntryCompleted(object sender, EventArgs args)
-		{
-			
-		}
 	}
 }

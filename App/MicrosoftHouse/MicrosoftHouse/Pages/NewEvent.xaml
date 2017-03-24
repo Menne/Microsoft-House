@@ -5,47 +5,39 @@
 			 x:Class="MicrosoftHouse.NewEvent">
 	<ContentPage.Content>
         <StackLayout>
-            <TableView x:Name="tableView"
-					   Intent="Form">
-                <TableRoot Title="Data Form">
-                    <TableSection Title="Event Information">
-                        <EntryCell Text="{Binding EventName}"
-								   Placeholder="Event Name"
-								   Keyboard="Text"
-                                   TextChanged="OnEventNameChanged">
-                            <EntryCell.Behaviors>
-                                <local:ValidEmail x:Name="nonEmptyInput" />
-                            </EntryCell.Behaviors>
-                        </EntryCell>
-                        <EntryCell Text="{Binding Description}"
-								Placeholder="Description"
-								Keyboard="Text" />
-                        <EntryCell Text="{Binding Place}"
-								   Placeholder="Place"
-								   Keyboard="Text" />
-             <!--           <ViewCell>
-                            <DatePicker Date="{Binding StartingDateTime, Mode=TwoWay}"/>
-                        </ViewCell>
-                        <ViewCell>
-                            <TimePicker Time="{Binding StartingDateTime, Mode=TwoWay}"/>
-                        </ViewCell>    -->
-                        <SwitchCell Text="Notifica"
- 									On="{Binding Notifica}" />
-                    </TableSection>
-                </TableRoot>
-            </TableView>
+            <Entry Text="{Binding EventName}"
+				Placeholder="Event Name"
+				Keyboard="Text" >
+                <Entry.Behaviors>
+                    <local:ValidEventName x:Name="nonEmptyEventName" />
+                </Entry.Behaviors>
+            </Entry>  
+            <Entry Text="{Binding Description}"
+				Placeholder="Description"
+				Keyboard="Text" />
+            <Entry Text="{Binding Place}"
+				Placeholder="Place"
+				Keyboard="Text" />
+            <DatePicker Date="{Binding StartingDateTime, Mode=TwoWay}"/>
+            <TimePicker Time="{Binding StartingDateTime, Mode=TwoWay}"/>
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="End">
+                <Label Text="Send notification"/>
+                <Switch Toggled="OnSwitchToggled" />
+            </StackLayout>   
+
             <Button x:Name="newEvent"
-                    BackgroundColor="#FF00BAFF"
-                    HeightRequest="40"
-					WidthRequest="120"
-					VerticalOptions="Center"
-					HorizontalOptions="Center"
-                    Text="CREATE"
-                    TextColor="#ffffff"
-					BorderRadius="0"
-					FontFamily="Avenir"
-                    Clicked="OnButtonClicked"
-         /> <!-- IsEnabled="{Binding Source={x:Reference nonEmptyInput},Path=CheckIfNonEmptyInput}" --> 
+                BackgroundColor="#FF00BAFF"
+                HeightRequest="40"
+				WidthRequest="120"
+				VerticalOptions="Center"
+				HorizontalOptions="Center"
+                Text="CREATE"
+                TextColor="#ffffff"
+				BorderRadius="0"
+				FontFamily="Avenir"
+                IsEnabled="{Binding Source={x:Reference nonEmptyEventName},Path=IsNotEmpty}" />
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>

@@ -23,8 +23,6 @@
 					   Keyboard="Default"/>
 				<Entry x:Name="emailEntry"
 					   Placeholder="EMAIL"
-					   TextChanged="OnEntryTextChanged"
-					   Completed="OnEntryCompleted"
 					   Keyboard="Email">
 					<Entry.Behaviors>
 						<local:ValidEmail x:Name="validEmail" />

@@ -15,12 +15,6 @@ namespace MicrosoftHouse
 			get { return (bool)GetValue(IsValidProperty); }
 		}
 
-        public bool IsValidEventName
-        {
-            private set { SetValue(IsValidPropertyKey, value); }
-            get { return (bool)GetValue(IsValidProperty); }
-        }
-
         protected override void OnAttachedTo(Entry entry)
 		{
 			entry.TextChanged += OnEntryTextChanged;
@@ -56,21 +50,6 @@ namespace MicrosoftHouse
 				return false;
 			}
 		}
-
-        void OnEventNameChanged(object sender, TextChangedEventArgs args)
-        {
-            Entry entry = (Entry)sender;
-            IsValidEventName = CheckIfNonEmptyEventName(entry.Text);
-
-        }
-
-        private bool CheckIfNonEmptyEventName(String eventName)
-        {
-            if (String.IsNullOrEmpty(eventName))
-                return false;
-            else
-                return true;
-        }
 
 
     }
