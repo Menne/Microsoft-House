@@ -25,8 +25,6 @@ namespace MicrosoftHouse.ViewModels
 
 			try
 			{
-				var cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
-				await cloudService.LoginAsync();
 				// Creando una nuova navigation page, non cè più la possibilità di tornare indietro.
 				Application.Current.MainPage = new NavigationPage(new AllRoomsPage())
 				{

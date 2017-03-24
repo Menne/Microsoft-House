@@ -101,7 +101,6 @@
     <Compile Include="Pages\RoomDetailPage.xaml.cs">
       <DependentUpon>RoomDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Abstractions\ILoginProvider.cs" />
     <Compile Include="Helpers\ServiceLocator.cs" />
   </ItemGroup>
   <ItemGroup>

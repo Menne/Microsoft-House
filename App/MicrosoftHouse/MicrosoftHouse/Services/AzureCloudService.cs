@@ -20,10 +20,5 @@ namespace MicrosoftHouse.Services
 			return new AzureCloudTable<T>(client);
 		}
 
-		public Task LoginAsync()
-		{
-			var loginProvider = DependencyService.Get<ILoginProvider>();
-			return loginProvider.LoginAsync(client);
-		}
 	}
 }
