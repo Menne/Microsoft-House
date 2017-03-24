@@ -44,6 +44,7 @@ namespace Backend
         }
     }
 
+	// if a DB doesn't exist creates an istance
     public class MobileServiceInitializer : CreateDatabaseIfNotExists<MobileServiceContext>
     {
         protected override void Seed(MobileServiceContext context)

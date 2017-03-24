@@ -5,6 +5,7 @@ namespace Backend.DataObjects
 {
 	public class Reservation : EntityData
 	{
+		
 		public User UserId { get; set; }
 
 		public Room RoomId { get; set; }

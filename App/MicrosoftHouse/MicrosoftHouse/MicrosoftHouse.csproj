@@ -100,6 +100,8 @@
     <Compile Include="Pages\RoomDetailPage.xaml.cs">
       <DependentUpon>RoomDetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Abstractions\ILoginProvider.cs" />
+    <Compile Include="Helpers\ServiceLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PageIniziale.xaml">
@@ -188,6 +190,9 @@
     <None Include="Spiegazione delle Classi.txt" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
