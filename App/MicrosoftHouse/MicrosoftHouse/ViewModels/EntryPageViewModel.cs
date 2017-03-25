@@ -26,12 +26,7 @@ namespace MicrosoftHouse.ViewModels
 			try
 			{
 				// Creando una nuova navigation page, non cè più la possibilità di tornare indietro.
-				Application.Current.MainPage = new NavigationPage(new AllRoomsPage())
-				{
-					// Colore della action bar della navigation page
-					BarBackgroundColor = Color.Aqua,
-					BarTextColor = Color.Blue
-				};
+				Application.Current.MainPage = new MasterPage();
 			}
 			catch (Exception ex)
 			{

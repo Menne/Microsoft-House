@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" 
+					xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+					xmlns:local="clr-namespace:MicrosoftHouse"
+					x:Class="MicrosoftHouse.MasterPage"
+					Title="Master Page"
+					MasterBehavior="Default">
+	 <MasterDetailPage.Master>
+ 		<local:HamburgerPage />
+	</MasterDetailPage.Master>
+ 	<MasterDetailPage.Detail>
+ 		<NavigationPage>
+ 			<x:Arguments>
+ 				<local:HomePage />
+ 			</x:Arguments>
+ 		</NavigationPage>
+	</MasterDetailPage.Detail>
+	
+</MasterDetailPage>
