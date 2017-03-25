@@ -144,6 +144,27 @@
     <BundleResource Include="Resources\UserIcon.png" />
     <BundleResource Include="Resources\UserIcon%402x.png" />
     <BundleResource Include="Resources\UserIcon%403x.png" />
+    <BundleResource Include="Resources\HomeIconWhite.png" />
+    <BundleResource Include="Resources\HomeIconWhite%402x.png" />
+    <BundleResource Include="Resources\HomeIconWhite%403x.png" />
+    <BundleResource Include="Resources\CalendarIconWhite.png" />
+    <BundleResource Include="Resources\CalendarIconWhite%402x.png" />
+    <BundleResource Include="Resources\CalendarIconWhite%403x.png" />
+    <BundleResource Include="Resources\ParkIconWhite.png" />
+    <BundleResource Include="Resources\ParkIconWhite%402x.png" />
+    <BundleResource Include="Resources\ParkIconWhite%403x.png" />
+    <BundleResource Include="Resources\RoomIconWhite.png" />
+    <BundleResource Include="Resources\RoomIconWhite%402x.png" />
+    <BundleResource Include="Resources\RoomIconWhite%403x.png" />
+    <BundleResource Include="Resources\SettingsIconWhite.png" />
+    <BundleResource Include="Resources\SettingsIconWhite%402x.png" />
+    <BundleResource Include="Resources\SettingsIconWhite%403x.png" />
+    <BundleResource Include="Resources\UserIconWhite.png" />
+    <BundleResource Include="Resources\UserIconWhite%402x.png" />
+    <BundleResource Include="Resources\UserIconWhite%403x.png" />
+    <BundleResource Include="Resources\LogoutIconWhite.png" />
+    <BundleResource Include="Resources\LogoutIconWhite%402x.png" />
+    <BundleResource Include="Resources\LogoutIconWhite%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

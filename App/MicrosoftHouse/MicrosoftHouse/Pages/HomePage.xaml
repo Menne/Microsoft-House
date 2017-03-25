@@ -3,8 +3,183 @@
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				x:Class="MicrosoftHouse.HomePage"
 				Title="Home"
-				Padding="10"
 				x:Name="homePage">
 	<ContentPage.Content>
+		<Grid BackgroundColor="White"
+				RowSpacing="1">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<StackLayout HorizontalOptions="FillAndExpand"
+							VerticalOptions="FillAndExpand"
+							Orientation="Vertical"
+							Padding="20"
+							BackgroundColor="#FF4A3764"
+							Grid.Row="0"
+							Grid.Column="0">
+					<StackLayout HorizontalOptions="FillAndExpand"
+									VerticalOptions="FillAndExpand"
+									Orientation="Horizontal">
+						<Label Text="Rooms"
+								FontSize="48"
+								TextColor="White"
+								VerticalOptions="StartAndExpand"
+								FontFamily="Avenir"
+								HorizontalOptions="StartAndExpand"/>
+					</StackLayout>
+					<StackLayout HorizontalOptions="FillAndExpand"
+									VerticalOptions="FillAndExpand"
+									Orientation="Horizontal">
+						<Button x:Name="availableRoomsButton"
+								BackgroundColor="#FF5B4972"
+								HeightRequest="40"
+								WidthRequest="40"
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								Text="15"
+								TextColor="White"
+								FontFamily="Avenir"
+								BorderRadius="20"/>
+						<Label Text="Available Now"
+								FontSize="18"
+								BackgroundColor="Transparent"
+								TextColor="White"
+								VerticalOptions="Center"
+								FontFamily="Avenir"
+								HorizontalOptions="StartAndExpand"/>
+					</StackLayout>
+					<StackLayout HorizontalOptions="FillAndExpand"
+									VerticalOptions="FillAndExpand"
+									Orientation="Horizontal">
+						<Button x:Name="newRoomButton"
+									BackgroundColor="#FFBA77FF"
+									HeightRequest="40"
+									WidthRequest="120"
+									VerticalOptions="CenterAndExpand"
+									HorizontalOptions="EndAndExpand"
+									Text="Reserve"
+									TextColor="White"
+									FontFamily="Avenir"
+									BorderRadius="20"/>
+					</StackLayout>
+			</StackLayout>
+
+
+			<StackLayout HorizontalOptions="FillAndExpand"
+							VerticalOptions="FillAndExpand"
+							Orientation="Vertical"
+							Padding="20"
+							BackgroundColor="#FF4A3764"
+							Grid.Row="1"
+							Grid.Column="0">
+					<StackLayout HorizontalOptions="FillAndExpand"
+									VerticalOptions="FillAndExpand"
+									Orientation="Horizontal">
+						<Label Text="Car Park"
+								FontSize="48"
+								TextColor="White"
+								VerticalOptions="StartAndExpand"
+								FontFamily="Avenir"
+								HorizontalOptions="StartAndExpand"/>
+					</StackLayout>
+					<StackLayout HorizontalOptions="FillAndExpand"
+									VerticalOptions="FillAndExpand"
+									Orientation="Horizontal">
+						<Button x:Name="availableSeatsButton"
+								BackgroundColor="#FF5B4972"
+								HeightRequest="40"
+								WidthRequest="40"
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								Text="15"
+								TextColor="White"
+								FontFamily="Avenir"
+								BorderRadius="20"/>
+						<Label Text="Available Seats"
+								FontSize="18"
+								BackgroundColor="Transparent"
+								TextColor="White"
+								VerticalOptions="Center"
+								FontFamily="Avenir"
+								HorizontalOptions="StartAndExpand"/>
+					</StackLayout>
+					<StackLayout HorizontalOptions="FillAndExpand"
+									VerticalOptions="FillAndExpand"
+									Orientation="Horizontal">
+						<Button x:Name="newParkButton"
+									BackgroundColor="#FFBA77FF"
+									HeightRequest="40"
+									WidthRequest="120"
+									VerticalOptions="CenterAndExpand"
+									HorizontalOptions="EndAndExpand"
+									Text="Park"
+									TextColor="White"
+									FontFamily="Avenir"
+									BorderRadius="20"/>
+					</StackLayout>
+			</StackLayout>
+
+			<StackLayout HorizontalOptions="FillAndExpand"
+							VerticalOptions="FillAndExpand"
+							Orientation="Vertical"
+							Padding="20"
+							BackgroundColor="#FF4A3764"
+							Grid.Row="2"
+							Grid.Column="0">
+					<StackLayout HorizontalOptions="FillAndExpand"
+									VerticalOptions="FillAndExpand"
+									Orientation="Horizontal">
+						<Label Text="Next Events"
+								FontSize="48"
+								TextColor="White"
+								VerticalOptions="StartAndExpand"
+								FontFamily="Avenir"
+								HorizontalOptions="StartAndExpand"/>
+					</StackLayout>
+					<StackLayout HorizontalOptions="FillAndExpand"
+									VerticalOptions="FillAndExpand"
+									Orientation="Horizontal">
+						<Button x:Name="todayEventsButton"
+								BackgroundColor="#FF5B4972"
+								HeightRequest="40"
+								WidthRequest="40"
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								Text="15"
+								TextColor="White"
+								FontFamily="Avenir"
+								BorderRadius="20"/>
+						<Label Text="Events Today"
+								FontSize="18"
+								BackgroundColor="Transparent"
+								TextColor="White"
+								VerticalOptions="Center"
+								FontFamily="Avenir"
+								HorizontalOptions="StartAndExpand"/>
+					</StackLayout>
+					<StackLayout HorizontalOptions="FillAndExpand"
+									VerticalOptions="FillAndExpand"
+									Orientation="Horizontal">
+						<Button x:Name="newEventButton"
+									BackgroundColor="#FFBA77FF"
+									HeightRequest="40"
+									WidthRequest="120"
+									VerticalOptions="CenterAndExpand"
+									HorizontalOptions="EndAndExpand"
+									Text="New Event"
+									TextColor="White"
+									FontFamily="Avenir"
+									BorderRadius="20"/>
+					</StackLayout>
+			</StackLayout>
+
+
+			
+		</Grid>
 	</ContentPage.Content>
 </ContentPage>

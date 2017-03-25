@@ -4,7 +4,8 @@
 				x:Class="MicrosoftHouse.HamburgerPage"
  				Padding="10"
 				Title="Hamburger"
-				x:Name="hamburgerPage">
+				x:Name="hamburgerPage"
+				BackgroundColor="#FF01A4EF">
 	<ContentPage.Content>
 		<Grid RowSpacing="1">
 			<Grid.RowDefinitions>
@@ -20,6 +21,7 @@
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="2*"/>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
 			<StackLayout VerticalOptions="CenterAndExpand"
@@ -28,113 +30,113 @@
 						Orientation="Vertical"
 						Grid.Row="0"
 						Grid.Column="0"
-						Grid.ColumnSpan="2">
+						Grid.ColumnSpan="3">
 				<Label Text="Filippo Pedrazzini"
 						FontSize="36"
-						TextColor="Black"
+						TextColor="White"
 						VerticalOptions="Center"
 						FontFamily="Avenir"
 						HorizontalOptions="StartAndExpand"/>
 				<Label Text="filippo.pedrazzini@yahoo.it"
 						FontSize="18"
-						TextColor="Black"
+						TextColor="White"
 						VerticalOptions="Center"
 						FontFamily="Avenir"
 						HorizontalOptions="StartAndExpand"/>
 			</StackLayout>
 			<!-- HOME -->
-			<Image Source="HomeIcon.png"
+			<Image Source="HomeIconWhite.png"
 					HorizontalOptions="Center"
 					VerticalOptions="Center"
 					Grid.Row="1"
 					Grid.Column="0"/>
 			<Label Text="Home"
 					FontSize="18"
-					TextColor="Black"
+					TextColor="White"
 					VerticalOptions="Center"
 					FontFamily="Avenir"
 					HorizontalOptions="StartAndExpand"
 					Grid.Row="1"
 					Grid.Column="1"/>
 			<!-- ROOMS -->
-			<Image Source="RoomIcon.png"
+			<Image Source="RoomIconWhite.png"
 					HorizontalOptions="Center"
 					VerticalOptions="Center"
 					Grid.Row="2"
 					Grid.Column="0"/>
 			<Label Text="Rooms"
 					FontSize="18"
-					TextColor="Black"
+					TextColor="White"
 					VerticalOptions="Center"
 					FontFamily="Avenir"
 					HorizontalOptions="StartAndExpand"
 					Grid.Row="2"
 					Grid.Column="1"/>
 			<!-- PARK -->
-			<Image Source="ParkIcon.png"
+			<Image Source="ParkIconWhite.png"
 					HorizontalOptions="Center"
 					VerticalOptions="Center"
 					Grid.Row="3"
 					Grid.Column="0"/>
 			<Label Text="Parking"
 					FontSize="18"
-					TextColor="Black"
+					TextColor="White"
 					VerticalOptions="Center"
 					FontFamily="Avenir"
 					HorizontalOptions="StartAndExpand"
 					Grid.Row="3"
 					Grid.Column="1"/>
 			<!-- CALENDAR -->
-			<Image Source="CalendarIcon.png"
+			<Image Source="CalendarIconWhite.png"
 					HorizontalOptions="Center"
 					VerticalOptions="Center"
 					Grid.Row="4"
 					Grid.Column="0"/>
 			<Label Text="Calendar"
 					FontSize="18"
-					TextColor="Black"
+					TextColor="White"
 					VerticalOptions="Center"
 					FontFamily="Avenir"
 					HorizontalOptions="StartAndExpand"
 					Grid.Row="4"
 					Grid.Column="1"/>
 			<!-- USER -->
-			<Image Source="UserIcon.png"
+			<Image Source="UserIconWhite.png"
 					HorizontalOptions="Center"
 					VerticalOptions="Center"
 					Grid.Row="5"
 					Grid.Column="0"/>
 			<Label Text="User"
 					FontSize="18"
-					TextColor="Black"
+					TextColor="White"
 					VerticalOptions="Center"
 					FontFamily="Avenir"
 					HorizontalOptions="StartAndExpand"
 					Grid.Row="5"
 					Grid.Column="1"/>
 			<!-- SETTINGS -->
-			<Image Source="SettingsIcon.png"
+			<Image Source="SettingsIconWhite.png"
 					HorizontalOptions="Center"
 					VerticalOptions="Center"
 					Grid.Row="6"
 					Grid.Column="0"/>
 			<Label Text="Settings"
 					FontSize="18"
-					TextColor="Black"
+					TextColor="White"
 					VerticalOptions="Center"
 					FontFamily="Avenir"
 					HorizontalOptions="StartAndExpand"
 					Grid.Row="6"
 					Grid.Column="1"/>
 			<!-- LOGOUT -->
-			<Image Source="LogoutIcon.png"
+			<Image Source="LogoutIconWhite.png"
 					HorizontalOptions="Center"
 					VerticalOptions="Center"
 					Grid.Row="7"
 					Grid.Column="0"/>
 			<Label Text="Logout"
 					FontSize="18"
-					TextColor="Black"
+					TextColor="White"
 					VerticalOptions="Center"
 					FontFamily="Avenir"
 					HorizontalOptions="StartAndExpand"
