@@ -120,6 +120,30 @@
     <BundleResource Include="Resources\SplashIcon-120%403x.png" />
     <BundleResource Include="Resources\Icon-60.png" />
     <BundleResource Include="Resources\Icon-83.5%402x.png" />
+    <BundleResource Include="Resources\HamburgerIcon.png" />
+    <BundleResource Include="Resources\HamburgerIcon%402x.png" />
+    <BundleResource Include="Resources\HamburgerIcon%403x.png" />
+    <BundleResource Include="Resources\HomeIcon.png" />
+    <BundleResource Include="Resources\HomeIcon%402x.png" />
+    <BundleResource Include="Resources\HomeIcon%403x.png" />
+    <BundleResource Include="Resources\CalendarIcon.png" />
+    <BundleResource Include="Resources\CalendarIcon%402x.png" />
+    <BundleResource Include="Resources\CalendarIcon%403x.png" />
+    <BundleResource Include="Resources\LogoutIcon.png" />
+    <BundleResource Include="Resources\LogoutIcon%402x.png" />
+    <BundleResource Include="Resources\LogoutIcon%403x.png" />
+    <BundleResource Include="Resources\ParkIcon.png" />
+    <BundleResource Include="Resources\ParkIcon%402x.png" />
+    <BundleResource Include="Resources\ParkIcon%403x.png" />
+    <BundleResource Include="Resources\RoomIcon.png" />
+    <BundleResource Include="Resources\RoomIcon%402x.png" />
+    <BundleResource Include="Resources\RoomIcon%403x.png" />
+    <BundleResource Include="Resources\SettingsIcon.png" />
+    <BundleResource Include="Resources\SettingsIcon%402x.png" />
+    <BundleResource Include="Resources\SettingsIcon%403x.png" />
+    <BundleResource Include="Resources\UserIcon.png" />
+    <BundleResource Include="Resources\UserIcon%402x.png" />
+    <BundleResource Include="Resources\UserIcon%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

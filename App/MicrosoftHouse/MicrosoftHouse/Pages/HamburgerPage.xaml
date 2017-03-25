@@ -2,9 +2,144 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				x:Class="MicrosoftHouse.HamburgerPage"
-				Title="Hamburger Page"
  				Padding="10"
+				Title="Hamburger"
 				x:Name="hamburgerPage">
 	<ContentPage.Content>
+		<Grid RowSpacing="1">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="3*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<StackLayout VerticalOptions="CenterAndExpand"
+						HorizontalOptions="FillAndExpand"
+						Padding="10"
+						Orientation="Vertical"
+						Grid.Row="0"
+						Grid.Column="0"
+						Grid.ColumnSpan="2">
+				<Label Text="Filippo Pedrazzini"
+						FontSize="36"
+						TextColor="Black"
+						VerticalOptions="Center"
+						FontFamily="Avenir"
+						HorizontalOptions="StartAndExpand"/>
+				<Label Text="filippo.pedrazzini@yahoo.it"
+						FontSize="18"
+						TextColor="Black"
+						VerticalOptions="Center"
+						FontFamily="Avenir"
+						HorizontalOptions="StartAndExpand"/>
+			</StackLayout>
+			<!-- HOME -->
+			<Image Source="HomeIcon.png"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					Grid.Row="1"
+					Grid.Column="0"/>
+			<Label Text="Home"
+					FontSize="18"
+					TextColor="Black"
+					VerticalOptions="Center"
+					FontFamily="Avenir"
+					HorizontalOptions="StartAndExpand"
+					Grid.Row="1"
+					Grid.Column="1"/>
+			<!-- ROOMS -->
+			<Image Source="RoomIcon.png"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					Grid.Row="2"
+					Grid.Column="0"/>
+			<Label Text="Rooms"
+					FontSize="18"
+					TextColor="Black"
+					VerticalOptions="Center"
+					FontFamily="Avenir"
+					HorizontalOptions="StartAndExpand"
+					Grid.Row="2"
+					Grid.Column="1"/>
+			<!-- PARK -->
+			<Image Source="ParkIcon.png"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					Grid.Row="3"
+					Grid.Column="0"/>
+			<Label Text="Parking"
+					FontSize="18"
+					TextColor="Black"
+					VerticalOptions="Center"
+					FontFamily="Avenir"
+					HorizontalOptions="StartAndExpand"
+					Grid.Row="3"
+					Grid.Column="1"/>
+			<!-- CALENDAR -->
+			<Image Source="CalendarIcon.png"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					Grid.Row="4"
+					Grid.Column="0"/>
+			<Label Text="Calendar"
+					FontSize="18"
+					TextColor="Black"
+					VerticalOptions="Center"
+					FontFamily="Avenir"
+					HorizontalOptions="StartAndExpand"
+					Grid.Row="4"
+					Grid.Column="1"/>
+			<!-- USER -->
+			<Image Source="UserIcon.png"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					Grid.Row="5"
+					Grid.Column="0"/>
+			<Label Text="User"
+					FontSize="18"
+					TextColor="Black"
+					VerticalOptions="Center"
+					FontFamily="Avenir"
+					HorizontalOptions="StartAndExpand"
+					Grid.Row="5"
+					Grid.Column="1"/>
+			<!-- SETTINGS -->
+			<Image Source="SettingsIcon.png"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					Grid.Row="6"
+					Grid.Column="0"/>
+			<Label Text="Settings"
+					FontSize="18"
+					TextColor="Black"
+					VerticalOptions="Center"
+					FontFamily="Avenir"
+					HorizontalOptions="StartAndExpand"
+					Grid.Row="6"
+					Grid.Column="1"/>
+			<!-- LOGOUT -->
+			<Image Source="LogoutIcon.png"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					Grid.Row="7"
+					Grid.Column="0"/>
+			<Label Text="Logout"
+					FontSize="18"
+					TextColor="Black"
+					VerticalOptions="Center"
+					FontFamily="Avenir"
+					HorizontalOptions="StartAndExpand"
+					Grid.Row="7"
+					Grid.Column="1"/>
+		</Grid>
 	</ContentPage.Content>
 </ContentPage>

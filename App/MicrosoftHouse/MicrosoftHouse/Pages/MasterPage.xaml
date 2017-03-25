@@ -9,7 +9,7 @@
  		<local:HamburgerPage />
 	</MasterDetailPage.Master>
  	<MasterDetailPage.Detail>
- 		<NavigationPage>
+ 		<NavigationPage BarTextColor="White" BarBackgroundColor="#FF01A4EF">
  			<x:Arguments>
  				<local:HomePage />
  			</x:Arguments>
