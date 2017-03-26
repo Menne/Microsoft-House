@@ -18,13 +18,13 @@
                         <local:ValidEventName x:Name="nonEmptyEventName" />
                     </Entry.Behaviors>
                 </Entry>
-               <Entry Text="{Binding Description}"
+                <Entry Text="{Binding Description}"
                       HorizontalOptions="CenterAndExpand"
                       PlaceholderColor="White"
 				      Placeholder="Description"
 				      Keyboard="Text" />
-        </StackLayout>
-        
+            </StackLayout>
+
             <Entry Text="{Binding Place}"
 				Placeholder="Place"
 				Keyboard="Text" />
