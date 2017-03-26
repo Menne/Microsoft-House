@@ -1,42 +1,34 @@
 ﻿using System;
+using System.Threading.Tasks;
+using MicrosoftHouse.Abstractions;
 using Xamarin.Forms;
 
 namespace MicrosoftHouse
 {
-	public class NewEventViewModel : ViewModelBase
+	public class NewEventViewModel : BaseViewModel
 	{
-		string eventName, description;
-		bool notifica;
-        DateTime startingDateTime;
 
         public NewEventViewModel()
 		{
+			Title = "New Event";
             
+			BackCommand = new Command(async () => await ExecuteBackCommand());
+
 		}
 
-		public string EventName
+		public Command BackCommand { get; }
+
+
+		async Task ExecuteBackCommand()
 		{
-			set { SetProperty(ref eventName, value); }
-			get { return eventName; }
+			//From the Bottom - Modal Page --> Aggiungere la Toolbar (Guardare il Capitolo)
+			await Application.Current.MainPage.Navigation.PopModalAsync();
+
+			/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new NewEventPage())
+			{
+				BarTextColor = Color.White,
+				BarBackgroundColor = Color.FromHex("#FF01A4EF")
+			};*/
 		}
-
-		public string Description
-		{
-			set { SetProperty(ref description, value); }
-			get { return description; }
-		}
-
-        public DateTime StartingDateTime
-        {
-            set { SetProperty(ref startingDateTime, value); }
-            get { return startingDateTime; }
-        }
-
-        public bool Notifica
-		{
-			set { SetProperty(ref notifica, value); }
-			get { return notifica; }
-		}
-
     }
 }

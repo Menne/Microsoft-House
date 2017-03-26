@@ -3,7 +3,87 @@
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 				x:Class="MicrosoftHouse.NewEventPage"
-				Title="New Event">
+				Title="New Event"
+				BackgroundColor="#FFBA77FF"
+				Padding="0,20,0,0">
 	<ContentPage.Content>
+			<Grid RowSpacing="1">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="2*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+					<StackLayout HeightRequest="50"
+							HorizontalOptions="FillAndExpand"
+							Padding="10"
+							BackgroundColor="#FFBA77FF"
+							Orientation="Horizontal"
+							Grid.Row="0"
+							Grid.Column="0">
+							<Image Source="CrossIconWhite.png"
+									HorizontalOptions="Start"
+									VerticalOptions="Center">
+								<Image.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding BackCommand}"/>
+								</Image.GestureRecognizers>
+							</Image>
+							<Label Text="New Event"
+									TextColor="White"
+									FontFamily="Aevnir"
+									HorizontalOptions="CenterAndExpand"
+									HorizontalTextAlignment="Center"
+									VerticalOptions="Center"/>
+							<Image Source="DoneIcon.png"
+									HorizontalOptions="End"
+									VerticalOptions="Center">
+								<Image.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding BackCommand}"/>
+								</Image.GestureRecognizers>
+							</Image>
+					</StackLayout>
+					<StackLayout BackgroundColor="#FF4A3764"
+									Grid.Row="1"
+									Grid.Column="0"
+									Padding="10">
+					</StackLayout>
+					<StackLayout BackgroundColor="#FF4A3764"
+									Grid.Row="2"
+									Grid.Column="0"
+									Padding="10">
+					</StackLayout>
+					<StackLayout Grid.Row="3"
+									Grid.Column="0"
+									Padding="10"
+									Orientation="Horizontal">
+								
+								<Image Source="CalendarIcon.png"
+									VerticalOptions="Center"
+									HorizontalOptions="Start"/>
+					</StackLayout>
+
+
+
+
+
+				<Button BackgroundColor="#FFBA77FF"
+						VerticalOptions="FillAndExpand"
+						HorizontalOptions="FillAndExpand"
+						Text="CREATE"
+						FontFamily="Avenir"
+						TextColor="White"
+						Grid.Row="9"
+						Grid.Column="0"
+						BorderRadius="0"/>
+			</Grid>
 	</ContentPage.Content>
 </ContentPage>
