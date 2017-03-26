@@ -60,6 +60,7 @@
 									BackgroundColor="#FFBA77FF"
 									HeightRequest="40"
 									WidthRequest="120"
+									Command="{Binding SearchRoomCommand}"
 									VerticalOptions="CenterAndExpand"
 									HorizontalOptions="EndAndExpand"
 									Text="Reserve"

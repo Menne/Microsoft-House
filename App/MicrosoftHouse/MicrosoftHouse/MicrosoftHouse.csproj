@@ -114,6 +114,10 @@
     <Compile Include="ViewModels\HamburgerViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="Helpers\MasterPageItem.cs" />
+    <Compile Include="Pages\SearchRoomPage.xaml.cs">
+      <DependentUpon>SearchRoomPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\SearchRoomViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PageIniziale.xaml">
@@ -173,6 +177,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\MasterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\SearchRoomPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

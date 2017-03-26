@@ -8,10 +8,14 @@ namespace MicrosoftHouse
 {
 	public class HamburgerViewModel : BaseViewModel
 	{
+		
+
 		List<MasterPageItem> masterPageItems;
 
 		public HamburgerViewModel()
 		{
+			Title = "Hamburger";
+
 			masterPageItems = new List<MasterPageItem>();
 
 			masterPageItems.Add(new MasterPageItem

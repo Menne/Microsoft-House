@@ -12,7 +12,7 @@ namespace MicrosoftHouse
     {
 		public static ICloudService CloudService { get; set; }
 
-        public App()
+		public App()
         {
 			CloudService = new AzureCloudService();
 			MainPage = new NavigationPage(new EntryPage());
