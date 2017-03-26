@@ -170,6 +170,7 @@
 									BackgroundColor="#FFBA77FF"
 									HeightRequest="40"
 									WidthRequest="120"
+									Command="{Binding NewEventCommand}"
 									VerticalOptions="CenterAndExpand"
 									HorizontalOptions="EndAndExpand"
 									Text="New Event"

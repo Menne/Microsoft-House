@@ -9,8 +9,6 @@ namespace MicrosoftHouse
 		bool notifica;
         DateTime startingDateTime;
 
-        public bool NonEmptyEventName;
-
         public NewEventViewModel()
 		{
             

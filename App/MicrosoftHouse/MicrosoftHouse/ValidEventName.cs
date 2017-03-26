@@ -5,7 +5,7 @@ namespace MicrosoftHouse
 {
     public class ValidEventName : Behavior<Entry>
     {
-		static readonly BindablePropertyKey IsValidPropertyKey = BindableProperty.CreateReadOnly("IsValid", typeof(bool), typeof(ValidEmail), false);
+		static readonly BindablePropertyKey IsValidPropertyKey = BindableProperty.CreateReadOnly("IsValid", typeof(bool), typeof(ValidEventName), false);
         public static readonly BindableProperty IsValidProperty = IsValidPropertyKey.BindableProperty;
 
         public bool IsNotEmpty
