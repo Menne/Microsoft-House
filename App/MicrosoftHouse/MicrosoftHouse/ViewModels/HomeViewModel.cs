@@ -29,6 +29,7 @@ namespace MicrosoftHouse
 
 		async Task ExecuteNewEventCommand()
 		{
+			//From the Bottom - Modal Page
 			//await Application.Current.MainPage.Navigation.PushAsync(new RoomDetailPage());
 			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new NewEventPage())
 			{
