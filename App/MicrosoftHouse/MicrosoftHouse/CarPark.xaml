@@ -47,22 +47,29 @@
                     <RowDefinition Height=".3*"/>
                     <RowDefinition Height=".7*"/>
                 </Grid.RowDefinitions>
-                <cv:CarouselView ItemsSource="{Binding Zoos}" x:Name="CarouselZoos">
-                    <cv:CarouselView.ItemTemplate>      
+                <cv:CarouselView x:Name="ParkingStatistics">
+                    <cv:CarouselView.ItemTemplate>
                         <DataTemplate>
                             <Grid>      
                                 <Grid.RowDefinitions>         
                                     <RowDefinition Height="*"/>           
                                     <RowDefinition Height="Auto"/>        
-                                </Grid.RowDefinitions>     
-                   <!--             <Image Grid.RowSpan="2" Aspect="AspectFill" Source="{Binding ImageUrl}"/>   -->
-                                <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">            
-                                    <Label TextColor="White" Text="{Binding Name}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>           
-                                </StackLayout>         
-                            </Grid>       
+                                </Grid.RowDefinitions>
+                                <BoxView Grid.RowSpan="2"
+                                         Color="Blue" />
+                                <StackLayout Grid.Row="1"
+                                             BackgroundColor="#80000000"
+                                             Padding="12">            
+                                        <Label TextColor="Black"
+                                               Text="prova"
+                                               FontSize="16"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="CenterAndExpand"/>           
+                                </StackLayout>
+                            </Grid>
                         </DataTemplate>
                     </cv:CarouselView.ItemTemplate>
-                </cv:CarouselView>
+                </cv:CarouselView>     
             </Grid>
 
 

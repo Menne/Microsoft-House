@@ -12,7 +12,6 @@ namespace Backend.Controller
 {
 	// to ensure that ALL method can be launched after authentication - 
 	// if we wanna limit just one method we can do it tagging just it
-	[Authorize] 
 	public class RoomController : TableController<Room>
 	{
 		protected override void Initialize(HttpControllerContext controllerContext)

@@ -5,7 +5,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using MicrosoftHouse.Droid.Services;
+//using MicrosoftHouse.Droid.Services;
 using MicrosoftHouse.Abstractions;
 using Xamarin.Forms;
 
@@ -25,7 +25,7 @@ namespace MicrosoftHouse.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-			((DroidLoginProvider)DependencyService.Get<ILoginProvider>()).Init(this);
+	//		((DroidLoginProvider)DependencyService.Get<ILoginProvider>()).Init(this);
 
             LoadApplication(new App());
         }

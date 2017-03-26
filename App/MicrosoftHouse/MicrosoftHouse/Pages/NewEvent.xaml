@@ -3,18 +3,28 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 			 x:Class="MicrosoftHouse.NewEvent">
-	<ContentPage.Content>
+    <ContentPage.Content>
         <StackLayout>
-            <Entry Text="{Binding EventName}"
-				Placeholder="Event Name"
-				Keyboard="Text" >
-                <Entry.Behaviors>
-                    <local:ValidEventName x:Name="nonEmptyEventName" />
-                </Entry.Behaviors>
-            </Entry>  
-            <Entry Text="{Binding Description}"
-				Placeholder="Description"
-				Keyboard="Text" />
+            <StackLayout HorizontalOptions="FillAndExpand"
+			    	 	 Orientation="Vertical"
+                         Padding="20"
+				     	 BackgroundColor="#FF4A3764">
+                <Entry Text="{Binding EventName}"
+                      HorizontalOptions="CenterAndExpand"
+                      PlaceholderColor="White"
+				      Placeholder="Event Name"
+				      Keyboard="Text">
+                    <Entry.Behaviors>
+                        <local:ValidEventName x:Name="nonEmptyEventName" />
+                    </Entry.Behaviors>
+                </Entry>
+               <Entry Text="{Binding Description}"
+                      HorizontalOptions="CenterAndExpand"
+                      PlaceholderColor="White"
+				      Placeholder="Description"
+				      Keyboard="Text" />
+        </StackLayout>
+        
             <Entry Text="{Binding Place}"
 				Placeholder="Place"
 				Keyboard="Text" />
@@ -25,7 +35,7 @@
                          HorizontalOptions="End">
                 <Label Text="Send notification"/>
                 <Switch Toggled="OnSwitchToggled" />
-            </StackLayout>   
+            </StackLayout>
 
             <Button x:Name="newEvent"
                 BackgroundColor="#FF00BAFF"
@@ -39,5 +49,5 @@
 				FontFamily="Avenir"
                 IsEnabled="{Binding Source={x:Reference nonEmptyEventName},Path=IsNotEmpty}" />
         </StackLayout>
-	</ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>
