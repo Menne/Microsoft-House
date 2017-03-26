@@ -4,33 +4,54 @@
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
              x:Class="MicrosoftHouse.CarPark">
-    <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness"
-                    iOS="20, 40, 20, 20"
-                    Android="20, 20, 20, 20"
-                    WinPhone="20, 20, 20, 20" />
-    </ContentPage.Padding>
+
     <ContentPage.Content>
         <StackLayout>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Text="100 posti disponibili"
-				       HorizontalOptions="Center"
-				       VerticalOptions="Center"
-				       Grid.Column="0"/>
-                <Label Text="15 min all'arrivo"
-				       HorizontalOptions="Center"
-				       VerticalOptions="Center"
-				       Grid.Column="1"/>
-                <Label Text="3 km all'arrivo"
-				       HorizontalOptions="Center"
-				       VerticalOptions="Center"
-				       Grid.Column="2"/>
-            </Grid>
+            <StackLayout HorizontalOptions="FillAndExpand"
+			    	 	 Orientation="Horizontal"
+                         Padding="20"
+				     	 BackgroundColor="#FF4A3764">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout HorizontalOptions="FillAndExpand"
+			    	 	         Orientation="Vertical"
+				                 Grid.Column="0">
+                        <Label Text="100"
+                               FontSize="36"
+				               HorizontalOptions="Center"
+				               VerticalOptions="Center"/>
+                        <Label Text="posti disponibili"
+				               HorizontalOptions="Center"
+				               VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand"
+			    	 	         Orientation="Vertical"
+				                 Grid.Column="1">
+                        <Label Text="15"
+                               FontSize="36"
+				               HorizontalOptions="Center"
+				               VerticalOptions="Center"/>
+                        <Label Text="min all'arrivo"
+				               HorizontalOptions="Center"
+				               VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand"
+			    	 	         Orientation="Vertical"
+				                 Grid.Column="2">
+                        <Label Text="3"
+                               FontSize="36"
+				               HorizontalOptions="Center"
+				               VerticalOptions="Center"/>
+                        <Label Text="km all'arrivo"
+				               HorizontalOptions="Center"
+				               VerticalOptions="Center"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
             <Button x:Name="parkCar"
                     BackgroundColor="#FF00BAFF"
                     HeightRequest="40"
@@ -60,7 +81,7 @@
                                 <StackLayout Grid.Row="1"
                                              BackgroundColor="#80000000"
                                              Padding="12">            
-                                        <Label TextColor="Black"
+                                    <Label TextColor="Black"
                                                Text="prova"
                                                FontSize="16"
                                                HorizontalOptions="Center"
@@ -69,11 +90,11 @@
                             </Grid>
                         </DataTemplate>
                     </cv:CarouselView.ItemTemplate>
-                </cv:CarouselView>     
+                </cv:CarouselView>
             </Grid>
 
 
-<!--            <charting:Chart x:Name="CombinationChart" Color="White" WidthRequest="450" HeightRequest="750" Spacing="10">
+            <!--            <charting:Chart x:Name="CombinationChart" Color="White" WidthRequest="450" HeightRequest="750" Spacing="10">
 
                 <charting:Chart.Series>
                     <charting:Series Type="Bar" Color="Red">
@@ -106,6 +127,6 @@
                 </charting:Chart.Series>
 
             </charting:Chart>   -->
-        </StackLayout> 
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

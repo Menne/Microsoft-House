@@ -78,6 +78,7 @@
     <Compile Include="Pages\NewEvent.xaml.cs">
       <DependentUpon>NewEvent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CarParkViewModel.cs" />
     <Compile Include="ViewModels\NewEventViewModel.cs" />
     <Compile Include="ValidEmail.cs" />
     <Compile Include="Abstractions\ViewModelBase.cs" />
