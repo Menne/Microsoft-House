@@ -111,6 +111,9 @@
     <Compile Include="Pages\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\HamburgerViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="Helpers\MasterPageItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PageIniziale.xaml">

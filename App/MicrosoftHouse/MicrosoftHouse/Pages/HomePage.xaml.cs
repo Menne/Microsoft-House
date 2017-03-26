@@ -10,6 +10,7 @@ namespace MicrosoftHouse
 		public HomePage()
 		{
 			InitializeComponent();
+			BindingContext = new HomeViewModel();
 		}
 	}
 }

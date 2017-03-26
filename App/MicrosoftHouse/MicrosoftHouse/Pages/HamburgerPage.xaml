@@ -4,33 +4,15 @@
 				x:Class="MicrosoftHouse.HamburgerPage"
  				Padding="10"
 				Title="Hamburger"
+				Icon="HamburgerIcon.png"
 				x:Name="hamburgerPage"
 				BackgroundColor="#FF01A4EF">
 	<ContentPage.Content>
-		<Grid RowSpacing="1">
-			<Grid.RowDefinitions>
-				<RowDefinition Height="3*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="*"/>
-			</Grid.RowDefinitions>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="*"/>
-				<ColumnDefinition Width="2*"/>
-				<ColumnDefinition Width="*"/>
-			</Grid.ColumnDefinitions>
+		<StackLayout VerticalOptions="FillAndExpand">
 			<StackLayout VerticalOptions="CenterAndExpand"
 						HorizontalOptions="FillAndExpand"
 						Padding="10"
-						Orientation="Vertical"
-						Grid.Row="0"
-						Grid.Column="0"
-						Grid.ColumnSpan="3">
+						Orientation="Vertical">
 				<Label Text="Filippo Pedrazzini"
 						FontSize="36"
 						TextColor="White"
@@ -44,104 +26,33 @@
 						FontFamily="Avenir"
 						HorizontalOptions="StartAndExpand"/>
 			</StackLayout>
-			<!-- HOME -->
-			<Image Source="HomeIconWhite.png"
-					HorizontalOptions="Center"
-					VerticalOptions="Center"
-					Grid.Row="1"
-					Grid.Column="0"/>
-			<Label Text="Home"
-					FontSize="18"
-					TextColor="White"
-					VerticalOptions="Center"
-					FontFamily="Avenir"
-					HorizontalOptions="StartAndExpand"
-					Grid.Row="1"
-					Grid.Column="1"/>
-			<!-- ROOMS -->
-			<Image Source="RoomIconWhite.png"
-					HorizontalOptions="Center"
-					VerticalOptions="Center"
-					Grid.Row="2"
-					Grid.Column="0"/>
-			<Label Text="Rooms"
-					FontSize="18"
-					TextColor="White"
-					VerticalOptions="Center"
-					FontFamily="Avenir"
-					HorizontalOptions="StartAndExpand"
-					Grid.Row="2"
-					Grid.Column="1"/>
-			<!-- PARK -->
-			<Image Source="ParkIconWhite.png"
-					HorizontalOptions="Center"
-					VerticalOptions="Center"
-					Grid.Row="3"
-					Grid.Column="0"/>
-			<Label Text="Parking"
-					FontSize="18"
-					TextColor="White"
-					VerticalOptions="Center"
-					FontFamily="Avenir"
-					HorizontalOptions="StartAndExpand"
-					Grid.Row="3"
-					Grid.Column="1"/>
-			<!-- CALENDAR -->
-			<Image Source="CalendarIconWhite.png"
-					HorizontalOptions="Center"
-					VerticalOptions="Center"
-					Grid.Row="4"
-					Grid.Column="0"/>
-			<Label Text="Calendar"
-					FontSize="18"
-					TextColor="White"
-					VerticalOptions="Center"
-					FontFamily="Avenir"
-					HorizontalOptions="StartAndExpand"
-					Grid.Row="4"
-					Grid.Column="1"/>
-			<!-- USER -->
-			<Image Source="UserIconWhite.png"
-					HorizontalOptions="Center"
-					VerticalOptions="Center"
-					Grid.Row="5"
-					Grid.Column="0"/>
-			<Label Text="User"
-					FontSize="18"
-					TextColor="White"
-					VerticalOptions="Center"
-					FontFamily="Avenir"
-					HorizontalOptions="StartAndExpand"
-					Grid.Row="5"
-					Grid.Column="1"/>
-			<!-- SETTINGS -->
-			<Image Source="SettingsIconWhite.png"
-					HorizontalOptions="Center"
-					VerticalOptions="Center"
-					Grid.Row="6"
-					Grid.Column="0"/>
-			<Label Text="Settings"
-					FontSize="18"
-					TextColor="White"
-					VerticalOptions="Center"
-					FontFamily="Avenir"
-					HorizontalOptions="StartAndExpand"
-					Grid.Row="6"
-					Grid.Column="1"/>
-			<!-- LOGOUT -->
-			<Image Source="LogoutIconWhite.png"
-					HorizontalOptions="Center"
-					VerticalOptions="Center"
-					Grid.Row="7"
-					Grid.Column="0"/>
-			<Label Text="Logout"
-					FontSize="18"
-					TextColor="White"
-					VerticalOptions="Center"
-					FontFamily="Avenir"
-					HorizontalOptions="StartAndExpand"
-					Grid.Row="7"
-					Grid.Column="1"/>
-		</Grid>
+			<ListView x:Name="listView" 
+						VerticalOptions="FillAndExpand" 
+						SeparatorVisibility="None"
+						ItemsSource="{Binding MasterPageItems}"
+						BackgroundColor="#FF01A4EF">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<ContentView>
+								<StackLayout Orientation="Horizontal"
+												Padding="10"
+												Spacing="15">
+									<Image Source="{Binding Path=IconSource}"
+											HorizontalOptions="Start"
+											VerticalOptions="Center"/>
+									<Label Text="{Binding Path=Name}"
+											FontSize="15"
+											TextColor="White"
+											VerticalOptions="Center"
+											FontFamily="Avenir"
+											HorizontalOptions="StartAndExpand"/>
+								</StackLayout>
+							</ContentView>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

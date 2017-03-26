@@ -10,11 +10,7 @@ namespace MicrosoftHouse
 		public HamburgerPage()
 		{
 			InitializeComponent();
-
-			Icon = new FileImageSource
-			{
-				File = "HamburgerIcon.png"
-			};
+			BindingContext = new HamburgerViewModel();
 		}
 	}
 }
