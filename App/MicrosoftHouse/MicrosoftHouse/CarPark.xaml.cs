@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MicrosoftHouse.ViewModels;
+using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
@@ -10,6 +11,7 @@ namespace MicrosoftHouse
 		public CarPark()
 		{
 			InitializeComponent();
-		}
+            BindingContext = new CarParkViewModel();
+        }
 	}
 }

@@ -20,33 +20,33 @@
                     <StackLayout HorizontalOptions="FillAndExpand"
 			    	 	         Orientation="Vertical"
 				                 Grid.Column="0">
-                        <Label Text="100"
+                        <Label Text="{Binding ParkingSpaces}"
                                FontSize="36"
 				               HorizontalOptions="Center"
 				               VerticalOptions="Center"/>
-                        <Label Text="posti disponibili"
+                        <Label Text="available parking spaces"
 				               HorizontalOptions="Center"
 				               VerticalOptions="Center"/>
                     </StackLayout>
                     <StackLayout HorizontalOptions="FillAndExpand"
 			    	 	         Orientation="Vertical"
 				                 Grid.Column="1">
-                        <Label Text="15"
+                        <Label Text="{Binding TimeToArrival}"
                                FontSize="36"
 				               HorizontalOptions="Center"
 				               VerticalOptions="Center"/>
-                        <Label Text="min all'arrivo"
+                        <Label Text="min to arrival"
 				               HorizontalOptions="Center"
 				               VerticalOptions="Center"/>
                     </StackLayout>
                     <StackLayout HorizontalOptions="FillAndExpand"
 			    	 	         Orientation="Vertical"
 				                 Grid.Column="2">
-                        <Label Text="3"
+                        <Label Text="{Binding Distance}"
                                FontSize="36"
 				               HorizontalOptions="Center"
 				               VerticalOptions="Center"/>
-                        <Label Text="km all'arrivo"
+                        <Label Text="km to arrival"
 				               HorizontalOptions="Center"
 				               VerticalOptions="Center"/>
                     </StackLayout>
