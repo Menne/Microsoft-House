@@ -5,7 +5,6 @@
  				Padding="10"
 				Title="Hamburger"
 				Icon="HamburgerIcon.png"
-				x:Name="hamburgerPage"
 				BackgroundColor="#FF01A4EF">
 	<ContentPage.Content>
 		<StackLayout VerticalOptions="FillAndExpand">

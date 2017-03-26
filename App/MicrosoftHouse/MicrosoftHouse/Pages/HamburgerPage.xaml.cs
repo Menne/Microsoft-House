@@ -12,5 +12,7 @@ namespace MicrosoftHouse
 			InitializeComponent();
 			BindingContext = new HamburgerViewModel();
 		}
+
+		public ListView ListView { get { return listView; } }
 	}
 }

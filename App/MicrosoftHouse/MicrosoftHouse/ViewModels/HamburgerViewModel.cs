@@ -18,7 +18,7 @@ namespace MicrosoftHouse
 			{
 				Name = "Home",
 				IconSource = "HomeIconWhite.png",
-				//TargetType = typeof(ContactsPage)
+				TargetType = typeof(HomePage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{
