@@ -74,8 +74,13 @@ namespace MicrosoftHouse
 			await Navigation.PushAsync(new NewEvent());
 		}
 
-		/* ALLERT BOX */
-		async void OnAlertBox(object sender, EventArgs e)
+        async void OnCalendar(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Calendar());
+        }
+
+        /* ALLERT BOX */
+        async void OnAlertBox(object sender, EventArgs e)
 		{
 			Task<bool> task = DisplayAlert("Simple Alert", "Decide on an option", "Ok", "Cancel");
 			bool result = await task;
