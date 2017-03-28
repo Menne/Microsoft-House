@@ -7,11 +7,12 @@
 				BackgroundColor="#FFBA77FF"
 				Padding="0,20,0,0">
 	<ContentPage.Content>
-			<Grid RowSpacing="1">
+			<Grid RowSpacing="0" BackgroundColor="White">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="*"/>
-					<RowDefinition Height="2*"/>
-					<RowDefinition Height="2*"/>
+					<RowDefinition Height="3*"/>
+					<RowDefinition Height="0.5*"/>
+					<RowDefinition Height="*"/>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="*"/>
@@ -54,34 +55,58 @@
 					<StackLayout BackgroundColor="#FF4A3764"
 									Grid.Row="1"
 									Grid.Column="0"
-									Padding="10">
-					</StackLayout>
-					<StackLayout BackgroundColor="#FF4A3764"
-									Grid.Row="2"
-									Grid.Column="0"
-									Padding="10">
+									VerticalOptions="FillAndExpand"
+									Padding="30,30,30,30">
+						<local:ExtendedEntry Placeholder="Event Name"
+										Keyboard="Text"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="CenterAndExpand"
+										Font="Large"
+										XAlign="Center"
+										TextColor="White"
+										FontFamily="Avenir"
+										PlaceholderTextColor="White"/>
+						<BoxView Color="White"
+									Opacity="0.1"
+									HeightRequest="1"
+									VerticalOptions="CenterAndExpand"/>
+						<local:ExtendedEntry Placeholder="DESCRIPTION"
+										Keyboard="Text"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="CenterAndExpand"
+										XAlign="Center"
+										Font="Small"
+										TextColor="White"
+										FontFamily="Avenir"
+										PlaceholderTextColor="White"/>
 					</StackLayout>
 					<StackLayout Grid.Row="3"
 									Grid.Column="0"
-									Padding="10"
-									Orientation="Horizontal">
-								
-								<Image Source="CalendarIcon.png"
-									VerticalOptions="Center"
-									HorizontalOptions="Start"/>
+									Padding="30,10,30,10"
+									Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<local:ExtendedEntry Placeholder="DATE"
+										Keyboard="Text"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="Center"
+										Font="Small"
+										FontFamily="Avenir"
+										PlaceholderTextColor="Black"/>
+						<Image Source="CalendarIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start"/>
+						</StackLayout>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1"/>
 					</StackLayout>
-
-
-
-
-
 				<Button BackgroundColor="#FFBA77FF"
 						VerticalOptions="FillAndExpand"
 						HorizontalOptions="FillAndExpand"
 						Text="CREATE"
 						FontFamily="Avenir"
 						TextColor="White"
-						Grid.Row="9"
+						Grid.Row="10"
 						Grid.Column="0"
 						BorderRadius="0"/>
 			</Grid>
