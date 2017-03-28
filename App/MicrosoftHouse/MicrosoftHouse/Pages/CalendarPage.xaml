@@ -14,15 +14,24 @@
                     WinPhone="5, 5, 5, 5" />
                 </StackLayout.Padding>
                 <controls:Calendar Padding="10,0,10,0"
-                               SelectedBorderWidth="4" 
-                               DisabledBorderColor="Black"
-                               ShowNumberOfWeek="false"
-                               StartDay="Monday"
-                               TitleLabelTextColor="Purple"
-                               TitleLeftArrowTextColor="Blue"
-                               SelectedDate="{Binding Date}"
-                               DateCommand="{Binding DateChosen}" >
+                                   SelectedBorderWidth="4" 
+                                   DisabledBorderColor="Black"
+                                   ShowNumberOfWeek="false"
+                                   StartDay="Monday"
+                                   TitleLabelTextColor="Purple"
+                                   TitleLeftArrowTextColor="Blue"
+                                   SelectedDate="{Binding Date}"
+                                   DateCommand="{Binding DateChosen}" >
                 </controls:Calendar>
+                <Button x:Name="newEvent"
+                        BackgroundColor="#FF00BAFF"
+                        Text="Add a new event"
+						VerticalOptions="Center"
+						HorizontalOptions="End"
+	                    TextColor="#ffffff"
+						BorderRadius="0"
+						FontFamily="Avenir"
+                        Clicked="OnCreateEvent"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
