@@ -76,7 +76,7 @@ namespace MicrosoftHouse
 
         async void OnCalendar(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Calendar());
+            await Navigation.PushAsync(new CalendarPage());
         }
 
         /* ALLERT BOX */

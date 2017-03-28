@@ -38,8 +38,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Calendar.xaml.cs">
-      <DependentUpon>Calendar.xaml</DependentUpon>
+    <Compile Include="Pages\CalendarPage.xaml.cs">
+      <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValidEventName.cs" />
     <Compile Include="PageIniziale.xaml.cs">
@@ -233,7 +233,7 @@
     <None Include="Spiegazione delle Classi.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\Calendar.xaml">
+    <EmbeddedResource Include="Pages\CalendarPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
