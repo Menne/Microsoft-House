@@ -27,6 +27,7 @@ namespace MicrosoftHouse
                 StartDay = DayOfWeek.Monday,
                 SelectedTextColor = Color.Fuchsia,
             };
+
         }
     }
 }

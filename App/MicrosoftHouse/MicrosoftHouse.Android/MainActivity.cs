@@ -25,7 +25,9 @@ namespace MicrosoftHouse.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-	//		((DroidLoginProvider)DependencyService.Get<ILoginProvider>()).Init(this);
+            //      XamForms.Controls.Droid.Calendar.Init();
+
+            //		((DroidLoginProvider)DependencyService.Get<ILoginProvider>()).Init(this);
 
             LoadApplication(new App());
         }

@@ -7,6 +7,12 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness"
+                    iOS="5, 25, 5, 5"
+                    Android="5, 5, 5, 5"
+                    WinPhone="5, 5, 5, 5" />
+                </StackLayout.Padding>
                 <controls:Calendar Padding="10,0,10,0"
                                SelectedBorderWidth="4" 
                                DisabledBorderColor="Black"
