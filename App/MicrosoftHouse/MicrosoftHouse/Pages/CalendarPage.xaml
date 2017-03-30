@@ -31,14 +31,12 @@
 						BorderRadius="0"
 						FontFamily="Avenir"
                         Clicked="OnCreateEvent"/>
-                <ListView BackgroundColor="#7F7F7F"
-                          CachingStrategy="RecycleElement"
+                <ListView CachingStrategy="RecycleElement"
                           IsPullToRefreshEnabled="True"
-                          IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                          ItemsSource="{Binding Items}"
-                          RefreshCommand="{Binding RefreshCommand}"
-                          RowHeight="50"
-                          SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                          ItemsSource="{Binding EventsProva}"
+                          RowHeight="50">
+                     <!--     RefreshCommand="{Binding RefreshCommand}"  -->
+                     <!--     SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">   -->
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -50,10 +48,10 @@
                                            Text="{Binding Name}"
                                            TextColor="#272832" />
                                     <Label HorizontalOptions="FillAndExpand"
-                                           Text="{Binding Floor}"
+                                           Text="{Binding Description}"
                                            TextColor="#272832" />
                                     <Label HorizontalOptions="FillAndExpand"
-                                           Text="{Binding Seats}"
+                                           Text="{Binding Place}"
                                            TextColor="#272832" />
                                 </StackLayout>
                             </ViewCell>
