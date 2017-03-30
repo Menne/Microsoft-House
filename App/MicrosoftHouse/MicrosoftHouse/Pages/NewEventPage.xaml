@@ -107,6 +107,7 @@
 						<StackLayout Orientation="Horizontal">
 						<local:ExtendedDatePicker PlaceHolder="DATE"
 										TextColor="Black"
+										Font="Small"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"/>
 						<Image Source="CalendarIcon.png"
