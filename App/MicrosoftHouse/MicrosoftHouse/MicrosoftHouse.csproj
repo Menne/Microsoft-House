@@ -97,9 +97,6 @@
     <Compile Include="AllRoomsView.xaml.cs">
       <DependentUpon>AllRoomsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\NewEvent.xaml.cs">
-      <DependentUpon>NewEvent.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\CalendarViewModel.cs" />
     <Compile Include="ViewModels\CarParkViewModel.cs" />
     <Compile Include="ViewModels\NewEventViewModel.cs" />
@@ -185,9 +182,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="AllRoomsView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\NewEvent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\EntryPage.xaml">

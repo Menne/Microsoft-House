@@ -71,7 +71,7 @@ namespace MicrosoftHouse
 
 		async void OnCreateEvent(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new NewEvent());
+			await Navigation.PushAsync(new NewEventPage());
 		}
 
         async void OnCalendar(object sender, EventArgs e)
