@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
-             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"
-			 x:Class="MicrosoftHouse.CalendarPage">
+             x:Class="MicrosoftHouse.CalendarPage">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -13,7 +12,7 @@
                     Android="5, 5, 5, 5"
                     WinPhone="5, 5, 5, 5" />
                 </StackLayout.Padding>
-                <controls:Calendar Padding="10,0,10,0"
+                <local:Calendar Padding="10,0,10,0"
                                    SelectedBorderWidth="4" 
                                    DisabledBorderColor="Black"
                                    ShowNumberOfWeek="false"
@@ -22,7 +21,7 @@
                                    TitleLeftArrowTextColor="Blue"
                                    SelectedDate="{Binding Date}"
                                    DateCommand="{Binding DateChosen}" >
-                </controls:Calendar>
+                </local:Calendar>
                 <Button x:Name="newEvent"
                         BackgroundColor="#FF00BAFF"
                         Text="Add a new event"
@@ -32,6 +31,35 @@
 						BorderRadius="0"
 						FontFamily="Avenir"
                         Clicked="OnCreateEvent"/>
+                <ListView BackgroundColor="#7F7F7F"
+                          CachingStrategy="RecycleElement"
+                          IsPullToRefreshEnabled="True"
+                          IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                          ItemsSource="{Binding Items}"
+                          RefreshCommand="{Binding RefreshCommand}"
+                          RowHeight="50"
+                          SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout HorizontalOptions="FillAndExpand"
+                                             Orientation="Horizontal"
+                                             Padding="10"
+                                             VerticalOptions="CenterAndExpand">
+                                    <Label HorizontalOptions="FillAndExpand"
+                                           Text="{Binding Name}"
+                                           TextColor="#272832" />
+                                    <Label HorizontalOptions="FillAndExpand"
+                                           Text="{Binding Floor}"
+                                           TextColor="#272832" />
+                                    <Label HorizontalOptions="FillAndExpand"
+                                           Text="{Binding Seats}"
+                                           TextColor="#272832" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

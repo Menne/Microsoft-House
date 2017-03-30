@@ -1,8 +1,6 @@
 ﻿using MicrosoftHouse.ViewModels;
 using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
-using XamForms.Controls;
 
 namespace MicrosoftHouse
 {
