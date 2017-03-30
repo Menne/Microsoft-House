@@ -131,6 +131,7 @@
       <DependentUpon>NewEventPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ExtendedEntry.cs" />
+    <Compile Include="Helpers\ExtendedDatePicker.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PageIniziale.xaml">

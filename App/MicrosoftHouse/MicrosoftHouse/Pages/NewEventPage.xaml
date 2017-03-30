@@ -100,6 +100,25 @@
 									Opacity="0.05"
 									HeightRequest="1"/>
 					</StackLayout>
+					<StackLayout Grid.Row="4"
+									Grid.Column="0"
+									Padding="30,10,30,10"
+									Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<local:ExtendedDatePicker PlaceHolder="DATE"
+										TextColor="Black"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="Center"/>
+						<Image Source="CalendarIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start"/>
+						</StackLayout>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1"/>
+					</StackLayout>
+					<TimePicker Grid.Row="5"
+								Grid.Column="0"/>
 				<Button BackgroundColor="#FFBA77FF"
 						VerticalOptions="FillAndExpand"
 						HorizontalOptions="FillAndExpand"
