@@ -18,11 +18,10 @@ namespace MicrosoftHouse.iOS
 
 			if (datePicker != null)
 			{
+				//TOGLIE IL BORDO 
 				Control.BorderStyle = UITextBorderStyle.None;
-				//Control.BorderStyle = UITextBorderStyle.None;
 				SetPlaceholder(datePicker);
 				SetFont(datePicker);
-				//SetBorderStyle(datePicker);
 				SetTextColor(datePicker);
 			}
 
@@ -47,6 +46,16 @@ namespace MicrosoftHouse.iOS
 				this.Control.TextColor = datePicker.TextColor.ToUIColor();
 			}
 		}
+
+		// Setta il FONT_SIZE
+		/*private void SetFontFamily(ExtendedDatePicker datePicker)
+		{
+			UIFont uiFont;
+			if (datePicker.Font != Font.Default && (uiFont = datePicker.Font.ToUIFont()) != null)
+				Control.Font = uiFont;
+			else if (datePicker.Font == Font.Default)
+				Control.Font = UIFont.SystemFontOfSize(17f);
+		}*/
 
 		private void SetFont(ExtendedDatePicker datePicker)
 		{
