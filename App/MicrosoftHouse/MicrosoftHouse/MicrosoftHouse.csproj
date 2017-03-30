@@ -144,6 +144,8 @@
     </Compile>
     <Compile Include="Helpers\ExtendedEntry.cs" />
     <Compile Include="Helpers\ExtendedDatePicker.cs" />
+    <Compile Include="Helpers\ExtendedTimePicker.cs" />
+    <Compile Include="Helpers\ValidEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PageIniziale.xaml">
@@ -241,7 +243,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="Spiegazione delle Classi.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\CalendarPage.xaml">

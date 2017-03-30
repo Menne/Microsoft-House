@@ -46,9 +46,11 @@
 									VerticalOptions="Center"/>
 							<Image Source="DoneIcon.png"
 									HorizontalOptions="End"
-									VerticalOptions="Center">
+									VerticalOptions="Center"
+									IsEnabled="{Binding Source={x:Reference validEvent},Path=IsValid}"
+									Opacity="{Binding Source={x:Reference validEvent},Path=IsValid}">
 								<Image.GestureRecognizers>
-									<TapGestureRecognizer Command="{Binding BackCommand}"/>
+									<TapGestureRecognizer Command="{Binding CreateCommand}"/>
 								</Image.GestureRecognizers>
 							</Image>
 					</StackLayout>
@@ -65,7 +67,11 @@
 										XAlign="Center"
 										TextColor="White"
 										FontFamily="Avenir"
-										PlaceholderTextColor="White"/>
+										PlaceholderTextColor="White">
+									<Entry.Behaviors>
+										<local:ValidEvent x:Name="validEvent" />
+									</Entry.Behaviors>
+						</local:ExtendedEntry>
 						<BoxView Color="White"
 									Opacity="0.1"
 									HeightRequest="1"
@@ -85,26 +91,6 @@
 									Padding="30,10,30,10"
 									Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
-						<local:ExtendedEntry Placeholder="DATE"
-										Keyboard="Text"
-										HorizontalOptions="FillAndExpand"
-										VerticalOptions="Center"
-										Font="Small"
-										FontFamily="Avenir"
-										PlaceholderTextColor="Black"/>
-						<Image Source="CalendarIcon.png"
-								VerticalOptions="Center"
-								HorizontalOptions="Start"/>
-						</StackLayout>
-						<BoxView Color="Black"
-									Opacity="0.05"
-									HeightRequest="1"/>
-					</StackLayout>
-					<StackLayout Grid.Row="4"
-									Grid.Column="0"
-									Padding="30,10,30,10"
-									Orientation="Vertical">
-						<StackLayout Orientation="Horizontal">
 						<local:ExtendedDatePicker PlaceHolder="DATE"
 										TextColor="Black"
 										Font="Small"
@@ -118,17 +104,91 @@
 									Opacity="0.05"
 									HeightRequest="1"/>
 					</StackLayout>
-					<TimePicker Grid.Row="5"
-								Grid.Column="0"/>
+					<StackLayout Grid.Row="4"
+									Grid.Column="0"
+									Padding="30,10,30,10"
+									Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<local:ExtendedTimePicker PlaceHolder="STARTING TIME"
+										TextColor="Black"
+										Font="Small"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="Center"/>
+						<Image Source="TimeIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start"/>
+						</StackLayout>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1"/>
+					</StackLayout>
+					<StackLayout Grid.Row="5"
+									Grid.Column="0"
+									Padding="30,10,30,10"
+									Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<local:ExtendedTimePicker PlaceHolder="ENDING TIME"
+										TextColor="Black"
+										Font="Small"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="Center"/>
+						<Image Source="TimeIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start"/>
+						</StackLayout>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1"/>
+					</StackLayout>
+					<StackLayout Grid.Row="6"
+									Grid.Column="0"
+									Padding="30,10,30,10"
+									Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<Label Text="LOCATION"
+									TextColor="Black"
+										FontSize="Small"
+										FontFamily="Avenir"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="Center"/>
+						<Image Source="ParkIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start"/>
+						</StackLayout>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1"/>
+					</StackLayout>
+					<StackLayout Grid.Row="7"
+									Grid.Column="0"
+									Padding="30,10,30,10"
+									Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<Label Text="NOTIFICATION"
+									TextColor="Black"
+										FontSize="Small"
+										FontFamily="Avenir"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="Center"/>
+						<Switch VerticalOptions="Center"
+								HorizontalOptions="Start"/>
+						</StackLayout>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1"/>
+					</StackLayout>
+
 				<Button BackgroundColor="#FFBA77FF"
 						VerticalOptions="FillAndExpand"
 						HorizontalOptions="FillAndExpand"
 						Text="CREATE"
+						Command= "{Binding CreateCommand}"
 						FontFamily="Avenir"
 						TextColor="White"
 						Grid.Row="10"
 						Grid.Column="0"
-						BorderRadius="0"/>
+						BorderRadius="0"
+						IsEnabled="{Binding Source={x:Reference validEvent},Path=IsValid}"/>
 			</Grid>
 	</ContentPage.Content>
 </ContentPage>

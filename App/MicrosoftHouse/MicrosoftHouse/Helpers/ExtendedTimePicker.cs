@@ -1,12 +1,14 @@
 ﻿using System;
+using MicrosoftHouse;
 using Xamarin.Forms;
+
 
 namespace MicrosoftHouse
 {
-	public class ExtendedDatePicker : DatePicker
+	public class ExtendedTimePicker : TimePicker
 	{
 		public static readonly BindableProperty TextColorProperty = 
-			BindableProperty.Create ("TextColor", typeof(Color), typeof(ExtendedDatePicker), Color.Default);
+			BindableProperty.Create ("TextColor", typeof(Color), typeof(ExtendedTimePicker), Color.Default);
 
         public Color TextColor {
             get { return (Color)GetValue (TextColorProperty); }
@@ -17,7 +19,7 @@ namespace MicrosoftHouse
 		/// The font property
 		/// </summary>
 		public static readonly BindableProperty FontProperty =
-			BindableProperty.Create("Font", typeof(Font), typeof(ExtendedDatePicker), new Font());
+			BindableProperty.Create("Font", typeof(Font), typeof(ExtendedTimePicker), new Font());
 
 		/// <summary>
 		/// Gets or sets the Font
@@ -31,7 +33,7 @@ namespace MicrosoftHouse
 		public static readonly BindableProperty PlaceHolderProperty = BindableProperty.Create(
 		   "PlaceHolder",
 		   typeof(string),
-		   typeof(ExtendedDatePicker),
+		   typeof(ExtendedTimePicker),
 		   "");
 
 		public string PlaceHolder

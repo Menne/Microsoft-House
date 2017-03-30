@@ -20,8 +20,9 @@ namespace MicrosoftHouse.iOS
 			{
 				//TOGLIE IL BORDO 
 				Control.BorderStyle = UITextBorderStyle.None;
+				Control.Font = UIFont.FromName("Avenir", 14f);
 				SetPlaceholder(datePicker);
-				SetFont(datePicker);
+				//SetFont(datePicker);
 				SetTextColor(datePicker);
 			}
 
@@ -37,7 +38,7 @@ namespace MicrosoftHouse.iOS
 			}
 
 			ExtendedDatePicker datePicker = (ExtendedDatePicker)Element;
-			if (e.PropertyName == ExtendedEntry.FontProperty.PropertyName)
+			if (e.PropertyName == ExtendedDatePicker.FontProperty.PropertyName)
 			{
 				SetFont(datePicker);
 			}
@@ -48,15 +49,6 @@ namespace MicrosoftHouse.iOS
 		}
 
 		// Setta il FONT_SIZE
-		/*private void SetFontFamily(ExtendedDatePicker datePicker)
-		{
-			UIFont uiFont;
-			if (datePicker.Font != Font.Default && (uiFont = datePicker.Font.ToUIFont()) != null)
-				Control.Font = uiFont;
-			else if (datePicker.Font == Font.Default)
-				Control.Font = UIFont.SystemFontOfSize(17f);
-		}*/
-
 		private void SetFont(ExtendedDatePicker datePicker)
 		{
 			UIFont uiFont;
