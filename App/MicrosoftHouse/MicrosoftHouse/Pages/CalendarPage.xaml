@@ -4,15 +4,14 @@
 			 xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.CalendarPage">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <StackLayout.Padding>
-                    <OnPlatform x:TypeArguments="Thickness"
+        <StackLayout>
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness"
                     iOS="5, 25, 5, 5"
                     Android="5, 5, 5, 5"
                     WinPhone="5, 5, 5, 5" />
-                </StackLayout.Padding>
-                <local:Calendar Padding="10,0,10,0"
+            </StackLayout.Padding>
+            <local:Calendar Padding="10,0,10,0"
                                    SelectedBorderWidth="4" 
                                    DisabledBorderColor="Black"
                                    ShowNumberOfWeek="false"
@@ -21,8 +20,8 @@
                                    TitleLeftArrowTextColor="Blue"
                                    SelectedDate="{Binding Date}"
                                    DateCommand="{Binding DateChosen}" >
-                </local:Calendar>
-                <Button x:Name="newEvent"
+            </local:Calendar>
+            <Button x:Name="newEvent"
                         BackgroundColor="#FF00BAFF"
                         Text="Add a new event"
 						VerticalOptions="Center"
@@ -31,34 +30,36 @@
 						BorderRadius="0"
 						FontFamily="Avenir"
                         Clicked="OnCreateEvent"/>
-                <ListView CachingStrategy="RecycleElement"
+            <ListView CachingStrategy="RecycleElement"
                           IsPullToRefreshEnabled="True"
                           ItemsSource="{Binding EventsProva}"
                           RowHeight="50">
-                     <!--     RefreshCommand="{Binding RefreshCommand}"  -->
-                     <!--     SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">   -->
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout HorizontalOptions="FillAndExpand"
-                                             Orientation="Horizontal"
-                                             Padding="10"
-                                             VerticalOptions="CenterAndExpand">
-                                    <Label HorizontalOptions="FillAndExpand"
+                <!--     RefreshCommand="{Binding RefreshCommand}"  -->
+                <!--     SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">   -->
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Label HorizontalOptions="Fill"
                                            Text="{Binding Name}"
+                                           FontSize="Medium"
                                            TextColor="#272832" />
-                                    <Label HorizontalOptions="FillAndExpand"
-                                           Text="{Binding Description}"
+                                <StackLayout Orientation="Horizontal">
+                                    <Label HorizontalOptions="Start"
+                                           Text="{Binding StartingDate}"
+                                           FontSize="Small"
                                            TextColor="#272832" />
-                                    <Label HorizontalOptions="FillAndExpand"
+                                    <Label HorizontalOptions="Start"
                                            Text="{Binding Place}"
+                                           FontSize="Small"
                                            TextColor="#272832" />
                                 </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-        </ScrollView>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
