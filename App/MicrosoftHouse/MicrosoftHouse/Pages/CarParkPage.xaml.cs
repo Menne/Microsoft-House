@@ -6,9 +6,9 @@ using Xamarin.Forms;
 
 namespace MicrosoftHouse
 {
-	public partial class CarPark : ContentPage
+	public partial class CarParkPage : ContentPage
 	{
-		public CarPark()
+		public CarParkPage()
 		{
 			InitializeComponent();
             BindingContext = new CarParkViewModel();

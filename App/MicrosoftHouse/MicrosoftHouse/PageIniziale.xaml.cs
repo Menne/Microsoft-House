@@ -41,7 +41,7 @@ namespace MicrosoftHouse
 
 		async void OnParking(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new CarPark());
+			await Navigation.PushAsync(new CarParkPage());
 		}
 
 		async void OnSignUp(object sender, EventArgs e)

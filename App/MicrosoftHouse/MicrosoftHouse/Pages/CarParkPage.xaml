@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
-             x:Class="MicrosoftHouse.CarPark">
+             x:Class="MicrosoftHouse.CarParkPage">
 
     <ContentPage.Content>
         <StackLayout>
@@ -64,13 +64,14 @@
 					FontFamily="Avenir"/>
 
 
-            <cv:CarouselView ItemsSource="{Binding ItemsForCarousel}" x:Name="CarouselStatisticheProva">
+            <cv:CarouselView ItemsSource="{Binding ItemsForCarousel}"
+                             x:Name="CarouselStatisticheProva">
                 <cv:CarouselView.ItemTemplate>    
                     <DataTemplate>
-                        <StackLayout>
+                        <StackLayout BackgroundColor="Yellow">
                             <Label Text="{Binding Text}"
-                                       TextColor="Black"
-                                       FontSize="Large"/>   
+                                   TextColor="Black"
+                                   FontSize="Large"/>   
                         </StackLayout>
                     </DataTemplate>
                 </cv:CarouselView.ItemTemplate>

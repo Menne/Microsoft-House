@@ -12,24 +12,24 @@
                     WinPhone="5, 5, 5, 5" />
             </StackLayout.Padding>
             <local:Calendar Padding="10,0,10,0"
-                                   SelectedBorderWidth="4" 
-                                   DisabledBorderColor="Black"
-                                   ShowNumberOfWeek="false"
-                                   StartDay="Monday"
-                                   TitleLabelTextColor="Purple"
-                                   TitleLeftArrowTextColor="Blue"
-                                   SelectedDate="{Binding Date}"
-                                   DateCommand="{Binding DateChosen}" >
+                            SelectedBorderWidth="4" 
+                            DisabledBorderColor="Black"
+                            ShowNumberOfWeek="false"
+                            StartDay="Monday"
+                            TitleLabelTextColor="Purple"
+                            TitleLeftArrowTextColor="Blue"
+                            SelectedDate="{Binding Date}"
+                            DateCommand="{Binding DateChosen}" >
             </local:Calendar>
             <Button x:Name="newEvent"
-                        BackgroundColor="#FF00BAFF"
-                        Text="Add a new event"
-						VerticalOptions="Center"
-						HorizontalOptions="End"
-	                    TextColor="#ffffff"
-						BorderRadius="0"
-						FontFamily="Avenir"
-                        Clicked="OnCreateEvent"/>
+                    BackgroundColor="#FF00BAFF"
+                    Text="Add a new event"
+			        VerticalOptions="Center"
+					HorizontalOptions="End"
+	                TextColor="#ffffff"
+					BorderRadius="10"
+					FontFamily="Avenir"
+                    Clicked="OnCreateEvent"/>
             <ListView CachingStrategy="RecycleElement"
                           IsPullToRefreshEnabled="True"
                           ItemsSource="{Binding EventsProva}"
@@ -42,9 +42,9 @@
                         <ViewCell>
                             <StackLayout Orientation="Vertical">
                                 <Label HorizontalOptions="Fill"
-                                           Text="{Binding Name}"
-                                           FontSize="Medium"
-                                           TextColor="#272832" />
+                                       Text="{Binding Name}"
+                                       FontSize="Medium"
+                                       TextColor="#272832" />
                                 <StackLayout Orientation="Horizontal">
                                     <Label HorizontalOptions="Start"
                                            Text="{Binding StartingDate}"

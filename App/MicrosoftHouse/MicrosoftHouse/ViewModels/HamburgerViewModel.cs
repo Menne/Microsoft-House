@@ -34,13 +34,13 @@ namespace MicrosoftHouse
 			{
 				Name = "Calendar",
 				IconSource = "CalendarIconWhite.png",
-				//TargetType = typeof(ReminderPage)
+				TargetType = typeof(CalendarPage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{
 				Name = "Park",
 				IconSource = "ParkIconWhite.png",
-				//TargetType = typeof(ReminderPage)
+				TargetType = typeof(CarParkPage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{
@@ -63,7 +63,11 @@ namespace MicrosoftHouse
 
 		}
 
-		public List<MasterPageItem> MasterPageItems 		{ 			set { SetProperty(ref masterPageItems, value, "Items"); } 			get { return masterPageItems; } 		}
+		public List<MasterPageItem> MasterPageItems
+		{
+			set { SetProperty(ref masterPageItems, value, "Items"); }
+			get { return masterPageItems; }
+		}
 
 
 	}

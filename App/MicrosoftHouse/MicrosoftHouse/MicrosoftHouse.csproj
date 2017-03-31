@@ -74,8 +74,8 @@
     <Compile Include="RoomPage.xaml.cs">
       <DependentUpon>RoomPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CarPark.xaml.cs">
-      <DependentUpon>CarPark.xaml</DependentUpon>
+    <Compile Include="Pages\CarParkPage.xaml.cs">
+      <DependentUpon>CarParkPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="SignUp.xaml.cs">
@@ -165,7 +165,7 @@
     <EmbeddedResource Include="RoomPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="CarPark.xaml">
+    <EmbeddedResource Include="Pages\CarParkPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="SignUp.xaml">
