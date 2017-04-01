@@ -10,7 +10,6 @@ using MicrosoftHouse.Abstractions;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using System.Reflection;
-using iRoundedButton.Droid;
 
 namespace MicrosoftHouse.Droid
 {

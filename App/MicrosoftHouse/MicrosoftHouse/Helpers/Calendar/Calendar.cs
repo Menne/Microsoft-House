@@ -33,9 +33,9 @@ namespace MicrosoftHouse
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				Text = ""
 			};
-			TitleRightArrow = new CalendarButton
-			{
-				FontAttributes = FontAttributes.Bold,
+            TitleRightArrow = new CalendarButton
+            {
+                FontAttributes = FontAttributes.Bold,
 				BackgroundColor = Color.Transparent,
 				FontSize = 24,
 				Text = "❱",

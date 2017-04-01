@@ -12,8 +12,11 @@
                     Command="{Binding LoginCommand}"
                     Text="Login"
                     TextColor="White" />
-			<Button Text="Bottone per Menne"
-					Clicked="OnHome"/>
+            <Button Text="Bottone per Menne"
+					Clicked="OnHome"
+                    BackgroundColor="Teal"
+                    BorderRadius="10"
+                    TextColor="White" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

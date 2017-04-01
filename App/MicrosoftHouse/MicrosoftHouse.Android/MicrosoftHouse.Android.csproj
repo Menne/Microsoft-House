@@ -141,7 +141,7 @@
   <ItemGroup>
     <Compile Include="Renderers\CalendarButtonRenderer.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Renderers\CustomButtonCompatRenderer.cs" />
+    <Compile Include="Renderers\CustomButtonRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Renderers\ExtendedEntryRender.cs" />
