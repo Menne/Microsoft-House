@@ -10,22 +10,6 @@ namespace MicrosoftHouse
         {
             InitializeComponent();
             BindingContext = new CalendarViewModel();
-
-            Calendar calendar= new Calendar
-            {
-                MinDate = DateTime.Now.AddDays(-1),
-                MultiSelectDates = true,
-                DisableAllDates = false,
-                WeekdaysShow = true,
-                ShowNumberOfWeek = true,
-                ShowNumOfMonths = 1,
-                EnableTitleMonthYearView = true,
-                SelectedDate = DateTime.Now,
-                WeekdaysTextColor = Color.Teal,
-                StartDay = DayOfWeek.Monday,
-                SelectedTextColor = Color.Fuchsia,
-            };
-
         }
 
     }

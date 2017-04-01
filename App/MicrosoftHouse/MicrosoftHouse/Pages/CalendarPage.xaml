@@ -16,8 +16,9 @@
                             DisabledBorderColor="Black"
                             ShowNumberOfWeek="false"
                             StartDay="Monday"
-                            TitleLabelTextColor="Purple"
+                            TitleLabelTextColor="Black"
                             TitleLeftArrowTextColor="Blue"
+                            TitleRightArrowTextColor="Blue"
                             SelectedDate="{Binding Date}"
                             DateCommand="{Binding DateChosen}" >
             </local:Calendar>

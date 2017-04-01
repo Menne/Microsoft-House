@@ -4,12 +4,13 @@ using Android.Runtime;
 using System.Collections.Generic;
 using MicrosoftHouse;
 using MicrosoftHouse.Droid;
+using Xamarin.Forms;
 
-[assembly: Xamarin.Forms.ExportRenderer(typeof(CalendarButton), typeof(CalendarButtonRenderer))]
+[assembly: ExportRenderer(typeof(CalendarButton), typeof(CalendarButtonRenderer))]
 namespace MicrosoftHouse.Droid
 {
 	[Preserve(AllMembers = true)]
-    public class CalendarButtonRenderer : ButtonRenderer
+    public class CalendarButtonRenderer : CustomButtonRenderer
     {
 		protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Button> e)
         {

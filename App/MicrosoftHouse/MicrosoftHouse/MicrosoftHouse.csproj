@@ -53,6 +53,7 @@
     <Compile Include="Helpers\Calendar\DateTypeEnum.cs" />
     <Compile Include="Helpers\Calendar\EnumerableExtensions.cs" />
     <Compile Include="Helpers\Calendar\SpecialDate.cs" />
+    <Compile Include="Helpers\DayOfWeekButton.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Pages\CalendarPage.xaml.cs">
       <DependentUpon>CalendarPage.xaml</DependentUpon>

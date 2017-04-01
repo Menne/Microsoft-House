@@ -66,6 +66,16 @@ namespace MicrosoftHouse.ViewModels
              await Application.Current.MainPage.Navigation.PushModalAsync(new NewEventPage());
         }
 
+        public ICommand DateChosen
+        {
+            get
+            {
+                return new Command((obj) => {
+                    System.Diagnostics.Debug.WriteLine(obj as DateTime?);
+                });
+            }
+        }
+
 
         /* servirà per vedere i dettagli di evento/data
 
@@ -119,7 +129,7 @@ namespace MicrosoftHouse.ViewModels
                      await ExecuteRefreshCommand();
                  });
              }  */
-        
+
     }
 
 }

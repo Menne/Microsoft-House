@@ -4,7 +4,7 @@ using System.Linq;
 //using UXDivers.Artina.Shared;
 using Xamarin.Forms;
 
-[assembly: ExportRenderer(typeof(Xamarin.Forms.Button), typeof(MicrosoftHouse.Droid.CustomButtonRenderer))]
+[assembly: ExportRenderer(typeof(Button), typeof(MicrosoftHouse.Droid.CustomButtonRenderer))]
 
 namespace MicrosoftHouse.Droid
 {
