@@ -10,10 +10,6 @@ namespace MicrosoftHouse.ViewModels
 {
     class CarParkViewModel : ViewModelBase
     {
-        int parkingSpaces=25, distance=3, timeToArrival=15;
-
-        public ObservableCollection<Label> Statistics { get; set; }
-        public Label SelectedDayStatistics { get; set; }
 
         public CarParkViewModel()
         {
@@ -49,24 +45,18 @@ namespace MicrosoftHouse.ViewModels
                 },
             };
 
-            ShowMondayStatistics = new Command(async () => await ExecuteShowMondayStatistics());
-            ShowTuestdayStatistics = new Command(async () => await ExecuteShowTuestdayStatistics());
-            ShowWednesdayStatistics = new Command(async () => await ExecuteWednesdayStatistics());
-            ShowThursdayStatistics = new Command(async () => await ExecuteThursdayStatistics());
-            ShowFridayStatistics = new Command(async () => await ExecuteFridayStatistics());
-            ShowSaturdayStatistics = new Command(async () => await ExecuteSaturdayStatistics());
-            ShowSundayStatistics = new Command(async () => await ExecuteSundayStatistics());
+            ChangeDayCommand = new Command<string>(execute: (string dayOfWeek) => ShowStatistics(Int32.Parse(dayOfWeek)));
 
             SelectedDayStatistics = Statistics.ElementAt(0);
         }
 
-        public Command ShowMondayStatistics { get; private set; }
-        public Command ShowTuestdayStatistics { get; private set; }
-        public Command ShowWednesdayStatistics { get; private set; }
-        public Command ShowThursdayStatistics { get; private set; }
-        public Command ShowFridayStatistics { get; private set; }
-        public Command ShowSaturdayStatistics { get; private set; }
-        public Command ShowSundayStatistics { get; private set; }
+
+        int parkingSpaces = 25, distance = 3, timeToArrival = 15;
+
+        public ObservableCollection<Label> Statistics { get; set; }
+        public Label SelectedDayStatistics { get; set; }
+
+        public Command ChangeDayCommand { get; private set; }
 
         public int ParkingSpaces
         {
@@ -86,42 +76,12 @@ namespace MicrosoftHouse.ViewModels
             get { return timeToArrival; }
         }
 
+
+        private void ShowStatistics(int dayOfWeek)
+        {
+            SelectedDayStatistics = Statistics.ElementAt(dayOfWeek);
+        }
         
-        private Task ExecuteSundayStatistics()
-        {
-            throw new NotImplementedException();
-        }
-
-        private Task ExecuteSaturdayStatistics()
-        {
-            throw new NotImplementedException();
-        }
-
-        private Task ExecuteFridayStatistics()
-        {
-            throw new NotImplementedException();
-        }
-
-        private Task ExecuteThursdayStatistics()
-        {
-            throw new NotImplementedException();
-        }
-
-        private Task ExecuteWednesdayStatistics()
-        {
-            throw new NotImplementedException();
-        }
-
-        private Task ExecuteShowTuestdayStatistics()
-        {
-            throw new NotImplementedException();
-        }
-
-        private Task ExecuteShowMondayStatistics()
-        {
-            throw new NotImplementedException();
-        }
-
 
     }
 }
