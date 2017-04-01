@@ -80,7 +80,8 @@
                          HorizontalOptions="FillAndExpand"
                          Padding="20"
 				     	 BackgroundColor="White">
-                <Label Text="prova"
+                <Label BindingContext="{Binding SelectedDayStatistics}"
+                       Text="{Binding Text}"
                        TextColor="Black"
                        FontSize="Large"/>
                 <Grid>

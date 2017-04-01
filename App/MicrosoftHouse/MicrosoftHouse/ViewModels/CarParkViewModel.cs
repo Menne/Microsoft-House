@@ -12,25 +12,42 @@ namespace MicrosoftHouse.ViewModels
     {
         int parkingSpaces=25, distance=3, timeToArrival=15;
 
-  //      public ObservableCollection<Label> ItemsForCarousel { get; set; }
+        public ObservableCollection<Label> Statistics { get; set; }
+        public Label SelectedDayStatistics { get; set; }
 
         public CarParkViewModel()
         {
-            /*          ItemsForCarousel = new ObservableCollection<Label>
-                      {
-                          new Label
-                          {
-                              Text="carousel1"
-                          },
-                          new Label
-                          {
-                              Text="carousel2"
-                          },
-                          new Label
-                          {
-                              Text="carousel3"
-                          }  
-                      };  */
+            Statistics = new ObservableCollection<Label>
+            {
+                new Label()
+                {
+                    Text = "monday"
+                },
+                new Label()
+                {
+                    Text = "tuesday"
+                },
+                new Label()
+                {
+                    Text = "wednesday"
+                },
+                new Label()
+                {
+                    Text = "thursday"
+                },
+                new Label()
+                {
+                    Text = "friday"
+                },
+                new Label()
+                {
+                    Text = "saturday"
+                },
+                new Label()
+                {
+                    Text = "sunday"
+                },
+            };
 
             ShowMondayStatistics = new Command(async () => await ExecuteShowMondayStatistics());
             ShowTuestdayStatistics = new Command(async () => await ExecuteShowTuestdayStatistics());
@@ -39,8 +56,37 @@ namespace MicrosoftHouse.ViewModels
             ShowFridayStatistics = new Command(async () => await ExecuteFridayStatistics());
             ShowSaturdayStatistics = new Command(async () => await ExecuteSaturdayStatistics());
             ShowSundayStatistics = new Command(async () => await ExecuteSundayStatistics());
+
+            SelectedDayStatistics = Statistics.ElementAt(0);
         }
 
+        public Command ShowMondayStatistics { get; private set; }
+        public Command ShowTuestdayStatistics { get; private set; }
+        public Command ShowWednesdayStatistics { get; private set; }
+        public Command ShowThursdayStatistics { get; private set; }
+        public Command ShowFridayStatistics { get; private set; }
+        public Command ShowSaturdayStatistics { get; private set; }
+        public Command ShowSundayStatistics { get; private set; }
+
+        public int ParkingSpaces
+        {
+            set { SetProperty(ref parkingSpaces, value); }
+            get { return parkingSpaces; }
+        }
+
+        public int Distance
+        {
+            set { SetProperty(ref distance, value); }
+            get { return distance; }
+        }
+
+        public int TimeToArrival
+        {
+            set { SetProperty(ref timeToArrival, value); }
+            get { return timeToArrival; }
+        }
+
+        
         private Task ExecuteSundayStatistics()
         {
             throw new NotImplementedException();
@@ -76,30 +122,6 @@ namespace MicrosoftHouse.ViewModels
             throw new NotImplementedException();
         }
 
-        public int ParkingSpaces
-        {
-            set { SetProperty(ref parkingSpaces, value); }
-            get { return parkingSpaces; }
-        }
 
-        public int Distance
-        {
-            set { SetProperty(ref distance, value); }
-            get { return distance; }
-        }
-
-        public int TimeToArrival
-        {
-            set { SetProperty(ref timeToArrival, value); }
-            get { return timeToArrival; }
-        }
-
-        public Command ShowMondayStatistics { get; private set; }
-        public Command ShowTuestdayStatistics { get; private set; }
-        public Command ShowWednesdayStatistics { get; private set; }
-        public Command ShowThursdayStatistics { get; private set; }
-        public Command ShowFridayStatistics { get; private set; }
-        public Command ShowSaturdayStatistics { get; private set; }
-        public Command ShowSundayStatistics { get; private set; }
     }
 }
