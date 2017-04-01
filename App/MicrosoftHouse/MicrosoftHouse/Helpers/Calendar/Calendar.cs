@@ -460,7 +460,7 @@ namespace MicrosoftHouse
 					{
 						buttons.Add(new CalendarButton
 						{
-							BorderRadius = 20,
+							BorderRadius = 0,
 							BorderWidth = BorderWidth,
 							BorderColor = BorderColor,
 							FontSize = DatesFontSize,

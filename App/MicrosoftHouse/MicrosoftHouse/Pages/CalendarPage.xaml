@@ -12,8 +12,11 @@
                     WinPhone="5, 5, 5, 5" />
             </StackLayout.Padding>
             <local:Calendar Padding="10,0,10,0"
-                            SelectedBorderWidth="4" 
-                            DisabledBorderColor="Black"
+                            SelectedBorderColor="Blue"
+                            SelectedBorderWidth="4"
+                            BorderColor="Transparent"
+                            BorderWidth="1"
+                            DatesTextColorOutsideMonth="Gray"
                             ShowNumberOfWeek="false"
                             StartDay="Monday"
                             TitleLabelTextColor="Black"
