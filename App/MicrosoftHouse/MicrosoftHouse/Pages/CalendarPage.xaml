@@ -29,7 +29,7 @@
 	                TextColor="#ffffff"
 					BorderRadius="10"
 					FontFamily="Avenir"
-                    Clicked="OnCreateEvent"/>
+                    Command="{Binding CreateNewEventCommand}"/>
             <ListView CachingStrategy="RecycleElement"
                           IsPullToRefreshEnabled="True"
                           ItemsSource="{Binding EventsProva}"

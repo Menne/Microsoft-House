@@ -63,8 +63,7 @@
 					BorderRadius="0"
 					FontFamily="Avenir"/>
 
-
-            <cv:CarouselView ItemsSource="{Binding ItemsForCarousel}"
+  <!--          <cv:CarouselView ItemsSource="{Binding ItemsForCarousel}"
                              x:Name="CarouselStatisticheProva">
                 <cv:CarouselView.ItemTemplate>    
                     <DataTemplate>
@@ -75,8 +74,76 @@
                         </StackLayout>
                     </DataTemplate>
                 </cv:CarouselView.ItemTemplate>
-            </cv:CarouselView>
+            </cv:CarouselView>  -->
 
+            <StackLayout Orientation="Vertical"
+                         HorizontalOptions="FillAndExpand"
+                         Padding="20"
+				     	 BackgroundColor="White">
+                <Label Text="prova"
+                       TextColor="Black"
+                       FontSize="Large"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="mondayButton"
+                            Text="M"
+                            Command="{Binding ShowMondayStatistics}"
+						    BorderRadius="20"
+                            BorderWidth="0"
+                            BackgroundColor="Transparent"
+                            Grid.Column="0"/>
+                    <Button x:Name="tuesdayButton"
+                            Text="T"
+                            Command="{Binding ShowTuesdayStatistics}"
+						    BorderRadius="20"
+                            BorderWidth="0"
+                            BackgroundColor="Transparent"
+                            Grid.Column="1"/>
+                    <Button x:Name="wednesdayButton"
+                            Text="W"
+                            Command="{Binding ShowWednesdayStatistics}"
+						    BorderRadius="20"
+                            BorderWidth="0"
+                            BackgroundColor="Transparent"
+                            Grid.Column="2"/>
+                    <Button x:Name="thursdayButton"
+                            Text="T"
+                            Command="{Binding ShowThursdayStatistics}"
+						    BorderRadius="20"
+                            BorderWidth="0"
+                            BackgroundColor="Transparent"
+                            Grid.Column="3"/>
+                    <Button x:Name="fridayButton"
+                            Text="F"
+                            Command="{Binding ShowFridayStatistics}"
+						    BorderRadius="20"
+                            BorderWidth="0"
+                            BackgroundColor="Transparent"
+                            Grid.Column="4"/>
+                    <Button x:Name="saturdayButton"
+                            Text="S"
+                            Command="{Binding ShowSatudrdayStatistics}"
+						    BorderRadius="20"
+                            BorderWidth="0"
+                            BackgroundColor="Transparent"
+                            Grid.Column="5"/>
+                    <Button x:Name="sundayButton"
+                            Text="S"
+                            Command="{Binding ShowSundayStatistics}"
+						    BorderRadius="20"
+                            BorderWidth="0"
+                            BackgroundColor="Transparent"
+                            Grid.Column="6"/>
+                </Grid>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
