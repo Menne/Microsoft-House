@@ -23,7 +23,7 @@
 					 BackgroundColor="#FF01A4EF"
 					 Grid.Row="0"
 					 Grid.Column="0">
-				<Image Source="SplashIcon-120.png"
+				<Image Source="Login-Icon-180.png"
 						VerticalOptions="CenterAndExpand"
 						HorizontalOptions="CenterAndExpand"/>
 		</StackLayout>
@@ -95,8 +95,8 @@
 						TextColor="White"
 						FontFamily="Avenir"
 						BorderRadius="0"
-						IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"
 						/>
+				<!--IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"-->
 				</StackLayout>
 			<Button Grid.Row="6"
 					Grid.Column="0"

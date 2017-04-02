@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			x:Class="MicrosoftHouse.RoomNavPage"
+			Title="ROOMS"
+			x:Name="roomPage">
+	<ContentPage.Content>
+		<StackLayout Orientation="Horizontal"
+					 VerticalOptions="Start"
+					 HorizontalOptions="FillAndExpand"
+					 Padding="10"
+					 BackgroundColor="#FF01A4EF">
+			<Button x:Name="availableRoomsButton"
+					HeightRequest="40"
+					WidthRequest="100"
+					VerticalOptions="Center"
+					HorizontalOptions="StartAndExpand"
+					Command="{Binding AvRoomCommand}"
+					Clicked="OnPressedAV"
+					Text="Available"
+					BackgroundColor="White"
+					TextColor="#FF01A4EF"
+					FontFamily="Avenir"
+					BorderWidth="1"
+					BorderColor="White"
+					BorderRadius="20"/>
+			<Button x:Name="allRoomsButton"
+					HeightRequest="40"
+					HorizontalOptions="CenterAndExpand"
+					WidthRequest="100"
+					VerticalOptions="Center"
+					Text="All"
+					TextColor="White"
+					Command="{Binding AllRoomsCommand}"
+					Clicked="OnPressedALL"
+					BorderWidth="1"
+					FontFamily="Avenir"
+					BorderColor="White"
+					BorderRadius="20"/>
+			<Button x:Name="reservedRoomsButton"
+					HeightRequest="40"
+					HorizontalOptions="EndAndExpand"
+					WidthRequest="100"
+					VerticalOptions="Center"
+					Command="{Binding ReservedRoomCommand}"
+					Clicked="OnPressedRE"
+					Text="Reserved"
+					BorderWidth="1"
+					TextColor="White"
+					FontFamily="Avenir"
+					BorderColor="White"
+					BorderRadius="20"/>
+		</StackLayout>
+		
+	</ContentPage.Content>
+</ContentPage>

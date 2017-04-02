@@ -38,6 +38,7 @@
 						<Button x:Name="availableRoomsButton"
 								BackgroundColor="#FF5B4972"
 								HeightRequest="40"
+								Command="{Binding RoomCommand}"
 								WidthRequest="40"
 								VerticalOptions="Center"
 								HorizontalOptions="Start"

@@ -12,10 +12,12 @@ namespace MicrosoftHouse
 		{
 			
 			SearchRoomCommand = new Command(async () => await ExecuteSearchRoomCommand());
+			RoomCommand = new Command(async () => await ExecuteRoomCommand());
 			NewEventCommand = new Command(async () => await ExecuteNewEventCommand());
 		}
 
 		public Command SearchRoomCommand { get; }
+		public Command RoomCommand { get; }
 		public Command NewEventCommand { get; }
 
 		async Task ExecuteSearchRoomCommand()
@@ -23,6 +25,17 @@ namespace MicrosoftHouse
 			//await Application.Current.MainPage.Navigation.PushAsync(new RoomDetailPage());
 
 			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new SearchRoomPage())
+			{
+				BarTextColor = Color.White,
+				BarBackgroundColor = Color.FromHex("#FF01A4EF")
+			};
+		}
+
+		async Task ExecuteRoomCommand()
+		{
+			//await Application.Current.MainPage.Navigation.PushAsync(new RoomDetailPage());
+
+			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new RoomNavPage())
 			{
 				BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#FF01A4EF")

@@ -190,6 +190,9 @@
     <BundleResource Include="Resources\PasswordIcon.png" />
     <BundleResource Include="Resources\PasswordIcon%402x.png" />
     <BundleResource Include="Resources\PasswordIcon%403x.png" />
+    <BundleResource Include="Resources\Login-Icon-180.png" />
+    <BundleResource Include="Resources\Login-Icon-180%402x.png" />
+    <BundleResource Include="Resources\Login-Icon-180%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
