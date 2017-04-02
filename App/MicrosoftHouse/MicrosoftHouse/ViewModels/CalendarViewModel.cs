@@ -17,9 +17,47 @@ namespace MicrosoftHouse.ViewModels
     {
         public CalendarViewModel()
         {
-        //    RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
             NewEventCommand = new Command(async () => await ExecuteNewEventCommand());
-            EventsProva = new ObservableCollection<Event>
+            SelectedDateCommand = new Command(async () => await ExecuteSelectedDateCommand());
+            RetrieveEvents();
+        }
+
+
+        public Command NewEventCommand { get; }
+        public Command SelectedDateCommand { get; }
+
+
+        private DateTime? selectedDate;
+        public DateTime? SelectedDate
+        {
+            get
+            {
+                return selectedDate;
+            }
+            set
+            {
+                selectedDate = value;
+           //     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("selectedDate"));
+            }
+        }
+
+        ObservableCollection<Event> eventsOfSelectedDay;
+        public ObservableCollection<Event> EventsOfSelectedDay
+        {
+            get { return eventsOfSelectedDay; }
+            set { SetProperty(ref eventsOfSelectedDay, value, "EventsOfSelectedDay"); }
+        }
+
+        List<Event> allEvents;
+        public List<Event> AllEvents
+        {
+            get { return allEvents; }
+            set { SetProperty(ref allEvents, value, "AllEvents"); }
+        }
+
+        private void RetrieveEvents()
+        {
+            AllEvents = new List<Event>
             {
                 new Event
                 {
@@ -48,33 +86,23 @@ namespace MicrosoftHouse.ViewModels
             };
         }
 
-
-        public Command RefreshCommand { get; }
-        public Command NewEventCommand { get; }
-
-       
-        ObservableCollection<Event> eventsProva;
-        public ObservableCollection<Event> EventsProva
-        {
-            get { return eventsProva; }
-            set { SetProperty(ref eventsProva, value, "Events"); }
-        }
-
-
         async Task ExecuteNewEventCommand()
         {
              await Application.Current.MainPage.Navigation.PushModalAsync(new NewEventPage());
         }
 
-        public ICommand DateChosen
+        async Task ExecuteSelectedDateCommand()
         {
-            get
-            {
-                return new Command((obj) => {
-                    System.Diagnostics.Debug.WriteLine(obj as DateTime?);
-                });
-            }
+            if (IsBusy)
+                return;
+            IsBusy = true;
+            EventsOfSelectedDay.Clear();
+            foreach (var item in AllEvents)
+                if (item.StartingDate.Date == SelectedDate)
+                    EventsOfSelectedDay.Add(item);
+            IsBusy = false;
         }
+
 
 
         /* servirà per vedere i dettagli di evento/data
@@ -92,9 +120,8 @@ namespace MicrosoftHouse.ViewModels
                     selectedEvent = null;
                 }
             }
-        }
+        } 
 
-             servirà per refreshare la lista di eventi
              
              async Task ExecuteRefreshCommand()
              {
@@ -120,15 +147,9 @@ namespace MicrosoftHouse.ViewModels
                  }
              }   
 
+    */
 
-             async Task RefreshList()
-             {
-                 await ExecuteRefreshCommand();
-                 MessagingCenter.Subscribe<RoomDetailViewModel>(this, "ItemsChanged", async (sender) =>
-                 {
-                     await ExecuteRefreshCommand();
-                 });
-             }  */
+
 
     }
 

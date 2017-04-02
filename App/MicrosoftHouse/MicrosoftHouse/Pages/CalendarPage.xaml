@@ -22,8 +22,8 @@
                             TitleLabelTextColor="Black"
                             TitleLeftArrowTextColor="Blue"
                             TitleRightArrowTextColor="Blue"
-                            SelectedDate="{Binding Date}"
-                            DateCommand="{Binding DateChosen}" >
+                            SelectedDate="{Binding SelectedDate}"
+                            DateCommand="{Binding SelectedDateCommand}" >
             </local:Calendar>
             <Button x:Name="newEvent"
                     BackgroundColor="#FF00BAFF"
