@@ -101,6 +101,7 @@
     <Compile Include="Renderers\ExtendedEntryRender.cs" />
     <Compile Include="Renderers\ExtendedDatePickerRender.cs" />
     <Compile Include="Renderers\ExtendedTimePickerRender.cs" />
+    <Compile Include="Renderers\CustomNavigationPageRender.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />

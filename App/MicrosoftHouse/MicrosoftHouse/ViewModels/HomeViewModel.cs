@@ -26,7 +26,8 @@ namespace MicrosoftHouse
 
 			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new SearchRoomPage())
 			{
-				BarTextColor = Color.White,
+				//BarTextColor = Color.White,
+				//BarTitleFontFamily = "Avenir",
 				BarBackgroundColor = Color.FromHex("#FF01A4EF")
 			};
 		}
@@ -37,7 +38,7 @@ namespace MicrosoftHouse
 
 			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new RoomNavPage())
 			{
-				BarTextColor = Color.White,
+				//BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#FF01A4EF")
 			};
 		}
