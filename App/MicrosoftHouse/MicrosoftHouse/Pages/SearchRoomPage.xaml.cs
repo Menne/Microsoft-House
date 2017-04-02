@@ -12,5 +12,6 @@ namespace MicrosoftHouse
 			InitializeComponent();
 			BindingContext = new SearchRoomViewModel();
 		}
+
 	}
 }

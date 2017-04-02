@@ -26,7 +26,7 @@
 									VerticalOptions="FillAndExpand"
 									Orientation="Horizontal">
 						<Label Text="Rooms"
-								FontSize="48"
+								FontSize="Large"
 								TextColor="White"
 								VerticalOptions="StartAndExpand"
 								FontFamily="Avenir"
@@ -83,7 +83,7 @@
 									VerticalOptions="FillAndExpand"
 									Orientation="Horizontal">
 						<Label Text="Car Park"
-								FontSize="48"
+								FontSize="Large"
 								TextColor="White"
 								VerticalOptions="StartAndExpand"
 								FontFamily="Avenir"
@@ -137,7 +137,7 @@
 									VerticalOptions="FillAndExpand"
 									Orientation="Horizontal">
 						<Label Text="Next Events"
-								FontSize="48"
+								FontSize="Large"
 								TextColor="White"
 								VerticalOptions="StartAndExpand"
 								FontFamily="Avenir"

@@ -1,7 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-			x:Class="MicrosoftHouse.SearchRoomPage">
+			xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
+			x:Class="MicrosoftHouse.SearchRoomPage"
+			Padding="0,20,0,0"
+			BackgroundColor="#FFBA77FF">
 	<ContentPage.Content>
+		<Grid RowSpacing="0" BackgroundColor="White">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="45"/>
+					<RowDefinition Height="10"/>
+					<RowDefinition Height="45"/>
+					<RowDefinition Height="45"/>
+					<RowDefinition Height="45"/>
+					<RowDefinition Height="10"/>
+					<RowDefinition Height="45"/>
+					<RowDefinition Height="45"/>
+					<RowDefinition Height="200"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<StackLayout HeightRequest="50"
+							HorizontalOptions="FillAndExpand"
+							Padding="10"
+							BackgroundColor="#FFBA77FF"
+							Orientation="Horizontal"
+							Grid.Row="0"
+							Grid.Column="0">
+							<Image Source="CrossIconWhite.png"
+									HorizontalOptions="Start"
+									VerticalOptions="Center">
+								<Image.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding BackCommand}"/>
+								</Image.GestureRecognizers>
+							</Image>
+							<Label Text="Search Room"
+									TextColor="White"
+									FontFamily="Aevnir"
+									HorizontalOptions="CenterAndExpand"
+									HorizontalTextAlignment="Center"
+									VerticalOptions="Center"/>
+							<Image Source="SearchIcon.png"
+									HorizontalOptions="End"
+									VerticalOptions="Center">
+									<!--IsEnabled="{Binding Source={x:Reference validEvent},Path=IsValid}"
+									Opacity="{Binding Source={x:Reference validEvent},Path=IsValid}">-->
+								<Image.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding SearchCommand}"/>
+								</Image.GestureRecognizers>
+							</Image>
+					</StackLayout>
+			<StackLayout Grid.Row="2"
+							Grid.Column="0"
+							Padding="30,10,30,10"
+							Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<local:ExtendedDatePicker PlaceHolder="DATE"
+										TextColor="Black"
+										Font="Small"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="Center"/>
+						<Image Source="CalendarIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start"/>
+						</StackLayout>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1"/>
+			</StackLayout>
+			<StackLayout Grid.Row="3"
+									Grid.Column="0"
+									Padding="30,10,30,10"
+									Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<local:ExtendedTimePicker PlaceHolder="STARTING TIME"
+										TextColor="Black"
+										Font="Small"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="Center"/>
+						<Image Source="TimeIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start"/>
+						</StackLayout>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1"/>
+			</StackLayout>
+			<StackLayout Grid.Row="4"
+					Grid.Column="0"
+					Padding="30,10,30,0"
+					Orientation="Vertical">
+			<StackLayout Orientation="Horizontal">
+			<local:ExtendedEntry Placeholder="PEOPLE"
+									Keyboard="Numeric"
+									HorizontalOptions="FillAndExpand"
+									VerticalOptions="Center"
+									Font="Small"
+									TextColor="Black"
+									FontFamily="Avenir"
+									PlaceholderTextColor="Black"/>
+						<Image Source="PeopleIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start"/>
+						</StackLayout>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1"/>
+			</StackLayout>
+			<StackLayout Padding="30,10,30,10"
+						Grid.Row="6"
+						Grid.Column="0">
+					<Button x:Name="searchButton"
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="Center"
+						BackgroundColor="#FF01A4EF"
+						Text="SEARCH"
+						Command="{Binding SearchCommand}"
+						TextColor="White"
+						FontFamily="Avenir"
+						BorderRadius="0"
+						/>
+				<!--IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"-->
+				</StackLayout>
+			<Label Text="Available Now"
+					TextColor="Black"
+					FontFamily="Avenir"
+					FontSize="Large"
+					VerticalOptions="Center"
+					HorizontalOptions="StartAndExpand"
+					Grid.Row="7"
+					Grid.Column="0"/>
+		
+			<ListView BackgroundColor="#7F7F7F"
+	                ItemsSource="{Binding Rooms}"
+	                RowHeight="50"
+	                SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+					Grid.Row="8"
+					Grid.Column="0"> -->
+
+				<!--CachingStrategy="RecycleElement"
+					RefreshCommand="{Binding RefreshCommand}"
+					IsPullToRefreshEnabled="True"
+	                IsRefreshing="{Binding IsBusy, Mode=OneWay}"-->
+	       <ListView.ItemTemplate>
+	          <DataTemplate>
+	            <ViewCell>
+	              <StackLayout HorizontalOptions="FillAndExpand"
+	                           Orientation="Horizontal"
+	                           Padding="10"
+	                           VerticalOptions="CenterAndExpand">
+	                <Label HorizontalOptions="FillAndExpand"
+	                       Text="{Binding Name}"
+	                       TextColor="#272832" />
+					<Label HorizontalOptions="FillAndExpand"
+	                       Text="{Binding Floor}"
+	                       TextColor="#272832" />				
+	                <Label HorizontalOptions="FillAndExpand"
+	                       Text="{Binding Seats}"
+	                       TextColor="#272832" />	
+	              </StackLayout>
+	            </ViewCell>
+	          </DataTemplate>
+	        </ListView.ItemTemplate>
+	      </ListView>
+		</Grid>
 	</ContentPage.Content>
 </ContentPage>

@@ -194,6 +194,9 @@
     <BundleResource Include="Resources\Login-Icon-180.png" />
     <BundleResource Include="Resources\Login-Icon-180%402x.png" />
     <BundleResource Include="Resources\Login-Icon-180%403x.png" />
+    <BundleResource Include="Resources\SearchIcon.png" />
+    <BundleResource Include="Resources\SearchIcon%402x.png" />
+    <BundleResource Include="Resources\SearchIcon%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

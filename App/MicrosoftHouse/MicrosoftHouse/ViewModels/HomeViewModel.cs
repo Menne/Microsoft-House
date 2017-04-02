@@ -24,12 +24,14 @@ namespace MicrosoftHouse
 		{
 			//await Application.Current.MainPage.Navigation.PushAsync(new RoomDetailPage());
 
-			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new SearchRoomPage())
+			await Application.Current.MainPage.Navigation.PushModalAsync(new SearchRoomPage());
+
+			/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new SearchRoomPage())
 			{
 				//BarTextColor = Color.White,
 				//BarTitleFontFamily = "Avenir",
 				BarBackgroundColor = Color.FromHex("#FF01A4EF")
-			};
+			};*/
 		}
 
 		async Task ExecuteRoomCommand()
