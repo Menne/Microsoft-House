@@ -11,7 +11,7 @@ namespace MicrosoftHouse.ViewModels
 	{
 		public EntryPageViewModel()
 		{
-			Title = "MicrosoftHouse";
+			
 		}
 
 		Command loginCmd;

@@ -184,6 +184,12 @@
     <BundleResource Include="Resources\NotificationIcon.png" />
     <BundleResource Include="Resources\NotificationIcon%402x.png" />
     <BundleResource Include="Resources\NotificationIcon%403x.png" />
+    <BundleResource Include="Resources\MailIcon.png" />
+    <BundleResource Include="Resources\MailIcon%402x.png" />
+    <BundleResource Include="Resources\MailIcon%403x.png" />
+    <BundleResource Include="Resources\PasswordIcon.png" />
+    <BundleResource Include="Resources\PasswordIcon%402x.png" />
+    <BundleResource Include="Resources\PasswordIcon%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

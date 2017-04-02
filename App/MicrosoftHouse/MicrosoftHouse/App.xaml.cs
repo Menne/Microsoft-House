@@ -15,7 +15,7 @@ namespace MicrosoftHouse
 		public App()
         {
 			CloudService = new AzureCloudService();
-			MainPage = new NavigationPage(new EntryPage());
+			MainPage = new EntryPage();
 			//MainPage = new RoomList();
         }
 
