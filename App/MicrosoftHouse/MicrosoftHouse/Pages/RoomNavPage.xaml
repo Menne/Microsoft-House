@@ -10,11 +10,18 @@
 					 HorizontalOptions="FillAndExpand"
 					 Padding="10"
 					 BackgroundColor="#FF01A4EF">
+			<Grid RowSpacing="0" HorizontalOptions="FillAndExpand">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="40"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
 			<Button x:Name="availableRoomsButton"
-					HeightRequest="40"
-					WidthRequest="100"
 					VerticalOptions="Center"
-					HorizontalOptions="StartAndExpand"
+					HorizontalOptions="FillAndExpand"
 					Command="{Binding AvRoomCommand}"
 					Clicked="OnPressedAV"
 					Text="Available"
@@ -23,11 +30,11 @@
 					FontFamily="Avenir"
 					BorderWidth="1"
 					BorderColor="White"
-					BorderRadius="20"/>
+					BorderRadius="20"
+					Grid.Row="0"
+					Grid.Column="0"/>
 			<Button x:Name="allRoomsButton"
-					HeightRequest="40"
-					HorizontalOptions="CenterAndExpand"
-					WidthRequest="100"
+					HorizontalOptions="FillAndExpand"
 					VerticalOptions="Center"
 					Text="All"
 					TextColor="White"
@@ -36,11 +43,11 @@
 					BorderWidth="1"
 					FontFamily="Avenir"
 					BorderColor="White"
-					BorderRadius="20"/>
+					BorderRadius="20"
+					Grid.Row="0"
+					Grid.Column="1"/>
 			<Button x:Name="reservedRoomsButton"
-					HeightRequest="40"
-					HorizontalOptions="EndAndExpand"
-					WidthRequest="100"
+					HorizontalOptions="FillAndExpand"
 					VerticalOptions="Center"
 					Command="{Binding ReservedRoomCommand}"
 					Clicked="OnPressedRE"
@@ -49,7 +56,10 @@
 					TextColor="White"
 					FontFamily="Avenir"
 					BorderColor="White"
-					BorderRadius="20"/>
+					BorderRadius="20"
+					Grid.Row="0"
+					Grid.Column="2"/>
+			</Grid>
 		</StackLayout>
 		
 	</ContentPage.Content>

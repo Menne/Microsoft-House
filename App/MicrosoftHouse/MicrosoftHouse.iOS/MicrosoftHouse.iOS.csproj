@@ -197,6 +197,9 @@
     <BundleResource Include="Resources\SearchIcon.png" />
     <BundleResource Include="Resources\SearchIcon%402x.png" />
     <BundleResource Include="Resources\SearchIcon%403x.png" />
+    <BundleResource Include="Resources\PointIcon.png" />
+    <BundleResource Include="Resources\PointIcon%402x.png" />
+    <BundleResource Include="Resources\PointIcon%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

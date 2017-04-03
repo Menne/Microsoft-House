@@ -22,7 +22,10 @@ namespace MicrosoftHouse
 
 		async Task ExecuteSearchRoomCommand()
 		{
-			//await Application.Current.MainPage.Navigation.PushAsync(new RoomDetailPage());
+			/*Application.Current.MainPage = new NavigationPage(new SearchRoomPage())
+			{
+				BarBackgroundColor = Color.FromHex("#FF01A4EF")
+			};*/
 
 			await Application.Current.MainPage.Navigation.PushModalAsync(new SearchRoomPage());
 

@@ -38,23 +38,23 @@ namespace MicrosoftHouse
 			set { SetProperty(ref rooms, value, "Rooms"); }
 		}
 
-		Room selectedItem;
-		public Room SelectedItem
+		Room selectedRoom;
+		public Room SelectedRoom
 		{
-			get { return selectedItem; }
+			get { return selectedRoom; }
 			set
 			{
-				SetProperty(ref selectedItem, value, "SelectedItem");
-				if (selectedItem != null)
+				SetProperty(ref selectedRoom, value, "SelectedItem");
+				if (selectedRoom != null)
 				{
-					(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new RoomDetailPage(selectedItem))
+					/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new SelectedRoomPage(selectedRoom))
 					{
 						//BarTextColor = Color.White,
 						BarBackgroundColor = Color.FromHex("#FF01A4EF")
-					};
+					};*/
 
-					//Application.Current.MainPage.Navigation.PushAsync(new RoomDetailPage(selectedItem));
-					SelectedItem = null;
+					Application.Current.MainPage.Navigation.PushModalAsync(new SelectedRoomPage(selectedRoom));
+					SelectedRoom = null;
 				}
 			}
 		}
