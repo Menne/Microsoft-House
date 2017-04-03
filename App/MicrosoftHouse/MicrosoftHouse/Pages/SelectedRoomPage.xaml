@@ -174,7 +174,7 @@
 						Grid.Column="0">
 					<Button x:Name="searchButton"
 						HorizontalOptions="FillAndExpand"
-						VerticalOptions="Center"
+						VerticalOptions="FillAndExpand"
 						BackgroundColor="#FF01A4EF"
 						Text="RESERVE"
 						Command="{Binding BackCommand}"

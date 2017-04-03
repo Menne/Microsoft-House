@@ -28,7 +28,7 @@ namespace MicrosoftHouse
 			{
 				Name = "Rooms",
 				IconSource = "RoomIconWhite.png",
-				TargetType = typeof(RoomPage)
+				TargetType = typeof(RoomNavPage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{

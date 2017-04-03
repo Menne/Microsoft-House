@@ -23,7 +23,7 @@
 					 BackgroundColor="#FF01A4EF"
 					 Grid.Row="0"
 					 Grid.Column="0">
-				<Image Source="SplashIcon-120.png"
+				<Image Source="Login-Icon-180.png"
 						VerticalOptions="CenterAndExpand"
 						HorizontalOptions="CenterAndExpand"/>
 		</StackLayout>
@@ -74,7 +74,7 @@
 									Opacity="0.05"
 									HeightRequest="1"/>
 			</StackLayout>
-			<Button Grid.Row="4"
+			<!--<Button Grid.Row="4"
 					Grid.Column="0"
 					Text="Forgot Password"
 					TextColor="#FF1D1D26"
@@ -82,7 +82,7 @@
 					FontFamily="Aevnir"
 					Opacity="0.5"
 					VerticalOptions="Start"
-					HorizontalOptions="CenterAndExpand"/>
+					HorizontalOptions="CenterAndExpand"/>-->
 			<StackLayout Padding="30,10,30,10"
 						Grid.Row="5"
 						Grid.Column="0">

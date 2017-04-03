@@ -15,6 +15,7 @@ namespace MicrosoftHouse
 
 		public ListView ListView { get { return listView; } }
 
+
 		public void OnPressedAV(object sender, EventArgs e)
 		{
 			allRoomsButton.BackgroundColor = Color.Transparent;
@@ -49,5 +50,6 @@ namespace MicrosoftHouse
 			reservedRoomsButton.BackgroundColor = Color.White;
 
 		}
+
 	}
 }

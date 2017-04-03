@@ -97,15 +97,9 @@ namespace MicrosoftHouse
 			get { return selectedRoom; }
 			set
 			{
-				SetProperty(ref selectedRoom, value, "SelectedItem");
+				SetProperty(ref selectedRoom, value, "SelectedRoom");
 				if (selectedRoom != null)
 				{
-					/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new SelectedRoomPage(selectedRoom))
-					{
-						//BarTextColor = Color.White,
-						BarBackgroundColor = Color.FromHex("#FF01A4EF")
-					};*/
-
 					Application.Current.MainPage.Navigation.PushModalAsync(new SelectedRoomPage(selectedRoom));
 					SelectedRoom = null;
 				}
