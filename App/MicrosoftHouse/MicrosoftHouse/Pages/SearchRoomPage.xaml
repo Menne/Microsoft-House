@@ -137,6 +137,7 @@
 						Grid.Column="0">
 			<ListView ItemsSource="{Binding Rooms}"
 	                RowHeight="100"
+					SeparatorVisibility="None"
 	                SelectedItem="{Binding SelectedRoom, Mode=TwoWay}">
 
 				<!--CachingStrategy="RecycleElement"
@@ -146,6 +147,7 @@
 	       <ListView.ItemTemplate>
 	          <DataTemplate>
 	            <ViewCell>
+				<StackLayout>
 	              <StackLayout HorizontalOptions="FillAndExpand"
 	                           Orientation="Horizontal"
 	                           Padding="30,0,30,0"
@@ -158,6 +160,7 @@
 						<Button BackgroundColor="Green"
 									HeightRequest="15"
 									WidthRequest="15"
+									IsEnabled="false"
 									BorderRadius="8"/>
 					</StackLayout>
 	                <StackLayout Orientation="Vertical"
@@ -182,8 +185,11 @@
 	                       TextColor="#272832"
 						   FontSize="Medium"/>
 					</StackLayout>
-	             		
 	              </StackLayout>
+					<BoxView Color="Black"
+							Opacity="0.05"
+							HeightRequest="1"/>
+				</StackLayout>
 	            </ViewCell>
 	          </DataTemplate>
 	        </ListView.ItemTemplate>

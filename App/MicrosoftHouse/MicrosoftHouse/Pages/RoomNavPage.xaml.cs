@@ -13,6 +13,8 @@ namespace MicrosoftHouse
 			BindingContext = new RoomViewModel();
 		}
 
+		public ListView ListView { get { return listView; } }
+
 		public void OnPressedAV(object sender, EventArgs e)
 		{
 			allRoomsButton.BackgroundColor = Color.Transparent;
@@ -22,6 +24,7 @@ namespace MicrosoftHouse
 
 			availableRoomsButton.TextColor = Color.FromHex("#FF01A4EF");
 			availableRoomsButton.BackgroundColor = Color.White;
+
 		}
 
 		public void OnPressedALL(object sender, EventArgs e)

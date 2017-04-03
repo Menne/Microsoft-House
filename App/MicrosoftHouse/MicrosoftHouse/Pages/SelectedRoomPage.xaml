@@ -55,10 +55,12 @@
 						 Orientation="Horizontal"
 						 Grid.Row="1"
 						 Grid.Column="0"
+						 Padding="30,10,30,10"
 						 HorizontalOptions="FillAndExpand"
 						 VerticalOptions="FillAndExpand">
 				<StackLayout Orientation="Vertical" 
-								Padding="30">
+								Padding="10"
+								HorizontalOptions="StartAndExpand">
 					<Label FontSize="Large"
 							FontFamily="Avenir"
 							Text="{Binding Room.Seats}"
@@ -75,7 +77,8 @@
 					</Image>
 				</StackLayout>
 				<StackLayout Orientation="Vertical"
-								Padding="30">
+								Padding="10"
+								HorizontalOptions="CenterAndExpand">
 					<Label FontSize="Large"
 							HorizontalOptions="Center"
 							FontFamily="Avenir"
@@ -92,7 +95,8 @@
 					</Image>
 				</StackLayout>
 				<StackLayout Orientation="Vertical"
-								Padding="30">
+								Padding="10"
+								HorizontalOptions="EndAndExpand">
 					<Label FontSize="Large"
 							FontFamily="Avenir"
 							HorizontalOptions="Center"
