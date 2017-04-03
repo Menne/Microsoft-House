@@ -155,6 +155,10 @@
       <DependentUpon>SelectedRoomPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\SelectedRoomViewModel.cs" />
+    <Compile Include="Pages\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PageIniziale.xaml">
@@ -223,6 +227,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\SelectedRoomPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

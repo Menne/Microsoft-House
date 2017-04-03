@@ -23,7 +23,7 @@
 					 BackgroundColor="#FF01A4EF"
 					 Grid.Row="0"
 					 Grid.Column="0">
-				<Image Source="Login-Icon-180.png"
+				<Image Source="SplashIcon-120.png"
 						VerticalOptions="CenterAndExpand"
 						HorizontalOptions="CenterAndExpand"/>
 		</StackLayout>

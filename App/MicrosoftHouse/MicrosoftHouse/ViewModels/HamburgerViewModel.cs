@@ -28,7 +28,7 @@ namespace MicrosoftHouse
 			{
 				Name = "Rooms",
 				IconSource = "RoomIconWhite.png",
-				//TargetType = typeof(TodoListPage)
+				TargetType = typeof(RoomPage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{
@@ -46,7 +46,7 @@ namespace MicrosoftHouse
 			{
 				Name = "User",
 				IconSource = "UserIconWhite.png",
-				//TargetType = typeof(ReminderPage)
+				TargetType = typeof(ProfilePage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{
@@ -58,7 +58,7 @@ namespace MicrosoftHouse
 			{
 				Name = "Logout",
 				IconSource = "LogoutIconWhite.png",
-				//TargetType = typeof(ReminderPage)
+				TargetType = typeof(EntryPage)
 			});
 
 		}

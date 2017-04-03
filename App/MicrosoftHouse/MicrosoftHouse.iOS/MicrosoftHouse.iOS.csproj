@@ -200,6 +200,7 @@
     <BundleResource Include="Resources\PointIcon.png" />
     <BundleResource Include="Resources\PointIcon%402x.png" />
     <BundleResource Include="Resources\PointIcon%403x.png" />
+    <InterfaceDefinition Include="Resources\Launch Screen.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
