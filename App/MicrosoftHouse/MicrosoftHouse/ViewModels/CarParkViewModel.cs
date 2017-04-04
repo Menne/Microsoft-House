@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,62 @@ namespace MicrosoftHouse.ViewModels
     {
 
         public CarParkViewModel()
+        {
+            RetrieveParkInfo();
+            RetrieveStatistics();
+            
+            ChangeDayCommand = new Command<string>(execute: (string dayOfWeek) => ShowStatistics(Int32.Parse(dayOfWeek)));
+
+            SelectedDayStatistics = Statistics.ElementAt(0);
+        }
+
+
+        public Command ChangeDayCommand { get; private set; }
+
+        ObservableCollection<Label> statistics;
+        public ObservableCollection<Label> Statistics
+        { 
+            get { return statistics; }
+            set { SetProperty(ref statistics, value, "Statistics"); }
+        }
+
+        Label selectedDayStatistics = new Label();
+        public Label SelectedDayStatistics
+        {
+            get { return selectedDayStatistics; }
+            set { SetProperty(ref selectedDayStatistics, value, "SelectedDayStatistics"); }
+        }
+
+        int parkingSpaces;
+        public int ParkingSpaces
+        {
+            set { SetProperty(ref parkingSpaces, value); }
+            get { return parkingSpaces; }
+        }
+
+        int distance;
+        public int Distance
+        {
+            set { SetProperty(ref distance, value); }
+            get { return distance; }
+        }
+
+        int timeToArrival;
+        public int TimeToArrival
+        {
+            set { SetProperty(ref timeToArrival, value); }
+            get { return timeToArrival; }
+        }
+
+
+        private void RetrieveParkInfo()
+        {
+            parkingSpaces = 25;
+            distance = 3;
+            timeToArrival = 15;
+        }
+
+        private void RetrieveStatistics()
         {
             Statistics = new ObservableCollection<Label>
             {
@@ -44,42 +101,12 @@ namespace MicrosoftHouse.ViewModels
                     Text = "sunday"
                 },
             };
-
-            ChangeDayCommand = new Command<string>(execute: (string dayOfWeek) => ShowStatistics(Int32.Parse(dayOfWeek)));
-
-            SelectedDayStatistics = Statistics.ElementAt(0);
         }
-
-
-        int parkingSpaces = 25, distance = 3, timeToArrival = 15;
-
-        public ObservableCollection<Label> Statistics { get; set; }
-        public Label SelectedDayStatistics { get; set; }
-
-        public Command ChangeDayCommand { get; private set; }
-
-        public int ParkingSpaces
-        {
-            set { SetProperty(ref parkingSpaces, value); }
-            get { return parkingSpaces; }
-        }
-
-        public int Distance
-        {
-            set { SetProperty(ref distance, value); }
-            get { return distance; }
-        }
-
-        public int TimeToArrival
-        {
-            set { SetProperty(ref timeToArrival, value); }
-            get { return timeToArrival; }
-        }
-
 
         private void ShowStatistics(int dayOfWeek)
         {
             SelectedDayStatistics = Statistics.ElementAt(dayOfWeek);
+            Debug.WriteLine(Statistics.ElementAt(dayOfWeek).Text);
         }
         
 
