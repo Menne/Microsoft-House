@@ -18,28 +18,26 @@ namespace MicrosoftHouse.ViewModels
         public CalendarViewModel()
         {
             NewEventCommand = new Command(async () => await ExecuteNewEventCommand());
-            SelectedDateCommand = new Command(async () => await ExecuteSelectedDateCommand());
+    //        SelectedDateCommand = new Command(async () => await ExecuteSelectedDateCommand());
             RetrieveEvents();
         }
 
 
         public Command NewEventCommand { get; }
-        public Command SelectedDateCommand { get; }
+   //     public Command SelectedDateCommand { get; }
 
 
-        DateTime? selectedDate;
-        public DateTime? SelectedDate
+        DateTime? date;
+        public DateTime? Date
         {
-            get { return selectedDate; }
-            set
-            {
-                SetProperty(ref selectedDate, value, "SelectedDate");
-                if (selectedDate != null)
-                    ExecuteSelectedDateCommand();
+            get { return date; }
+            set { SetProperty(ref date, value, "SelectedDate");
+                if (date != null)
+                    ShowEventsOfTheDay(); 
             }
         }
 
-        ObservableCollection<Event> eventsOfSelectedDay;
+        ObservableCollection<Event> eventsOfSelectedDay = new ObservableCollection<Event>();
         public ObservableCollection<Event> EventsOfSelectedDay
         {
             get { return eventsOfSelectedDay; }
@@ -89,16 +87,12 @@ namespace MicrosoftHouse.ViewModels
              await Application.Current.MainPage.Navigation.PushModalAsync(new NewEventPage());
         }
 
-        async Task ExecuteSelectedDateCommand()
+        private void ShowEventsOfTheDay()
         {
-            if (IsBusy)
-                return;
-            IsBusy = true;
             EventsOfSelectedDay.Clear();
-            foreach (var item in AllEvents)
-                if (item.StartingDate.Date == SelectedDate.Value.Date)
+            foreach (Event item in AllEvents)
+                if (item.StartingDate.Date == Date.Value.Date)
                     EventsOfSelectedDay.Add(item);
-            IsBusy = false;
         }
 
 

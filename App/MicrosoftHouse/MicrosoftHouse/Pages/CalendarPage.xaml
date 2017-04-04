@@ -11,7 +11,8 @@
                     Android="5, 5, 5, 5"
                     WinPhone="5, 5, 5, 5" />
             </StackLayout.Padding>
-            <local:Calendar Padding="10,0,10,0"
+            <local:Calendar x:Name="CalendarProva"
+                            Padding="10,0,10,0"
                             SelectedBorderColor="Blue"
                             SelectedBorderWidth="4"
                             BorderColor="Transparent"
@@ -22,8 +23,7 @@
                             TitleLabelTextColor="Black"
                             TitleLeftArrowTextColor="Blue"
                             TitleRightArrowTextColor="Blue"
-                            SelectedDate="{Binding SelectedDate}"
-                            DateCommand="{Binding SelectedDateCommand}" >
+                            SelectedDate="{Binding Date}">
             </local:Calendar>
             <Button x:Name="newEvent"
                     BackgroundColor="#FF00BAFF"
@@ -36,7 +36,7 @@
                     Command="{Binding CreateNewEventCommand}"/>
             <ListView CachingStrategy="RecycleElement"
                           IsPullToRefreshEnabled="True"
-                          ItemsSource="{Binding EventsOfSelectedDay}"
+                          ItemsSource="{Binding EventsOfSelectedDay, Mode=TwoWay}"
                           RowHeight="50">
                 <!--     RefreshCommand="{Binding RefreshCommand}"  -->
                 <!--     SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">   -->
