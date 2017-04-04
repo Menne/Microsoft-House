@@ -3,14 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
-             x:Class="MicrosoftHouse.CarParkPage">
+             x:Class="MicrosoftHouse.CarParkPage"
+             Title="PARK">
 
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout HorizontalOptions="FillAndExpand"
-			    	 	 Orientation="Horizontal"
-                         Padding="20"
-				     	 BackgroundColor="#FF4A3764">
+        <StackLayout Orientation="Vertical"
+					 VerticalOptions="FillAndExpand"
+					 HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal"
+					 VerticalOptions="Start"
+					 HorizontalOptions="FillAndExpand"
+					 Padding="10,10,10,10"
+					 BackgroundColor="#FF01A4EF">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -52,16 +56,7 @@
                     </StackLayout>
                 </Grid>
             </StackLayout>
-            <Button x:Name="parkCar"
-                    BackgroundColor="#FF00BAFF"
-                    HeightRequest="40"
-					WidthRequest="120"
-					VerticalOptions="Center"
-					HorizontalOptions="Center"
-                    Text="PARK"
-                    TextColor="#ffffff"
-					BorderRadius="0"
-					FontFamily="Avenir"/>
+            
 
   <!--          <cv:CarouselView ItemsSource="{Binding ItemsForCarousel}"
                              x:Name="CarouselStatisticheProva">
@@ -78,8 +73,8 @@
 
             <StackLayout Orientation="Vertical"
                          HorizontalOptions="FillAndExpand"
-                         Padding="20"
-				     	 BackgroundColor="White">
+                         VerticalOptions="Center"
+                         Padding="20">
                 <Label BindingContext="{Binding SelectedDayStatistics}"
                        Text="{Binding Text}"
                        TextColor="Black"
@@ -152,6 +147,14 @@
                             Grid.Column="6"/>
                 </Grid>
             </StackLayout>
+            <Button x:Name="parkCar"
+                    BackgroundColor="#FF00BAFF"
+					VerticalOptions="End"
+					HorizontalOptions="Center"
+                    Text="PARK NOW"
+                    TextColor="#ffffff"
+					BorderRadius="40"
+					FontFamily="Avenir"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

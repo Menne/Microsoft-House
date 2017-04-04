@@ -12,7 +12,7 @@
 					 Padding="10,10,10,10"
 					 BackgroundColor="#FF01A4EF">
 			<Grid RowSpacing="0" 
-					HorizontalOptions="FillAndExpand">
+				  HorizontalOptions="FillAndExpand">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="40"/>
 				</Grid.RowDefinitions>

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
-             x:Class="MicrosoftHouse.CalendarPage">
+             x:Class="MicrosoftHouse.CalendarPage"
+             Title="EVENTS">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout.Padding>
@@ -11,7 +12,13 @@
                     Android="5, 5, 5, 5"
                     WinPhone="5, 5, 5, 5" />
             </StackLayout.Padding>
-            <local:Calendar x:Name="CalendarProva"
+            <Grid HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1,3*"/>
+                    <RowDefinition Height="0,7*"/>
+                </Grid.RowDefinitions>
+
+                <local:Calendar x:Name="CalendarProva"
                             Padding="10,0,10,0"
                             SelectedBorderColor="Blue"
                             SelectedBorderWidth="4"
@@ -23,47 +30,52 @@
                             TitleLabelTextColor="Black"
                             TitleLeftArrowTextColor="Blue"
                             TitleRightArrowTextColor="Blue"
-                            SelectedDate="{Binding Date}">
-            </local:Calendar>
+                            SelectedDate="{Binding Date}"
+                            Grid.Row="0">
+                </local:Calendar>
+
+                <ListView CachingStrategy="RecycleElement"
+                          IsPullToRefreshEnabled="True"
+                          ItemsSource="{Binding EventsOfSelectedDay, Mode=TwoWay}"
+                          RowHeight="50"
+                          Grid.Row="1">
+                    <!--     RefreshCommand="{Binding RefreshCommand}"  -->
+                    <!--     SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">   -->
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <Label HorizontalOptions="Fill"
+                                       Text="{Binding Name}"
+                                       FontSize="Medium"
+                                       TextColor="#272832" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label HorizontalOptions="Start"
+                                           Text="{Binding StartingDate}"
+                                           FontSize="Small"
+                                           TextColor="#272832" />
+                                        <Label HorizontalOptions="Start"
+                                           Text="{Binding Place}"
+                                           FontSize="Small"
+                                           TextColor="#272832" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
             <Button x:Name="newEvent"
                     BackgroundColor="#FF00BAFF"
                     Text="Add a new event"
 			        VerticalOptions="Center"
-					HorizontalOptions="End"
+					HorizontalOptions="Center"
 	                TextColor="#ffffff"
-					BorderRadius="10"
+					BorderRadius="40"
 					FontFamily="Avenir"
                     Command="{Binding CreateNewEventCommand}"/>
-            <ListView CachingStrategy="RecycleElement"
-                          IsPullToRefreshEnabled="True"
-                          ItemsSource="{Binding EventsOfSelectedDay, Mode=TwoWay}"
-                          RowHeight="50">
-                <!--     RefreshCommand="{Binding RefreshCommand}"  -->
-                <!--     SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">   -->
-
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Vertical">
-                                <Label HorizontalOptions="Fill"
-                                       Text="{Binding Name}"
-                                       FontSize="Medium"
-                                       TextColor="#272832" />
-                                <StackLayout Orientation="Horizontal">
-                                    <Label HorizontalOptions="Start"
-                                           Text="{Binding StartingDate}"
-                                           FontSize="Small"
-                                           TextColor="#272832" />
-                                    <Label HorizontalOptions="Start"
-                                           Text="{Binding Place}"
-                                           FontSize="Small"
-                                           TextColor="#272832" />
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
