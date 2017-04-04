@@ -5,7 +5,6 @@ using System.Linq;
 using Xamarin.Forms;
 
 [assembly: ExportRenderer(typeof(Button), typeof(MicrosoftHouse.Droid.CustomButtonRenderer))]
-
 namespace MicrosoftHouse.Droid
 {
     public class CustomButtonRenderer : Xamarin.Forms.Platform.Android.ButtonRenderer
