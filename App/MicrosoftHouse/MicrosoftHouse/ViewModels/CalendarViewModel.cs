@@ -27,17 +27,15 @@ namespace MicrosoftHouse.ViewModels
         public Command SelectedDateCommand { get; }
 
 
-        private DateTime? selectedDate;
+        DateTime? selectedDate;
         public DateTime? SelectedDate
         {
-            get
-            {
-                return selectedDate;
-            }
+            get { return selectedDate; }
             set
             {
-                selectedDate = value;
-           //     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("selectedDate"));
+                SetProperty(ref selectedDate, value, "SelectedDate");
+                if (selectedDate != null)
+                    ExecuteSelectedDateCommand();
             }
         }
 
@@ -48,8 +46,8 @@ namespace MicrosoftHouse.ViewModels
             set { SetProperty(ref eventsOfSelectedDay, value, "EventsOfSelectedDay"); }
         }
 
-        List<Event> allEvents;
-        public List<Event> AllEvents
+        ObservableCollection<Event> allEvents;
+        public ObservableCollection<Event> AllEvents
         {
             get { return allEvents; }
             set { SetProperty(ref allEvents, value, "AllEvents"); }
@@ -57,7 +55,7 @@ namespace MicrosoftHouse.ViewModels
 
         private void RetrieveEvents()
         {
-            AllEvents = new List<Event>
+            AllEvents = new ObservableCollection<Event>
             {
                 new Event
                 {
@@ -98,7 +96,7 @@ namespace MicrosoftHouse.ViewModels
             IsBusy = true;
             EventsOfSelectedDay.Clear();
             foreach (var item in AllEvents)
-                if (item.StartingDate.Date == SelectedDate)
+                if (item.StartingDate.Date == SelectedDate.Value.Date)
                     EventsOfSelectedDay.Add(item);
             IsBusy = false;
         }

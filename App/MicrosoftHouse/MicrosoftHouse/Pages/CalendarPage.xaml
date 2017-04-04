@@ -36,7 +36,7 @@
                     Command="{Binding CreateNewEventCommand}"/>
             <ListView CachingStrategy="RecycleElement"
                           IsPullToRefreshEnabled="True"
-                          ItemsSource="{Binding EventsProva}"
+                          ItemsSource="{Binding EventsOfSelectedDay}"
                           RowHeight="50">
                 <!--     RefreshCommand="{Binding RefreshCommand}"  -->
                 <!--     SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">   -->
