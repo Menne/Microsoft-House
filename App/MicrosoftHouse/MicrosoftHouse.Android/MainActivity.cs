@@ -33,7 +33,7 @@ namespace MicrosoftHouse.Droid
             //		((DroidLoginProvider)DependencyService.Get<ILoginProvider>()).Init(this);
 
             LoadApplication(new App());
-			//SetPage(App.GetMainPage());
+
         }
 
     }
