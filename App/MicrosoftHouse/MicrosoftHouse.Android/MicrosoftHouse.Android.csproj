@@ -147,6 +147,7 @@
     <Compile Include="Renderers\ExtendedEntryRender.cs" />
     <Compile Include="Renderers\ExtendedDatePickerRender.cs" />
     <Compile Include="Renderers\ExtendedTimePickerRender.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -155,10 +156,75 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\HomeIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\HomeIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\HomeIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\HomeIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\CalendarIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\CalendarIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\CrossIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\LoginIcon180.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\MailIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ParkIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\PasswordIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\PeopleIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\RoomIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\SearchIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\SettingsIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\TimeIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\UserIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\CalendarIcon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\CalendarIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\CrossIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\MailIcon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ParkIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\PasswordIcon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\PeopleIcon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\RoomIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\SearchIcon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\SettingsIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\SplashIcon120.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\TimeIcon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\UserIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\CalendarIcon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\CalendarIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\CrossIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\LoginIcon180.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\MailIcon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ParkIcon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ParkIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\PasswordIcon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\PeopleIcon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\RoomIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\SearchIcon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\SettingsIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\TimeIcon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\UserIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\CalendarIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\CrossIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\LoginIcon180.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\MailIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ParkIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ParkIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\PasswordIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\PeopleIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\RoomIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\SearchIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\SettingsIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\TimeIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\UserIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\LogoutIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\LogoutIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\LogoutIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\LogoutIconWhite.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\LoginIcon180.png" />
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+    <AndroidResource Include="Resources\values\Colors.xml" />
+    <AndroidResource Include="Resources\drawable\splash_logo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -176,6 +242,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
+    <Folder Include="Resources\drawable-ldpi\" />
+    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

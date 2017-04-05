@@ -13,8 +13,9 @@ using System.Reflection;
 
 namespace MicrosoftHouse.Droid
 {
-    [Activity(Label = "MicrosoftHouse", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+	//, MainLauncher = true
+    [Activity(Label = "MicrosoftHouse", Icon = "@drawable/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -23,7 +24,7 @@ namespace MicrosoftHouse.Droid
 
             base.OnCreate(bundle);
 
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+			//Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
@@ -32,6 +33,7 @@ namespace MicrosoftHouse.Droid
             //		((DroidLoginProvider)DependencyService.Get<ILoginProvider>()).Init(this);
 
             LoadApplication(new App());
+			//SetPage(App.GetMainPage());
         }
 
     }
