@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
              x:Class="MicrosoftHouse.CarParkPage"
              Title="PARK">
 
@@ -79,6 +80,12 @@
                        Text="{Binding Text}"
                        TextColor="Black"
                        FontSize="Large"/>
+
+                <oxy:PlotView Model="{Binding StatisticsChart}"
+                              VerticalOptions="Center"
+                              HorizontalOptions="Center" >
+                </oxy:PlotView>
+
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

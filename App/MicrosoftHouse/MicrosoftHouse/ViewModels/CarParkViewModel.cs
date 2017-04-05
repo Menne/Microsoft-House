@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OxyPlot;
+using OxyPlot.Axes;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -16,6 +18,7 @@ namespace MicrosoftHouse.ViewModels
         {
             RetrieveParkInfo();
             RetrieveStatistics();
+            InitializePlot();
             
             ChangeDayCommand = new Command<string>(execute: (string dayOfWeek) => ShowStatistics(Int32.Parse(dayOfWeek)));
 
@@ -38,6 +41,15 @@ namespace MicrosoftHouse.ViewModels
             get { return selectedDayStatistics; }
             set { SetProperty(ref selectedDayStatistics, value, "SelectedDayStatistics"); }
         }
+
+
+        PlotModel statisticsChart = new PlotModel();
+        public PlotModel StatisticsChart
+        {
+            get { return statisticsChart; }
+            set { SetProperty(ref statisticsChart, value, "StatisticsChart"); }
+        }
+
 
         int parkingSpaces;
         public int ParkingSpaces
@@ -108,7 +120,14 @@ namespace MicrosoftHouse.ViewModels
             SelectedDayStatistics = Statistics.ElementAt(dayOfWeek);
             Debug.WriteLine(Statistics.ElementAt(dayOfWeek).Text);
         }
-        
+
+        private void InitializePlot()
+        {
+            statisticsChart.Title = "prova";
+            statisticsChart.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Minimum = -20, Maximum = 80 });
+            statisticsChart.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Minimum = -20, Maximum = 80 });
+        }
+
 
     }
 }
