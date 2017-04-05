@@ -7,7 +7,7 @@
     RequestedTheme="Light">
     <Application.Resources>
         <!-- Serve per il carousel in UWP 
-        <DataTemplate x:Key="ItemTemplate">            
+        <DataTemplate x:Key="ItemTemplate">
             <uwp:ItemControl HorizontalContentAlignment="Stretch"
                              VerticalContentAlignment="Stretch" />         
         </DataTemplate>  -->

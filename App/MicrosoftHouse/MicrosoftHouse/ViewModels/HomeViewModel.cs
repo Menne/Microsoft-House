@@ -27,12 +27,13 @@ namespace MicrosoftHouse
 
 		async Task ExecuteSearchRoomCommand()
 		{
-			/*Application.Current.MainPage = new NavigationPage(new SearchRoomPage())
+            /*Application.Current.MainPage = new NavigationPage(new SearchRoomPage())
 			{
 				BarBackgroundColor = Color.FromHex("#FF01A4EF")
 			};*/
 
-			//await Application.Current.MainPage.Navigation.PushAsync(new SearchRoomPage());
+            //await Application.Current.MainPage.Navigation.PushAsync(new SearchRoomPage());
+            System.Diagnostics.Debug.WriteLine("ciao");
 			await Application.Current.MainPage.Navigation.PushModalAsync(new SearchRoomPage());
 
 			/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new SearchRoomPage())
@@ -59,12 +60,12 @@ namespace MicrosoftHouse
 			//From the Bottom - Modal Page --> Aggiungere la Toolbar (Guardare il Capitolo)
 			await Application.Current.MainPage.Navigation.PushModalAsync(new NewEventPage());
 
-			/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new NewEventPage())
+            /*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new NewEventPage())
 			{
 				BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#FF01A4EF")
 			};*/
-		}
+        }
 
 		// QRCODE
 

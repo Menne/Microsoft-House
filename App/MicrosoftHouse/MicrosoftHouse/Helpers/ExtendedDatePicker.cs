@@ -36,14 +36,8 @@ namespace MicrosoftHouse
 
 		public string PlaceHolder
 		{
-			get
-			{
-				return (string)GetValue(PlaceHolderProperty);
-			}
-			set
-			{
-				SetValue(PlaceHolderProperty, value);
-			}
+			get { return (string)GetValue(PlaceHolderProperty); }
+			set { SetValue(PlaceHolderProperty, value); }
 		}
 	}
 }

@@ -43,5 +43,10 @@ namespace MicrosoftHouse.Droid
 		{
 			this.Control.SetTextColor(datePicker.TextColor.ToAndroid());
 		}
-	}
+
+        void SetPlaceholder(ExtendedDatePicker datePicker)
+        {
+            this.Control.Text = datePicker.PlaceHolder;
+        }
+    }
 }

@@ -18,14 +18,11 @@ namespace MicrosoftHouse.ViewModels
         public CalendarViewModel()
         {
             NewEventCommand = new Command(async () => await ExecuteNewEventCommand());
-    //        SelectedDateCommand = new Command(async () => await ExecuteSelectedDateCommand());
             RetrieveEvents();
         }
 
 
         public Command NewEventCommand { get; }
-   //     public Command SelectedDateCommand { get; }
-
 
         DateTime? date;
         public DateTime? Date
@@ -94,53 +91,6 @@ namespace MicrosoftHouse.ViewModels
                 if (item.StartingDate.Date == Date.Value.Date)
                     EventsOfSelectedDay.Add(item);
         }
-
-
-
-        /* servirà per vedere i dettagli di evento/data
-
-        Event selectedEvent;
-        public Event SelectedEvent
-        {
-            get { return selectedEvent; }
-            set
-            {
-                SetProperty(ref selectedEvent, value, "SelectedEvent");
-                if (selectedEvent != null)
-                {
-                    Application.Current.MainPage.Navigation.PushAsync(new EventDetailsPage());
-                    selectedEvent = null;
-                }
-            }
-        } 
-
-             
-             async Task ExecuteRefreshCommand()
-             {
-                 if (IsBusy)
-                     return;
-                 IsBusy = true;
-
-                 try
-                 {
-                     var table = App.CloudService.GetTable<Room>();
-                     var list = await table.ReadAllRoomsAsync();
-                     EventsProva.Clear();
-                     foreach (var item in list)
-                         EventsProva.Add(selectedEvent);
-                 }
-                 catch (Exception ex)
-                 {
-                     Debug.WriteLine($"[RoomList] Error loading items: {ex.Message}");
-                 }
-                 finally
-                 {
-                     IsBusy = false;
-                 }
-             }   
-
-    */
-
 
 
     }

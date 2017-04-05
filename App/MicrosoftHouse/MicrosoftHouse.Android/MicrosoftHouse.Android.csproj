@@ -154,8 +154,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Renderers\CalendarButtonRenderer.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Renderers\CalendarButtonRenderer.cs" />
     <Compile Include="Renderers\CustomButtonRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -257,8 +257,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
-    <Folder Include="Resources\drawable-ldpi\" />
-    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
