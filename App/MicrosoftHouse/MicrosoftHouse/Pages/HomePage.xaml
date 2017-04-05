@@ -120,6 +120,7 @@
 									VerticalOptions="CenterAndExpand"
 									HorizontalOptions="EndAndExpand"
 									Text="Park"
+									Command="{Binding NewParkCommand}"
 									TextColor="White"
 									FontFamily="Avenir"
 									BorderRadius="20"/>

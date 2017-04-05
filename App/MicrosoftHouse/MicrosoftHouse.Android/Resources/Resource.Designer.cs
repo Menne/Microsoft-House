@@ -27,6 +27,12 @@ namespace MicrosoftHouse.Droid
 		public static void UpdateIdValues()
 		{
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::MicrosoftHouse.Droid.Resource.Attribute.actionBarSize;
+			global::ZXing.Mobile.Resource.Id.contentFrame = global::MicrosoftHouse.Droid.Resource.Id.contentFrame;
+			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::MicrosoftHouse.Droid.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::MicrosoftHouse.Droid.Resource.Layout.zxingscannerfragmentlayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscanneractivitylayout = global::MicrosoftHouse.Droid.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.Layout.zxingscannerfragmentlayout = global::MicrosoftHouse.Droid.Resource.Layout.zxingscannerfragmentlayout;
+			global::ZXing.Net.Mobile.Forms.Android.Resource.String.library_name = global::MicrosoftHouse.Droid.Resource.String.library_name;
 		}
 		
 		public partial class Animation
@@ -2940,6 +2946,9 @@ namespace MicrosoftHouse.Droid
 			// aapt resource value: 0x7f0c003d
 			public const int collapseActionView = 2131492925;
 			
+			// aapt resource value: 0x7f0c00b2
+			public const int contentFrame = 2131493042;
+			
 			// aapt resource value: 0x7f0c004e
 			public const int contentPanel = 2131492942;
 			
@@ -3051,8 +3060,8 @@ namespace MicrosoftHouse.Droid
 			// aapt resource value: 0x7f0c0048
 			public const int list_item = 2131492936;
 			
-			// aapt resource value: 0x7f0c00b3
-			public const int masked = 2131493043;
+			// aapt resource value: 0x7f0c00b4
+			public const int masked = 2131493044;
 			
 			// aapt resource value: 0x7f0c009f
 			public const int media_actions = 2131493023;
@@ -3357,8 +3366,8 @@ namespace MicrosoftHouse.Droid
 			// aapt resource value: 0x7f0c0002
 			public const int view_offset_helper = 2131492866;
 			
-			// aapt resource value: 0x7f0c00b2
-			public const int visible = 2131493042;
+			// aapt resource value: 0x7f0c00b3
+			public const int visible = 2131493043;
 			
 			// aapt resource value: 0x7f0c0091
 			public const int volume_item_container = 2131493009;
@@ -3654,6 +3663,12 @@ namespace MicrosoftHouse.Droid
 			// aapt resource value: 0x7f030043
 			public const int Toolbar = 2130903107;
 			
+			// aapt resource value: 0x7f030044
+			public const int zxingscanneractivitylayout = 2130903108;
+			
+			// aapt resource value: 0x7f030045
+			public const int zxingscannerfragmentlayout = 2130903109;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -3768,6 +3783,9 @@ namespace MicrosoftHouse.Droid
 			
 			// aapt resource value: 0x7f0a0016
 			public const int character_counter_pattern = 2131361814;
+			
+			// aapt resource value: 0x7f0a003d
+			public const int library_name = 2131361853;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int mr_button_content_description = 2131361792;

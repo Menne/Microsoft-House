@@ -25,10 +25,13 @@ namespace MicrosoftHouse.iOS
             global::Xamarin.Forms.Forms.Init();
 
 			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+			ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
+
+
         }
     }
 }

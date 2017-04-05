@@ -48,5 +48,7 @@
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>MH</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Can We Use Your Camera</string>
 </dict>
 </plist>

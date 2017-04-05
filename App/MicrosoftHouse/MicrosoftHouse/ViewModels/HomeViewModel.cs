@@ -3,22 +3,27 @@ using System.Diagnostics.Contracts;
 using System.Threading.Tasks;
 using MicrosoftHouse.Abstractions;
 using Xamarin.Forms;
+using ZXing.Net.Mobile.Forms;
 
 namespace MicrosoftHouse
 {
 	public class HomeViewModel : BaseViewModel
 	{
+		ZXingScannerPage scanPage;
 		public HomeViewModel()
 		{
 			
 			SearchRoomCommand = new Command(async () => await ExecuteSearchRoomCommand());
 			RoomCommand = new Command(async () => await ExecuteRoomCommand());
-			NewEventCommand = new Command(async () => await ExecuteNewEventCommand());
+			NewEventCommand = new Command(async () => ExecuteNewEventCommand());
+			NewParkCommand = new Command(async () => ExecuteNewParkCommand());
+
 		}
 
 		public Command SearchRoomCommand { get; }
 		public Command RoomCommand { get; }
 		public Command NewEventCommand { get; }
+		public Command NewParkCommand { get; }
 
 		async Task ExecuteSearchRoomCommand()
 		{
@@ -27,6 +32,7 @@ namespace MicrosoftHouse
 				BarBackgroundColor = Color.FromHex("#FF01A4EF")
 			};*/
 
+			//await Application.Current.MainPage.Navigation.PushAsync(new SearchRoomPage());
 			await Application.Current.MainPage.Navigation.PushModalAsync(new SearchRoomPage());
 
 			/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new SearchRoomPage())
@@ -58,6 +64,89 @@ namespace MicrosoftHouse
 				BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#FF01A4EF")
 			};*/
+		}
+
+		// QRCODE
+
+		async void ExecuteNewParkCommand()
+		{
+			var customOverlay = new StackLayout
+			{
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				Padding = new Thickness(20, 30, 20, 30),
+				Orientation = StackOrientation.Horizontal
+			};
+			var torch = new Button
+			{
+				Text = "Torch",
+				TextColor = Color.White,
+				FontFamily = "Avenir",
+				VerticalOptions = LayoutOptions.Start,
+				HorizontalOptions = LayoutOptions.EndAndExpand,
+				BackgroundColor = Color.FromHex("#FF01A4EF"),
+				HeightRequest = 30,
+				WidthRequest = 80,
+				BorderRadius = 15
+			};
+
+			var close = new Button
+			{
+				Text = "X",
+				TextColor = Color.White,
+				FontFamily = "Avenir",
+				VerticalOptions = LayoutOptions.Start,
+				HorizontalOptions = LayoutOptions.StartAndExpand,
+				BackgroundColor = Color.FromHex("#FF01A4EF"),
+				HeightRequest = 30,
+				WidthRequest = 30,
+				BorderRadius = 15
+			};
+
+
+			torch.Clicked += delegate
+			{
+				scanPage.ToggleTorch();
+			};
+
+			close.Clicked += delegate
+			{
+				Application.Current.MainPage.Navigation.PopModalAsync();
+			};
+
+			customOverlay.Children.Add(close);
+			customOverlay.Children.Add(torch);
+
+
+
+
+			scanPage = new ZXingScannerPage(customOverlay: customOverlay)
+			{
+				Title = "Park"
+			};
+			scanPage.OnScanResult += (result) =>
+			{
+				scanPage.IsScanning = false;
+
+				Device.BeginInvokeOnMainThread(async () =>
+				{
+					await Application.Current.MainPage.Navigation.PopModalAsync();
+					//Task<bool> task = DisplayAlert("Simple Alert", "Decide on an option", "Ok", "Cancel");
+					//bool result = await task
+
+					//await App.Current.MainPage.DisplayAlert("Park Done", result.Text, "OK");
+
+					if (String.Equals(result.Text,"ParkingCode"))
+					{
+						
+						await App.Current.MainPage.DisplayAlert("Park Done", "Thank You", "OK");
+					}
+				});
+			};
+
+
+
+			await Application.Current.MainPage.Navigation.PushModalAsync(scanPage);
 		}
 	}
 }
