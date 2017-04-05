@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicrosoftHouse.Android", "MicrosoftHouse\MicrosoftHouse.Android\MicrosoftHouse.Android.csproj", "{F0408C47-DEFC-42BB-8219-EA257BCBE8BE}"
 EndProject
@@ -198,6 +198,7 @@ Global
 		{D8607C56-9439-4B7F-8007-37EA0CDDF995}.AppStore|x86.Build.0 = Release|x86
 		{D8607C56-9439-4B7F-8007-37EA0CDDF995}.AppStore|x86.Deploy.0 = Release|x86
 		{D8607C56-9439-4B7F-8007-37EA0CDDF995}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{D8607C56-9439-4B7F-8007-37EA0CDDF995}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{D8607C56-9439-4B7F-8007-37EA0CDDF995}.Debug|ARM.ActiveCfg = Debug|ARM
 		{D8607C56-9439-4B7F-8007-37EA0CDDF995}.Debug|ARM.Build.0 = Debug|ARM
 		{D8607C56-9439-4B7F-8007-37EA0CDDF995}.Debug|ARM.Deploy.0 = Debug|ARM
@@ -238,6 +239,7 @@ Global
 		{CFDD6303-B8F0-4B4A-8C52-1911938ACD68}.AppStore|x64.ActiveCfg = AppStore|iPhone
 		{CFDD6303-B8F0-4B4A-8C52-1911938ACD68}.AppStore|x86.ActiveCfg = AppStore|iPhone
 		{CFDD6303-B8F0-4B4A-8C52-1911938ACD68}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{CFDD6303-B8F0-4B4A-8C52-1911938ACD68}.Debug|Any CPU.Deploy.0 = Debug|iPhone
 		{CFDD6303-B8F0-4B4A-8C52-1911938ACD68}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{CFDD6303-B8F0-4B4A-8C52-1911938ACD68}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{CFDD6303-B8F0-4B4A-8C52-1911938ACD68}.Debug|iPhone.Build.0 = Debug|iPhone

@@ -5,11 +5,11 @@
     xmlns:uwp="using:Xamarin.Forms.Platform"
     xmlns:local="using:MicrosoftHouse.UWP"
     RequestedTheme="Light">
-    <Application.Resources>    
-        <!-- Serve per il carousel in UWP -->
+    <Application.Resources>
+        <!-- Serve per il carousel in UWP 
         <DataTemplate x:Key="ItemTemplate">            
             <uwp:ItemControl HorizontalContentAlignment="Stretch"
                              VerticalContentAlignment="Stretch" />         
-        </DataTemplate>
+        </DataTemplate>  -->
     </Application.Resources>
 </Application>
