@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Android.Graphics;
 using MicrosoftHouse;
 using MicrosoftHouse.Droid;
 using Xamarin.Forms;
@@ -18,7 +19,11 @@ namespace MicrosoftHouse.Droid
 
 			if (datePicker != null)
 			{
-				Control.SetBackgroundColor(Color.White.ToAndroid());
+				Control.SetBackgroundColor(Android.Graphics.Color.White);
+				Control.TextSize = 14f;
+				//Typeface font = Typeface.CreateFromAsset(Forms.Context.Assets, "Avenir");  // font name specified here
+				//Control.Typeface = font;
+				//Control.Typeface =
 				//Control.FontFeatureSettings = 
 				//Control.BorderStyle = UITextBorderStyle.None;
 				//Control.Font = UIFont.FromName("Avenir", 14f);
