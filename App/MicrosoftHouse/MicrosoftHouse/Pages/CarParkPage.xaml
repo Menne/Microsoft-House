@@ -76,15 +76,12 @@
                          HorizontalOptions="FillAndExpand"
                          VerticalOptions="Center"
                          Padding="20">
-                <Label BindingContext="{Binding SelectedDayStatistics}"
+                <Label BindingContext="{Binding SelectedDayOfWeek}"
                        Text="{Binding Text}"
                        TextColor="Black"
                        FontSize="Large"/>
 
-                <oxy:PlotView Model="{Binding StatisticsChart}"
-                              VerticalOptions="Center"
-                              HorizontalOptions="Center" >
-                </oxy:PlotView>
+                <Grid BindingContext="{Binding StatisticsGrid}"/>
 
                 <Grid>
                     <Grid.ColumnDefinitions>

@@ -16,39 +16,54 @@ namespace MicrosoftHouse.ViewModels
 
         public CarParkViewModel()
         {
-            RetrieveParkInfo();
-            RetrieveStatistics();
-            InitializePlot();
-            
+            InitializeParkInfo();
+            InitializeDays();
+            InitializeStatistics();
+
             ChangeDayCommand = new Command<string>(execute: (string dayOfWeek) => ShowStatistics(Int32.Parse(dayOfWeek)));
 
-            SelectedDayStatistics = Statistics.ElementAt(0);
+            ShowStatistics(0);
         }
 
 
         public Command ChangeDayCommand { get; private set; }
 
-        ObservableCollection<Label> statistics;
-        public ObservableCollection<Label> Statistics
+        ObservableCollection<Label> daysOfWeek;
+        public ObservableCollection<Label> DaysOfWeek
         { 
+            get { return daysOfWeek; }
+            set { SetProperty(ref daysOfWeek, value, "DaysOfWeek"); }
+        }
+
+        Label selectedDayOfWeek = new Label();
+        public Label SelectedDayOfWeek
+        {
+            get { return selectedDayOfWeek; }
+            set { SetProperty(ref selectedDayOfWeek, value, "SelectedDayOfWeek"); }
+        }
+
+
+        ObservableCollection<ObservableCollection<BoxView>> statistics = new ObservableCollection<ObservableCollection<BoxView>>();
+        public ObservableCollection<ObservableCollection<BoxView>> Statistics
+        {
             get { return statistics; }
             set { SetProperty(ref statistics, value, "Statistics"); }
         }
 
-        Label selectedDayStatistics = new Label();
-        public Label SelectedDayStatistics
+        ObservableCollection<BoxView> selectedDayStatistics = new ObservableCollection<BoxView>();
+        public ObservableCollection<BoxView> SelectedDayStatistics
         {
             get { return selectedDayStatistics; }
             set { SetProperty(ref selectedDayStatistics, value, "SelectedDayStatistics"); }
         }
 
-
-        PlotModel statisticsChart = new PlotModel();
-        public PlotModel StatisticsChart
+        Grid statisticsGrid = new Grid();
+        public Grid StatisticsGrid
         {
-            get { return statisticsChart; }
-            set { SetProperty(ref statisticsChart, value, "StatisticsChart"); }
+            get { return statisticsGrid; }
+            set { SetProperty(ref statisticsGrid, value, "StatisticsGrid"); }
         }
+
 
 
         int parkingSpaces;
@@ -72,17 +87,16 @@ namespace MicrosoftHouse.ViewModels
             get { return timeToArrival; }
         }
 
-
-        private void RetrieveParkInfo()
+        private void InitializeParkInfo()
         {
             parkingSpaces = 25;
             distance = 3;
             timeToArrival = 15;
         }
 
-        private void RetrieveStatistics()
+        private void InitializeDays()
         {
-            Statistics = new ObservableCollection<Label>
+            DaysOfWeek = new ObservableCollection<Label>
             {
                 new Label()
                 {
@@ -115,17 +129,35 @@ namespace MicrosoftHouse.ViewModels
             };
         }
 
-        private void ShowStatistics(int dayOfWeek)
+        private void InitializeStatistics()
         {
-            SelectedDayStatistics = Statistics.ElementAt(dayOfWeek);
-            Debug.WriteLine(Statistics.ElementAt(dayOfWeek).Text);
+            for (int i = 0; i < 7; i++)
+            {
+                ObservableCollection<BoxView> barChart = new ObservableCollection<BoxView>();
+                for (int j = 0; j < 12; j++)
+                {
+                    BoxView boxView = new BoxView
+                    {
+                        Color = Color.FromHex("FF01A4EF"),
+                        HeightRequest = 5*j,
+                        VerticalOptions = LayoutOptions.End,
+                    };
+                    Debug.WriteLine(boxView.Height);
+                    barChart.Add(boxView);
+                }
+                Statistics.Add(barChart);
+            }
         }
 
-        private void InitializePlot()
+
+        private void ShowStatistics(int dayOfWeek)
         {
-            statisticsChart.Title = "prova";
-            statisticsChart.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Minimum = -20, Maximum = 80 });
-            statisticsChart.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Minimum = -20, Maximum = 80 });
+            SelectedDayOfWeek = DaysOfWeek.ElementAt(dayOfWeek);
+            SelectedDayStatistics = Statistics.ElementAt(dayOfWeek);
+            StatisticsGrid.Children.Clear();
+            StatisticsGrid.Children.AddHorizontal(selectedDayStatistics);
+   //         foreach (BoxView box in StatisticsGrid.Children)
+   //             Debug.WriteLine(box.Height.ToString());
         }
 
 

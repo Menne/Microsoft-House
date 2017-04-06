@@ -4,7 +4,7 @@ using MicrosoftHouse.Droid;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(ExtendedTimePicker), typeof(ExtendedDatePickerRender))]
+[assembly: ExportRenderer(typeof(ExtendedTimePicker), typeof(ExtendedTimePickerRender))]
 namespace MicrosoftHouse.Droid
 {
 	public class ExtendedTimePickerRender : TimePickerRenderer
