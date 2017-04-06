@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using MicrosoftHouse;
 using MicrosoftHouse.Droid;
 using Xamarin.Forms;
@@ -9,17 +10,25 @@ namespace MicrosoftHouse.Droid
 {
 	public class ExtendedDatePickerRender : DatePickerRenderer
 	{
-		//PUSH - Prova
 		protected override void OnElementChanged(ElementChangedEventArgs<DatePicker> e)
 		{
 			base.OnElementChanged(e);
 
-			//ExtendedDatePicker datePicker = (ExtendedDatePicker)Element;
+			ExtendedDatePicker datePicker = (ExtendedDatePicker)Element;
 
-			if (Control != null)
+			if (datePicker != null)
 			{
-				Control.Text = (Element as ExtendedDatePicker).PlaceHolder;
-				Control.SetTextColor((Element as ExtendedDatePicker).TextColor.ToAndroid());
+				SetTextColor(datePicker);
+			}
+
+			if (e.OldElement == null)
+			{
+				//Wire events
+			}
+
+			if (e.NewElement == null)
+			{
+				//Unwire events
 			}
 		}
 
@@ -27,21 +36,22 @@ namespace MicrosoftHouse.Droid
 		{
 			base.OnElementPropertyChanged(sender, e);
 
-			if (Control != null)
+			if (Control == null)
 			{
-				Control.Text = (Element as ExtendedDatePicker).PlaceHolder;
-				Control.SetTextColor((Element as ExtendedDatePicker).TextColor.ToAndroid());
+				return;
+			}
+
+			ExtendedDatePicker datePicker = (ExtendedDatePicker)Element;
+
+			if (e.PropertyName == ExtendedDatePicker.TextColorProperty.PropertyName)
+			{
+				this.Control.SetTextColor(datePicker.TextColor.ToAndroid());
 			}
 		}
 
-		/*void SetTextColor()
+		void SetTextColor(ExtendedDatePicker datePicker)
 		{
 			this.Control.SetTextColor(datePicker.TextColor.ToAndroid());
 		}
-
-        void SetPlaceholder()
-        {
-            this.Control.Text = datePicker.PlaceHolder;
-        }*/
     }
 }
