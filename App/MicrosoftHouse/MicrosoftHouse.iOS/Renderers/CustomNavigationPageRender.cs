@@ -1,12 +1,13 @@
 ﻿using System;
 using KinsmenApp.iOS.Renderer;
 using MicrosoftHouse;
+using MicrosoftHouse.iOS.Renderer;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(NavigationPage), typeof(CustomNavigationPageRender))]
-namespace KinsmenApp.iOS.Renderer
+namespace MicrosoftHouse.iOS.Renderer
 {
 	public class CustomNavigationPageRender : NavigationRenderer
 	{

@@ -14,11 +14,12 @@ namespace MicrosoftHouse.Droid
 		{
 			base.OnElementChanged(e);
 
-			ExtendedDatePicker datePicker = (ExtendedDatePicker)Element;
+			//ExtendedDatePicker datePicker = (ExtendedDatePicker)Element;
 
-			if (datePicker != null)
+			if (Control != null)
 			{
-				SetTextColor(datePicker);
+				Control.Text = (Element as ExtendedDatePicker).PlaceHolder;
+				Control.SetTextColor((Element as ExtendedDatePicker).TextColor.ToAndroid());
 			}
 		}
 
@@ -26,27 +27,21 @@ namespace MicrosoftHouse.Droid
 		{
 			base.OnElementPropertyChanged(sender, e);
 
-			if (Control == null)
+			if (Control != null)
 			{
-				return;
-			}
-
-			ExtendedDatePicker datePicker = (ExtendedDatePicker)Element;
-
-			if (e.PropertyName == ExtendedDatePicker.TextColorProperty.PropertyName)
-			{
-				this.Control.SetTextColor(datePicker.TextColor.ToAndroid());
+				Control.Text = (Element as ExtendedDatePicker).PlaceHolder;
+				Control.SetTextColor((Element as ExtendedDatePicker).TextColor.ToAndroid());
 			}
 		}
 
-		void SetTextColor(ExtendedDatePicker datePicker)
+		/*void SetTextColor()
 		{
 			this.Control.SetTextColor(datePicker.TextColor.ToAndroid());
 		}
 
-        void SetPlaceholder(ExtendedDatePicker datePicker)
+        void SetPlaceholder()
         {
             this.Control.Text = datePicker.PlaceHolder;
-        }
+        }*/
     }
 }
