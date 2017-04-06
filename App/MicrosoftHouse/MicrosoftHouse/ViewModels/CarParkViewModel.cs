@@ -43,27 +43,19 @@ namespace MicrosoftHouse.ViewModels
         }
 
 
-        ObservableCollection<ObservableCollection<BoxView>> statistics = new ObservableCollection<ObservableCollection<BoxView>>();
-        public ObservableCollection<ObservableCollection<BoxView>> Statistics
+        List<List<int>> statistics = new List<List<int>>();
+        public List<List<int>> Statistics
         {
             get { return statistics; }
             set { SetProperty(ref statistics, value, "Statistics"); }
         }
 
-        ObservableCollection<BoxView> selectedDayStatistics = new ObservableCollection<BoxView>();
-        public ObservableCollection<BoxView> SelectedDayStatistics
+        List<int> selectedDayStatistics = new List<int>();
+        public List<int> SelectedDayStatistics
         {
             get { return selectedDayStatistics; }
             set { SetProperty(ref selectedDayStatistics, value, "SelectedDayStatistics"); }
         }
-
-        Grid statisticsGrid = new Grid();
-        public Grid StatisticsGrid
-        {
-            get { return statisticsGrid; }
-            set { SetProperty(ref statisticsGrid, value, "StatisticsGrid"); }
-        }
-
 
 
         int parkingSpaces;
@@ -131,22 +123,21 @@ namespace MicrosoftHouse.ViewModels
 
         private void InitializeStatistics()
         {
-            for (int i = 0; i < 7; i++)
+            Statistics = new List<List<int>>()
             {
-                ObservableCollection<BoxView> barChart = new ObservableCollection<BoxView>();
-                for (int j = 0; j < 12; j++)
-                {
-                    BoxView boxView = new BoxView
-                    {
-                        Color = Color.FromHex("FF01A4EF"),
-                        HeightRequest = 5*j,
-                        VerticalOptions = LayoutOptions.End,
-                    };
-                    Debug.WriteLine(boxView.Height);
-                    barChart.Add(boxView);
-                }
-                Statistics.Add(barChart);
-            }
+                new List<int> {0,4,3,45,1,3,7,8,9,10,11,3},
+                new List<int> {21,2,3,4,5,6,7,8,9,10,11,34},
+                new List<int> {1,2,3,4,5,6,7,8,9,10,11,4},
+                new List<int> {1,2,3,4,5,6,7,8,9,10,11,4},
+                new List<int> {1,2,3,4,5,6,7,8,9,10,11,12},
+                new List<int> {1,2,3,4,5,6,7,8,9,10,11,12},
+                new List<int> {1,2,3,4,5,6,7,8,9,10,11,12},
+                new List<int> {1,2,3,4,5,6,7,8,9,10,11,12},
+                new List<int> {1,2,3,4,5,6,7,8,9,10,11,12},
+                new List<int> {1,2,3,4,5,6,7,8,9,10,11,12},
+                new List<int> {1,2,3,4,5,6,7,8,9,10,11,12},
+                new List<int> {1,2,3,4,5,6,7,8,9,10,11,0},
+            };
         }
 
 
@@ -154,10 +145,6 @@ namespace MicrosoftHouse.ViewModels
         {
             SelectedDayOfWeek = DaysOfWeek.ElementAt(dayOfWeek);
             SelectedDayStatistics = Statistics.ElementAt(dayOfWeek);
-            StatisticsGrid.Children.Clear();
-            StatisticsGrid.Children.AddHorizontal(selectedDayStatistics);
-   //         foreach (BoxView box in StatisticsGrid.Children)
-   //             Debug.WriteLine(box.Height.ToString());
         }
 
 

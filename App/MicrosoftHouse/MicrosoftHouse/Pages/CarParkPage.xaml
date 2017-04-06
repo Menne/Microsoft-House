@@ -9,10 +9,10 @@
 
     <ContentPage.Content>
         <StackLayout Orientation="Vertical"
-					 VerticalOptions="FillAndExpand"
+					 VerticalOptions="Start"
 					 HorizontalOptions="FillAndExpand">
             <StackLayout Orientation="Horizontal"
-					 VerticalOptions="Start"
+					 VerticalOptions="FillAndExpand"
 					 HorizontalOptions="FillAndExpand"
 					 Padding="10,10,10,10"
 					 BackgroundColor="#FF01A4EF">
@@ -81,7 +81,71 @@
                        TextColor="Black"
                        FontSize="Large"/>
 
-                <Grid BindingContext="{Binding StatisticsGrid}"/>
+                <Grid VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView HeightRequest="{Binding SelectedDayStatistics(0)}"
+                             Color="#FF01A4EF"
+                             VerticalOptions="End"
+                             Grid.Column="0"/>
+                    <BoxView HeightRequest="{Binding SelectedDayStatistics(1)}"
+                             Color="#FF01A4EF"
+                             VerticalOptions="End"
+                             Grid.Column="1"/>
+                    <BoxView HeightRequest="{Binding SelectedDayStatistics(2)}"
+                             Color="#FF01A4EF"
+                             VerticalOptions="End"
+                             Grid.Column="2"/>
+                    <BoxView HeightRequest="{Binding SelectedDayStatistics(3)}"
+                             Color="#FF01A4EF"
+                             VerticalOptions="End"
+                             Grid.Column="3"/>
+                    <BoxView HeightRequest="{Binding SelectedDayStatistics(4)}"
+                             Color="#FF01A4EF"
+                             VerticalOptions="End"
+                             Grid.Column="4"/>
+                    <BoxView HeightRequest="{Binding SelectedDayStatistics(5)}"
+                             Color="#FF01A4EF"
+                             VerticalOptions="End"
+                             Grid.Column="5"/>
+                    <BoxView HeightRequest="{Binding SelectedDayStatistics(6)}"
+                             Color="#FF01A4EF"
+                             VerticalOptions="End"
+                             Grid.Column="6"/>
+                    <BoxView HeightRequest="{Binding SelectedDayStatistics(7)}"
+                             Color="#FF01A4EF"
+                             VerticalOptions="End"
+                             Grid.Column="7"/>
+                    <BoxView HeightRequest="{Binding SelectedDayStatistics(8)}"
+                             Color="#FF01A4EF"
+                             VerticalOptions="End"
+                             Grid.Column="8"/>
+                    <BoxView HeightRequest="{Binding SelectedDayStatistics(9)}"
+                             Color="#FF01A4EF"
+                             VerticalOptions="End"
+                             Grid.Column="9"/>
+                    <BoxView HeightRequest="{Binding SelectedDayStatistics(10)}"
+                             Color="#FF01A4EF"
+                             VerticalOptions="End"
+                             Grid.Column="10"/>
+                    <BoxView HeightRequest="{Binding SelectedDayStatistics(11)}"
+                             Color="#FF01A4EF"
+                             VerticalOptions="End"
+                             Grid.Column="11"/>
+                </Grid>
+
 
                 <Grid>
                     <Grid.ColumnDefinitions>
