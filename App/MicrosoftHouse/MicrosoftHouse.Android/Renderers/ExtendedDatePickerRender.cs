@@ -18,7 +18,13 @@ namespace MicrosoftHouse.Droid
 
 			if (datePicker != null)
 			{
+				Control.SetBackgroundColor(Color.White.ToAndroid());
+				//Control.FontFeatureSettings = 
+				//Control.BorderStyle = UITextBorderStyle.None;
+				//Control.Font = UIFont.FromName("Avenir", 14f);
+				SetPlaceholder(datePicker);
 				SetTextColor(datePicker);
+
 			}
 
 			if (e.OldElement == null)
@@ -45,13 +51,18 @@ namespace MicrosoftHouse.Droid
 
 			if (e.PropertyName == ExtendedDatePicker.TextColorProperty.PropertyName)
 			{
-				this.Control.SetTextColor(datePicker.TextColor.ToAndroid());
+				SetTextColor(datePicker);
 			}
 		}
 
 		void SetTextColor(ExtendedDatePicker datePicker)
 		{
 			this.Control.SetTextColor(datePicker.TextColor.ToAndroid());
+		}
+
+		void SetPlaceholder(ExtendedDatePicker datePicker)
+		{
+			this.Control.Text = datePicker.PlaceHolder;
 		}
     }
 }
