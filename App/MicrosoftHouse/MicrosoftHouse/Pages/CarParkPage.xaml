@@ -267,7 +267,7 @@
                 </Grid>
 
 
-                <Grid>
+                <Grid x:Name="DaysOfWeekButtonsGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -280,6 +280,7 @@
                     <Button x:Name="mondayButton"
                             Text="M"
                             Command="{Binding ChangeDayCommand}"
+                            Clicked="OnPressed"
                             CommandParameter="0"
 						    BorderRadius="20"
                             BorderWidth="0"
@@ -288,6 +289,7 @@
                     <Button x:Name="tuesdayButton"
                             Text="T"
                             Command="{Binding ChangeDayCommand}"
+                            Clicked="OnPressed"
                             CommandParameter="1"
 						    BorderRadius="20"
                             BorderWidth="0"
@@ -296,6 +298,7 @@
                     <Button x:Name="wednesdayButton"
                             Text="W"
                             Command="{Binding ChangeDayCommand}"
+                            Clicked="OnPressed"
                             CommandParameter="2"
 						    BorderRadius="20"
                             BorderWidth="0"
@@ -304,6 +307,7 @@
                     <Button x:Name="thursdayButton"
                             Text="T"
                             Command="{Binding ChangeDayCommand}"
+                            Clicked="OnPressed"
                             CommandParameter="3"
 						    BorderRadius="20"
                             BorderWidth="0"
@@ -312,6 +316,7 @@
                     <Button x:Name="fridayButton"
                             Text="F"
                             Command="{Binding ChangeDayCommand}"
+                            Clicked="OnPressed"
                             CommandParameter="4"
 						    BorderRadius="20"
                             BorderWidth="0"
@@ -320,6 +325,7 @@
                     <Button x:Name="saturdayButton"
                             Text="S"
                             Command="{Binding ChangeDayCommand}"
+                            Clicked="OnPressed"
                             CommandParameter="5"
 						    BorderRadius="20"
                             BorderWidth="0"
@@ -328,6 +334,7 @@
                     <Button x:Name="sundayButton"
                             Text="S"
                             Command="{Binding ChangeDayCommand}"
+                            Clicked="OnPressed"
                             CommandParameter="6"
 						    BorderRadius="20"
                             BorderWidth="0"

@@ -14,5 +14,16 @@ namespace MicrosoftHouse
             BindingContext = new CarParkViewModel();
         }
 
+        public void OnPressed(object sender, EventArgs e)
+        {
+            foreach (Button button in DaysOfWeekButtonsGrid.Children)
+            {
+                button.BackgroundColor = Color.Transparent;
+                button.TextColor = Color.Gray;
+            }
+
+            (sender as Button).BackgroundColor = Color.FromHex("#FF01A4EF");
+            (sender as Button).TextColor = Color.White;
+        }
     }
 }
