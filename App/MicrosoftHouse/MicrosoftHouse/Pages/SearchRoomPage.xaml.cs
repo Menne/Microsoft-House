@@ -13,5 +13,15 @@ namespace MicrosoftHouse
 			BindingContext = new SearchRoomViewModel();
 		}
 
+		public void OnTimePicker(object sender, EventArgs e)
+		{
+			timePicker.Focus();
+		}
+
+		public void OnDatePicker(object sender, EventArgs e)
+		{
+			datePicker.Focus();
+		}
+
 	}
 }

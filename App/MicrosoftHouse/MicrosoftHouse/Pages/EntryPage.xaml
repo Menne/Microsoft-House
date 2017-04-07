@@ -50,7 +50,14 @@
 						</StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
-									HeightRequest="1"/>
+									HeightRequest="1">
+							<BoxView.IsVisible>
+								<OnPlatform x:TypeArguments="x:Boolean">
+                					<OnPlatform.iOS>true</OnPlatform.iOS>
+               		 				<OnPlatform.Android>false</OnPlatform.Android>
+           	 					</OnPlatform>
+							</BoxView.IsVisible>
+						</BoxView>
 			</StackLayout>
 			<StackLayout Grid.Row="3"
 					Grid.Column="0"
@@ -72,7 +79,14 @@
 						</StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
-									HeightRequest="1"/>
+									HeightRequest="1">
+							<BoxView.IsVisible>
+								<OnPlatform x:TypeArguments="x:Boolean">
+                					<OnPlatform.iOS>true</OnPlatform.iOS>
+               		 				<OnPlatform.Android>false</OnPlatform.Android>
+           	 					</OnPlatform>
+							</BoxView.IsVisible>
+						</BoxView>
 			</StackLayout>
 			<!--<Button Grid.Row="4"
 					Grid.Column="0"

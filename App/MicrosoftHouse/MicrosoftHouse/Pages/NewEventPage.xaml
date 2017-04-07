@@ -4,10 +4,12 @@
 				xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 				x:Class="MicrosoftHouse.NewEventPage"
 				Title="New Event"
-				BackgroundColor="#FFBA77FF"
-				Padding="0,20,0,0">
+				BackgroundColor="#FFBA77FF">
+	<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" WinPhone="20,20,20,20" />
+	</ContentPage.Padding>
 	<ContentPage.Content>
-			<Grid RowSpacing="0" BackgroundColor="White">
+			<Grid x:Name="grid" RowSpacing="0" BackgroundColor="White">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="3*"/>
@@ -40,7 +42,7 @@
 							</Image>
 							<Label Text="New Event"
 									TextColor="White"
-									FontFamily="Aevnir"
+									FontFamily="Avenir"
 									HorizontalOptions="CenterAndExpand"
 									HorizontalTextAlignment="Center"
 									VerticalOptions="Center"/>
@@ -75,7 +77,14 @@
 						<BoxView Color="White"
 									Opacity="0.1"
 									HeightRequest="1"
-									VerticalOptions="CenterAndExpand"/>
+									VerticalOptions="CenterAndExpand">
+							<BoxView.IsVisible>
+								<OnPlatform x:TypeArguments="x:Boolean">
+                					<OnPlatform.iOS>true</OnPlatform.iOS>
+               		 				<OnPlatform.Android>false</OnPlatform.Android>
+           	 					</OnPlatform>
+							</BoxView.IsVisible>
+						</BoxView>
 						<local:ExtendedEntry Placeholder="DESCRIPTION"
 										Keyboard="Text"
 										HorizontalOptions="FillAndExpand"
@@ -91,54 +100,90 @@
 									Padding="30,10,30,10"
 									Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
-						<local:ExtendedDatePicker PlaceHolder="DATE"
+						<local:ExtendedDatePicker x:Name="datePicker"
+										PlaceHolder="DATE"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"/>
 						<Image Source="CalendarIcon.png"
 								VerticalOptions="Center"
-								HorizontalOptions="Start"/>
+								HorizontalOptions="Start">
+								<Image.GestureRecognizers>
+									<TapGestureRecognizer Tapped="OnDatePicker"/>
+								</Image.GestureRecognizers>
+						</Image>
 						</StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
-									HeightRequest="1"/>
+									HeightRequest="1">
+							<BoxView.IsVisible>
+								<OnPlatform x:TypeArguments="x:Boolean">
+                					<OnPlatform.iOS>true</OnPlatform.iOS>
+               		 				<OnPlatform.Android>false</OnPlatform.Android>
+           	 					</OnPlatform>
+							</BoxView.IsVisible>
+						</BoxView>
 					</StackLayout>
 					<StackLayout Grid.Row="4"
 									Grid.Column="0"
 									Padding="30,10,30,10"
 									Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
-						<local:ExtendedTimePicker PlaceHolder="STARTING TIME"
+						<local:ExtendedTimePicker x:Name="timePickerFirst"
+										PlaceHolder="STARTING TIME"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"/>
 						<Image Source="TimeIcon.png"
 								VerticalOptions="Center"
-								HorizontalOptions="Start"/>
+								HorizontalOptions="Start">
+								<Image.GestureRecognizers>
+									<TapGestureRecognizer Tapped="OnTimePickerFirst"/>
+								</Image.GestureRecognizers>
+						</Image>
 						</StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
-									HeightRequest="1"/>
+									HeightRequest="1">
+							<BoxView.IsVisible>
+								<OnPlatform x:TypeArguments="x:Boolean">
+                					<OnPlatform.iOS>true</OnPlatform.iOS>
+               		 				<OnPlatform.Android>false</OnPlatform.Android>
+           	 					</OnPlatform>
+							</BoxView.IsVisible>
+						</BoxView>
 					</StackLayout>
 					<StackLayout Grid.Row="5"
 									Grid.Column="0"
 									Padding="30,10,30,10"
 									Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
-						<local:ExtendedTimePicker PlaceHolder="ENDING TIME"
+						<local:ExtendedTimePicker x:Name="timePickerSecond"
+										PlaceHolder="ENDING TIME"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"/>
 						<Image Source="TimeIcon.png"
 								VerticalOptions="Center"
-								HorizontalOptions="Start"/>
+								HorizontalOptions="Start">
+							<Image.GestureRecognizers>
+									<TapGestureRecognizer Tapped="OnTimePickerSecond"/>
+							</Image.GestureRecognizers>
+						</Image>
 						</StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
-									HeightRequest="1"/>
+									HeightRequest="1">
+							<BoxView.IsVisible>
+								<OnPlatform x:TypeArguments="x:Boolean">
+                					<OnPlatform.iOS>true</OnPlatform.iOS>
+               		 				<OnPlatform.Android>false</OnPlatform.Android>
+           	 					</OnPlatform>
+							</BoxView.IsVisible>
+						</BoxView>
 					</StackLayout>
 					<StackLayout Grid.Row="6"
 									Grid.Column="0"
@@ -157,7 +202,14 @@
 						</StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
-									HeightRequest="1"/>
+									HeightRequest="1">
+							<BoxView.IsVisible>
+								<OnPlatform x:TypeArguments="x:Boolean">
+                					<OnPlatform.iOS>true</OnPlatform.iOS>
+               		 				<OnPlatform.Android>false</OnPlatform.Android>
+           	 					</OnPlatform>
+							</BoxView.IsVisible>
+						</BoxView>
 					</StackLayout>
 					<StackLayout Grid.Row="7"
 									Grid.Column="0"
@@ -175,7 +227,14 @@
 						</StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
-									HeightRequest="1"/>
+									HeightRequest="1">
+							<BoxView.IsVisible>
+								<OnPlatform x:TypeArguments="x:Boolean">
+                					<OnPlatform.iOS>true</OnPlatform.iOS>
+               		 				<OnPlatform.Android>false</OnPlatform.Android>
+           	 					</OnPlatform>
+							</BoxView.IsVisible>
+						</BoxView>
 					</StackLayout>
 
 				<Button BackgroundColor="#FFBA77FF"

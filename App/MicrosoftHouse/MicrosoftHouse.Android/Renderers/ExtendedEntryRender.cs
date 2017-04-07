@@ -42,11 +42,25 @@ namespace MicrosoftHouse.Droid
 			if (originalBackground == null)
 				originalBackground = Control.Background;
 
-			SetFont(view);
+			//SetFont(view);
 			SetTextAlignment(view);
 			//SetBorder(view);
+
+
+			//Border
+			Control.Background.SetAlpha(10);
+			Control.Background.SetColorFilter(Android.Graphics.Color.Black, PorterDuff.Mode.SrcAtop);
+
+			//No Border
+			/*var shape = new ShapeDrawable(new RectShape());
+			shape.Paint.Alpha = 0;
+			shape.Paint.SetStyle(Paint.Style.Stroke);
+			Control.SetBackgroundDrawable(shape);*/
+
 			SetPlaceholderTextColor(view);
 			SetMaxLength(view);
+
+			Control.TextSize = 14f;
 
 		}
 
@@ -63,7 +77,7 @@ namespace MicrosoftHouse.Droid
 
 			if (e.PropertyName == ExtendedEntry.FontProperty.PropertyName)
 			{
-				SetFont(view);
+				//SetFont(view);
 			}
 			else if (e.PropertyName == ExtendedEntry.XAlignProperty.PropertyName)
 			{
@@ -126,14 +140,14 @@ namespace MicrosoftHouse.Droid
 		/// Sets the font.
 		/// </summary>
 		/// <param name="view">The view.</param>
-		private void SetFont(ExtendedEntry view)
+		/*private void SetFont(ExtendedEntry view)
 		{
 			if (view.Font != Font.Default)
 			{
 				Control.TextSize = view.Font.ToScaledPixel();
 				//Control.Typeface = view.Font.ToExtendedTypeface(Context);
 			}
-		}
+		}*/
 
 		/// <summary>
 		/// Sets the color of the placeholder text.

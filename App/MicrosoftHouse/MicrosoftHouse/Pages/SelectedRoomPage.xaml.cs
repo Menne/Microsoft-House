@@ -12,5 +12,15 @@ namespace MicrosoftHouse
 			InitializeComponent();
 			BindingContext = new SelectedRoomViewModel(room);
 		}
+
+		public void OnTimePicker(object sender, EventArgs e)
+		{
+			timePicker.Focus();
+		}
+
+		public void OnDatePicker(object sender, EventArgs e)
+		{
+			datePicker.Focus();
+		}
 	}
 }

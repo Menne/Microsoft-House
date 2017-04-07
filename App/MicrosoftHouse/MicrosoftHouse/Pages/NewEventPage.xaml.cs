@@ -13,5 +13,20 @@ namespace MicrosoftHouse
 
 			BindingContext = new NewEventViewModel();
 		}
+
+		public void OnTimePickerFirst(object sender, EventArgs e)
+		{
+			timePickerFirst.Focus();
+		}
+
+		public void OnTimePickerSecond(object sender, EventArgs e)
+		{
+			timePickerSecond.Focus();
+		}
+
+		public void OnDatePicker(object sender, EventArgs e)
+		{
+			datePicker.Focus();
+		}
 	}
 }

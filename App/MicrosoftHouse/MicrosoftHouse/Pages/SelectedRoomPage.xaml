@@ -3,8 +3,10 @@
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 				x:Class="MicrosoftHouse.SelectedRoomPage"
-				Padding="0,20,0,0"
 				BackgroundColor="#FF01A4EF">
+	<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" WinPhone="20,20,20,20" />
+	</ContentPage.Padding>
 	<ContentPage.Content>
 		<Grid RowSpacing="0" BackgroundColor="White">
 				<Grid.RowDefinitions>
@@ -39,7 +41,7 @@
 							</Image>
 							<Label Text="New Event"
 									TextColor="White"
-									FontFamily="Aevnir"
+									FontFamily="Avenir"
 									HorizontalOptions="CenterAndExpand"
 									HorizontalTextAlignment="Center"
 									VerticalOptions="Center"/>
@@ -118,36 +120,60 @@
 							Padding="30,10,30,10"
 							Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
-						<local:ExtendedDatePicker PlaceHolder="DATE"
+						<local:ExtendedDatePicker x:Name="datePicker"
+										PlaceHolder="DATE"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"/>
 						<Image Source="CalendarIcon.png"
 								VerticalOptions="Center"
-								HorizontalOptions="Start"/>
+								HorizontalOptions="Start">
+							<Image.GestureRecognizers>
+									<TapGestureRecognizer Tapped="OnDatePicker"/>
+							</Image.GestureRecognizers>
+						</Image>
 						</StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
-									HeightRequest="1"/>
+									HeightRequest="1">
+							<BoxView.IsVisible>
+								<OnPlatform x:TypeArguments="x:Boolean">
+                					<OnPlatform.iOS>true</OnPlatform.iOS>
+               		 				<OnPlatform.Android>false</OnPlatform.Android>
+           	 					</OnPlatform>
+							</BoxView.IsVisible>
+						</BoxView>
 			</StackLayout>
 			<StackLayout Grid.Row="4"
 									Grid.Column="0"
 									Padding="30,10,30,10"
 									Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
-						<local:ExtendedTimePicker PlaceHolder="STARTING TIME"
+						<local:ExtendedTimePicker x:Name="timePicker"
+										PlaceHolder="STARTING TIME"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"/>
 						<Image Source="TimeIcon.png"
 								VerticalOptions="Center"
-								HorizontalOptions="Start"/>
+								HorizontalOptions="Start">
+							<Image.GestureRecognizers>
+									<TapGestureRecognizer Tapped="OnTimePicker"/>
+							</Image.GestureRecognizers>
+						</Image>
 						</StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
-									HeightRequest="1"/>
+									HeightRequest="1">
+							<BoxView.IsVisible>
+								<OnPlatform x:TypeArguments="x:Boolean">
+                					<OnPlatform.iOS>true</OnPlatform.iOS>
+               		 				<OnPlatform.Android>false</OnPlatform.Android>
+           	 					</OnPlatform>
+							</BoxView.IsVisible>
+						</BoxView>
 			</StackLayout>
 			<StackLayout Grid.Row="5"
 					Grid.Column="0"
@@ -168,7 +194,14 @@
 						</StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
-									HeightRequest="1"/>
+									HeightRequest="1">
+							<BoxView.IsVisible>
+								<OnPlatform x:TypeArguments="x:Boolean">
+                					<OnPlatform.iOS>true</OnPlatform.iOS>
+               		 				<OnPlatform.Android>false</OnPlatform.Android>
+           	 					</OnPlatform>
+							</BoxView.IsVisible>
+						</BoxView>
 			</StackLayout>
 			<StackLayout Grid.Row="10"
 						Grid.Column="0">

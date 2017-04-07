@@ -86,9 +86,9 @@ namespace MicrosoftHouse
 				VerticalOptions = LayoutOptions.Start,
 				HorizontalOptions = LayoutOptions.EndAndExpand,
 				BackgroundColor = Color.FromHex("#FF01A4EF"),
-				HeightRequest = 30,
+				HeightRequest = 40,
 				WidthRequest = 80,
-				BorderRadius = 15
+				BorderRadius = 20
 			};
 
 			var close = new Button
@@ -99,9 +99,9 @@ namespace MicrosoftHouse
 				VerticalOptions = LayoutOptions.Start,
 				HorizontalOptions = LayoutOptions.StartAndExpand,
 				BackgroundColor = Color.FromHex("#FF01A4EF"),
-				HeightRequest = 30,
-				WidthRequest = 30,
-				BorderRadius = 15
+				HeightRequest = 40,
+				WidthRequest = 40,
+				BorderRadius = 20
 			};
 
 
@@ -123,8 +123,10 @@ namespace MicrosoftHouse
 
 			scanPage = new ZXingScannerPage(customOverlay: customOverlay)
 			{
-				Title = "Park"
+				Title = "Park",
+				Padding = new Thickness(0, Device.OnPlatform(20,0,0), 0, 0)
 			};
+
 			scanPage.OnScanResult += (result) =>
 			{
 				scanPage.IsScanning = false;

@@ -44,7 +44,7 @@ namespace MicrosoftHouse
 			get { return selectedRoom; }
 			set
 			{
-				SetProperty(ref selectedRoom, value, "SelectedItem");
+				SetProperty(ref selectedRoom, value, "SelectedRoom");
 				if (selectedRoom != null)
 				{
 					/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new SelectedRoomPage(selectedRoom))
