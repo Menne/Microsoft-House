@@ -46,13 +46,13 @@ namespace MicrosoftHouse
 			{
 				Name = "User",
 				IconSource = "UserIconWhite.png",
-				TargetType = typeof(ProfilePage)
+		//		TargetType = typeof(AboutUsPage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{
 				Name = "Settings",
 				IconSource = "SettingsIconWhite.png",
-				//TargetType = typeof(ReminderPage)
+				TargetType = typeof(SettingsPage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{

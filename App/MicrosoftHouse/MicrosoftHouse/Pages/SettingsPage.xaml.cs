@@ -5,12 +5,12 @@ using Xamarin.Forms;
 
 namespace MicrosoftHouse
 {
-	public partial class ProfilePage : ContentPage
+	public partial class SettingsPage : ContentPage
 	{
-		public ProfilePage()
+		public SettingsPage()
 		{
 			InitializeComponent();
-			BindingContext = new ProfileViewModel();
+			BindingContext = new SettingsViewModel();
 		}
 	}
 }
