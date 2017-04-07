@@ -22,6 +22,8 @@ namespace MicrosoftHouse.UWP
             this.InitializeComponent();
 
             LoadApplication(new MicrosoftHouse.App());
+
+            Xamarin.FormsMaps.Init("INSERT_AUTHENTICATION_TOKEN_HERE");
         }
     }
 }

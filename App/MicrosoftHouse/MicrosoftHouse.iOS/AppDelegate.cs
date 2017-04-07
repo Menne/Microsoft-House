@@ -23,8 +23,9 @@ namespace MicrosoftHouse.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            Xamarin.FormsMaps.Init();
 
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 			ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 
             LoadApplication(new App());

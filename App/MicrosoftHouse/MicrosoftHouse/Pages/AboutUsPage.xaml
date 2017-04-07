@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="MicrosoftHouse.AboutUsPage"
              Title="About Microsoft House App">
     <ContentPage.Content>
@@ -37,10 +38,13 @@
                            VerticalOptions="Start"
                            Font="Large"
                            FontFamily="Avenir"/>
+                    <maps:Map x:Name="MHMap"
+                              IsShowingUser="true"
+                              MapType="Street"/>
                     <Label Text="Microsoft House app is designed and developed by Filippo Pedrazzini and Emanuele Torelli for the course 'Design and implementation of mobile applications' of Politecnico di Milano"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="Start"
-                           Font="Small"
+                           Font="Medium"
                            FontFamily="Avenir"/>
                 </StackLayout>
             </StackLayout>

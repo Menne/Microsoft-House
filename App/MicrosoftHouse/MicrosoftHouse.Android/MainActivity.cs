@@ -25,8 +25,9 @@ namespace MicrosoftHouse.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
+            Xamarin.FormsMaps.Init(this, bundle);
 
-			//Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+            //Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 			ZXing.Net.Mobile.Forms.Android.Platform.Init();
