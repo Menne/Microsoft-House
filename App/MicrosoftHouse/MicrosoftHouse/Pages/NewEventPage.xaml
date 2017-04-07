@@ -4,9 +4,9 @@
 				xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 				x:Class="MicrosoftHouse.NewEventPage"
 				Title="New Event">
-	<ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" WinPhone="20,20,20,20" />
-	</ContentPage.Padding>
+	<!--<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 0, 0, 0" WinPhone="20,20,20,20" />
+	</ContentPage.Padding>-->
 	<ContentPage.Content>
 			<Grid x:Name="grid" RowSpacing="0" BackgroundColor="White">
 				<Grid.RowDefinitions>
@@ -59,7 +59,7 @@
 									Grid.Row="0"
 									Grid.Column="0"
 									VerticalOptions="FillAndExpand"
-									Padding="30,30,30,30">
+									Padding="30,0,30,30">
 						<local:ExtendedEntry Placeholder="Event Name"
 										Keyboard="Text"
 										HorizontalOptions="FillAndExpand"
