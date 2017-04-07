@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
+             x:Class="MicrosoftHouse.AboutUsPage"
+             Title="About microsoft house">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                <Image Source="LoginIcon180.png"
+				        VerticalOptions="Start"
+				        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="#FF01A4EF"/>
+                <Label Text="About the Microsoft House"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="Start"
+                       Font="Large"
+                       FontFamily="Avenir"/>
+                <Label Text="Designed by the prestigious Herzog and De Meuron, the building is inspired by the simplicity and the impressive scale of the structures that characterize the historical architecture in Milan. The entire area is proposed as a new space for citizenship, whose spirit translates into the opening on the outside date by the impressive stained glass that symbolising transparency and partnership. From December 2016 it's the headquarter of Giangiacomo Feltrinelli Foundation."
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="Start"
+                       Font="Medium"
+                       FontFamily="Avenir"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

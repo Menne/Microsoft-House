@@ -44,17 +44,17 @@ namespace MicrosoftHouse
 			});
 			masterPageItems.Add(new MasterPageItem
 			{
-				Name = "User",
-				IconSource = "UserIconWhite.png",
-		//		TargetType = typeof(AboutUsPage)
-			});
-			masterPageItems.Add(new MasterPageItem
-			{
 				Name = "Settings",
 				IconSource = "SettingsIconWhite.png",
 				TargetType = typeof(SettingsPage)
 			});
-			masterPageItems.Add(new MasterPageItem
+            masterPageItems.Add(new MasterPageItem
+            {
+                Name = "About Us",
+                IconSource = "UserIconWhite.png",
+          		TargetType = typeof(AboutUsPage)
+            });
+            masterPageItems.Add(new MasterPageItem
 			{
 				Name = "Logout",
 				IconSource = "LogoutIconWhite.png",
