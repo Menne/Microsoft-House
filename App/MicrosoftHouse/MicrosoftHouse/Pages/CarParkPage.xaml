@@ -103,9 +103,26 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <BoxView HeightRequest="-1"
-                             Grid.Row="0"
-                             Grid.Column="0"/>
+                    <Grid Grid.Row="0"
+                          Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="100"
+                           VerticalTextAlignment="Start"
+                           FontSize="Micro"
+                           Grid.Row="0"/>
+                        <Label Text="50"
+                           VerticalTextAlignment="Center"
+                           FontSize="Micro"
+                           Grid.Row="1"/>
+                        <Label Text="0"
+                           VerticalTextAlignment="End"
+                           FontSize="Micro"
+                           Grid.Row="2"/>
+                    </Grid>
                     <BoxView HeightRequest="{Binding SelectedDayStatistics[0]}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"
