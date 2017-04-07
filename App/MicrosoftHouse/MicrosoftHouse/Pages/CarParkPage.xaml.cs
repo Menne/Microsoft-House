@@ -24,7 +24,7 @@ namespace MicrosoftHouse
                 BoxView boxView = new BoxView
                 {
                     Color = Color.FromHex("FF01A4EF"),
-                    HeightRequest = SelectedDayStatistics(i),
+                    HeightRequest,
                     VerticalOptions = LayoutOptions.End,
                 };
                 boxView.SetBinding(HeightRequest)
@@ -33,6 +33,6 @@ namespace MicrosoftHouse
             StatisticsGrid.Children.AddHorizontal(barChart);
 
             } 
-        } */
+        }  */
     }
 }
