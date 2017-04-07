@@ -2,8 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
-             xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
-             xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
              x:Class="MicrosoftHouse.CarParkPage"
              Title="PARK">
 
@@ -57,20 +55,6 @@
                     </StackLayout>
                 </Grid>
             </StackLayout>
-            
-
-  <!--          <cv:CarouselView ItemsSource="{Binding ItemsForCarousel}"
-                             x:Name="CarouselStatisticheProva">
-                <cv:CarouselView.ItemTemplate>    
-                    <DataTemplate>
-                        <StackLayout BackgroundColor="Yellow">
-                            <Label Text="{Binding Text}"
-                                   TextColor="Black"
-                                   FontSize="Large"/>   
-                        </StackLayout>
-                    </DataTemplate>
-                </cv:CarouselView.ItemTemplate>
-            </cv:CarouselView>  -->
 
             <StackLayout Orientation="Vertical"
                          HorizontalOptions="FillAndExpand"

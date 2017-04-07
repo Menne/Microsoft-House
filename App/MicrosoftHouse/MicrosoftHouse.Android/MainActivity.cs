@@ -30,9 +30,6 @@ namespace MicrosoftHouse.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 			ZXing.Net.Mobile.Forms.Android.Platform.Init();
-            OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();
-
-            //      XamForms.Controls.Droid.Calendar.Init();
 
             //		((DroidLoginProvider)DependencyService.Get<ILoginProvider>()).Init(this);
 
