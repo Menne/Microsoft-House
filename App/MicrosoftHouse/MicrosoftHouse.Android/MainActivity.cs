@@ -10,6 +10,8 @@ using MicrosoftHouse.Abstractions;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using System.Reflection;
+using Android.Text.Style;
+using Android.Text;
 
 namespace MicrosoftHouse.Droid
 {
@@ -35,6 +37,10 @@ namespace MicrosoftHouse.Droid
             //		((DroidLoginProvider)DependencyService.Get<ILoginProvider>()).Init(this);
 
             LoadApplication(new App());
+
+			var spannableString = new SpannableString(SupportActionBar.Title);
+			spannableString.SetSpan(new TypefaceSpan("Avenir"), 0, spannableString.Length(), SpanTypes.ExclusiveExclusive);
+			SupportActionBar.TitleFormatted = spannableString;
 
         }
 

@@ -16,12 +16,11 @@ namespace MicrosoftHouse.iOS.Renderer
 
 			if (this.NavigationBar == null) return;
 
-
 			this.NavigationBar.TintColor = Color.White.ToUIColor();
 
 			this.NavigationBar.TitleTextAttributes = new UIStringAttributes
 			{
-				Font = UIFont.FromName("Avenir", 16f),
+				Font = UIFont.FromName("Avenir", 18f),
 				ForegroundColor = UIKit.UIColor.White
 			};
 
