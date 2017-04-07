@@ -252,6 +252,10 @@
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
     <AndroidResource Include="Resources\values\Colors.xml" />
     <AndroidResource Include="Resources\drawable\splash_logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Plus.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\Plus.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\Plus.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Plus.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

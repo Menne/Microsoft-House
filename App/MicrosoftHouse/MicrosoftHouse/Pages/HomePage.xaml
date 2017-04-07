@@ -93,6 +93,7 @@
 									VerticalOptions="FillAndExpand"
 									Orientation="Horizontal">
 						<Button x:Name="availableSeatsButton"
+								Command="{Binding ParkDetailCommand}"
 								BackgroundColor="#FF5B4972"
 								HeightRequest="40"
 								WidthRequest="40"
@@ -151,6 +152,7 @@
 								BackgroundColor="#FF5B4972"
 								HeightRequest="40"
 								WidthRequest="40"
+								Command="{Binding CalendarCommand}"
 								VerticalOptions="Center"
 								HorizontalOptions="Start"
 								Text="15"

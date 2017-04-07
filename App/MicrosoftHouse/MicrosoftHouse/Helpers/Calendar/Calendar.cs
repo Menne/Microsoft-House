@@ -52,7 +52,8 @@ namespace MicrosoftHouse
 			ContentView = new StackLayout
 			{
 				Padding = 0,
-				Orientation = StackOrientation.Vertical
+				Orientation = StackOrientation.Vertical,
+				BackgroundColor = Color.FromHex("#FF4A3764")
 			};
 			MainView = new StackLayout {
 				Padding = 0,
@@ -434,6 +435,7 @@ namespace MicrosoftHouse
 						VerticalTextAlignment = TextAlignment.Center,
 						HorizontalTextAlignment = TextAlignment.Center,
 						FontSize = NumberOfWeekFontSize,
+						FontFamily="Avenir",
 						FontAttributes = NumberOfWeekFontAttributes
 					});
 					weekNumbers.Children.Add(weekNumberLabels.Last(), 0, r);
@@ -460,7 +462,7 @@ namespace MicrosoftHouse
 					{
 						buttons.Add(new CalendarButton
 						{
-							BorderRadius = 0,
+							BorderRadius = 20,
 							BorderWidth = BorderWidth,
 							BorderColor = BorderColor,
 							FontSize = DatesFontSize,

@@ -201,6 +201,9 @@
     <BundleResource Include="Resources\PointIcon%402x.png" />
     <BundleResource Include="Resources\PointIcon%403x.png" />
     <InterfaceDefinition Include="Resources\Launch Screen.storyboard" />
+    <BundleResource Include="Resources\Plus.png" />
+    <BundleResource Include="Resources\Plus%402x.png" />
+    <BundleResource Include="Resources\Plus%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OxyPlot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">

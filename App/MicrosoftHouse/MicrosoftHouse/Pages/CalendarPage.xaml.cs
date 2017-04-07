@@ -10,6 +10,7 @@ namespace MicrosoftHouse
         {
             InitializeComponent();
             BindingContext = new CalendarViewModel();
+			//BindingContext = new Calendar();
 
         }
 

@@ -15,6 +15,8 @@ namespace MicrosoftHouse
 			
 			SearchRoomCommand = new Command(async () => await ExecuteSearchRoomCommand());
 			RoomCommand = new Command(async () => await ExecuteRoomCommand());
+			CalendarCommand = new Command(async () => await ExecuteCalendarCommand());
+			ParkDetailCommand = new Command(async () => await ExecuteParkDetailCommand());
 			NewEventCommand = new Command(async () => ExecuteNewEventCommand());
 			NewParkCommand = new Command(async () => ExecuteNewParkCommand());
 
@@ -22,8 +24,32 @@ namespace MicrosoftHouse
 
 		public Command SearchRoomCommand { get; }
 		public Command RoomCommand { get; }
+		public Command CalendarCommand { get; }
+		public Command ParkDetailCommand { get; }
 		public Command NewEventCommand { get; }
 		public Command NewParkCommand { get; }
+
+		async Task ExecuteCalendarCommand()
+		{
+			//await Application.Current.MainPage.Navigation.PushAsync(new RoomDetailPage());
+
+			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new CalendarPage())
+			{
+				//BarTextColor = Color.White,
+				BarBackgroundColor = Color.FromHex("#FF01A4EF")
+			};		
+		}
+
+		async Task ExecuteParkDetailCommand()
+		{
+			//await Application.Current.MainPage.Navigation.PushAsync(new RoomDetailPage());
+
+			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new CarParkPage())
+			{
+				//BarTextColor = Color.White,
+				BarBackgroundColor = Color.FromHex("#FF01A4EF")
+			};		
+		}
 
 		async Task ExecuteSearchRoomCommand()
 		{
