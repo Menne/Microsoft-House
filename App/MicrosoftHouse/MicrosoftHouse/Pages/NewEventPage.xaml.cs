@@ -9,6 +9,7 @@ namespace MicrosoftHouse
 	{
 		public NewEventPage()
 		{
+			//
 			InitializeComponent();
 			BindingContext = new NewEventViewModel();
 		}
