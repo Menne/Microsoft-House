@@ -3,15 +3,14 @@
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 				x:Class="MicrosoftHouse.NewEventPage"
-				Title="New Event"
-				BackgroundColor="#FFBA77FF">
+				Title="New Event">
 	<ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" WinPhone="20,20,20,20" />
 	</ContentPage.Padding>
 	<ContentPage.Content>
 			<Grid x:Name="grid" RowSpacing="0" BackgroundColor="White">
 				<Grid.RowDefinitions>
-					<RowDefinition Height="*"/>
+					<!--<RowDefinition Height="*"/>-->
 					<RowDefinition Height="3*"/>
 					<RowDefinition Height="0.5*"/>
 					<RowDefinition Height="*"/>
@@ -26,7 +25,7 @@
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
-					<StackLayout HeightRequest="50"
+					<!--<StackLayout HeightRequest="50"
 							HorizontalOptions="FillAndExpand"
 							Padding="10"
 							BackgroundColor="#FFBA77FF"
@@ -55,9 +54,9 @@
 									<TapGestureRecognizer Command="{Binding CreateCommand}"/>
 								</Image.GestureRecognizers>
 							</Image>
-					</StackLayout>
+					</StackLayout>-->
 					<StackLayout BackgroundColor="#FF4A3764"
-									Grid.Row="1"
+									Grid.Row="0"
 									Grid.Column="0"
 									VerticalOptions="FillAndExpand"
 									Padding="30,30,30,30">
@@ -95,7 +94,7 @@
 										FontFamily="Avenir"
 										PlaceholderTextColor="White"/>
 					</StackLayout>
-					<StackLayout Grid.Row="3"
+					<StackLayout Grid.Row="2"
 									Grid.Column="0"
 									Padding="30,10,30,10"
 									Orientation="Vertical">
@@ -125,7 +124,7 @@
 							</BoxView.IsVisible>
 						</BoxView>
 					</StackLayout>
-					<StackLayout Grid.Row="4"
+					<StackLayout Grid.Row="3"
 									Grid.Column="0"
 									Padding="30,10,30,10"
 									Orientation="Vertical">
@@ -155,7 +154,7 @@
 							</BoxView.IsVisible>
 						</BoxView>
 					</StackLayout>
-					<StackLayout Grid.Row="5"
+					<StackLayout Grid.Row="4"
 									Grid.Column="0"
 									Padding="30,10,30,10"
 									Orientation="Vertical">
@@ -185,7 +184,7 @@
 							</BoxView.IsVisible>
 						</BoxView>
 					</StackLayout>
-					<StackLayout Grid.Row="6"
+					<StackLayout Grid.Row="5"
 									Grid.Column="0"
 									Padding="30,10,30,10"
 									Orientation="Vertical">
@@ -211,7 +210,7 @@
 							</BoxView.IsVisible>
 						</BoxView>
 					</StackLayout>
-					<StackLayout Grid.Row="7"
+					<StackLayout Grid.Row="6"
 									Grid.Column="0"
 									Padding="30,10,30,10"
 									Orientation="Vertical">
@@ -244,7 +243,7 @@
 						Command= "{Binding CreateCommand}"
 						FontFamily="Avenir"
 						TextColor="White"
-						Grid.Row="10"
+						Grid.Row="9"
 						Grid.Column="0"
 						BorderRadius="0"
 						IsEnabled="{Binding Source={x:Reference validEvent},Path=IsValid}"/>

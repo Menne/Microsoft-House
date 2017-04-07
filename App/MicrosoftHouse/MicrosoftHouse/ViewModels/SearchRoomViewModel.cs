@@ -53,7 +53,8 @@ namespace MicrosoftHouse
 						BarBackgroundColor = Color.FromHex("#FF01A4EF")
 					};*/
 
-					Application.Current.MainPage.Navigation.PushModalAsync(new SelectedRoomPage(selectedRoom));
+                    (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SelectedRoomPage(selectedRoom));
+					//Application.Current.MainPage.Navigation.PushModalAsync(new SelectedRoomPage(selectedRoom));
 					SelectedRoom = null;
 				}
 			}

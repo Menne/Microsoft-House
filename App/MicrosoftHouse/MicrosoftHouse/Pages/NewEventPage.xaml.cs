@@ -10,10 +10,19 @@ namespace MicrosoftHouse
 		public NewEventPage()
 		{
 			InitializeComponent();
-
 			BindingContext = new NewEventViewModel();
 		}
 
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			(Application.Current.MainPage as MasterDetailPage).IsGestureEnabled = false;
+		}
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+			(Application.Current.MainPage as MasterDetailPage).IsGestureEnabled = true;
+		}
 		public void OnTimePickerFirst(object sender, EventArgs e)
 		{
 			timePickerFirst.Focus();

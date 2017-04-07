@@ -1,5 +1,4 @@
 ﻿using System;
-using KinsmenApp.iOS.Renderer;
 using MicrosoftHouse;
 using MicrosoftHouse.iOS.Renderer;
 using UIKit;

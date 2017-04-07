@@ -34,7 +34,13 @@ namespace MicrosoftHouse
 
             //await Application.Current.MainPage.Navigation.PushAsync(new SearchRoomPage());
             System.Diagnostics.Debug.WriteLine("ciao");
-			await Application.Current.MainPage.Navigation.PushModalAsync(new SearchRoomPage());
+
+			//await Application.Current.MainPage.Navigation.PushModalAsync(new SearchRoomPage());
+
+			// PERFETTTTTOOOO
+			await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SearchRoomPage());
+
+
 
 			/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new SearchRoomPage())
 			{
@@ -58,7 +64,9 @@ namespace MicrosoftHouse
 		async Task ExecuteNewEventCommand()
 		{
 			//From the Bottom - Modal Page --> Aggiungere la Toolbar (Guardare il Capitolo)
-			await Application.Current.MainPage.Navigation.PushModalAsync(new NewEventPage());
+			//await Application.Current.MainPage.Navigation.PushModalAsync(new NewEventPage());
+
+			await(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage());
 
             /*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new NewEventPage())
 			{
@@ -147,7 +155,7 @@ namespace MicrosoftHouse
 				});
 			};
 
-
+			//await(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(scanPage);
 
 			await Application.Current.MainPage.Navigation.PushModalAsync(scanPage);
 		}

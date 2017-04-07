@@ -3,14 +3,14 @@
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 				x:Class="MicrosoftHouse.SelectedRoomPage"
-				BackgroundColor="#FF01A4EF">
+				Title="{Binding Room.Name}">
 	<ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" WinPhone="20,20,20,20" />
 	</ContentPage.Padding>
 	<ContentPage.Content>
 		<Grid RowSpacing="0" BackgroundColor="White">
 				<Grid.RowDefinitions>
-					<RowDefinition Height="*"/>
+					<!--<RowDefinition Height="*"/>-->
 					<RowDefinition Height="3*"/>
 					<RowDefinition Height="0.5*"/>
 					<RowDefinition Height="*"/>
@@ -25,7 +25,7 @@
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
-			<StackLayout HeightRequest="50"
+			<!--<StackLayout HeightRequest="50"
 							HorizontalOptions="FillAndExpand"
 							Padding="10"
 							BackgroundColor="#FFBA77FF"
@@ -52,10 +52,10 @@
 									<TapGestureRecognizer Command="{Binding BackCommand}"/>
 								</Image.GestureRecognizers>
 							</Image>
-					</StackLayout>
+					</StackLayout>-->
 			<StackLayout BackgroundColor="#FF01A4EF" 
 						 Orientation="Horizontal"
-						 Grid.Row="1"
+						 Grid.Row="0"
 						 Grid.Column="0"
 						 Padding="30,10,30,10"
 						 HorizontalOptions="FillAndExpand"
@@ -115,7 +115,7 @@
 					</Image>
 				</StackLayout>
 			</StackLayout>
-			<StackLayout Grid.Row="3"
+			<StackLayout Grid.Row="2"
 							Grid.Column="0"
 							Padding="30,10,30,10"
 							Orientation="Vertical">
@@ -145,7 +145,7 @@
 							</BoxView.IsVisible>
 						</BoxView>
 			</StackLayout>
-			<StackLayout Grid.Row="4"
+			<StackLayout Grid.Row="3"
 									Grid.Column="0"
 									Padding="30,10,30,10"
 									Orientation="Vertical">
@@ -175,7 +175,7 @@
 							</BoxView.IsVisible>
 						</BoxView>
 			</StackLayout>
-			<StackLayout Grid.Row="5"
+			<StackLayout Grid.Row="4"
 					Grid.Column="0"
 					Padding="30,10,30,0"
 					Orientation="Vertical">
@@ -203,7 +203,7 @@
 							</BoxView.IsVisible>
 						</BoxView>
 			</StackLayout>
-			<StackLayout Grid.Row="10"
+			<StackLayout Grid.Row="9"
 						Grid.Column="0">
 					<Button x:Name="searchButton"
 						HorizontalOptions="FillAndExpand"

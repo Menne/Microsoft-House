@@ -3,15 +3,15 @@
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 			x:Class="MicrosoftHouse.SearchRoomPage"
-			BackgroundColor="#FF01A4EF">
+			Title="Search Room">
 	<ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" WinPhone="20,20,20,20" />
 	</ContentPage.Padding>
 	<ContentPage.Content>
 		<Grid RowSpacing="0" BackgroundColor="White">
 				<Grid.RowDefinitions>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="0.25*"/>
+					<!--<RowDefinition Height="*"/>-->
+					<!--<RowDefinition Height="0.25*"/>-->
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="*"/>
@@ -19,12 +19,12 @@
 					<RowDefinition Height="0.75*"/>
 					<RowDefinition Height="0.25*"/>
 					<RowDefinition Height="*"/>
-					<RowDefinition Height="5*"/>
+					<RowDefinition Height="6*"/>
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
-			<StackLayout HeightRequest="50"
+			<!--<StackLayout HeightRequest="50"
 							HorizontalOptions="FillAndExpand"
 							Padding="10"
 							BackgroundColor="#FFBA77FF"
@@ -51,8 +51,8 @@
 									<TapGestureRecognizer Command="{Binding SearchCommand}"/>
 								</Image.GestureRecognizers>
 							</Image>
-					</StackLayout>
-			<StackLayout Grid.Row="2"
+					</StackLayout>-->
+			<StackLayout Grid.Row="0"
 							Grid.Column="0"
 							Padding="30,10,30,10"
 							Orientation="Vertical">
@@ -82,7 +82,7 @@
 							</BoxView.IsVisible>
 						</BoxView>
 			</StackLayout>
-			<StackLayout Grid.Row="3"
+			<StackLayout Grid.Row="1"
 									Grid.Column="0"
 									Padding="30,10,30,10"
 									Orientation="Vertical">
@@ -112,7 +112,7 @@
 							</BoxView.IsVisible>
 						</BoxView>
 			</StackLayout>
-			<StackLayout Grid.Row="4"
+			<StackLayout Grid.Row="2"
 					Grid.Column="0"
 					Padding="30,10,30,0"
 					Orientation="Vertical">
@@ -141,7 +141,7 @@
 						</BoxView>
 			</StackLayout>
 			<StackLayout Padding="30,0,30,0"
-						Grid.Row="6"
+						Grid.Row="4"
 						Grid.Column="0">
 					<Button x:Name="searchButton"
 						HorizontalOptions="FillAndExpand"
@@ -155,7 +155,7 @@
 						/>
 				<!--IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"-->
 				</StackLayout>
-			<StackLayout Grid.Row="8"
+			<StackLayout Grid.Row="6"
 						Grid.Column="0"
 						Padding="30,15,0,0">
 				<Label Text="Available Now"
@@ -166,7 +166,7 @@
 						HorizontalOptions="StartAndExpand"/>
 			</StackLayout>
 
-			<ScrollView Grid.Row="9"
+			<ScrollView Grid.Row="7"
 						Grid.Column="0">
 			<ListView ItemsSource="{Binding Rooms}"
 	                RowHeight="100"
