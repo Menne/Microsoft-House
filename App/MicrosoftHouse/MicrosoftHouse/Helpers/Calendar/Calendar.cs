@@ -24,7 +24,8 @@ namespace MicrosoftHouse
 				Text = "❰",
 				TextColor = Color.FromHex("#c82727")
 			};
-			TitleLabel = new Label { 
+			TitleLabel = new Label
+			{
 				FontSize = 24,
 				VerticalTextAlignment = TextAlignment.Center,
 				HorizontalTextAlignment = TextAlignment.Center,
@@ -33,9 +34,9 @@ namespace MicrosoftHouse
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				Text = ""
 			};
-            TitleRightArrow = new CalendarButton
-            {
-                FontAttributes = FontAttributes.Bold,
+			TitleRightArrow = new CalendarButton
+			{
+				FontAttributes = FontAttributes.Bold,
 				BackgroundColor = Color.Transparent,
 				FontSize = 24,
 				Text = "❱",
@@ -47,7 +48,7 @@ namespace MicrosoftHouse
 				VerticalOptions = LayoutOptions.Start,
 				Orientation = StackOrientation.Horizontal,
 				HeightRequest = Device.OS == TargetPlatform.Windows ? 50 : 32,
-				Children = { TitleLeftArrow, TitleLabel, TitleRightArrow}
+				Children = { TitleLeftArrow, TitleLabel, TitleRightArrow }
 			};
 			ContentView = new StackLayout
 			{
@@ -55,7 +56,8 @@ namespace MicrosoftHouse
 				Orientation = StackOrientation.Vertical,
 				BackgroundColor = Color.FromHex("#FF4A3764")
 			};
-			MainView = new StackLayout {
+			MainView = new StackLayout
+			{
 				Padding = 0,
 				Orientation = StackOrientation.Vertical,
 				Children = { MonthNavigationLayout, ContentView }
@@ -74,6 +76,40 @@ namespace MicrosoftHouse
 			YearsRow = 4;
 			YearsColumn = 4;
 		}
+
+		/// <summary>
+		/// Handling the SWIPE
+		/// </summary>
+		public event EventHandler SwipeDown;
+		public event EventHandler SwipeTop;
+		public event EventHandler SwipeLeft;
+		public event EventHandler SwipeRight;
+
+		public void OnSwipeDown()
+		{
+			if (SwipeDown != null)
+				SwipeDown(this, null);
+		}
+
+		public void OnSwipeTop()
+		{
+			if (SwipeTop != null)
+				SwipeTop(this, null);
+		}
+
+		public void OnSwipeLeft()
+		{
+			if (SwipeLeft != null)
+				SwipeLeft(this, null);
+		}
+
+		public void OnSwipeRight()
+		{
+			if (SwipeRight != null)
+				SwipeRight(this, null);
+		}
+
+
 
 		#region MinDate
 
