@@ -55,14 +55,14 @@
     <Compile Include="Helpers\Calendar\SpecialDate.cs" />
     <Compile Include="Helpers\DayOfWeekButton.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Pages\AboutUsPage.xaml.cs">
+      <DependentUpon>AboutUsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CalendarPage.xaml.cs">
       <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EventDetailsPage.xaml.cs">
       <DependentUpon>EventDetailsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\AboutUsPage.xaml.cs">
-      <DependentUpon>AboutUsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValidEventName.cs" />
     <Compile Include="PageIniziale.xaml.cs">

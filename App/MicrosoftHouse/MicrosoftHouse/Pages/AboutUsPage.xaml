@@ -38,9 +38,11 @@
                            VerticalOptions="Start"
                            Font="Large"
                            FontFamily="Avenir"/>
-                    <maps:Map x:Name="MHMap"
+                    <maps:Map x:Name="MhMap"
+                              WidthRequest="320"
+                              HeightRequest="200"
                               IsShowingUser="true"
-                              MapType="Street"/>
+                              MapType="Hybrid"/>
                     <Label Text="Microsoft House app is designed and developed by Filippo Pedrazzini and Emanuele Torelli for the course 'Design and implementation of mobile applications' of Politecnico di Milano"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="Start"
