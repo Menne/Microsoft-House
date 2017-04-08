@@ -17,7 +17,7 @@
 				<Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <local:Calendar x:Name="calendarProva"
+                <local:Calendar x:Name="CalendarProva"
 							BackgroundColor="#FF4A3764"
 							DisabledBackgroundColor="#FF4A3764"
 							DatesBackgroundColor="#FF4A3764"

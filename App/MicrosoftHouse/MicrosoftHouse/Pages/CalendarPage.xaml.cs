@@ -12,10 +12,10 @@ namespace MicrosoftHouse
             BindingContext = new CalendarViewModel();
 			//BindingContext = new Calendar();
 			//
-			calendarProva.SwipeLeft += (s, e) =>
+			/*calendarProva.SwipeLeft += (s, e) =>
 			{
                 
-			};
+			};*/
 
         }
 
