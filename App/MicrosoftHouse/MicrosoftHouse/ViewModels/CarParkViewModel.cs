@@ -90,31 +90,45 @@ namespace MicrosoftHouse.ViewModels
             {
                 new Label()
                 {
-                    Text = "monday"
+                    Text = "Monday",
+					FontFamily = "Avenir",
+					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
                 },
                 new Label()
                 {
-                    Text = "tuesday"
+                    Text = "Tuesday",
+					FontFamily = "Avenir",
+					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
                 },
                 new Label()
                 {
-                    Text = "wednesday"
+                    Text = "Wednesday",
+					FontFamily = "Avenir",
+					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
                 },
                 new Label()
                 {
-                    Text = "thursday"
+                    Text = "Thursday",
+					FontFamily = "Avenir",
+					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
                 },
                 new Label()
                 {
-                    Text = "friday"
+                    Text = "Friday",
+					FontFamily = "Avenir",
+					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
                 },
                 new Label()
                 {
-                    Text = "saturday"
+                    Text = "Saturday",
+					FontFamily = "Avenir",
+					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
                 },
                 new Label()
                 {
-                    Text = "sunday"
+                    Text = "Sunday",
+					FontFamily = "Avenir",
+					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
                 },
             };
         }

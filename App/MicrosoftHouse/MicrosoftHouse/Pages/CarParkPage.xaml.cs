@@ -34,8 +34,9 @@ namespace MicrosoftHouse
                 Label label = new Label
                 {
                     Text = (i+8).ToString(),
+					FontFamily="Avenir",
                     HorizontalTextAlignment = TextAlignment.Center,
-                    FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
+					FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)),
                 };
                 StatisticsGrid.Children.Add(label, i, 1);
                 Grid.SetColumnSpan(label, 2);

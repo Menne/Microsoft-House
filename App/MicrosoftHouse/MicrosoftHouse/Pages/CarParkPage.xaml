@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.CarParkPage"
-             Title="PARK">
+             Title="Park Detail">
 
     <ContentPage.Content>
         <StackLayout Orientation="Vertical"
@@ -94,11 +94,11 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Label Text="100"
+                        <Label Text="1"
                            VerticalTextAlignment="Start"
                            FontSize="Micro"
                            Grid.Row="0"/>
-                        <Label Text="50"
+                        <Label Text="0.5"
                            VerticalTextAlignment="Center"
                            FontSize="Micro"
                            Grid.Row="1"/>
@@ -184,78 +184,89 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Button x:Name="mondayButton"
+							FontFamily="Avenir"
                             Text="M"
+							BackgroundColor="#FF01A4EF"
+							TextColor="White"
                             Command="{Binding ChangeDayCommand}"
                             Clicked="OnPressed"
                             CommandParameter="0"
-						    BorderRadius="40"
+						    BorderRadius="20"
                             BorderWidth="0"
-                            BackgroundColor="Transparent"
                             Grid.Column="0"/>
                     <Button x:Name="tuesdayButton"
+							FontFamily="Avenir"
                             Text="T"
                             Command="{Binding ChangeDayCommand}"
                             Clicked="OnPressed"
                             CommandParameter="1"
-						    BorderRadius="40"
+						    BorderRadius="20"
                             BorderWidth="0"
                             BackgroundColor="Transparent"
                             Grid.Column="1"/>
                     <Button x:Name="wednesdayButton"
+							FontFamily="Avenir"
                             Text="W"
                             Command="{Binding ChangeDayCommand}"
                             Clicked="OnPressed"
                             CommandParameter="2"
-						    BorderRadius="40"
+						    BorderRadius="20"
                             BorderWidth="0"
                             BackgroundColor="Transparent"
                             Grid.Column="2"/>
                     <Button x:Name="thursdayButton"
+							FontFamily="Avenir"
                             Text="T"
                             Command="{Binding ChangeDayCommand}"
                             Clicked="OnPressed"
                             CommandParameter="3"
-						    BorderRadius="40"
+						    BorderRadius="20"
                             BorderWidth="0"
                             BackgroundColor="Transparent"
                             Grid.Column="3"/>
                     <Button x:Name="fridayButton"
+							FontFamily="Avenir"
                             Text="F"
                             Command="{Binding ChangeDayCommand}"
                             Clicked="OnPressed"
                             CommandParameter="4"
-						    BorderRadius="40"
+						    BorderRadius="20"
                             BorderWidth="0"
                             BackgroundColor="Transparent"
                             Grid.Column="4"/>
                     <Button x:Name="saturdayButton"
+							FontFamily="Avenir"
                             Text="S"
                             Command="{Binding ChangeDayCommand}"
                             Clicked="OnPressed"
                             CommandParameter="5"
-						    BorderRadius="40"
+						    BorderRadius="20"
                             BorderWidth="0"
                             BackgroundColor="Transparent"
                             Grid.Column="5"/>
                     <Button x:Name="sundayButton"
+							FontFamily="Avenir"
                             Text="S"
                             Command="{Binding ChangeDayCommand}"
                             Clicked="OnPressed"
                             CommandParameter="6"
-						    BorderRadius="40"
+						    BorderRadius="20"
                             BorderWidth="0"
                             BackgroundColor="Transparent"
                             Grid.Column="6"/>
                 </Grid>
             </StackLayout>
+			<StackLayout HorizontalOptions="FillAndExpand"
+						 Padding="20">
             <Button x:Name="parkCar"
                     BackgroundColor="#FF00BAFF"
 					VerticalOptions="End"
-					HorizontalOptions="Center"
+					HorizontalOptions="FillAndExpand"
                     Text="PARK NOW"
                     TextColor="#ffffff"
-					BorderRadius="40"
+					BorderRadius="0"
 					FontFamily="Avenir"/>
+			</StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -210,6 +210,12 @@
     <BundleResource Include="Resources\RightButton.png" />
     <BundleResource Include="Resources\RightButton%402x.png" />
     <BundleResource Include="Resources\RightButton%403x.png" />
+    <BundleResource Include="Resources\PointIcon2.png" />
+    <BundleResource Include="Resources\PointIcon2%402x.png" />
+    <BundleResource Include="Resources\PointIcon2%403x.png" />
+    <BundleResource Include="Resources\PointIcon3.png" />
+    <BundleResource Include="Resources\PointIcon3%402x.png" />
+    <BundleResource Include="Resources\PointIcon3%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
