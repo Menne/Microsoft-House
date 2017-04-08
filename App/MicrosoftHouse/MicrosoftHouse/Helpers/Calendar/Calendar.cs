@@ -64,7 +64,6 @@ namespace MicrosoftHouse
 			};
 
 
-          	this.SwipeLeft += LeftArrowClickedEvent;
 			TitleLeftArrow.Clicked += LeftArrowClickedEvent;
 			TitleRightArrow.Clicked += RightArrowClickedEvent;
 			dayLabels = new List<Label>(7);
@@ -86,7 +85,7 @@ namespace MicrosoftHouse
 		public event EventHandler SwipeLeft;
 		public event EventHandler SwipeRight;
 
-		/*public void OnSwipeDown()
+		public void OnSwipeDown()
 		{
 			if (SwipeDown != null)
 				SwipeDown(this, null);
@@ -108,7 +107,7 @@ namespace MicrosoftHouse
 		{
 			if (SwipeRight != null)
 				SwipeRight(this, null);
-		}*/
+		}
 
 
 
