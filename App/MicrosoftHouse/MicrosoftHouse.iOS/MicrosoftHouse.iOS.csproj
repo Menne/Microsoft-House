@@ -204,6 +204,12 @@
     <BundleResource Include="Resources\Plus.png" />
     <BundleResource Include="Resources\Plus%402x.png" />
     <BundleResource Include="Resources\Plus%403x.png" />
+    <BundleResource Include="Resources\LeftButton.png" />
+    <BundleResource Include="Resources\LeftButton%402x.png" />
+    <BundleResource Include="Resources\LeftButton%403x.png" />
+    <BundleResource Include="Resources\RightButton.png" />
+    <BundleResource Include="Resources\RightButton%402x.png" />
+    <BundleResource Include="Resources\RightButton%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

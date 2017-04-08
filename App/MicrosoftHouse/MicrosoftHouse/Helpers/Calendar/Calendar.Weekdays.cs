@@ -11,7 +11,7 @@ namespace MicrosoftHouse
 		#region WeekdaysTextColor
 
 		public static readonly BindableProperty WeekdaysTextColorProperty =
-			BindableProperty.Create(nameof(WeekdaysTextColor), typeof(Color), typeof(Calendar), Color.FromHex("#aaaaaa"),
+			BindableProperty.Create(nameof(WeekdaysTextColor), typeof(Color), typeof(Calendar), Color.White,
 									propertyChanged: (bindable, oldValue, newValue) => (bindable as Calendar).ChangeWeekdaysTextColor((Color)newValue, (Color)oldValue));
 
 		protected void ChangeWeekdaysTextColor(Color newValue, Color oldValue)
@@ -144,7 +144,7 @@ namespace MicrosoftHouse
 			var start = CalendarStartDate(StartDate);
 			for (int i = 0; i < dayLabels.Count; i++)
 			{
-				dayLabels[i].Text = start.ToString(WeekdaysFormat);
+				dayLabels[i].Text = start.ToString(WeekdaysFormat).ToUpper();
 				start = start.AddDays(1);
 			}
 		}

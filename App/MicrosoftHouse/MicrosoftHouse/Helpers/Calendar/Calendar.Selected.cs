@@ -211,11 +211,11 @@ namespace MicrosoftHouse
 				button.BackgroundPattern = special != null ? special.BackgroundPattern : null;
 				button.IsEnabled = true;
 				button.IsSelected = true;
-				button.FontSize = SelectedFontSize;
+				button.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Button));
 				button.BorderWidth = SelectedBorderWidth;
 				button.BorderColor = SelectedBorderColor;
-				button.BackgroundColor = SelectedBackgroundColor.HasValue ? SelectedBackgroundColor.Value : (special != null && special.BackgroundColor.HasValue ? special.BackgroundColor.Value : defaultBackgroundColor);
-				button.TextColor = SelectedTextColor.HasValue ? SelectedTextColor.Value : (special != null && special.TextColor.HasValue ? special.TextColor.Value : defaultTextColor);
+				button.BackgroundColor = Color.White; //SelectedBackgroundColor.HasValue ? SelectedBackgroundColor.Value : (special != null && special.BackgroundColor.HasValue ? special.BackgroundColor.Value : defaultBackgroundColor);
+				button.TextColor = Color.FromHex("#FF4A3764");//SelectedTextColor.HasValue ? SelectedTextColor.Value : (special != null && special.TextColor.HasValue ? special.TextColor.Value : defaultTextColor);
 				button.FontAttributes = SelectedFontAttributes != FontAttributes.None ? SelectedFontAttributes : (special != null && special.FontAttributes.HasValue ? special.FontAttributes.Value : defaultFontAttributes);
 			});
 		}

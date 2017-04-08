@@ -14,23 +14,43 @@ namespace MicrosoftHouse
 		List<Label> TitleLabels;
 		StackLayout MainView, ContentView;
 
+
+		/// <summary>
+		/// Handling the SWIPE
+		/// </summary>
+		//public event EventHandler SwipeDown;
+		//public event EventHandler SwipeTop;
+		//public event EventHandler SwipeLeft;
+		//public event EventHandler SwipeRight;
+
+		/*public void OnSwipeDown()
+		{
+			if (SwipeDown != null)
+				SwipeDown(this, null);
+		}
+
+		public void OnSwipeTop()
+		{
+			if (SwipeTop != null)
+				SwipeTop(this, null);
+		}*/
+
+
 		public Calendar()
 		{
 			TitleLeftArrow = new CalendarButton
 			{
 				FontAttributes = FontAttributes.Bold,
 				BackgroundColor = Color.Transparent,
-				FontSize = 24,
-				Text = "❰",
-				TextColor = Color.FromHex("#c82727")
+				Image = "LeftButton.png",
+				TextColor = Color.White
 			};
 			TitleLabel = new Label
 			{
-				FontSize = 24,
+				FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Button)),
 				VerticalTextAlignment = TextAlignment.Center,
 				HorizontalTextAlignment = TextAlignment.Center,
-				FontAttributes = FontAttributes.Bold,
-				TextColor = Color.Black,
+				TextColor = Color.White,
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				Text = ""
 			};
@@ -38,17 +58,17 @@ namespace MicrosoftHouse
 			{
 				FontAttributes = FontAttributes.Bold,
 				BackgroundColor = Color.Transparent,
-				FontSize = 24,
-				Text = "❱",
-				TextColor = Color.FromHex("#c82727")
+				Image = "RightButton.png",
+				TextColor = Color.White
 			};
 			MonthNavigationLayout = new StackLayout
 			{
-				Padding = 0,
+				Padding = new Thickness(20,0,20,0),
+				BackgroundColor = Color.FromHex("#FF006EA1"),
 				VerticalOptions = LayoutOptions.Start,
 				Orientation = StackOrientation.Horizontal,
-				HeightRequest = Device.OS == TargetPlatform.Windows ? 50 : 32,
-				Children = { TitleLeftArrow, TitleLabel, TitleRightArrow }
+				//HeightRequest = Device.OS == TargetPlatform.Windows ? 50 : 32,
+				Children = { TitleLeftArrow, TitleLabel,TitleRightArrow }
 			};
 			ContentView = new StackLayout
 			{
@@ -64,11 +84,13 @@ namespace MicrosoftHouse
 			};
 
 
+          	//SwipeDown += LeftArrowClickedEvent;
+			//SwipeTop += RightArrowClickedEvent;
 			TitleLeftArrow.Clicked += LeftArrowClickedEvent;
 			TitleRightArrow.Clicked += RightArrowClickedEvent;
 			dayLabels = new List<Label>(7);
 			weekNumberLabels = new List<Label>(6);
-			buttons = new List<CalendarButton>(42);
+			buttons = new List<CalendarButton>(35);
 			MainCalendars = new List<Grid>(1);
 			WeekNumbers = new List<Grid>(1);
 
@@ -77,37 +99,6 @@ namespace MicrosoftHouse
 			YearsColumn = 4;
 		}
 
-		/// <summary>
-		/// Handling the SWIPE
-		/// </summary>
-		public event EventHandler SwipeDown;
-		public event EventHandler SwipeTop;
-		public event EventHandler SwipeLeft;
-		public event EventHandler SwipeRight;
-
-		public void OnSwipeDown()
-		{
-			if (SwipeDown != null)
-				SwipeDown(this, null);
-		}
-
-		public void OnSwipeTop()
-		{
-			if (SwipeTop != null)
-				SwipeTop(this, null);
-		}
-
-		public void OnSwipeLeft()
-		{
-			if (SwipeLeft != null)
-				SwipeLeft(this, null);
-		}
-
-		public void OnSwipeRight()
-		{
-			if (SwipeRight != null)
-				SwipeRight(this, null);
-		}
 
 
 
@@ -438,12 +429,12 @@ namespace MicrosoftHouse
 
 		protected void FillCalendarWindows()
 		{
-			CreateWeeknumbers();
+			//CreateWeeknumbers();
 			CreateButtons();
 			ShowHideElements();
 		}
 
-		protected void CreateWeeknumbers()
+		/*protected void CreateWeeknumbers()
 		{
 			weekNumberLabels.Clear();
 			WeekNumbers.Clear();
@@ -478,7 +469,7 @@ namespace MicrosoftHouse
 				}
 				WeekNumbers.Add(weekNumbers);
 			}
-		}
+		}*/
 
 		protected void CreateButtons()
 		{
@@ -488,25 +479,26 @@ namespace MicrosoftHouse
 			MainCalendars.Clear();
 			for (var i = 0; i < ShowNumOfMonths; i++)
 			{
-				var mainCalendar = new Grid { VerticalOptions = LayoutOptions.FillAndExpand, HorizontalOptions = LayoutOptions.FillAndExpand, RowSpacing = 0, ColumnSpacing = 0, Padding = 1, BackgroundColor = BorderColor };
+				var mainCalendar = new Grid { VerticalOptions = LayoutOptions.FillAndExpand, HorizontalOptions = LayoutOptions.FillAndExpand, RowSpacing = 0, ColumnSpacing = 0, Padding = 10, BackgroundColor = BorderColor };
 				mainCalendar.ColumnDefinitions = new ColumnDefinitionCollection { columDef, columDef, columDef, columDef, columDef, columDef, columDef };
-				mainCalendar.RowDefinitions = new RowDefinitionCollection { rowDef, rowDef, rowDef, rowDef, rowDef, rowDef };
+				mainCalendar.RowDefinitions = new RowDefinitionCollection { rowDef, rowDef, rowDef, rowDef, rowDef };
 
-				for (int r = 0; r < 6; r++)
+				for (int r = 0; r < 5; r++)
 				{
 					for (int c = 0; c < 7; c++)
 					{
 						buttons.Add(new CalendarButton
 						{
-							BorderRadius = 20,
+							BorderRadius = 15,
+							FontFamily="Avenir",
 							BorderWidth = BorderWidth,
 							BorderColor = BorderColor,
-							FontSize = DatesFontSize,
-							BackgroundColor = DatesBackgroundColor,
+							FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Button)),
+							BackgroundColor = Color.Transparent,
 							TextColor = DatesTextColor,
 							FontAttributes = DatesFontAttributes,
-							HorizontalOptions = LayoutOptions.FillAndExpand,
-							VerticalOptions = LayoutOptions.FillAndExpand
+							HorizontalOptions = LayoutOptions.CenterAndExpand,
+							VerticalOptions = LayoutOptions.CenterAndExpand
 						});
 						var b = buttons.Last();
 						b.Clicked += DateClickedEvent;
@@ -610,7 +602,7 @@ namespace MicrosoftHouse
                 button.IsEnabled = true;
                 button.IsSelected = false;
 				button.BackgroundPattern = null;
-                button.FontSize = DatesFontSize;
+				button.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Button));
                 button.BorderWidth = BorderWidth;
                 button.BorderColor = BorderColor;
                 button.BackgroundColor = button.IsOutOfMonth ? DatesBackgroundColorOutsideMonth : DatesBackgroundColor;

@@ -175,7 +175,7 @@ namespace MicrosoftHouse
 				{
 					var label = new Label
 					{
-						FontSize = TitleLabel.FontSize,
+						FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
 						VerticalTextAlignment = TitleLabel.VerticalTextAlignment,
 						HorizontalTextAlignment = TitleLabel.HorizontalTextAlignment,
 						FontAttributes = TitleLabel.FontAttributes,
@@ -218,7 +218,7 @@ namespace MicrosoftHouse
 				if (WeekdaysShow)
 				{
 					var columDef = new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) };
-					var dl = new Grid { VerticalOptions = LayoutOptions.Start, RowSpacing = 0, ColumnSpacing = 0, Padding = 0 };
+					var dl = new Grid { VerticalOptions = LayoutOptions.Start, RowSpacing = 0, ColumnSpacing = 0, Padding = 10 };
 					dl.ColumnDefinitions = new ColumnDefinitionCollection { columDef, columDef, columDef, columDef, columDef, columDef, columDef };
 					if (ShowNumberOfWeek) dl.Padding = new Thickness(NumberOfWeekFontSize * 1.5, 0, 0, 0);
 
@@ -230,7 +230,7 @@ namespace MicrosoftHouse
 							VerticalOptions = LayoutOptions.Center,
 							BackgroundColor = WeekdaysBackgroundColor,
 							TextColor = WeekdaysTextColor,
-							FontSize = WeekdaysFontSize,
+							FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
 							FontAttributes = WeekdaysFontAttributes
 						});
 						dl.Children.Add(dayLabels.Last(), c, 0);

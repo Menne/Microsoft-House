@@ -256,6 +256,14 @@
     <AndroidResource Include="Resources\drawable-ldpi\Plus.png" />
     <AndroidResource Include="Resources\drawable-mdpi\Plus.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Plus.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\LeftButton.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\RightButton.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\LeftButton.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\RightButton.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\LeftButton.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\RightButton.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\LeftButton.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\RightButton.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

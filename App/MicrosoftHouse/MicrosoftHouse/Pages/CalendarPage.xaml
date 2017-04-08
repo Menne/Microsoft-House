@@ -3,7 +3,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.CalendarPage"
-             Title="Calendar">
+			 Title="Calendar">
     <ContentPage.ToolbarItems>
   		<ToolbarItem Icon="Plus.png" Command="{Binding NewEventCommand}"></ToolbarItem>
 	</ContentPage.ToolbarItems>
@@ -11,7 +11,7 @@
         <StackLayout>
             <Grid HorizontalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.8*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
@@ -19,11 +19,11 @@
                 </Grid.ColumnDefinitions>
                 <local:Calendar x:Name="calendarProva"
 							BackgroundColor="#FF4A3764"
-							DisabledBackgroundColor="#FF4A3764"
+							MonthNavigationShow="true"
 							DatesBackgroundColor="#FF4A3764"
 							NumberOfWeekTextColor="White"
-                            Padding="10,10,10,10"
 							DatesTextColor="White"
+							DatesBackgroundColorOutsideMonth="#FF4A3764"
 							TitleLabelFontFamily="Avenir"
                             SelectedBorderColor="White"
                             SelectedBorderWidth="1"
@@ -31,9 +31,6 @@
                             DatesTextColorOutsideMonth="Gray"
                             ShowNumberOfWeek="false"
                             StartDay="Monday"
-                            TitleLabelTextColor="White"
-                            TitleLeftArrowTextColor="#FF01A4EF"
-                            TitleRightArrowTextColor="#FF01A4EF"
                             SelectedDate="{Binding Date}"
                             Grid.Row="0"
 							Grid.Column="0">

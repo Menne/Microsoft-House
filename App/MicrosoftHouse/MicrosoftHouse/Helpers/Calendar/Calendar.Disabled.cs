@@ -147,10 +147,10 @@ namespace MicrosoftHouse
 			Device.BeginInvokeOnMainThread(() =>
 			{
 				button.BackgroundPattern = null;
-				button.FontSize = DisabledFontSize;
+				button.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Button));
 				button.BorderWidth = DisabledBorderWidth;
 				button.BorderColor = DisabledBorderColor;
-				button.BackgroundColor = DisabledBackgroundColor;
+				button.BackgroundColor = Color.FromHex("#FF4A3764");
 				button.TextColor = DisabledTextColor;
 				button.IsEnabled = false;
 				button.IsSelected = false;
