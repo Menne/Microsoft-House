@@ -1,5 +1,186 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MicrosoftHouse.SelectedEventPage">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 
+			 x:Class="MicrosoftHouse.SelectedEventPage"
+			 Title="Event Details">
+	<ContentPage.ToolbarItems>
+  		<ToolbarItem Text="Edit" Command="{Binding EditCommand}"></ToolbarItem>
+	</ContentPage.ToolbarItems>
 	<ContentPage.Content>
+			<Grid RowSpacing="0" BackgroundColor="White">
+				<Grid.RowDefinitions>
+					<!--<RowDefinition Height="*"/>-->
+					<!--<RowDefinition Height="0.25*"/>-->
+					<RowDefinition Height="0.5*"/>
+					<RowDefinition Height="1.5*"/>
+					<RowDefinition Height="1.5*"/>
+					<RowDefinition Height="1.5*"/>
+					<RowDefinition Height="1.5*"/>
+					<RowDefinition Height="1.5*"/>
+					<RowDefinition Height="1.5*"/>
+					<RowDefinition Height="1.5*"/>
+					<RowDefinition Height="1.5*"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<StackLayout Grid.Row="1"
+							Grid.Column="0"
+							Padding="30,10,30,10"
+							Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<Label	Text="EVENT NAME"
+								TextColor="Black"
+								Opacity="0.5"
+								FontSize="Micro"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center"/>
+						<Image Source="CalendarIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start">
+						</Image>
+						</StackLayout>
+						<Label Text="{Binding Event.Name}"
+								TextColor="Black"
+								FontSize="Small"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center">
+						</Label>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1">
+						</BoxView>
+			</StackLayout>
+			<StackLayout Grid.Row="2"
+							Grid.Column="0"
+							Padding="30,10,30,10"
+							Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<Label	Text="DESCRIPTION"
+								TextColor="Black"
+								Opacity="0.5"
+								FontSize="Micro"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center"/>
+						<Image Source="CalendarIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start">
+						</Image>
+						</StackLayout>
+						<Label Text="{Binding Event.Description}"
+								TextColor="Black"
+								FontSize="Small"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center">
+						</Label>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1">
+						</BoxView>
+			</StackLayout>
+			<StackLayout Grid.Row="3"
+							Grid.Column="0"
+							Padding="30,10,30,10"
+							Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<Label	Text="DATE"
+								TextColor="Black"
+								Opacity="0.5"
+								FontSize="Micro"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center"/>
+						<Image Source="CalendarIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start">
+						</Image>
+						</StackLayout>
+						<Label Text="{Binding Event.StartingDate}"
+								TextColor="Black"
+								FontSize="Small"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center">
+						</Label>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1">
+						</BoxView>
+			</StackLayout>
+			<StackLayout Grid.Row="4"
+							Grid.Column="0"
+							Padding="30,10,30,10"
+							Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<Label	Text="TIME"
+								TextColor="Black"
+								Opacity="0.5"
+								FontSize="Micro"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center"/>
+						<Image Source="CalendarIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start">
+						</Image>
+						</StackLayout>
+						<Label Text="{Binding Event.EndingDate}"
+								TextColor="Black"
+								FontSize="Small"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center">
+						</Label>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1">
+						</BoxView>
+			</StackLayout>
+			<StackLayout Grid.Row="5"
+							Grid.Column="0"
+							Padding="30,10,30,10"
+							Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<Label	Text="LOCATION"
+								TextColor="Black"
+								Opacity="0.5"
+								FontSize="Micro"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center"/>
+						<Image Source="CalendarIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start">
+						</Image>
+						</StackLayout>
+						<Label Text="{Binding Event.Place}"
+								TextColor="Black"
+								FontSize="Small"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center">
+						</Label>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1">
+						</BoxView>
+			</StackLayout>
+			<Button BackgroundColor="#FFBA77FF"
+						VerticalOptions="FillAndExpand"
+						HorizontalOptions="FillAndExpand"
+						Text="DELETE"
+						FontFamily="Avenir"
+						TextColor="Red"
+						Grid.Row="9"
+						Grid.Column="0"
+						BorderRadius="0"
+						Command="{Binding DeleteCommand}"/>
+		</Grid>
 	</ContentPage.Content>
 </ContentPage>

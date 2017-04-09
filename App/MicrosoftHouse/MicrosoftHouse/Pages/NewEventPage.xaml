@@ -60,7 +60,8 @@
 									Grid.Column="0"
 									VerticalOptions="FillAndExpand"
 									Padding="30,0,30,30">
-						<local:ExtendedEntry Placeholder="Event Name"
+						<local:ExtendedEntry x:Name="eventName"
+										Placeholder="Event Name"
 										Keyboard="Text"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="CenterAndExpand"
@@ -84,7 +85,8 @@
            	 					</OnPlatform>
 							</BoxView.IsVisible>
 						</BoxView>
-						<local:ExtendedEntry Placeholder="DESCRIPTION"
+						<local:ExtendedEntry x:Name="eventDescription"
+										Placeholder="DESCRIPTION"
 										Keyboard="Text"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="CenterAndExpand"

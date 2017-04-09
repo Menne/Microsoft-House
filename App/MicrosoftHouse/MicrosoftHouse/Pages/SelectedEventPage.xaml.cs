@@ -11,6 +11,7 @@ namespace MicrosoftHouse
 		public SelectedEventPage(Event selectedEvent = null)
 		{
 			InitializeComponent();
+			BindingContext = new SelectedEventPageViewModel(selectedEvent);
 		}
 
 		protected override void OnAppearing()

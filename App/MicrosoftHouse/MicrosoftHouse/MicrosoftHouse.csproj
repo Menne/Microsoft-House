@@ -165,6 +165,7 @@
     <Compile Include="Pages\SelectedEventPage.xaml.cs">
       <DependentUpon>SelectedEventPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\SelectedEventPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PageIniziale.xaml">

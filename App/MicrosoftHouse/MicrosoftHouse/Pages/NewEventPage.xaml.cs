@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using MicrosoftHouse.Models;
 using Xamarin.Forms;
 
 namespace MicrosoftHouse
@@ -9,9 +9,18 @@ namespace MicrosoftHouse
 	{
 		public NewEventPage()
 		{
-			//
 			InitializeComponent();
 			BindingContext = new NewEventViewModel();
+		}
+
+		// PAGINA PER L'EDIT
+		public NewEventPage(Event selectedEvent = null)
+		{
+			InitializeComponent();
+			Title = "Edit Event";
+			BindingContext = new NewEventViewModel();
+			eventName.Text = selectedEvent.Name;
+			eventDescription.Text = selectedEvent.Description;
 		}
 
 		protected override void OnAppearing()
