@@ -8,17 +8,20 @@
         <OnPlatform x:TypeArguments="Thickness" iOS="0, 0, 0, 0" WinPhone="20,20,20,20" />
 	</ContentPage.Padding>-->
 	<ContentPage.Content>
-        <StackLayout>
 			<Grid x:Name="grid" RowSpacing="0" BackgroundColor="White">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+				<Grid.RowDefinitions>
+					<!--<RowDefinition Height="*"/>-->
+					<RowDefinition Height="3*"/>
+					<RowDefinition Height="0.5*"/>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
@@ -56,7 +59,7 @@
 									Grid.Row="0"
 									Grid.Column="0"
 									VerticalOptions="FillAndExpand"
-									Padding="30,0,30,0">
+									Padding="30,0,30,30">
 						<local:ExtendedEntry Placeholder="Event Name"
 										Keyboard="Text"
 										HorizontalOptions="FillAndExpand"
@@ -91,24 +94,7 @@
 										FontFamily="Avenir"
 										PlaceholderTextColor="White"/>
 					</StackLayout>
-
-                <StackLayout Grid.Row="1"
-									Grid.Column="0"
-									Padding="30,10,30,10"
-									Orientation="Vertical">
-                    <StackLayout Orientation="Horizontal">
-                        <Editor x:Name="EventDescription"
-										HorizontalOptions="FillAndExpand"
-										VerticalOptions="Center"/>
-                        <Image Source="CalendarIcon.png"
-								VerticalOptions="Center"
-								HorizontalOptions="Start">
-                        </Image>
-                    </StackLayout>
-                </StackLayout>
-
-
-                <StackLayout Grid.Row="2"
+					<StackLayout Grid.Row="2"
 									Grid.Column="0"
 									Padding="30,10,30,10"
 									Orientation="Vertical">
@@ -224,21 +210,43 @@
 							</BoxView.IsVisible>
 						</BoxView>
 					</StackLayout>
-          
-        </Grid>
-        <StackLayout Padding="30,10,30,10"
-                     VerticalOptions="EndAndExpand"
-                     HorizontalOptions="FillAndExpand">
-            <Button BackgroundColor="#FF00BAFF"
-					VerticalOptions="End"
-					HorizontalOptions="FillAndExpand"
-					Text="CREATE"
-					Command= "{Binding CreateCommand}"
-					FontFamily="Avenir"
-					TextColor="White"
-					BorderRadius="0"
-					IsEnabled="{Binding Source={x:Reference validEvent},Path=IsValid}"/>
-            </StackLayout>
-        </StackLayout>
-    </ContentPage.Content>
+					<StackLayout Grid.Row="6"
+									Grid.Column="0"
+									Padding="30,10,30,10"
+									Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+						<Label Text="NOTIFICATION"
+									TextColor="Black"
+										FontSize="Small"
+										FontFamily="Avenir"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="Center"/>
+						<Switch VerticalOptions="Center"
+								HorizontalOptions="Start"/>
+						</StackLayout>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1">
+							<BoxView.IsVisible>
+								<OnPlatform x:TypeArguments="x:Boolean">
+                					<OnPlatform.iOS>true</OnPlatform.iOS>
+               		 				<OnPlatform.Android>false</OnPlatform.Android>
+           	 					</OnPlatform>
+							</BoxView.IsVisible>
+						</BoxView>
+					</StackLayout>
+
+				<Button BackgroundColor="#FFBA77FF"
+						VerticalOptions="FillAndExpand"
+						HorizontalOptions="FillAndExpand"
+						Text="CREATE"
+						Command= "{Binding CreateCommand}"
+						FontFamily="Avenir"
+						TextColor="White"
+						Grid.Row="9"
+						Grid.Column="0"
+						BorderRadius="0"
+						IsEnabled="{Binding Source={x:Reference validEvent},Path=IsValid}"/>
+			</Grid>
+	</ContentPage.Content>
 </ContentPage>
