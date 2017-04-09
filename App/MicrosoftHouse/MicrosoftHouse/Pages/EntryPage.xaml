@@ -97,10 +97,10 @@
 					Opacity="0.5"
 					VerticalOptions="Start"
 					HorizontalOptions="CenterAndExpand"/>-->
-			<StackLayout Padding="30,10,30,10"
+            <StackLayout Padding="30,10,30,10"
 						Grid.Row="5"
 						Grid.Column="0">
-					<Button x:Name="loginButton"
+                <Button x:Name="loginButton"
 						HorizontalOptions="FillAndExpand"
 						VerticalOptions="Center"
 						BackgroundColor="#FF01A4EF"
@@ -108,15 +108,10 @@
 						Text="SIGN IN"
 						TextColor="White"
 						FontFamily="Avenir"
-						BorderRadius="0"
-						/>
-				<!--IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"-->
-				</StackLayout>
-			<Button Grid.Row="6"
-					Grid.Column="0"
-					Text="Bottone per Menne"
-					Clicked="OnHome"/>
-        
-		</Grid>
+						BorderRadius="0"/>
+                <!--IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"-->
+            </StackLayout>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
