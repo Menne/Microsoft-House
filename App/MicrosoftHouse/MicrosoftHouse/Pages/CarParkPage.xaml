@@ -9,12 +9,74 @@
         <StackLayout Orientation="Vertical"
 					 VerticalOptions="Start"
 					 HorizontalOptions="FillAndExpand">
-            <StackLayout Orientation="Horizontal"
+			<StackLayout BackgroundColor="#FF01A4EF" 
+						 Orientation="Horizontal"
+						 Grid.Row="0"
+						 Grid.Column="0"
+						 Padding="30,10,30,10"
+						 HorizontalOptions="FillAndExpand"
+						 VerticalOptions="FillAndExpand">
+				<StackLayout Orientation="Vertical" 
+								Padding="10"
+								HorizontalOptions="StartAndExpand">
+					<Label FontSize="Large"
+							FontFamily="Avenir"
+							Text="{Binding ParkingSpaces}"
+							HorizontalOptions="Center"
+							TextColor="White"/>
+					<Label FontSize="Small"
+							FontFamily="Avenir"
+							Text="Spaces"
+							HorizontalOptions="Center"
+							TextColor="White"/>
+					<Image Source="PointIcon.png"
+							HorizontalOptions="Center"
+							VerticalOptions="Center">
+					</Image>
+				</StackLayout>
+				<StackLayout Orientation="Vertical"
+								Padding="10"
+								HorizontalOptions="CenterAndExpand">
+					<Label FontSize="Large"
+							HorizontalOptions="Center"
+							FontFamily="Avenir"
+							Text="{Binding TimeToArrival}"
+							TextColor="White"/>
+					<Label FontSize="Small"
+							FontFamily="Avenir"
+							HorizontalOptions="Center"
+							Text="Min to Arrival"
+							TextColor="White"/>
+					<Image Source="PointIcon2.png"
+							HorizontalOptions="Center"
+							VerticalOptions="Center">
+					</Image>
+				</StackLayout>
+				<StackLayout Orientation="Vertical"
+								Padding="10"
+								HorizontalOptions="EndAndExpand">
+					<Label FontSize="Large"
+							FontFamily="Avenir"
+							HorizontalOptions="Center"
+							Text="{Binding Distance}"
+							TextColor="White"/>
+					<Label FontSize="Small"
+							FontFamily="Avenir"
+							HorizontalOptions="Center"
+							Text="Km to Arrival"
+							TextColor="White"/>
+					<Image Source="PointIcon3.png"
+							HorizontalOptions="Center"
+							VerticalOptions="Center">
+					</Image>
+				</StackLayout>
+			</StackLayout>
+            <!--<StackLayout Orientation="Horizontal"
 					 VerticalOptions="FillAndExpand"
 					 HorizontalOptions="FillAndExpand"
 					 Padding="10,10,10,10"
 					 BackgroundColor="#FF01A4EF">
-                <Grid>
+               <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -54,7 +116,7 @@
 				               VerticalOptions="Center"/>
                     </StackLayout>
                 </Grid>
-            </StackLayout>
+            </StackLayout>-->
 
             <StackLayout Orientation="Vertical"
                          HorizontalOptions="FillAndExpand"

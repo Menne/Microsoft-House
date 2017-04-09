@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MicrosoftHouse.Abstractions;
 
 namespace MicrosoftHouse.Models
 {
-    class Event
+    public class Event : TableData
     {
         public string Name { get; set; }
         public string Description { get; set; }
