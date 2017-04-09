@@ -86,12 +86,12 @@
 						<StackLayout Orientation="Horizontal">
 							<Label
 							   FontFamily="Avenir"
-		                       Text="{Binding Path=StartingDate.TimeOfDay, StringFormat='{0} -'}"
+		                       Text="{Binding Path=StartingTime, StringFormat='{}{0:hh\\:mm} -'}"
 		                       TextColor="#272832"
 							   FontSize="Medium"/>
 							<Label
 							   FontFamily="Avenir"
-		                       Text="{Binding Path=EndingDate.TimeOfDay, StringFormat='{0}'}"
+		                       Text="{Binding Path=EndingTime, StringFormat='{}{0:hh\\:mm}'}"
 		                       TextColor="#272832"
 							   FontSize="Medium"/>
 						</StackLayout>

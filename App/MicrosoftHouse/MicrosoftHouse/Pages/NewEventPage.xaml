@@ -63,6 +63,7 @@
 						<local:ExtendedEntry x:Name="eventName"
 										Placeholder="Event Name"
 										Keyboard="Text"
+										Text="{Binding Event.Name, Mode=TwoWay}"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="CenterAndExpand"
 										Font="Large"
@@ -88,6 +89,7 @@
 						<local:ExtendedEntry x:Name="eventDescription"
 										Placeholder="DESCRIPTION"
 										Keyboard="Text"
+										Text="{Binding Event.Description, Mode=TwoWay}"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="CenterAndExpand"
 										XAlign="Center"
@@ -103,6 +105,7 @@
 						<StackLayout Orientation="Horizontal">
 						<local:ExtendedDatePicker x:Name="datePicker"
 										PlaceHolder="DATE"
+										Date="{Binding Event.Date, Mode=TwoWay}"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
@@ -133,6 +136,7 @@
 						<StackLayout Orientation="Horizontal">
 						<local:ExtendedTimePicker x:Name="timePickerFirst"
 										PlaceHolder="STARTING TIME"
+										Time="{Binding Event.StartingTime, Mode=TwoWay}"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
@@ -163,6 +167,7 @@
 						<StackLayout Orientation="Horizontal">
 						<local:ExtendedTimePicker x:Name="timePickerSecond"
 										PlaceHolder="ENDING TIME"
+										Time="{Binding Event.EndingTime, Mode=TwoWay}"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"

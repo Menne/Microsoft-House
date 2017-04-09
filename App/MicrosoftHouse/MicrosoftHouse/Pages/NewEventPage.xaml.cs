@@ -18,9 +18,9 @@ namespace MicrosoftHouse
 		{
 			InitializeComponent();
 			Title = "Edit Event";
-			BindingContext = new NewEventViewModel();
-			eventName.Text = selectedEvent.Name;
-			eventDescription.Text = selectedEvent.Description;
+			BindingContext = new NewEventViewModel(selectedEvent);
+			//eventName.Text = selectedEvent.Name;
+			//eventDescription.Text = selectedEvent.Description;
 		}
 
 		protected override void OnAppearing()

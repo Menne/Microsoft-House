@@ -101,7 +101,7 @@
 								HorizontalOptions="Start">
 						</Image>
 						</StackLayout>
-						<Label Text="{Binding Event.StartingDate}"
+						<Label Text="{Binding Event.Date.Date, StringFormat='{0:MMMM dd, yyyy}'}"
 								TextColor="Black"
 								FontSize="Small"
 								FontFamily="Avenir"
@@ -130,13 +130,22 @@
 								HorizontalOptions="Start">
 						</Image>
 						</StackLayout>
-						<Label Text="{Binding Event.EndingDate}"
-								TextColor="Black"
-								FontSize="Small"
-								FontFamily="Avenir"
-								HorizontalOptions="FillAndExpand"
-								VerticalOptions="Center">
-						</Label>
+						<StackLayout Orientation="Horizontal">
+							<Label Text="{Binding Event.StartingTime, StringFormat='{}{0:hh\\:mm} - '}"
+									TextColor="Black"
+									FontSize="Small"
+									FontFamily="Avenir"
+									HorizontalOptions="Start"
+									VerticalOptions="Center">
+							</Label>
+							<Label Text="{Binding Event.EndingTime, StringFormat='{}{0:hh\\:mm}'}"
+									TextColor="Black"
+									FontSize="Small"
+									FontFamily="Avenir"
+									HorizontalOptions="Start"
+									VerticalOptions="Center">
+							</Label>
+						</StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
 									HeightRequest="1">

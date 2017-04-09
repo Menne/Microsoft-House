@@ -7,26 +7,13 @@ using Xamarin.Forms;
 
 namespace MicrosoftHouse.ViewModels
 {
-    class CalendarViewModel : BaseViewModel
+    public class CalendarViewModel : BaseViewModel
     {
         public CalendarViewModel()
         {
             NewEventCommand = new Command(async () => await ExecuteNewEventCommand());
             RetrieveEvents();
-
-			//DateTime time = DateTime.Now;
-
-			//time.to
         }
-
-
-
-		/*ObservableCollection<Room> rooms = new ObservableCollection<Room>();
-		public ObservableCollection<Room> Rooms
-		{
-			get { return rooms; }
-			set { SetProperty(ref rooms, value, "Rooms"); }
-		}*/
 
 		Event selectedEvent;
 		public Event SelectedEvent
@@ -69,7 +56,7 @@ namespace MicrosoftHouse.ViewModels
             set { SetProperty(ref eventsOfSelectedDay, value, "EventsOfSelectedDay"); }
         }
 
-        ObservableCollection<Event> allEvents;
+		ObservableCollection<Event> allEvents = new ObservableCollection<Event>();
         public ObservableCollection<Event> AllEvents
         {
             get { return allEvents; }
@@ -78,34 +65,35 @@ namespace MicrosoftHouse.ViewModels
 
         private void RetrieveEvents()
         {
-            AllEvents = new ObservableCollection<Event>
-            {
-                new Event
-                {
-                    Name="Evento 1",
-                    Description = "Descrizione",
-                    Place = "Aula 1",
-                    StartingDate=DateTime.Now,
-                    EndingDate=DateTime.Now,
-                },
-                new Event
-                {
-                    Name="Evento 2",
-                    Description = "Descrizione",
-                    Place = "Aula 2",
-                    StartingDate=DateTime.Now,
-                    EndingDate=DateTime.Now,
-                },
-                new Event
-                {
-                    Name="Evento 3",
-                    Description = "Descrizione",
-                    Place = "Aula 3",
-                    StartingDate=DateTime.Now,
-                    EndingDate=DateTime.Now,
-                }
-            };
+			AllEvents.Add(new Event
+			{
+				Name = "Evento 1",
+				Description = "Descrizione",
+				Place = "Aula 1",
+				Date = DateTime.Now,
+			});
+			AllEvents.Add(new Event
+			{
+				Name = "Evento 2",
+				Description = "Descrizione",
+				Place = "Aula 2",
+				Date = DateTime.Now,
+			});
+			AllEvents.Add(new Event
+			{
+				Name = "Evento 3",
+				Description = "Descrizione",
+				Place = "Aula 3",
+				Date = DateTime.Now,
+			});
+              
         }
+
+		// Aggiungi un EVENTO
+		/*public void addEvent(Event newEvent)
+		{
+			AllEvents.Add(newEvent);
+		}*/
 
         async Task ExecuteNewEventCommand()
         {
@@ -117,7 +105,7 @@ namespace MicrosoftHouse.ViewModels
         {
             EventsOfSelectedDay.Clear();
             foreach (Event item in AllEvents)
-                if (item.StartingDate.Date == Date.Value.Date)
+                if (item.Date.Date == Date.Value.Date)
                     EventsOfSelectedDay.Add(item);
         }
 

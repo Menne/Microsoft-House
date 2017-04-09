@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MicrosoftHouse.Abstractions;
+using MicrosoftHouse.Models;
+using MicrosoftHouse.ViewModels;
 using Xamarin.Forms;
 
 namespace MicrosoftHouse
@@ -8,41 +10,43 @@ namespace MicrosoftHouse
 	public class NewEventViewModel : BaseViewModel
 	{
 
-        public NewEventViewModel()
+		public NewEventViewModel()
 		{
 			Title = "New Event";
-            
-			BackCommand = new Command(async () => await ExecuteBackCommand());
-			CreateCommand = new Command(async () => await ExecuteCreateCommand());
+
+			BackCommand = new Command(() => ExecuteBackCommand());
+			CreateCommand = new Command(() => ExecuteCreateCommand());
+
+			Event = new Event();
 
 		}
+
+		public NewEventViewModel(Event selectedEvent = null)
+		{
+			Event = selectedEvent;
+
+			BackCommand = new Command(() => ExecuteBackCommand());
+			CreateCommand = new Command(() => ExecuteCreateCommand());
+		}
+
+		public Event Event { get; set; }
+		public CalendarViewModel CalendarModel { get; set; }
 
 		public Command BackCommand { get; }
 		public Command CreateCommand { get; }
 
 
-		async Task ExecuteBackCommand()
+		public void ExecuteBackCommand()
 		{
-			//From the Bottom - Modal Page --> Aggiungere la Toolbar (Guardare il Capitolo)
-			await Application.Current.MainPage.Navigation.PopModalAsync();
-
-			/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new NewEventPage())
-			{
-				BarTextColor = Color.White,
-				BarBackgroundColor = Color.FromHex("#FF01A4EF")
-			};*/
+			Application.Current.MainPage.Navigation.PopModalAsync();
 		}
 
-		async Task ExecuteCreateCommand()
+		public void ExecuteCreateCommand()
 		{
-			//From the Bottom - Modal Page --> Aggiungere la Toolbar (Guardare il Capitolo)
-			await Application.Current.MainPage.Navigation.PopModalAsync();
+			System.Diagnostics.Debug.WriteLine(Event.Name);
+			//CalendarModel.addEvent(Event);
 
-			/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new NewEventPage())
-			{
-				BarTextColor = Color.White,
-				BarBackgroundColor = Color.FromHex("#FF01A4EF")
-			};*/
+			Application.Current.MainPage.Navigation.PopModalAsync();
 		}
     }
 }

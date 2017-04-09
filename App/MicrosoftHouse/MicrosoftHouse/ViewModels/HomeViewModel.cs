@@ -2,6 +2,7 @@
 using System.Diagnostics.Contracts;
 using System.Threading.Tasks;
 using MicrosoftHouse.Abstractions;
+using MicrosoftHouse.ViewModels;
 using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
 
@@ -10,9 +11,9 @@ namespace MicrosoftHouse
 	public class HomeViewModel : BaseViewModel
 	{
 		ZXingScannerPage scanPage;
+
 		public HomeViewModel()
 		{
-			
 			SearchRoomCommand = new Command(async () => await ExecuteSearchRoomCommand());
 			RoomCommand = new Command(async () => await ExecuteRoomCommand());
 			CalendarCommand = new Command(async () => await ExecuteCalendarCommand());
