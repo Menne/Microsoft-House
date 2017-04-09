@@ -56,10 +56,11 @@ namespace MicrosoftHouse
 			ReservedRooms.Add(room4);
 			ReservedRooms.Add(room5);
 
-			Rooms = availableRooms;
-
+			//Rooms = availableRooms;
+			ExecuteRoomAVCommand();
 
 		}
+
 
 		ObservableCollection<Room> rooms = new ObservableCollection<Room>();
 		public ObservableCollection<Room> Rooms
@@ -69,25 +70,36 @@ namespace MicrosoftHouse
 		}
 
 
+
+		ObservableCollection<Reservation> reservations = new ObservableCollection<Reservation>();
+		public ObservableCollection<Reservation> Reservations
+		{
+			get { return reservations; }
+			set { SetProperty(ref reservations, value, "Reservations"); }
+		}
+
+
+
+
 		ObservableCollection<Room> availableRooms = new ObservableCollection<Room>();
 		public ObservableCollection<Room> AvailableRooms
 		{
 			get { return availableRooms; }
-			set { SetProperty(ref availableRooms, value, "Rooms"); }
+			set { SetProperty(ref availableRooms, value, "AvailableRooms"); }
 		}
 
 		ObservableCollection<Room> allRooms = new ObservableCollection<Room>();
 		public ObservableCollection<Room> AllRooms
 		{
 			get { return allRooms; }
-			set { SetProperty(ref allRooms, value, "Rooms"); }
+			set { SetProperty(ref allRooms, value, "AllRooms"); }
 		}
 
 		ObservableCollection<Room> reservedRooms = new ObservableCollection<Room>();
 		public ObservableCollection<Room> ReservedRooms
 		{
 			get { return reservedRooms; }
-			set { SetProperty(ref reservedRooms, value, "Rooms"); }
+			set { SetProperty(ref reservedRooms, value, "ReservedRooms"); }
 		}
 
 
@@ -100,8 +112,11 @@ namespace MicrosoftHouse
 				SetProperty(ref selectedRoom, value, "SelectedRoom");
 				if (selectedRoom != null)
 				{
-					Application.Current.MainPage.Navigation.PushModalAsync(new SelectedRoomPage(selectedRoom));
-					SelectedRoom = null;
+					
+					(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SelectedRoomPage(selectedRoom));
+					SelectedRoom = null;	
+
+
 				}
 			}
 		}

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			x:Class="MicrosoftHouse.RoomNavPage"
-			Title="ROOMS"
+			Title="Rooms"
 			x:Name="roomPage">
 	<ContentPage.Content>
 	<StackLayout Spacing="0">
@@ -115,6 +115,23 @@
 	                       Text="{Binding Path=Seats, StringFormat='Seats {0}'}"
 	                       TextColor="#272832"
 						   FontSize="Medium"/>
+						  <!-- nel caso RESERVATION LISTA-->
+						<!--<Label
+						   FontSize="Medium"
+						   FontFamily="Avenir"
+	                       Text="{Binding Path=Name}"
+	                       TextColor="#272832" />
+						<Label
+	                       Text="{Binding Path=Floor, StringFormat='Floor {0}'}"
+	                       TextColor="#272832"
+						   Opacity="0.5"
+						   FontFamily="Avenir"
+						   FontSize="Small"/>
+						<Label
+						   FontFamily="Avenir"
+	                       Text="{Binding Path=Seats, StringFormat='Seats {0}'}"
+	                       TextColor="#272832"
+						   FontSize="Medium"/>-->
 					</StackLayout>
 	              </StackLayout>
 					<BoxView Color="Black"

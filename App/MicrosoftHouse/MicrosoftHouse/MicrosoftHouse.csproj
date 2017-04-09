@@ -163,6 +163,7 @@
       <DependentUpon>SelectedEventPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\SelectedEventPageViewModel.cs" />
+    <Compile Include="Models\Reservation.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PageIniziale.xaml">
