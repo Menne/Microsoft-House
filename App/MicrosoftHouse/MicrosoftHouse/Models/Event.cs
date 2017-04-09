@@ -7,12 +7,13 @@ using MicrosoftHouse.Abstractions;
 
 namespace MicrosoftHouse.Models
 {
-    public class Event : TableData
-    {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Place { get; set; }
-        public DateTime StartingDate { get; set; }
+	public class Event : TableData
+	{
+		public string Name { get; set; }
+		public string Description { get; set; }
+		public string Place { get; set; }
+		public DateTime StartingDate { get; set; }
         public DateTime EndingDate { get; set; }
+
     }
 }

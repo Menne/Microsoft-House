@@ -13,6 +13,10 @@ namespace MicrosoftHouse.ViewModels
         {
             NewEventCommand = new Command(async () => await ExecuteNewEventCommand());
             RetrieveEvents();
+
+			//DateTime time = DateTime.Now;
+
+			//time.to
         }
 
 
