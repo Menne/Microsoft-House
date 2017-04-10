@@ -12,7 +12,7 @@ namespace MicrosoftHouse
 		List<CalendarButton> buttons;
 		List<Grid> MainCalendars;
 		List<Label> TitleLabels;
-		StackLayout MainView, ContentView;
+		StackLayout MainView, ContentView, DaysView;
 
 
 		/// <summary>
@@ -61,11 +61,49 @@ namespace MicrosoftHouse
 				Image = "RightButton.png",
 				TextColor = Color.White
 			};
+			/*DaysView = new StackLayout
+			{
+				Orientation = StackOrientation.Horizontal,
+				Padding = new Thickness(15,0,15,0),
+
+				Children = 
+				{
+					new Label
+					{
+						
+						Text = "MON"
+					},
+					new Label
+					{
+						Text = "TUE"
+					},
+					new Label
+					{
+						Text = "WEN"
+					},
+					new Label
+					{
+						Text = "THU"
+					},
+					new Label
+					{
+						Text = "FRI"
+					},
+					new Label
+					{
+						Text = "SAT"
+					},
+					new Label
+					{
+						Text = "SUN"
+					}
+				}
+			};*/
+
 			MonthNavigationLayout = new StackLayout
 			{
-				Padding = new Thickness(20,0,20,0),
+				Padding = new Thickness(10,0,10,0),
 				BackgroundColor = Color.FromHex("#FF006EA1"),
-				VerticalOptions = LayoutOptions.Start,
 				Orientation = StackOrientation.Horizontal,
 				//HeightRequest = Device.OS == TargetPlatform.Windows ? 50 : 32,
 				Children = { TitleLeftArrow, TitleLabel,TitleRightArrow }
@@ -74,6 +112,7 @@ namespace MicrosoftHouse
 			{
 				Padding = 0,
 				Orientation = StackOrientation.Vertical,
+				VerticalOptions = LayoutOptions.CenterAndExpand,
 				BackgroundColor = Color.FromHex("#FF4A3764")
 			};
 			MainView = new StackLayout
@@ -474,12 +513,17 @@ namespace MicrosoftHouse
 		protected void CreateButtons()
 		{
 			var columDef = new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) };
-			var rowDef = new RowDefinition { Height = new GridLength(1, GridUnitType.Star) };
+			var rowDef = new RowDefinition
+			{
+				Height = new GridLength(30, GridUnitType.Absolute)
+					//Device.OnPlatform(new GridLength(35, GridUnitType.Absolute),new GridLength(30, GridUnitType.Absolute),new GridLength(30, GridUnitType.Absolute))
+
+			};
 			buttons.Clear();
 			MainCalendars.Clear();
 			for (var i = 0; i < ShowNumOfMonths; i++)
 			{
-				var mainCalendar = new Grid { VerticalOptions = LayoutOptions.FillAndExpand, HorizontalOptions = LayoutOptions.FillAndExpand, RowSpacing = 0, ColumnSpacing = 0, Padding = 10, BackgroundColor = BorderColor };
+				var mainCalendar = new Grid { VerticalOptions = LayoutOptions.FillAndExpand, HorizontalOptions = LayoutOptions.FillAndExpand, RowSpacing = 0, ColumnSpacing = 0, Padding = new Thickness(10,0,10,0), BackgroundColor = BorderColor };
 				mainCalendar.ColumnDefinitions = new ColumnDefinitionCollection { columDef, columDef, columDef, columDef, columDef, columDef, columDef };
 				mainCalendar.RowDefinitions = new RowDefinitionCollection { rowDef, rowDef, rowDef, rowDef, rowDef };
 
@@ -489,7 +533,7 @@ namespace MicrosoftHouse
 					{
 						buttons.Add(new CalendarButton
 						{
-							BorderRadius = 15,
+							BorderRadius = 14,
 							FontFamily="Avenir",
 							BorderWidth = BorderWidth,
 							BorderColor = BorderColor,

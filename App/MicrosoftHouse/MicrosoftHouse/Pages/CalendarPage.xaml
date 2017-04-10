@@ -8,10 +8,9 @@
   		<ToolbarItem Icon="Plus.png" Command="{Binding NewEventCommand}"></ToolbarItem>
 	</ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="0">
             <Grid HorizontalOptions="FillAndExpand" RowSpacing="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition Height="250"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
@@ -107,6 +106,5 @@
 	        </ListView.ItemTemplate>
                 </ListView>
             </Grid>
-        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
