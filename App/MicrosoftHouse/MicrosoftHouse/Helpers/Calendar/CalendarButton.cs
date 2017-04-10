@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace MicrosoftHouse
 {
-    public class CalendarButton : Button
+	public class CalendarButton : Button
     {
 		public static readonly BindableProperty DateProperty =
             BindableProperty.Create(nameof(Date), typeof(DateTime?), typeof(CalendarButton), null);

@@ -10,9 +10,9 @@ using Xamarin.Forms;
 namespace MicrosoftHouse.Droid
 {
 	[Preserve(AllMembers = true)]
-    public class CalendarButtonRenderer : CustomButtonRenderer
+    public class CalendarButtonRenderer : Xamarin.Forms.Platform.Android.ButtonRenderer
     {
-		protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Button> e)
+		protected override void OnElementChanged(ElementChangedEventArgs<Button> e)
         {
             base.OnElementChanged(e);
             if (Control == null) return;
@@ -42,10 +42,10 @@ namespace MicrosoftHouse.Droid
 			 
 			if (e.PropertyName == nameof(Element.BorderWidth) || e.PropertyName == nameof(Element.BorderColor) || e.PropertyName == nameof(Element.BackgroundColor) || e.PropertyName == "Renderer")
             {
-				if (element.BackgroundPattern == null)
+				/*if (element.BackgroundPattern == null)
 				{
 					var drawable = new GradientDrawable();
-					drawable.SetShape(ShapeType.Rectangle);
+					drawable.SetShape(ShapeType.Oval);
 					drawable.SetStroke((int)Element.BorderWidth, Element.BorderColor.ToAndroid());
 					drawable.SetColor(Element.BackgroundColor.ToAndroid());
 					Control.SetBackground(drawable);
@@ -53,7 +53,7 @@ namespace MicrosoftHouse.Droid
 				else 
 				{
 					ChangeBackgroundPattern();
-				}
+				}*/
 			}
 
 			if (e.PropertyName == nameof(element.BackgroundPattern))
