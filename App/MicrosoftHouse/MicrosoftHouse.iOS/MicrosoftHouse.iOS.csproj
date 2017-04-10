@@ -102,6 +102,7 @@
     <Compile Include="Renderers\ExtendedDatePickerRender.cs" />
     <Compile Include="Renderers\ExtendedTimePickerRender.cs" />
     <Compile Include="Renderers\CustomNavigationPageRender.cs" />
+    <Compile Include="Renderers\ExtendedPickerRender.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -216,6 +217,9 @@
     <BundleResource Include="Resources\PointIcon3.png" />
     <BundleResource Include="Resources\PointIcon3%402x.png" />
     <BundleResource Include="Resources\PointIcon3%403x.png" />
+    <BundleResource Include="Resources\EventIcon.png" />
+    <BundleResource Include="Resources\EventIcon%402x.png" />
+    <BundleResource Include="Resources\EventIcon%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

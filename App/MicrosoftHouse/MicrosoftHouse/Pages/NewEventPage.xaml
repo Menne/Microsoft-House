@@ -59,7 +59,7 @@
 									Grid.Row="0"
 									Grid.Column="0"
 									VerticalOptions="FillAndExpand"
-									Padding="30,0,30,30">
+									Padding="30,30,30,30">
 						<local:ExtendedEntry x:Name="eventName"
 										Placeholder="Event Name"
 										Keyboard="Text"
@@ -196,6 +196,38 @@
 									Padding="30,10,30,10"
 									Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
+						<local:ExtendedPicker x:Name="locationPicker"
+										PlaceHolder="LOCATION"
+										TextColor="Black"
+										Font="Small"
+										ItemsSource="{Binding LocationsName}"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="Center">
+						</local:ExtendedPicker>
+						<Image Source="ParkIcon.png"
+								VerticalOptions="Center"
+								HorizontalOptions="Start">
+							<Image.GestureRecognizers>
+									<TapGestureRecognizer Tapped="OnLocationPicker"/>
+							</Image.GestureRecognizers>
+						</Image>
+						</StackLayout>
+						<BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1">
+							<BoxView.IsVisible>
+								<OnPlatform x:TypeArguments="x:Boolean">
+                					<OnPlatform.iOS>true</OnPlatform.iOS>
+               		 				<OnPlatform.Android>false</OnPlatform.Android>
+           	 					</OnPlatform>
+							</BoxView.IsVisible>
+						</BoxView>
+					</StackLayout>
+					<!--<StackLayout Grid.Row="5"
+									Grid.Column="0"
+									Padding="30,10,30,10"
+									Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
 						<Label Text="LOCATION"
 									TextColor="Black"
 										FontSize="Small"
@@ -216,7 +248,7 @@
            	 					</OnPlatform>
 							</BoxView.IsVisible>
 						</BoxView>
-					</StackLayout>
+					</StackLayout>-->
 					<StackLayout Grid.Row="6"
 									Grid.Column="0"
 									Padding="30,10,30,10"

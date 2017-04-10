@@ -47,5 +47,10 @@ namespace MicrosoftHouse
 		{
 			datePicker.Focus();
 		}
+
+		public void OnLocationPicker(object sender, EventArgs e)
+		{
+			locationPicker.Focus();
+		}
 	}
 }

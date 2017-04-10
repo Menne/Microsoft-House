@@ -175,6 +175,7 @@
     <Compile Include="Renderers\ExtendedEntryRender.cs" />
     <Compile Include="Renderers\ExtendedTimePickerRender.cs" />
     <Compile Include="SplashActivity.cs" />
+    <Compile Include="Renderers\ExtendedPickerRender.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -276,6 +277,10 @@
     <AndroidResource Include="Resources\drawable-xhdpi\PointIcon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\PointIcon2.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\PointIcon3.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\EventIcon.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\EventIcon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\EventIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\EventIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

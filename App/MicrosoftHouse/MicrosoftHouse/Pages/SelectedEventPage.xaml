@@ -37,7 +37,7 @@
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-						<Image Source="CalendarIcon.png"
+						<Image Source="EventIcon.png"
 								VerticalOptions="Center"
 								HorizontalOptions="Start">
 						</Image>
@@ -66,7 +66,7 @@
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-						<Image Source="CalendarIcon.png"
+						<Image Source="EventIcon.png"
 								VerticalOptions="Center"
 								HorizontalOptions="Start">
 						</Image>
@@ -124,7 +124,7 @@
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-						<Image Source="CalendarIcon.png"
+						<Image Source="TimeIcon.png"
 								VerticalOptions="Center"
 								HorizontalOptions="Start">
 						</Image>
@@ -162,7 +162,7 @@
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-						<Image Source="CalendarIcon.png"
+						<Image Source="ParkIcon.png"
 								VerticalOptions="Center"
 								HorizontalOptions="Start">
 						</Image>

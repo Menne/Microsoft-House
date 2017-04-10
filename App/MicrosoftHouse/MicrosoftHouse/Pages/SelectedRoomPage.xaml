@@ -5,7 +5,7 @@
 				x:Class="MicrosoftHouse.SelectedRoomPage"
 				Title="{Binding Room.Name}">
 	<ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" WinPhone="20,20,20,20" />
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 0, 0, 0" WinPhone="20,20,20,20" />
 	</ContentPage.Padding>
 	<ContentPage.Content>
 		<Grid RowSpacing="0" BackgroundColor="White">
@@ -91,7 +91,7 @@
 							HorizontalOptions="Center"
 							Text="Seats"
 							TextColor="White"/>
-					<Image Source="PointIcon.png"
+					<Image Source="PointIcon2.png"
 							HorizontalOptions="Center"
 							VerticalOptions="Center">
 					</Image>
@@ -109,7 +109,7 @@
 							HorizontalOptions="Center"
 							Text="Seats"
 							TextColor="White"/>
-					<Image Source="PointIcon.png"
+					<Image Source="PointIcon3.png"
 							HorizontalOptions="Center"
 							VerticalOptions="Center">
 					</Image>

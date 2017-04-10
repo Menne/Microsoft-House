@@ -164,6 +164,8 @@
     </Compile>
     <Compile Include="ViewModels\SelectedEventPageViewModel.cs" />
     <Compile Include="Models\Reservation.cs" />
+    <Compile Include="Helpers\ExtendedPicker.cs" />
+    <Compile Include="Models\EventLocation.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PageIniziale.xaml">
