@@ -4,9 +4,6 @@
 				xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 				x:Class="MicrosoftHouse.SelectedRoomPage"
 				Title="{Binding Room.Name}">
-	<ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness" iOS="0, 0, 0, 0" WinPhone="20,20,20,20" />
-	</ContentPage.Padding>
 	<ContentPage.Content>
 		<Grid RowSpacing="0" BackgroundColor="White">
 				<Grid.RowDefinitions>
@@ -20,7 +17,7 @@
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
+					<RowDefinition Height="45"/>
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
