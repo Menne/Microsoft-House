@@ -537,7 +537,7 @@ namespace MicrosoftHouse
 							FontFamily="Avenir",
 							BorderWidth = BorderWidth,
 							BorderColor = BorderColor,
-							FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Button)),
+							FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Button)),
 							BackgroundColor = Color.Transparent,
 							TextColor = DatesTextColor,
 							FontAttributes = DatesFontAttributes,
@@ -646,7 +646,7 @@ namespace MicrosoftHouse
                 button.IsEnabled = true;
                 button.IsSelected = false;
 				button.BackgroundPattern = null;
-				button.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Button));
+				button.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Button));
                 button.BorderWidth = BorderWidth;
                 button.BorderColor = BorderColor;
                 button.BackgroundColor = button.IsOutOfMonth ? DatesBackgroundColorOutsideMonth : DatesBackgroundColor;

@@ -10,7 +10,7 @@
     <ContentPage.Content>
             <Grid HorizontalOptions="FillAndExpand" RowSpacing="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="250"/>
+                    <RowDefinition Height="280"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>

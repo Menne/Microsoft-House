@@ -230,7 +230,7 @@ namespace MicrosoftHouse
 							VerticalOptions = LayoutOptions.Center,
 							BackgroundColor = WeekdaysBackgroundColor,
 							TextColor = WeekdaysTextColor,
-							FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
+							FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
 							FontAttributes = WeekdaysFontAttributes
 						});
 						dl.Children.Add(dayLabels.Last(), c, 0);
