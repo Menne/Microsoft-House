@@ -7,128 +7,104 @@
 
     <ContentPage.Content>
         <StackLayout Orientation="Vertical"
-					 VerticalOptions="Start"
+					 VerticalOptions="FillAndExpand"
 					 HorizontalOptions="FillAndExpand">
-			<StackLayout BackgroundColor="#FF01A4EF" 
-						 Orientation="Horizontal"
-						 Grid.Row="0"
-						 Grid.Column="0"
-						 Padding="30,10,30,10"
+            <StackLayout BackgroundColor="#FF01A4EF" 
+						 Padding="20,10,20,20"
 						 HorizontalOptions="FillAndExpand"
 						 VerticalOptions="FillAndExpand">
-				<StackLayout Orientation="Vertical" 
-								Padding="10"
-								HorizontalOptions="StartAndExpand">
-					<Label FontSize="Large"
-							FontFamily="Avenir"
-							Text="{Binding ParkingSpaces}"
-							HorizontalOptions="Center"
-							TextColor="White"/>
-					<Label FontSize="Small"
-							FontFamily="Avenir"
-							Text="Spaces"
-							HorizontalOptions="Center"
-							TextColor="White"/>
-					<Image Source="PointIcon.png"
-							HorizontalOptions="Center"
-							VerticalOptions="Center">
-					</Image>
-				</StackLayout>
-				<StackLayout Orientation="Vertical"
-								Padding="10"
-								HorizontalOptions="CenterAndExpand">
-					<Label FontSize="Large"
-							HorizontalOptions="Center"
-							FontFamily="Avenir"
-							Text="{Binding TimeToArrival}"
-							TextColor="White"/>
-					<Label FontSize="Small"
-							FontFamily="Avenir"
-							HorizontalOptions="Center"
-							Text="Min to Arrival"
-							TextColor="White"/>
-					<Image Source="PointIcon2.png"
-							HorizontalOptions="Center"
-							VerticalOptions="Center">
-					</Image>
-				</StackLayout>
-				<StackLayout Orientation="Vertical"
-								Padding="10"
-								HorizontalOptions="EndAndExpand">
-					<Label FontSize="Large"
-							FontFamily="Avenir"
-							HorizontalOptions="Center"
-							Text="{Binding Distance}"
-							TextColor="White"/>
-					<Label FontSize="Small"
-							FontFamily="Avenir"
-							HorizontalOptions="Center"
-							Text="Km to Arrival"
-							TextColor="White"/>
-					<Image Source="PointIcon3.png"
-							HorizontalOptions="Center"
-							VerticalOptions="Center">
-					</Image>
-				</StackLayout>
-			</StackLayout>
-            <!--<StackLayout Orientation="Horizontal"
-					 VerticalOptions="FillAndExpand"
-					 HorizontalOptions="FillAndExpand"
-					 Padding="10,10,10,10"
-					 BackgroundColor="#FF01A4EF">
-               <Grid>
+                <Grid HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <StackLayout HorizontalOptions="FillAndExpand"
-			    	 	         Orientation="Vertical"
-				                 Grid.Column="0">
-                        <Label Text="{Binding ParkingSpaces}"
-                               FontSize="36"
-				               HorizontalOptions="Center"
-				               VerticalOptions="Center"/>
-                        <Label Text="available parking spaces"
-				               HorizontalOptions="Center"
-				               VerticalOptions="Center"/>
+                    <StackLayout Orientation="Vertical" 
+							 Padding="10"
+							 HorizontalOptions="CenterAndExpand"
+                             Grid.Row="0"
+                             Grid.Column="0">
+                        <Label FontSize="Large"
+							FontFamily="Avenir"
+                            HorizontalOptions="Center"
+							Text="{Binding ParkingSpaces}"
+                            HorizontalTextAlignment="Center"
+							TextColor="White"/>
+                        <Label HorizontalOptions="Center"
+                               Text="Spaces"
+                               FontSize="Small"
+							   FontFamily="Avenir"
+                               HorizontalTextAlignment="Center"
+							   TextColor="White"/>
+                        <!--		<Image Source="PointIcon.png"
+							HorizontalOptions="Center"
+							VerticalOptions="Center">
+					</Image>  -->
                     </StackLayout>
-                    <StackLayout HorizontalOptions="FillAndExpand"
-			    	 	         Orientation="Vertical"
-				                 Grid.Column="1">
-                        <Label Text="{Binding TimeToArrival}"
-                               FontSize="36"
-				               HorizontalOptions="Center"
-				               VerticalOptions="Center"/>
-                        <Label Text="min to arrival"
-				               HorizontalOptions="Center"
-				               VerticalOptions="Center"/>
+                    <StackLayout Orientation="Vertical"
+							 Padding="10"
+							 HorizontalOptions="CenterAndExpand"
+                             Grid.Row="0"
+                             Grid.Column="1">
+                        <Label FontSize="Large"
+							HorizontalOptions="Center"
+							FontFamily="Avenir"
+							Text="{Binding TimeToArrival}"
+                            HorizontalTextAlignment="Center"
+							TextColor="White"/>
+                        <Label HorizontalOptions="Center"
+                               Text="Min to arrival"
+                               FontSize="Small"
+							   FontFamily="Avenir"
+                               HorizontalTextAlignment="Center"
+							   TextColor="White"/>
+                        <!--			<Image Source="PointIcon2.png"
+							HorizontalOptions="Center"
+							VerticalOptions="Center">
+					</Image>   -->
                     </StackLayout>
-                    <StackLayout HorizontalOptions="FillAndExpand"
-			    	 	         Orientation="Vertical"
-				                 Grid.Column="2">
-                        <Label Text="{Binding Distance}"
-                               FontSize="36"
-				               HorizontalOptions="Center"
-				               VerticalOptions="Center"/>
-                        <Label Text="km to arrival"
-				               HorizontalOptions="Center"
-				               VerticalOptions="Center"/>
+                    <StackLayout Orientation="Vertical"
+								 Padding="10"
+								 HorizontalOptions="CenterAndExpand"
+                                 Grid.Row="0"
+                                 Grid.Column="2">
+                        <Label FontSize="Large"
+							FontFamily="Avenir"
+							HorizontalOptions="Center"
+							Text="{Binding Distance}"
+                            HorizontalTextAlignment="Center"
+							TextColor="White"/>
+                        <Label HorizontalOptions="Center"
+                               Text="Km to arrival"
+                               FontSize="Small"
+							   FontFamily="Avenir"
+                               HorizontalTextAlignment="Center"
+							   TextColor="White"/>
+                        <!--		<Image Source="PointIcon3.png"
+							HorizontalOptions="Center"
+							VerticalOptions="Center">
+					</Image>   -->
                     </StackLayout>
                 </Grid>
-            </StackLayout>-->
+            </StackLayout>
 
             <StackLayout Orientation="Vertical"
                          HorizontalOptions="FillAndExpand"
-                         VerticalOptions="Fill"
-                         Padding="20">
+                         VerticalOptions="CenterAndExpand"
+                         Padding="30,20,30,30">
                 <Label BindingContext="{Binding SelectedDayOfWeek}"
                        Text="{Binding Text}"
                        TextColor="Black"
-                       FontSize="Large"/>
+                       FontSize="Medium"/>
 
                 <Grid x:Name="StatisticsGrid"
-                      VerticalOptions="FillAndExpand">
+                      VerticalOptions="FillAndExpand"
+                      HorizontalOptions="FillAndExpand"
+                      Padding="0,20,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="5*"/>
                         <RowDefinition Height="*"/>
@@ -319,10 +295,11 @@
                 </Grid>
             </StackLayout>
 			<StackLayout HorizontalOptions="FillAndExpand"
-						 Padding="20">
+                         VerticalOptions="EndAndExpand"
+						 Padding="30,10,30,30">
             <Button x:Name="parkCar"
                     BackgroundColor="#FF00BAFF"
-					VerticalOptions="End"
+					VerticalOptions="FillAndExpand"
 					HorizontalOptions="FillAndExpand"
                     Text="PARK NOW"
                     TextColor="#ffffff"
