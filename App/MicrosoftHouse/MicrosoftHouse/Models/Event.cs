@@ -14,7 +14,7 @@ namespace MicrosoftHouse.Models
 		public TimeSpan StartingTime { get; set; }
 		public TimeSpan EndingTime { get; set; }
 		public DateTime Date { get; set; }
-		public EventLocation Location { get; set; }
+		public string Location { get; set; }
 
     }
 }

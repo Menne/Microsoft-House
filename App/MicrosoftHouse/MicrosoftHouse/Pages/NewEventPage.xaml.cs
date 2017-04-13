@@ -10,8 +10,6 @@ namespace MicrosoftHouse
 		public NewEventPage()
 		{
 			InitializeComponent();
-
-			datePicker.Date = DateTime.Now;
 			//timePickerFirst = DateTime.No;
 
 			BindingContext = new NewEventViewModel();

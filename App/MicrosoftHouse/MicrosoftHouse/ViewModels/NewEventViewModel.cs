@@ -19,26 +19,12 @@ namespace MicrosoftHouse
 			Title = "New Event";
 
 			Event = new Event();
-
-			// LOCATIONS PER GLI EVENTI
-
-			// Available
-			/*EventLocation location = new EventLocation();
-			location.Name = "AULA MAGNA";
-			location.Seats = "200";
-			location.Floor = "1";
-
-			EventLocation location1 = new EventLocation();
-			location1.Name = "ATRIO";
-			location1.Seats = "100";
-			location1.Floor = "1";
-
-			Locations.Add(location);
-			Locations.Add(location1);*/
+			Event.Date = DateTime.Now;
+			Event.StartingTime = DateTime.Now.TimeOfDay;
+			Event.EndingTime = DateTime.Now.TimeOfDay;
+			//Event.Location = "LOCATION";
 
 			LoadEventLocations();
-
-
 
 		}
 
@@ -59,8 +45,7 @@ namespace MicrosoftHouse
 
 			try
 			{
-				//Debug.WriteLine(Event.N
-
+				
 				if (Event.Id == null)
 				{
 					await events_table.CreateEventAsynch(Event);

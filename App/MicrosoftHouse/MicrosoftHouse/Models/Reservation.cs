@@ -7,7 +7,7 @@ namespace MicrosoftHouse
 	public class Reservation : TableData
 	{
 		
-		public Room Room { get; set; }
+		public string RoomName { get; set; }
 
 		public DateTime Date  { get; set; }
 
