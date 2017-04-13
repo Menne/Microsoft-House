@@ -4,16 +4,15 @@
 			 xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 			 x:Class="MicrosoftHouse.EntryPage">
 	<ContentPage.Content>
+        <StackLayout BackgroundColor="White">
 		<Grid RowSpacing="0" BackgroundColor="White">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="4*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="0.8*"/>
-					<RowDefinition Height="0.8*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-				</Grid.RowDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="4*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="0.8*"/>
+                <RowDefinition Height="0.8*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
@@ -59,12 +58,12 @@
 							</BoxView.IsVisible>
 						</BoxView>
 			</StackLayout>
-			<StackLayout Grid.Row="3"
+            <StackLayout Grid.Row="3"
 					Grid.Column="0"
 					Padding="30,10,30,0"
 					Orientation="Vertical">
-			<StackLayout Orientation="Horizontal">
-			<local:ExtendedEntry Placeholder="PASSWORD"
+                <StackLayout Orientation="Horizontal">
+                    <local:ExtendedEntry Placeholder="PASSWORD"
 									Keyboard="Default"
 									IsPassword="true"
 									HorizontalOptions="FillAndExpand"
@@ -73,50 +72,38 @@
 									TextColor="Black"
 									FontFamily="Avenir"
 									PlaceholderTextColor="Black"/>
-						<Image Source="PasswordIcon.png"
+                    <Image Source="PasswordIcon.png"
 								VerticalOptions="Center"
 								HorizontalOptions="Start"/>
-						</StackLayout>
-						<BoxView Color="Black"
+                </StackLayout>
+                <BoxView Color="Black"
 									Opacity="0.05"
 									HeightRequest="1">
-							<BoxView.IsVisible>
-								<OnPlatform x:TypeArguments="x:Boolean">
-                					<OnPlatform.iOS>true</OnPlatform.iOS>
-               		 				<OnPlatform.Android>false</OnPlatform.Android>
-           	 					</OnPlatform>
-							</BoxView.IsVisible>
-						</BoxView>
-			</StackLayout>
-			<!--<Button Grid.Row="4"
-					Grid.Column="0"
-					Text="Forgot Password"
-					TextColor="#FF1D1D26"
-					FontSize="Small"
-					FontFamily="Aevnir"
-					Opacity="0.5"
-					VerticalOptions="Start"
-					HorizontalOptions="CenterAndExpand"/>-->
-			<StackLayout Padding="30,10,30,10"
-						Grid.Row="5"
-						Grid.Column="0">
-					<Button x:Name="loginButton"
+                    <BoxView.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <OnPlatform.iOS>true</OnPlatform.iOS>
+                            <OnPlatform.Android>false</OnPlatform.Android>
+                        </OnPlatform>
+                    </BoxView.IsVisible>
+                </BoxView>
+            </StackLayout>
+        </Grid>
+        <StackLayout VerticalOptions="EndAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     BackgroundColor="White"
+                     Padding="30,10,30,30">
+                <Button x:Name="loginButton"
 						HorizontalOptions="FillAndExpand"
-						VerticalOptions="Center"
+						VerticalOptions="FillAndExpand"
 						BackgroundColor="#FF01A4EF"
 						Command="{Binding LoginCommand}"
-						Text="SIGN IN"
+						Text="LOGIN"
 						TextColor="White"
 						FontFamily="Avenir"
-						BorderRadius="0"
-						/>
-				<!--IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"-->
-				</StackLayout>
-			<Button Grid.Row="6"
-					Grid.Column="0"
-					Text="Bottone per Menne"
-					Clicked="OnHome"/>
-        
-		</Grid>
+						BorderRadius="0"/>
+                <!--IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"-->
+            </StackLayout>
+
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
