@@ -171,6 +171,9 @@
     <Compile Include="DataObjects\Room.cs" />
     <Compile Include="DataObjects\Event.cs" />
     <Compile Include="DataObjects\EventLocation.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Controllers\EventLocationController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />

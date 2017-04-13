@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using MicrosoftHouse.Abstractions;
 using MicrosoftHouse.Models;
@@ -10,20 +11,19 @@ namespace MicrosoftHouse
 {
 	public class NewEventViewModel : BaseViewModel
 	{
+		//ICloudTable<Event> events_table = App.CloudService.GetTable<Event>();
+		//ICloudTable<EventLocation> locations_table = App.CloudService.GetTable<EventLocation>();
 
 		public NewEventViewModel()
 		{
 			Title = "New Event";
-
-			BackCommand = new Command(() => ExecuteBackCommand());
-			CreateCommand = new Command(() => ExecuteCreateCommand());
 
 			Event = new Event();
 
 			// LOCATIONS PER GLI EVENTI
 
 			// Available
-			EventLocation location = new EventLocation();
+			/*EventLocation location = new EventLocation();
 			location.Name = "AULA MAGNA";
 			location.Seats = "200";
 			location.Floor = "1";
@@ -34,10 +34,11 @@ namespace MicrosoftHouse
 			location1.Floor = "1";
 
 			Locations.Add(location);
-			Locations.Add(location1);
+			Locations.Add(location1);*/
 
-			foreach (EventLocation eventLocation in Locations)
-				LocationsName.Add(eventLocation.Name);
+			LoadEventLocations();
+
+
 
 		}
 
@@ -45,15 +46,66 @@ namespace MicrosoftHouse
 		{
 			Event = selectedEvent;
 
-			BackCommand = new Command(() => ExecuteBackCommand());
-			CreateCommand = new Command(() => ExecuteCreateCommand());
 		}
 
-		public Event Event { get; set; }
-		public CalendarViewModel CalendarModel { get; set; }
+		/*Command cmdCreate;
+		public Command CreateCommand => cmdCreate ?? (cmdCreate = new Command(async () => await ExecuteCreateCommand()));
 
-		public Command BackCommand { get; }
-		public Command CreateCommand { get; }
+		async Task ExecuteCreateCommand()
+		{
+			if (IsBusy)
+				return;
+			IsBusy = true;
+
+			try
+			{
+				if (Event.Id == null)
+				{
+					await table.CreateEventAsynch(Event);
+				}
+				else
+				{
+					await table.UpdateEventAsync(Event);
+				}
+				//MessagingCenter.Send<NewEventViewModel>(this, "ItemsChanged");
+				Application.Current.MainPage.Navigation.PopModalAsync();
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine($"[TaskDetail] Save error: {ex.Message}");
+			}
+			finally
+			{
+				IsBusy = false;
+			}
+		}*/
+
+
+
+		public Event Event { get; set; }
+
+		async Task LoadEventLocations()
+		{
+			try
+			{
+				var table = App.CloudService.GetTable<EventLocation>();
+				var list = await table.ReadAllEventLocationsAsync();
+				Locations.Clear();
+				foreach (var location in list)
+				{
+					Locations.Add(location);
+					LocationsName.Add(location.Name);
+					Debug.WriteLine(location.Name);
+				}
+
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine($"[EventLocations] Error loading items: {ex.Message}");
+			}
+		}
+
+		public CalendarViewModel CalendarModel { get; set; }
 
 		ObservableCollection<EventLocation> locations = new ObservableCollection<EventLocation>();
 		public ObservableCollection<EventLocation> Locations
@@ -67,20 +119,6 @@ namespace MicrosoftHouse
 		{
 			get { return locationsName; }
 			set { SetProperty(ref locationsName, value, "LocationsName"); }
-				}
-
-
-		public void ExecuteBackCommand()
-		{
-			Application.Current.MainPage.Navigation.PopModalAsync();
-		}
-
-		public void ExecuteCreateCommand()
-		{
-			System.Diagnostics.Debug.WriteLine(Event.Name);
-			//CalendarModel.addEvent(Event);
-
-			Application.Current.MainPage.Navigation.PopModalAsync();
 		}
     }
 }

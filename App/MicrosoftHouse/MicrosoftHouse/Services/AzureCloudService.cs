@@ -12,7 +12,7 @@ namespace MicrosoftHouse.Services
 
 		public AzureCloudService()
 		{
-			client = new MobileServiceClient("https://microsofthouse.azurewebsites.net");
+			client = new MobileServiceClient("https://microsofthouseadminpoli.azurewebsites.net");
 		}
 
 		public ICloudTable<T> GetTable<T>() where T : TableData
