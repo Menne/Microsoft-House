@@ -166,6 +166,11 @@
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Controllers\ParkController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="DataObjects\CarPark.cs" />
+    <Compile Include="DataObjects\Reservation.cs" />
+    <Compile Include="DataObjects\Room.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
@@ -209,6 +214,11 @@
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
