@@ -28,6 +28,8 @@ namespace Backend.Models
 
         //public DbSet<TodoItem> TodoItems { get; set; }
 		public DbSet<Room> Rooms { get; set; }
+		public DbSet<Event> Events { get; set; }
+		public DbSet<Reservation> Reservations { get; set; }
 		public DbSet<CarPark> CarPark { get; set; }
 		public DbSet<EventLocation> EventLocation { get; set; }
 
