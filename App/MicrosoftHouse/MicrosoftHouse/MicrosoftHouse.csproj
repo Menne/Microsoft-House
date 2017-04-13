@@ -102,7 +102,6 @@
     <Compile Include="ViewModels\CarParkViewModel.cs" />
     <Compile Include="ViewModels\NewEventViewModel.cs" />
     <Compile Include="ValidEmail.cs" />
-    <Compile Include="Abstractions\ViewModelBase.cs" />
     <Compile Include="Abstractions\ICloudService.cs" />
     <Compile Include="Abstractions\ICloudTable.cs" />
     <Compile Include="Abstractions\TableData.cs" />

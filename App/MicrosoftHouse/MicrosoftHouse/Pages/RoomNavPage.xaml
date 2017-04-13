@@ -68,18 +68,16 @@
 					Grid.Column="2"/>
 			</Grid>
 		</StackLayout>
-		<ScrollView Padding="0"
-					VerticalOptions="StartAndExpand">
-			<ListView x:Name="listView"
+			<ListView 
+					x:Name="listView"
 					ItemsSource="{Binding Rooms}"
 	                RowHeight="100"
 					SeparatorVisibility="None"
-	                SelectedItem="{Binding SelectedRoom, Mode=TwoWay}">
-
-				<!--CachingStrategy="RecycleElement"
+	                SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
+	                CachingStrategy="RecycleElement"
 					RefreshCommand="{Binding RefreshCommand}"
 					IsPullToRefreshEnabled="True"
-	                IsRefreshing="{Binding IsBusy, Mode=OneWay}"-->
+	                IsRefreshing="{Binding IsBusy, Mode=OneWay}">
 	       <ListView.ItemTemplate>
 	          <DataTemplate>
 	            <ViewCell x:Name="item">
@@ -147,7 +145,6 @@
 	          </DataTemplate>
 	        </ListView.ItemTemplate>
 	      </ListView>
-		</ScrollView>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

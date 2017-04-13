@@ -25,14 +25,19 @@ namespace MicrosoftHouse.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
+
+			// AZURE
+			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+
+			// MAPPE
             Xamarin.FormsMaps.Init(this, bundle);
 
-            //Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+			// QR CODE
 			ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
-            //		((DroidLoginProvider)DependencyService.Get<ILoginProvider>()).Init(this);
 
             LoadApplication(new App());
 

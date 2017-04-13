@@ -5,11 +5,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MicrosoftHouse.Abstractions;
 using Xamarin.Forms;
 
 namespace MicrosoftHouse.ViewModels
 {
-    class CarParkViewModel : ViewModelBase
+    class CarParkViewModel : BaseViewModel
     {
 
         public CarParkViewModel()
@@ -59,21 +60,21 @@ namespace MicrosoftHouse.ViewModels
         int parkingSpaces;
         public int ParkingSpaces
         {
-            set { SetProperty(ref parkingSpaces, value); }
+            set { SetProperty(ref parkingSpaces, value, "ParkingSpaces"); }
             get { return parkingSpaces; }
         }
 
         int distance;
         public int Distance
         {
-            set { SetProperty(ref distance, value); }
+            set { SetProperty(ref distance, value, "Distance"); }
             get { return distance; }
         }
 
         int timeToArrival;
         public int TimeToArrival
         {
-            set { SetProperty(ref timeToArrival, value); }
+            set { SetProperty(ref timeToArrival, value, "TimeToArrival"); }
             get { return timeToArrival; }
         }
 

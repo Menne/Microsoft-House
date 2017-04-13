@@ -8,6 +8,8 @@ namespace MicrosoftHouse
 {
 	public class SelectedRoomViewModel : BaseViewModel
 	{
+		//ICloudTable<Room> table = App.CloudService.GetTable<Room>();
+
 		public SelectedRoomViewModel(Room room = null)
 		{
 			if (room != null)

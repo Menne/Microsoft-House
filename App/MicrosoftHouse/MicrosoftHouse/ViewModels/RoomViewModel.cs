@@ -1,9 +1,11 @@
-﻿using System;
+using System;
 using Xamarin.Forms;
 using MicrosoftHouse.Abstractions;
 using MicrosoftHouse.Models;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Diagnostics;
+
 
 namespace MicrosoftHouse
 {
@@ -16,52 +18,53 @@ namespace MicrosoftHouse
 			RoomALLCommand = new Command(() => ExecuteRoomALLCommand());
 			RoomRECommand = new Command(() => ExecuteRoomRECommand());
 
-            // Available
-            Room room = new Room();
-			room.Name = "I01";
-			room.Seats = "20";
-			room.Floor = "1";
-
-			Room room1 = new Room();
-			room1.Name = "I01";
-			room1.Seats = "20";
-			room1.Floor = "1";
-
-			AvailableRooms.Add(room);
-			AvailableRooms.Add(room1);
-
-			// All
-			Room room2 = new Room();
-			room2.Name = "I02";
-			room2.Seats = "20";
-			room2.Floor = "1";
-
-			Room room3 = new Room();
-			room3.Name = "I02";
-			room3.Seats = "20";
-			room3.Floor = "1";
-
-			AllRooms.Add(room2);
-			AllRooms.Add(room3);
-
-			// Available
-			Room room4 = new Room();
-			room4.Name = "I03";
-			room4.Seats = "20";
-			room4.Floor = "1";
-
-			Room room5 = new Room();
-			room5.Name = "I03";
-			room5.Seats = "20";
-			room5.Floor = "1";
-
-			ReservedRooms.Add(room4);
-			ReservedRooms.Add(room5);
+			RefreshList();
 
 			//Rooms = availableRooms;
 			ExecuteRoomAVCommand();
 
 		}
+
+
+		async Task RefreshList()
+		{
+			await ExecuteRefreshCommand();
+			/*MessagingCenter.Subscribe<SelectedRoomViewModel>(this, "ItemsChanged", async (sender) =>
+			{
+				await ExecuteRefreshCommand();   
+			});*/
+		}
+
+		Command refreshCmd;
+		public Command RefreshCommand => refreshCmd ?? (refreshCmd = new Command(async () => await ExecuteRefreshCommand()));
+
+		async Task ExecuteRefreshCommand()
+		{
+			if (IsBusy)
+				return;
+			IsBusy = true;
+
+			try
+			{
+				var table = App.CloudService.GetTable<Room>();
+				var list = await table.ReadAllRoomsAsync();
+				AllRooms.Clear();
+				foreach (var room in list)
+				{
+					AllRooms.Add(room);
+				}
+					
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine($"[RoomList] Error loading items: {ex.Message}");
+			}
+			finally
+			{
+				IsBusy = false;
+			}
+		}
+
 
 
 		ObservableCollection<Room> rooms = new ObservableCollection<Room>();
@@ -130,7 +133,7 @@ namespace MicrosoftHouse
 
         async Task ExecuteSearchCommand()
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new SearchRoomPage());
+			await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SearchRoomPage());
         }
 
         public void ExecuteRoomAVCommand()
@@ -140,7 +143,7 @@ namespace MicrosoftHouse
 
 		public void ExecuteRoomALLCommand()
 		{
-			Rooms = allRooms;
+			Rooms = AllRooms;
 		}
 
 		public void ExecuteRoomRECommand()
