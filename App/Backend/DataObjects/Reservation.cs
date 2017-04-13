@@ -10,9 +10,10 @@ namespace Backend.DataObjects
 
 		public Room RoomId { get; set; }
 
-		public DateTime StartingTime { get; set; }
+		public DateTime Date { get; set; }
 
-		public DateTime EndingTime { get; set; }
+		public TimeSpan StartingTime { get; set; }
 
+		public TimeSpan EndingTime { get; set; }
 	}
 }

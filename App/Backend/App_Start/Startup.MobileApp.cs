@@ -91,9 +91,9 @@ namespace Backend
 
 			// Parcheggio
 
-			/*context.Set<CarPark>().Add(new CarPark { Id = Guid.NewGuid().ToString(), Park = 30 });
+			context.Set<CarPark>().Add(new CarPark { Id = Guid.NewGuid().ToString(), Park = "30" });
 
-			List<TodoItem> todoItems = new List<TodoItem>
+			/*List<TodoItem> todoItems = new List<TodoItem>
             {
                 new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
                 new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false }
