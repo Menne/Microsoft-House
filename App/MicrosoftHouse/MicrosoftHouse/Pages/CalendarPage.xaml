@@ -40,13 +40,10 @@
 						  SelectedItem="{Binding SelectedEvent, Mode=TwoWay}"
 						  SeparatorVisibility="None"
                           Grid.Row="1"
-						  Grid.Column="0">
-                    <!--     
-                    CachingStrategy="RecycleElement"
+						  Grid.Column="0"
+                   		  CachingStrategy="RecycleElement"
                           IsPullToRefreshEnabled="True"
-					RefreshCommand="{Binding RefreshCommand}"  -->
-                    <!--     SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">   -->
-
+						  RefreshCommand="{Binding RefreshCommand}">  
                     <ListView.ItemTemplate>
 	          <DataTemplate>
 	            <ViewCell>

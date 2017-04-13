@@ -203,6 +203,7 @@
 										ItemsSource="{Binding LocationsName}"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center">
+						<!--SelectedItem="{Binding Event.Location, Mode=TwoWay}"-->
 						</local:ExtendedPicker>
 						<Image Source="ParkIcon.png"
 								VerticalOptions="Center"

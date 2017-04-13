@@ -4,6 +4,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace MicrosoftHouse.ViewModels
 {
@@ -63,31 +64,44 @@ namespace MicrosoftHouse.ViewModels
             set { SetProperty(ref allEvents, value, "AllEvents"); }
         }
 
-        private void RetrieveEvents()
+        async Task RetrieveEvents()
         {
-			AllEvents.Add(new Event
+			await ExecuteRefreshCommand();
+			/*MessagingCenter.Subscribe<NewEventViewModel>(this, "ItemsChanged", async (sender) =>
 			{
-				Name = "Evento 1",
-				Description = "Descrizione",
-				Place = "Aula 1",
-				Date = DateTime.Now,
-			});
-			AllEvents.Add(new Event
-			{
-				Name = "Evento 2",
-				Description = "Descrizione",
-				Place = "Aula 2",
-				Date = DateTime.Now,
-			});
-			AllEvents.Add(new Event
-			{
-				Name = "Evento 3",
-				Description = "Descrizione",
-				Place = "Aula 3",
-				Date = DateTime.Now,
-			});
-              
+				await ExecuteRefreshCommand();   
+			});*/
         }
+
+		Command refreshCmd;
+		public Command RefreshCommand => refreshCmd ?? (refreshCmd = new Command(async () => await ExecuteRefreshCommand()));
+
+		async Task ExecuteRefreshCommand()
+		{
+			if (IsBusy)
+				return;
+			IsBusy = true;
+
+			try
+			{
+				var table = App.CloudService.GetTable<Event>();
+				var list = await table.ReadAllEventsAsync();
+				AllEvents.Clear();
+				foreach (var currentEvent in list)
+				{
+					AllEvents.Add(currentEvent);
+				}
+
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine($"[EventList] Error loading items: {ex.Message}");
+			}
+			finally
+			{
+				IsBusy = false;
+			}
+		}
 
 		// Aggiungi un EVENTO
 		/*public void addEvent(Event newEvent)

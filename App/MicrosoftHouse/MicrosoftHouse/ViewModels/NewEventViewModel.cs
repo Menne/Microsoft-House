@@ -11,7 +11,7 @@ namespace MicrosoftHouse
 {
 	public class NewEventViewModel : BaseViewModel
 	{
-		//ICloudTable<Event> events_table = App.CloudService.GetTable<Event>();
+		ICloudTable<Event> events_table = App.CloudService.GetTable<Event>();
 		//ICloudTable<EventLocation> locations_table = App.CloudService.GetTable<EventLocation>();
 
 		public NewEventViewModel()
@@ -48,7 +48,7 @@ namespace MicrosoftHouse
 
 		}
 
-		/*Command cmdCreate;
+		Command cmdCreate;
 		public Command CreateCommand => cmdCreate ?? (cmdCreate = new Command(async () => await ExecuteCreateCommand()));
 
 		async Task ExecuteCreateCommand()
@@ -59,16 +59,18 @@ namespace MicrosoftHouse
 
 			try
 			{
+				//Debug.WriteLine(Event.N
+
 				if (Event.Id == null)
 				{
-					await table.CreateEventAsynch(Event);
+					await events_table.CreateEventAsynch(Event);
 				}
 				else
 				{
-					await table.UpdateEventAsync(Event);
+					await events_table.UpdateEventAsync(Event);
 				}
 				//MessagingCenter.Send<NewEventViewModel>(this, "ItemsChanged");
-				Application.Current.MainPage.Navigation.PopModalAsync();
+				await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
 			}
 			catch (Exception ex)
 			{
@@ -78,7 +80,7 @@ namespace MicrosoftHouse
 			{
 				IsBusy = false;
 			}
-		}*/
+		}
 
 
 
