@@ -96,12 +96,16 @@
                          HorizontalOptions="FillAndExpand"
                          VerticalOptions="CenterAndExpand"
                          Padding="30,20,30,30">
-                <Label BindingContext="{Binding SelectedDayOfWeek}"
-                       Text="{Binding Text}"
-                       TextColor="Black"
-                       FontSize="Medium"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding SelectedDayOfWeek}"
+                           TextColor="Black"
+                           FontSize="Medium"/>
+                    <Label Text="parking availability"
+                           TextColor="Black"
+                           FontSize="Medium"/>
+            </StackLayout>
 
-                <Grid x:Name="StatisticsGrid"
+            <Grid x:Name="StatisticsGrid"
                       VerticalOptions="FillAndExpand"
                       HorizontalOptions="FillAndExpand"
                       Padding="0,20,0,0">

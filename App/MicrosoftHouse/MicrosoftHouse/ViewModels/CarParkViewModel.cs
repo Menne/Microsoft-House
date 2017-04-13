@@ -16,7 +16,6 @@ namespace MicrosoftHouse.ViewModels
         public CarParkViewModel()
         {
             InitializeParkInfo();
-            InitializeDays();
             InitializeStatistics();
 
             ChangeDayCommand = new Command<string>(execute: (string dayOfWeek) => ShowStatistics(Int32.Parse(dayOfWeek)));
@@ -27,15 +26,15 @@ namespace MicrosoftHouse.ViewModels
 
         public Command ChangeDayCommand { get; private set; }
 
-        ObservableCollection<Label> daysOfWeek;
-        public ObservableCollection<Label> DaysOfWeek
+        List<String> daysOfWeek = new List<String> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+        public List<String> DaysOfWeek
         { 
             get { return daysOfWeek; }
             set { SetProperty(ref daysOfWeek, value, "DaysOfWeek"); }
         }
 
-        Label selectedDayOfWeek = new Label();
-        public Label SelectedDayOfWeek
+        String selectedDayOfWeek;
+        public String SelectedDayOfWeek
         {
             get { return selectedDayOfWeek; }
             set { SetProperty(ref selectedDayOfWeek, value, "SelectedDayOfWeek"); }
@@ -83,55 +82,6 @@ namespace MicrosoftHouse.ViewModels
             parkingSpaces = 25;
             distance = 3;
             timeToArrival = 15;
-        }
-
-        private void InitializeDays()
-        {
-            DaysOfWeek = new ObservableCollection<Label>
-            {
-                new Label()
-                {
-                    Text = "Monday",
-					FontFamily = "Avenir",
-					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
-                },
-                new Label()
-                {
-                    Text = "Tuesday",
-					FontFamily = "Avenir",
-					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
-                },
-                new Label()
-                {
-                    Text = "Wednesday",
-					FontFamily = "Avenir",
-					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
-                },
-                new Label()
-                {
-                    Text = "Thursday",
-					FontFamily = "Avenir",
-					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
-                },
-                new Label()
-                {
-                    Text = "Friday",
-					FontFamily = "Avenir",
-					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
-                },
-                new Label()
-                {
-                    Text = "Saturday",
-					FontFamily = "Avenir",
-					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
-                },
-                new Label()
-                {
-                    Text = "Sunday",
-					FontFamily = "Avenir",
-					FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
-                },
-            };
         }
 
         private void InitializeStatistics()
