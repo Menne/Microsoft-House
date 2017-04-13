@@ -18,7 +18,7 @@ namespace Backend
 			DomainManager = new EntityDomainManager<Event>(context, Request);
 		}
 
-		// GET tables/TodoItem
+		// GET tables/TodoItem/
 		public IQueryable<Event> GetAllCarParks()
 		{
 			return Query();
