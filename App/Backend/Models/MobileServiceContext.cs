@@ -26,10 +26,7 @@ namespace Backend.Models
         {
         }
 
-        //public DbSet<TodoItem> TodoItems { get; set; }
-		// Definition of the DB instances
-		public DbSet<Room> Rooms { get; set; }
-		public DbSet<CarPark> CarPark { get; set; }
+        public DbSet<TodoItem> TodoItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
