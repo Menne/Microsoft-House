@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using MicrosoftHouse.Abstractions;
 using MicrosoftHouse.Models;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace MicrosoftHouse
 {
@@ -10,12 +11,13 @@ namespace MicrosoftHouse
 	{
 		public RoomViewModel()
 		{
-			RoomAVCommand = new Command(() => ExecuteRoomAVCommand());
+            SearchRoomCommand = new Command(async () => await ExecuteSearchCommand());
+            RoomAVCommand = new Command(() => ExecuteRoomAVCommand());
 			RoomALLCommand = new Command(() => ExecuteRoomALLCommand());
 			RoomRECommand = new Command(() => ExecuteRoomRECommand());
 
-			// Available
-			Room room = new Room();
+            // Available
+            Room room = new Room();
 			room.Name = "I01";
 			room.Seats = "20";
 			room.Floor = "1";
@@ -121,12 +123,17 @@ namespace MicrosoftHouse
 			}
 		}
 
-
+        public Command SearchRoomCommand { get; }
 		public Command RoomAVCommand { get; }
 		public Command RoomALLCommand { get; }
 		public Command RoomRECommand { get; }
 
-		public void ExecuteRoomAVCommand()
+        async Task ExecuteSearchCommand()
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new SearchRoomPage());
+        }
+
+        public void ExecuteRoomAVCommand()
 		{
 			Rooms = availableRooms;
 		}

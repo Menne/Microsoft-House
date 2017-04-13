@@ -4,6 +4,11 @@
 			x:Class="MicrosoftHouse.RoomNavPage"
 			Title="Rooms"
 			x:Name="roomPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="Plus.png"
+                     Command="{Binding SearchRoomCommand}">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
 	<ContentPage.Content>
 	<StackLayout Spacing="0">
 		<StackLayout Orientation="Horizontal"

@@ -139,8 +139,13 @@ namespace MicrosoftHouse
 				BorderRadius = 20
 			};
 
+            scanPage = new ZXingScannerPage(customOverlay: customOverlay)
+            {
+                Title = "Park",
+                Padding = new Thickness(0, Device.OnPlatform(20, 0, 0), 0, 0)
+            };
 
-			torch.Clicked += delegate
+            torch.Clicked += delegate
 			{
 				scanPage.ToggleTorch();
 			};
@@ -153,15 +158,7 @@ namespace MicrosoftHouse
 			customOverlay.Children.Add(close);
 			customOverlay.Children.Add(torch);
 
-
-
-
-			scanPage = new ZXingScannerPage(customOverlay: customOverlay)
-			{
-				Title = "Park",
-				Padding = new Thickness(0, Device.OnPlatform(20,0,0), 0, 0)
-			};
-
+            
 			scanPage.OnScanResult += (result) =>
 			{
 				scanPage.IsScanning = false;
