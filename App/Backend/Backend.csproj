@@ -160,7 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
-    <Compile Include="Controllers\TodoItemController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
@@ -171,6 +170,8 @@
     <Compile Include="DataObjects\CarPark.cs" />
     <Compile Include="DataObjects\Reservation.cs" />
     <Compile Include="DataObjects\Room.cs" />
+    <Compile Include="DataObjects\Event.cs" />
+    <Compile Include="DataObjects\EventLocation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />

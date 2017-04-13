@@ -90,16 +90,17 @@ namespace Backend
 
 			context.Set<CarPark>().Add(new CarPark { Id = Guid.NewGuid().ToString(), Park = "30" });
 
-			/*List<TodoItem> todoItems = new List<TodoItem>
-            {
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false }
-            };
+			List<EventLocation> locations = new List<EventLocation>
+			{
+				new EventLocation { Id = Guid.NewGuid().ToString(), Name = "Atrio", Floor = "0", Seats="100"  },
+				new EventLocation { Id = Guid.NewGuid().ToString(), Name = "Aula Magna", Floor = "0", Seats="200"  }
 
-            foreach (TodoItem todoItem in todoItems)
-            {
-                context.Set<TodoItem>().Add(todoItem);
-            }*/
+			};
+
+			foreach (EventLocation location in locations)
+			{
+				context.Set<EventLocation>().Add(location);
+			}
 
             base.Seed(context);
         }
