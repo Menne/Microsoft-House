@@ -12,9 +12,11 @@ namespace MicrosoftHouse.ViewModels
 		public EntryPageViewModel()
 		{
 			AppService = Locations.AppServiceUrl;
+			//User = new User { Username = "", Password = "" };
 		}
 
 		public string AppService { get; set; }
+		public User User { get; set; }
 
 		Command loginCmd;
 		public Command LoginCommand => loginCmd ?? (loginCmd = new Command(async () => await ExecuteLoginCommand()));

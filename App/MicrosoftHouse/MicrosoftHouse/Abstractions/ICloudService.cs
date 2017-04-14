@@ -10,5 +10,8 @@ namespace MicrosoftHouse.Abstractions
 		Task LoginAsync();
 
 		Task<AppServiceIdentity> GetIdentityAsync();
+
+		// Custom Login
+		//Task LoginAsync(User user);
 	}
 }

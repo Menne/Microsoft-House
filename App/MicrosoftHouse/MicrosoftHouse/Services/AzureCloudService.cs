@@ -4,6 +4,7 @@ using MicrosoftHouse.Abstractions;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace MicrosoftHouse.Services
 {
@@ -46,5 +47,9 @@ namespace MicrosoftHouse.Services
 			                           
 		}
 
-	}
+		/*public Task LoginAsync(User user)
+		{
+			return client.LoginAsync("custom", JObject.FromObject(user)   }
+
+		}*/
 }
