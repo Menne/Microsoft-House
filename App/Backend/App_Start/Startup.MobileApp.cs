@@ -102,6 +102,7 @@ namespace Backend
 				context.Set<EventLocation>().Add(location);
 			}
 
+			context.SaveChanges();
             base.Seed(context);
         }
     }
