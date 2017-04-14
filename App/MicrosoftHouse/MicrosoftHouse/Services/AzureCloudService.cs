@@ -36,10 +36,8 @@ namespace MicrosoftHouse.Services
 			return null;
 		}
 
-		public ICloudTable<T> GetTable<T>() where T : TableData
-		{
-			return new AzureCloudTable<T>(client);
-		}
+		public ICloudTable<T> GetTable<T>() where T : TableData => new AzureCloudTable<T>(client);
+		
 		public Task LoginAsync()
 		{
 			var loginProvider = DependencyService.Get<ILoginProvider>();
