@@ -44,7 +44,7 @@ namespace Backend
         }
     }
 
-    public class MobileServiceInitializer : DropCreateDatabaseAlways<MobileServiceContext>
+	public class MobileServiceInitializer : CreateDatabaseIfNotExists<MobileServiceContext>
     {
         protected override void Seed(MobileServiceContext context)
         {
