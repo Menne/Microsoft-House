@@ -11,8 +11,10 @@ namespace MicrosoftHouse.ViewModels
 	{
 		public EntryPageViewModel()
 		{
-			
+			AppService = Locations.AppServiceUrl;
 		}
+
+		public string AppService { get; set; }
 
 		Command loginCmd;
 		public Command LoginCommand => loginCmd ?? (loginCmd = new Command(async () => await ExecuteLoginCommand()));
@@ -25,6 +27,9 @@ namespace MicrosoftHouse.ViewModels
 
 			try
 			{
+				var cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
+				//await cloudService.LoginAsync(User);
+				await cloudService.LoginAsync();
 				// Creando una nuova navigation page, non cè più la possibilità di tornare indietro.
 				Application.Current.MainPage = new MasterPage();
 

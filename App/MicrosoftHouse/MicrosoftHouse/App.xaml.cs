@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MicrosoftHouse.Abstractions;
+using MicrosoftHouse.Helpers;
 using MicrosoftHouse.Services;
 using Xamarin.Forms;
 
@@ -14,7 +15,7 @@ namespace MicrosoftHouse
 
 		public App()
         {
-			CloudService = new AzureCloudService();
+			ServiceLocator.Instance.Add<ICloudService, AzureCloudService>();
 			MainPage = new EntryPage();
 			//MainPage = new RoomList();
         }
