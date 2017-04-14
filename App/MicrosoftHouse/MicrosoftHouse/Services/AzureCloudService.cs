@@ -43,8 +43,8 @@ namespace MicrosoftHouse.Services
 		public Task LoginAsync()
 		{
 			var loginProvider = DependencyService.Get<ILoginProvider>();
-			return loginProvider.LoginAsync(client);   
-			                           
+			return loginProvider.LoginAsync(client);
+
 		}
 
 		/*public Task LoginAsync(User user)
@@ -52,4 +52,5 @@ namespace MicrosoftHouse.Services
 			return client.LoginAsync("custom", JObject.FromObject(user)   }
 
 		}*/
+	}
 }

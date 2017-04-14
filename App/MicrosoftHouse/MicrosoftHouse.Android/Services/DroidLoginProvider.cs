@@ -17,7 +17,7 @@ namespace MicrosoftHouse.Droid
 
 		public async Task LoginAsync(MobileServiceClient client)
 		{
-			await client.LoginAsync(context, "aad");
+			await client.LoginAsync(context, "facebook");
 		}
 
 	}

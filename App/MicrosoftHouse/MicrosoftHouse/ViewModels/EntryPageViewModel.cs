@@ -16,7 +16,7 @@ namespace MicrosoftHouse.ViewModels
 		}
 
 		public string AppService { get; set; }
-		public User User { get; set; }
+		//public User User { get; set; }
 
 		Command loginCmd;
 		public Command LoginCommand => loginCmd ?? (loginCmd = new Command(async () => await ExecuteLoginCommand()));
