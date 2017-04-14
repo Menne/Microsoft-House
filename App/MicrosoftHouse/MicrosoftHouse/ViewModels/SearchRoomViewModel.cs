@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using MicrosoftHouse.Abstractions;
 using MicrosoftHouse.Models;
@@ -11,25 +12,54 @@ namespace MicrosoftHouse
 	{
 		public SearchRoomViewModel()
 		{
-			BackCommand = new Command(async () => await ExecuteBackCommand());
 			SearchCommand = new Command(async () => await ExecuteSearchCommand());
 
-
-			Room room = new Room();
-			room.Name = "I01";
-			room.Seats = "20";
-			room.Floor = "1";
-
-			Room room1 = new Room();
-			room1.Name = "I01";
-			room1.Seats = "20";
-			room1.Floor = "1";
-
-			Rooms.Add(room);
-			Rooms.Add(room1);
-
-
+			RefreshList();
 		}
+
+		async Task RefreshList()
+		{
+			await ExecuteRefreshCommand();
+			/*MessagingCenter.Subscribe<SelectedRoomViewModel>(this, "ItemsChanged", async (sender) =>
+			{
+				await ExecuteRefreshCommand();   
+			});*/
+		}
+
+		Command refreshCmd;
+		public Command RefreshCommand => refreshCmd ?? (refreshCmd = new Command(async () => await ExecuteRefreshCommand()));
+
+		async Task ExecuteRefreshCommand()
+		{
+			if (IsBusy)
+				return;
+			IsBusy = true;
+
+			try
+			{
+				var table_rooms = App.CloudService.GetTable<Room>();
+				var list = await table_rooms.ReadAllRoomsAsync();
+
+
+
+				// Rooms available now
+				Rooms.Clear();
+				foreach (var room in list)
+				{
+					Rooms.Add(room);
+				}
+
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine($"[RoomList] Error loading items: {ex.Message}");
+			}
+			finally
+			{
+				IsBusy = false;
+			}
+		}
+
 
 		ObservableCollection<Room> rooms = new ObservableCollection<Room>();
 		public ObservableCollection<Room> Rooms
@@ -47,45 +77,18 @@ namespace MicrosoftHouse
 				SetProperty(ref selectedRoom, value, "SelectedRoom");
 				if (selectedRoom != null)
 				{
-					/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new SelectedRoomPage(selectedRoom))
-					{
-						//BarTextColor = Color.White,
-						BarBackgroundColor = Color.FromHex("#FF01A4EF")
-					};*/
-
                     (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SelectedRoomPage(selectedRoom));
-					//Application.Current.MainPage.Navigation.PushModalAsync(new SelectedRoomPage(selectedRoom));
 					SelectedRoom = null;
 				}
 			}
 		}
 
-		public Command BackCommand { get; }
 		public Command SearchCommand { get; }
 
 
-		async Task ExecuteBackCommand()
-		{
-			//From the Bottom - Modal Page --> Aggiungere la Toolbar (Guardare il Capitolo)
-			await Application.Current.MainPage.Navigation.PopModalAsync();
-
-			/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new NewEventPage())
-			{
-				BarTextColor = Color.White,
-				BarBackgroundColor = Color.FromHex("#FF01A4EF")
-			};*/
-		}
-
 		async Task ExecuteSearchCommand()
 		{
-			//From the Bottom - Modal Page --> Aggiungere la Toolbar (Guardare il Capitolo)
-			await Application.Current.MainPage.Navigation.PopModalAsync();
-
-			/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new NewEventPage())
-			{
-				BarTextColor = Color.White,
-				BarBackgroundColor = Color.FromHex("#FF01A4EF")
-			};*/
+			
 		}
 	}
 }

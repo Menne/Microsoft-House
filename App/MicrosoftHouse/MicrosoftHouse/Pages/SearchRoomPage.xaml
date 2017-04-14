@@ -171,12 +171,11 @@
 			<ListView ItemsSource="{Binding Rooms}"
 	                RowHeight="100"
 					SeparatorVisibility="None"
-	                SelectedItem="{Binding SelectedRoom, Mode=TwoWay}">
-
-				<!--CachingStrategy="RecycleElement"
+	                SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
+					CachingStrategy="RecycleElement"
 					RefreshCommand="{Binding RefreshCommand}"
 					IsPullToRefreshEnabled="True"
-	                IsRefreshing="{Binding IsBusy, Mode=OneWay}"-->
+	                IsRefreshing="{Binding IsBusy, Mode=OneWay}">
 	       <ListView.ItemTemplate>
 	          <DataTemplate>
 	            <ViewCell>
