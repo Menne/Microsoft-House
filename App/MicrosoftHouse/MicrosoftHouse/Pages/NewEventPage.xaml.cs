@@ -20,6 +20,7 @@ namespace MicrosoftHouse
 		{
 			InitializeComponent();
 			Title = "Edit Event";
+			newEventButton.Text = "EDIT";
 			BindingContext = new NewEventViewModel(selectedEvent);
 			//eventName.Text = selectedEvent.Name;
 			//eventDescription.Text = selectedEvent.Description;

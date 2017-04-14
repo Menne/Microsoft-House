@@ -30,7 +30,7 @@
                             DatesTextColorOutsideMonth="Gray"
                             ShowNumberOfWeek="false"
                             StartDay="Monday"
-                            SelectedDate="{Binding Date}"
+                            SelectedDate="{Binding Date, Mode=TwoWay}"
                             Grid.Row="0"
 							Grid.Column="0">
                 </local:Calendar>
@@ -74,7 +74,7 @@
 	                       Text="{Binding Path=Name}"
 	                       TextColor="#272832" />
 						<Label
-	                       Text="{Binding Path=Place, StringFormat='{0}'}"
+	                       Text="{Binding Path=Location, StringFormat='{0}'}"
 	                       TextColor="#272832"
 						   Opacity="0.5"
 						   FontFamily="Avenir"

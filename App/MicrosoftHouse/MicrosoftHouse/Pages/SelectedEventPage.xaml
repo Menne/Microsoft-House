@@ -42,7 +42,7 @@
 								HorizontalOptions="Start">
 						</Image>
 						</StackLayout>
-						<Label Text="{Binding Event.Name}"
+						<Label Text="{Binding SelectedEvent.Name, Mode=TwoWay}"
 								TextColor="Black"
 								FontSize="Small"
 								FontFamily="Avenir"
@@ -71,7 +71,7 @@
 								HorizontalOptions="Start">
 						</Image>
 						</StackLayout>
-						<Label Text="{Binding Event.Description}"
+						<Label Text="{Binding SelectedEvent.Description}"
 								TextColor="Black"
 								FontSize="Small"
 								FontFamily="Avenir"
@@ -100,7 +100,7 @@
 								HorizontalOptions="Start">
 						</Image>
 						</StackLayout>
-						<Label Text="{Binding Event.Date.Date, StringFormat='{0:MMMM dd, yyyy}'}"
+						<Label Text="{Binding SelectedEvent.Date.Date, StringFormat='{0:MMMM dd, yyyy}'}"
 								TextColor="Black"
 								FontSize="Small"
 								FontFamily="Avenir"
@@ -130,14 +130,14 @@
 						</Image>
 						</StackLayout>
 						<StackLayout Orientation="Horizontal">
-							<Label Text="{Binding Event.StartingTime, StringFormat='{}{0:hh\\:mm} - '}"
+							<Label Text="{Binding SelectedEvent.StartingTime, StringFormat='{}{0:hh\\:mm} - '}"
 									TextColor="Black"
 									FontSize="Small"
 									FontFamily="Avenir"
 									HorizontalOptions="Start"
 									VerticalOptions="Center">
 							</Label>
-							<Label Text="{Binding Event.EndingTime, StringFormat='{}{0:hh\\:mm}'}"
+							<Label Text="{Binding SelectedEvent.EndingTime, StringFormat='{}{0:hh\\:mm}'}"
 									TextColor="Black"
 									FontSize="Small"
 									FontFamily="Avenir"
@@ -167,7 +167,7 @@
 								HorizontalOptions="Start">
 						</Image>
 						</StackLayout>
-						<Label Text="{Binding Event.Place}"
+						<Label Text="{Binding SelectedEvent.Location}"
 								TextColor="Black"
 								FontSize="Small"
 								FontFamily="Avenir"

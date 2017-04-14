@@ -63,7 +63,7 @@
 						<local:ExtendedEntry x:Name="eventName"
 										Placeholder="Event Name"
 										Keyboard="Text"
-										Text="{Binding Event.Name, Mode=TwoWay}"
+										Text="{Binding SelectedEvent.Name, Mode=TwoWay}"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="CenterAndExpand"
 										Font="Large"
@@ -89,7 +89,7 @@
 						<local:ExtendedEntry x:Name="eventDescription"
 										Placeholder="DESCRIPTION"
 										Keyboard="Text"
-										Text="{Binding Event.Description, Mode=TwoWay}"
+										Text="{Binding SelectedEvent.Description, Mode=TwoWay}"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="CenterAndExpand"
 										XAlign="Center"
@@ -105,7 +105,7 @@
 						<StackLayout Orientation="Horizontal">
 						<local:ExtendedDatePicker x:Name="datePicker"
 										PlaceHolder="DATE"
-										Date="{Binding Event.Date, Mode=TwoWay}"
+										Date="{Binding SelectedEvent.Date, Mode=TwoWay}"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
@@ -136,7 +136,7 @@
 						<StackLayout Orientation="Horizontal">
 						<local:ExtendedTimePicker x:Name="timePickerFirst"
 										PlaceHolder="STARTING TIME"
-										Time="{Binding Event.StartingTime, Mode=TwoWay}"
+										Time="{Binding SelectedEvent.StartingTime, Mode=TwoWay}"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
@@ -167,7 +167,7 @@
 						<StackLayout Orientation="Horizontal">
 						<local:ExtendedTimePicker x:Name="timePickerSecond"
 										PlaceHolder="ENDING TIME"
-										Time="{Binding Event.EndingTime, Mode=TwoWay}"
+										Time="{Binding SelectedEvent.EndingTime, Mode=TwoWay}"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
@@ -199,7 +199,7 @@
 						<local:ExtendedPicker x:Name="locationPicker"									
 										TextColor="Black"
 										Font="Small"
-										SelectedItem="{Binding Event.Location, Mode=TwoWay}"
+										SelectedItem="{Binding SelectedEvent.Location, Mode=TwoWay}"
 										ItemsSource="{Binding LocationsName}"
 										PlaceHolder="LOCATION"
 										HorizontalOptions="FillAndExpand"
@@ -277,7 +277,8 @@
 						</BoxView>
 					</StackLayout>
 
-				<Button BackgroundColor="#FFBA77FF"
+				<Button x:Name="newEventButton"
+						BackgroundColor="#FFBA77FF"
 						VerticalOptions="FillAndExpand"
 						HorizontalOptions="FillAndExpand"
 						Text="CREATE"

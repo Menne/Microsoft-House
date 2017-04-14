@@ -18,10 +18,10 @@ namespace MicrosoftHouse
 		{
 			Title = "New Event";
 
-			Event = new Event();
-			Event.Date = DateTime.Now;
-			Event.StartingTime = DateTime.Now.TimeOfDay;
-			Event.EndingTime = DateTime.Now.TimeOfDay;
+			SelectedEvent = new Event();
+			SelectedEvent.Date = DateTime.Now;
+			SelectedEvent.StartingTime = DateTime.Now.TimeOfDay;
+			SelectedEvent.EndingTime = DateTime.Now.TimeOfDay;
 			//Event.Location = "LOCATION";
 
 			LoadEventLocations();
@@ -30,8 +30,7 @@ namespace MicrosoftHouse
 
 		public NewEventViewModel(Event selectedEvent = null)
 		{
-			Event = selectedEvent;
-
+			SelectedEvent = selectedEvent;
 		}
 
 		Command cmdCreate;
@@ -46,15 +45,15 @@ namespace MicrosoftHouse
 			try
 			{
 				
-				if (Event.Id == null)
+				if (SelectedEvent.Id == null)
 				{
-					await events_table.CreateEventAsynch(Event);
+					await events_table.CreateEventAsynch(SelectedEvent);
 				}
 				else
 				{
-					await events_table.UpdateEventAsync(Event);
+					await events_table.UpdateEventAsync(SelectedEvent);
 				}
-				//MessagingCenter.Send<NewEventViewModel>(this, "ItemsChanged");
+				MessagingCenter.Send<NewEventViewModel>(this, "ItemsChanged");
 				await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
 			}
 			catch (Exception ex)
@@ -69,7 +68,15 @@ namespace MicrosoftHouse
 
 
 
-		public Event Event { get; set; }
+		Event selectedEvent;
+		public Event SelectedEvent
+		{
+			get { return selectedEvent; }
+			set
+			{
+				SetProperty(ref selectedEvent, value, "SelectedEvent");
+			}
+		}
 
 		async Task LoadEventLocations()
 		{

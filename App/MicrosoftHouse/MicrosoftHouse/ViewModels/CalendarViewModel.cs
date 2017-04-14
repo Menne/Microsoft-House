@@ -25,14 +25,7 @@ namespace MicrosoftHouse.ViewModels
 				SetProperty(ref selectedEvent, value, "SelectedEvent");
 				if (selectedEvent != null)
 				{
-					/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new SelectedRoomPage(selectedRoom))
-					{
-						//BarTextColor = Color.White,
-						BarBackgroundColor = Color.FromHex("#FF01A4EF")
-					};*/
-
 					(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SelectedEventPage(selectedEvent));
-					//Application.Current.MainPage.Navigation.PushModalAsync(new SelectedRoomPage(selectedRoom));
 					selectedEvent = null;
 				}
 			}
@@ -67,10 +60,10 @@ namespace MicrosoftHouse.ViewModels
         async Task RetrieveEvents()
         {
 			await ExecuteRefreshCommand();
-			/*MessagingCenter.Subscribe<NewEventViewModel>(this, "ItemsChanged", async (sender) =>
+			MessagingCenter.Subscribe<NewEventViewModel>(this, "ItemsChanged", async (sender) =>
 			{
 				await ExecuteRefreshCommand();   
-			});*/
+			});
         }
 
 		Command refreshCmd;
@@ -92,6 +85,8 @@ namespace MicrosoftHouse.ViewModels
 					AllEvents.Add(currentEvent);
 				}
 
+				Date = DateTime.Now;
+
 			}
 			catch (Exception ex)
 			{
@@ -103,15 +98,8 @@ namespace MicrosoftHouse.ViewModels
 			}
 		}
 
-		// Aggiungi un EVENTO
-		/*public void addEvent(Event newEvent)
-		{
-			AllEvents.Add(newEvent);
-		}*/
-
         async Task ExecuteNewEventCommand()
-        {
-            //await Application.Current.MainPage.Navigation.PushModalAsync(new NewEventPage());
+		{
             await(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage());
         }
 
