@@ -6,6 +6,7 @@ namespace Backend
 {
 	public class Event : EntityData
 	{
+		public string UserId { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }
 		public TimeSpan StartingTime { get; set; }

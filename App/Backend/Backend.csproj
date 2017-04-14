@@ -157,6 +157,9 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\packages\AutoMapper.5.2.0\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Server.Login">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Login.2.0.0\lib\net46\Microsoft.Azure.Mobile.Server.Login.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
@@ -174,6 +177,8 @@
     <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\EventLocationController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="DataObjects\User.cs" />
+    <Compile Include="Controllers\CustomAuthController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />

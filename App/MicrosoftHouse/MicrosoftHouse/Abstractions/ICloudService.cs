@@ -8,5 +8,7 @@ namespace MicrosoftHouse.Abstractions
 		ICloudTable<T> GetTable<T>() where T : TableData;
 
 		Task LoginAsync();
+
+		Task<AppServiceIdentity> GetIdentityAsync();
 	}
 }

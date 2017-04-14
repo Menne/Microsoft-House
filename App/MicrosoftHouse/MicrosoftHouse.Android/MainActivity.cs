@@ -35,6 +35,10 @@ namespace MicrosoftHouse.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
+			//LOGIN
+
+			((DroidLoginProvider)DependencyService.Get<ILoginProvider>()).Init(this);
+
 			// QR CODE
 			ZXing.Net.Mobile.Forms.Android.Platform.Init();
 

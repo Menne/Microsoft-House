@@ -38,13 +38,13 @@ namespace MicrosoftHouse.iOS
 			var rootView = UIApplication.SharedApplication.KeyWindow.RootViewController;
 
 			// Client Flow
-			/*var accessToken = await LoginADALAsync(rootView);
+			var accessToken = await LoginADALAsync(rootView);
 			var zumoPayload = new JObject();
 			zumoPayload["access_token"] = accessToken;
-			await client.LoginAsync("aad", zumoPayload);*/
+			await client.LoginAsync("aad", zumoPayload);
 
 			// Server Flow
-			await client.LoginAsync(rootView, "aad");   
+			//await client.LoginAsync(rootView, "aad");   
 		}
 	}
 }
