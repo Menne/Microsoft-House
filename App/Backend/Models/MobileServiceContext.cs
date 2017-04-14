@@ -24,6 +24,7 @@ namespace Backend.Models
 
         public MobileServiceContext() : base(connectionStringName)
         {
+			Database.SetInitializer(new MobileServiceInitializer());
         }
 
         //public DbSet<TodoItem> TodoItems { get; set; }
