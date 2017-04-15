@@ -16,7 +16,7 @@ namespace MicrosoftHouse.iOS
 		/// Login via ADAL
 		/// </summary>
 		/// <returns>(async) token from the ADAL process</returns>
-		/*public async Task<string> LoginADALAsync(UIViewController view)
+		public async Task<string> LoginADALAsync(UIViewController view)
 		{
 			Uri returnUri = new Uri(Locations.AadRedirectUri);
 
@@ -31,7 +31,7 @@ namespace MicrosoftHouse.iOS
 				returnUri,               
 				new PlatformParameters(view));
 			return authResult.AccessToken;
-		}*/
+		}
 
 		public async Task LoginAsync(MobileServiceClient client)
 		{
@@ -39,13 +39,13 @@ namespace MicrosoftHouse.iOS
 
 			//FACEBOOK
 
-			await client.LoginAsync(RootView, "facebook");
+			//await client.LoginAsync(RootView, "facebook");
 
 			// Client Flow
-			/*var accessToken = await LoginADALAsync(rootView);
+			var accessToken = await LoginADALAsync(rootView);
 			var zumoPayload = new JObject();
 			zumoPayload["access_token"] = accessToken;
-			await client.LoginAsync("aad", zumoPayload);*/
+			await client.LoginAsync("aad", zumoPayload);
 
 			// Server Flow
 			//await client.LoginAsync(rootView, "aad");   

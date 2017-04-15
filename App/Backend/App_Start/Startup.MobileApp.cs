@@ -22,7 +22,7 @@ namespace Backend
                 .UseDefaultConfiguration()
                 .ApplyTo(config);
 
-			//config.MapHttpAttributeRoutes();
+			config.MapHttpAttributeRoutes();
 
             // Use Entity Framework Code First to create database tables based on your DbContext
             Database.SetInitializer(new MobileServiceInitializer());
@@ -103,6 +103,17 @@ namespace Backend
 			{
 				context.Set<EventLocation>().Add(location);
 			}
+
+			List<User> users = new List<User>
+			{
+				new User { Id = 1, Username = "filippo", Password = "admin" }
+			};
+
+            foreach (User user in users)
+            {
+                context.Set<User>().Add(user);
+            }
+
 
 			context.SaveChanges();
             base.Seed(context);
