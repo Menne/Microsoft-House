@@ -9,7 +9,7 @@ using Microsoft.Azure.Mobile.Server;
 
 namespace Backend
 {
-	[Authorize]
+	//[Authorize]
 	public class RoomController : TableController<Room>
 	{
 		protected override void Initialize(HttpControllerContext controllerContext)

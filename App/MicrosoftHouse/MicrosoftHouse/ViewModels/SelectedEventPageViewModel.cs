@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using MicrosoftHouse.Abstractions;
+using MicrosoftHouse.Helpers;
 using MicrosoftHouse.Models;
 using Xamarin.Forms;
 
@@ -9,10 +10,18 @@ namespace MicrosoftHouse
 {
 	public class SelectedEventPageViewModel : BaseViewModel
 	{
-		ICloudTable<Event> table = App.CloudService.GetTable<Event>();
+		//ICloudTable<Event> table = App.CloudService.GetTable<Event>();
+		//ICloudService cloudService;
 
 		public SelectedEventPageViewModel(Event selectedEvent = null)
 		{
+			//cloudService = App.CloudService;
+			//TableEvent = cloudService.GetTable<Event>();
+
+			RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
+			DeleteCommand = new Command(async () => await ExecuteDeleteCommand());
+			EditCommand = new Command(async () => await ExecuteEditCommand());
+
 			if (selectedEvent != null)
 			{
 				SelectedEvent = selectedEvent;
@@ -21,8 +30,13 @@ namespace MicrosoftHouse
 
 			RetrieveEvent();
 
-			EditCommand = new Command(async () => await ExecuteEditCommand());
 		}
+
+		//public ICloudTable<Event> TableEvent { get; set; }
+		//public ICloudTable<EventLocation> TableLocation { get; set; }
+		public Command RefreshCommand { get; }
+		public Command DeleteCommand { get; }
+		public Command EditCommand { get; }
 
 
 		async Task RetrieveEvent()
@@ -32,9 +46,6 @@ namespace MicrosoftHouse
 				await ExecuteRefreshCommand();
 			});
 		}
-
-		Command refreshCmd;
-		public Command RefreshCommand => refreshCmd ?? (refreshCmd = new Command(async () => await ExecuteRefreshCommand()));
 
 		async Task ExecuteRefreshCommand()
 		{
@@ -68,10 +79,8 @@ namespace MicrosoftHouse
 				SetProperty(ref selectedEvent, value, "SelectedEvent");
 			}
 		}
-		public Command EditCommand { get; }
 
-		Command cmdDelete;
-		public Command DeleteCommand => cmdDelete ?? (cmdDelete = new Command(async () => await ExecuteDeleteCommand()));
+
 		async Task ExecuteDeleteCommand()
 		{
 			if (IsBusy)
@@ -82,6 +91,7 @@ namespace MicrosoftHouse
 			{
 				if (SelectedEvent.Id != null)
 				{
+					var table = App.CloudService.GetTable<Event>();
 					await table.DeleteEventAsync(SelectedEvent);
 				}
 

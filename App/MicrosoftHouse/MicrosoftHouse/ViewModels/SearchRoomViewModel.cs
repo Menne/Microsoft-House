@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using MicrosoftHouse.Abstractions;
+using MicrosoftHouse.Helpers;
 using MicrosoftHouse.Models;
 using Xamarin.Forms;
 
@@ -10,12 +11,20 @@ namespace MicrosoftHouse
 {
 	public class SearchRoomViewModel : BaseViewModel
 	{
+		ICloudService cloudService;
+
 		public SearchRoomViewModel()
 		{
+			// Cloud Variables
+			cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
+			Table = cloudService.GetTable<Room>();
+
 			SearchCommand = new Command(async () => await ExecuteSearchCommand());
 
 			RefreshList();
 		}
+
+		public ICloudTable<Room> Table { get; set; }
 
 		async Task RefreshList()
 		{
@@ -37,10 +46,8 @@ namespace MicrosoftHouse
 
 			try
 			{
-				var table_rooms = App.CloudService.GetTable<Room>();
-				var list = await table_rooms.ReadAllRoomsAsync();
 
-
+				var list = await Table.ReadAllRoomsAsync();
 
 				// Rooms available now
 				Rooms.Clear();

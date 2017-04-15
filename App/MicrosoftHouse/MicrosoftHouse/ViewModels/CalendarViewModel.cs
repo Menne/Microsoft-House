@@ -5,15 +5,41 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Diagnostics;
+using MicrosoftHouse.Helpers;
 
 namespace MicrosoftHouse.ViewModels
 {
     public class CalendarViewModel : BaseViewModel
     {
+		ICloudService cloudService;
+
         public CalendarViewModel()
         {
+			// Cloud Variables
+			cloudService = App.CloudService;
+			Table = cloudService.GetTable<Event>();
+
+			// Commands
+            RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
             NewEventCommand = new Command(async () => await ExecuteNewEventCommand());
+
+			// First Method to run
             RetrieveEvents();
+        }
+
+
+		public ICloudTable<Event> Table { get; set; }
+		public Command RefreshCommand { get; }
+		public Command NewEventCommand { get; }
+
+        DateTime? date;
+        public DateTime? Date
+        {
+            get { return date; }
+            set { SetProperty(ref date, value, "SelectedDate");
+                if (date != null)
+                    ShowEventsOfTheDay(); 
+            }
         }
 
 		Event selectedEvent;
@@ -30,18 +56,6 @@ namespace MicrosoftHouse.ViewModels
 				}
 			}
 		}
-
-		public Command NewEventCommand { get; }
-
-        DateTime? date;
-        public DateTime? Date
-        {
-            get { return date; }
-            set { SetProperty(ref date, value, "SelectedDate");
-                if (date != null)
-                    ShowEventsOfTheDay(); 
-            }
-        }
 
         ObservableCollection<Event> eventsOfSelectedDay = new ObservableCollection<Event>();
         public ObservableCollection<Event> EventsOfSelectedDay
@@ -66,9 +80,6 @@ namespace MicrosoftHouse.ViewModels
 			});
         }
 
-		Command refreshCmd;
-		public Command RefreshCommand => refreshCmd ?? (refreshCmd = new Command(async () => await ExecuteRefreshCommand()));
-
 		async Task ExecuteRefreshCommand()
 		{
 			if (IsBusy)
@@ -77,8 +88,7 @@ namespace MicrosoftHouse.ViewModels
 
 			try
 			{
-				var table = App.CloudService.GetTable<Event>();
-				var list = await table.ReadAllEventsAsync();
+				var list = await Table.ReadAllEventsAsync();
 				AllEvents.Clear();
 				foreach (var currentEvent in list)
 				{

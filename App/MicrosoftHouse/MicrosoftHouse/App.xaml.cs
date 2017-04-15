@@ -15,7 +15,7 @@ namespace MicrosoftHouse
 
 		public App()
         {
-			ServiceLocator.Instance.Add<ICloudService, AzureCloudService>();
+			CloudService = new AzureCloudService();
 			MainPage = new EntryPage();
 			//MainPage = new RoomList();
         }
