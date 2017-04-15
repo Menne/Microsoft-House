@@ -66,7 +66,8 @@
 								<OnPlatform x:TypeArguments="x:Boolean">
                 					<OnPlatform.iOS>true</OnPlatform.iOS>
                		 				<OnPlatform.Android>false</OnPlatform.Android>
-           	 					</OnPlatform>
+                                    <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
+                                </OnPlatform>
 							</BoxView.IsVisible>
 						</BoxView>
 			</StackLayout>
@@ -101,6 +102,7 @@
                         <OnPlatform x:TypeArguments="x:Boolean">
                             <OnPlatform.iOS>true</OnPlatform.iOS>
                             <OnPlatform.Android>false</OnPlatform.Android>
+                            <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
                         </OnPlatform>
                     </BoxView.IsVisible>
                 </BoxView>
