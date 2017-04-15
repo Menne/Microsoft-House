@@ -39,5 +39,5 @@ namespace MicrosoftHouse
 			get { return (string)GetValue(PlaceHolderProperty); }
 			set { SetValue(PlaceHolderProperty, value); }
 		}
-	}
+    }
 }
