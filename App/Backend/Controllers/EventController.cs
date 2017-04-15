@@ -19,32 +19,32 @@ namespace Backend
 		}
 
 		// GET tables/TodoItem/
-		public IQueryable<Event> GetAllCarParks()
+		public IQueryable<Event> GetAllEvents()
 		{
 			return Query();
 		}
 
 		// GET tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
-		public SingleResult<Event> GetCarPark(string id)
+		public SingleResult<Event> GetEvent(string id)
 		{
 			return Lookup(id);
 		}
 
 		// PATCH tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
-		public Task<Event> PatchCarPark(string id, Delta<Event> patch)
+		public Task<Event> PatchEvent(string id, Delta<Event> patch)
 		{
 			return UpdateAsync(id, patch);
 		}
 
 		// POST tables/TodoItem
-		public async Task<IHttpActionResult> PostCarPark(Event currentEvent)
+		public async Task<IHttpActionResult> PostEvent(Event currentEvent)
 		{
 			Event current = await InsertAsync(currentEvent);
 			return CreatedAtRoute("Tables", new { id = current.Id }, current);
 		}
 
 		// DELETE tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
-		public Task DeleteCarPark(string id)
+		public Task DeleteEvent(string id)
 		{
 			return DeleteAsync(id);
 		}
