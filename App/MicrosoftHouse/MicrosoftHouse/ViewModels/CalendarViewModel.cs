@@ -16,7 +16,7 @@ namespace MicrosoftHouse.ViewModels
         public CalendarViewModel()
         {
 			// Cloud Variables
-			cloudService = App.CloudService;
+			cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
 			Table = cloudService.GetTable<Event>();
 
 			// Commands
@@ -111,6 +111,7 @@ namespace MicrosoftHouse.ViewModels
         async Task ExecuteNewEventCommand()
 		{
             await(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage());
+
         }
 
         private void ShowEventsOfTheDay()

@@ -12,15 +12,19 @@ namespace MicrosoftHouse
 {
 	public class NewEventViewModel : BaseViewModel
 	{
-		//ICloudService cloudService;
-		ICloudTable<Event> table = App.CloudService.GetTable<Event>();
-		ICloudTable<EventLocation> table_location = App.CloudService.GetTable<EventLocation>();
+
+		//ICloudTable<Event> table = App.CloudService.GetTable<Event>();
+		//ICloudTable<EventLocation> table_location = App.CloudService.GetTable<EventLocation>();
+
+		ICloudService cloudService;
 
 		public NewEventViewModel()
 		{
+
+			cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
 			//ICloudService cloudService = App.CloudService;
-			//TableEvent = cloudService.GetTable<Event>();
-			//TableLocation = cloudService.GetTable<EventLocation>();
+			TableEvent = cloudService.GetTable<Event>();
+			TableLocation = cloudService.GetTable<EventLocation>();
 
 			CreateCommand = new Command(async () => await ExecuteCreateCommand());
 
@@ -38,9 +42,9 @@ namespace MicrosoftHouse
 
 		public NewEventViewModel(Event selectedEvent = null)
 		{
-			//cloudService = App.CloudService;
-			//TableEvent = cloudService.GetTable<Event>();
-			//TableLocation = cloudService.GetTable<EventLocation>();
+			cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
+			TableEvent = cloudService.GetTable<Event>();
+			TableLocation = cloudService.GetTable<EventLocation>();
 
 			// In this case ( Edit Command )
 			CreateCommand = new Command(async () => await ExecuteCreateCommand());
@@ -48,8 +52,8 @@ namespace MicrosoftHouse
 			SelectedEvent = selectedEvent;
 		}
 
-		//public ICloudTable<Event> TableEvent { get; set; }
-		//public ICloudTable<EventLocation> TableLocation { get; set; }
+		public ICloudTable<Event> TableEvent { get; set; }
+		public ICloudTable<EventLocation> TableLocation { get; set; }
 		public Command CreateCommand { get; }
 
 
@@ -64,11 +68,22 @@ namespace MicrosoftHouse
 				
 				if (SelectedEvent.Id == null)
 				{
-					await table.CreateEventAsynch(SelectedEvent);
+					//SelectedEvent.UserId = "filippo";
+
+
+					Debug.WriteLine(SelectedEvent.Name);
+					//Debug.WriteLine(SelectedEvent.UserId);
+					Debug.WriteLine(SelectedEvent.Date);
+					Debug.WriteLine(SelectedEvent.StartingTime);
+					Debug.WriteLine(SelectedEvent.EndingTime);
+					Debug.WriteLine(SelectedEvent.Location);
+
+
+					await TableEvent.CreateEventAsynch(SelectedEvent);
 				}
 				else
 				{
-					await table.UpdateEventAsync(SelectedEvent);
+					await TableEvent.UpdateEventAsync(SelectedEvent);
 				}
 				MessagingCenter.Send<NewEventViewModel>(this, "ItemsChanged");
 				await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
@@ -99,7 +114,7 @@ namespace MicrosoftHouse
 		{
 			try
 			{
-				var list = await table_location.ReadAllEventLocationsAsync();
+				var list = await TableLocation.ReadAllEventLocationsAsync();
 				Locations.Clear();
 				foreach (var location in list)
 				{
@@ -114,8 +129,6 @@ namespace MicrosoftHouse
 				Debug.WriteLine($"[EventLocations] Error loading items: {ex.Message}");
 			}
 		}
-
-		public CalendarViewModel CalendarModel { get; set; }
 
 		ObservableCollection<EventLocation> locations = new ObservableCollection<EventLocation>();
 		public ObservableCollection<EventLocation> Locations

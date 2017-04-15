@@ -5,14 +5,22 @@ using MicrosoftHouse.Models;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Diagnostics;
-
+using MicrosoftHouse.Helpers;
 
 namespace MicrosoftHouse
 {
 	public class RoomViewModel : BaseViewModel
 	{
+		ICloudService cloudService;
+
 		public RoomViewModel()
 		{
+			// Cloud Variables
+			cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
+			Table = cloudService.GetTable<Room>();
+
+
+			RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
             SearchRoomCommand = new Command(async () => await ExecuteSearchCommand());
             RoomAVCommand = new Command(() => ExecuteRoomAVCommand());
 			RoomALLCommand = new Command(() => ExecuteRoomALLCommand());
@@ -25,6 +33,12 @@ namespace MicrosoftHouse
 
 		}
 
+		public ICloudTable<Room> Table { get; set; }
+		public Command RefreshCommand { get; }
+		public Command SearchRoomCommand { get; }
+		public Command RoomAVCommand { get; }
+		public Command RoomALLCommand { get; }
+		public Command RoomRECommand { get; }
 
 		async Task RefreshList()
 		{
@@ -35,9 +49,6 @@ namespace MicrosoftHouse
 			});*/
 		}
 
-		Command refreshCmd;
-		public Command RefreshCommand => refreshCmd ?? (refreshCmd = new Command(async () => await ExecuteRefreshCommand()));
-
 		async Task ExecuteRefreshCommand()
 		{
 			if (IsBusy)
@@ -46,8 +57,7 @@ namespace MicrosoftHouse
 
 			try
 			{
-				var table = App.CloudService.GetTable<Room>();
-				var list = await table.ReadAllRoomsAsync();
+				var list = await Table.ReadAllRoomsAsync();
 				AllRooms.Clear();
 				foreach (var room in list)
 				{
@@ -126,10 +136,7 @@ namespace MicrosoftHouse
 			}
 		}
 
-        public Command SearchRoomCommand { get; }
-		public Command RoomAVCommand { get; }
-		public Command RoomALLCommand { get; }
-		public Command RoomRECommand { get; }
+        
 
         async Task ExecuteSearchCommand()
         {

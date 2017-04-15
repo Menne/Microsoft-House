@@ -5,7 +5,7 @@
              x:Class="MicrosoftHouse.CalendarPage"
 			 Title="Calendar">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding SearchRoomCommand}">
+        <ToolbarItem Command="{Binding NewEventCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
                             iOS="Plus.png"
