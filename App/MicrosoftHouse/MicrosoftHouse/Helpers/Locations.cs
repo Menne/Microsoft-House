@@ -11,8 +11,8 @@ namespace MicrosoftHouse
 
 		//public static readonly string AadAuthority = "https://login.windows.net/mhappoutlook.onmicrosoft.com";
 
-		public static readonly string AppServiceUrl = "http://microsofthouseadminpoli.azurewebsites.net/";
+		//public static readonly string AppServiceUrl = "http://microsofthouseadminpoli.azurewebsites.net/";
 
-		//public static readonly string AppServiceUrl = "http://microsofthouseprova.azurewebsites.net/";
+		public static readonly string AppServiceUrl = "http://microsofthouseprovapoli.azurewebsites.net/";
 	}
 }

@@ -68,16 +68,13 @@ namespace MicrosoftHouse
 				
 				if (SelectedEvent.Id == null)
 				{
-					//SelectedEvent.UserId = "filippo";
 
-
-					Debug.WriteLine(SelectedEvent.Name);
-					//Debug.WriteLine(SelectedEvent.UserId);
-					Debug.WriteLine(SelectedEvent.Date);
-					Debug.WriteLine(SelectedEvent.StartingTime);
-					Debug.WriteLine(SelectedEvent.EndingTime);
-					Debug.WriteLine(SelectedEvent.Location);
-
+						/*var identity = await cloudService.GetIdentityAsync();
+		                if (identity != null)
+		                {
+		                    var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("name")).Value;
+							Title = $"Tasks for {name}";
+		                }*/
 
 					await TableEvent.CreateEventAsynch(SelectedEvent);
 				}
