@@ -50,5 +50,27 @@ namespace MicrosoftHouse.Services
 			return client.LoginAsync("custom", JObject.FromObject(user)   }
 
 		}*/
+
+		public async Task LogoutAsync()
+		{
+			/*if (client.CurrentUser == null || client.CurrentUser.MobileServiceAuthenticationToken == null)
+				return;
+
+			// Log out of the identity provider (if required)
+
+			// Invalidate the token on the mobile backend
+			var authUri = new Uri($"{client.MobileAppUri}/.auth/logout");
+			using (var httpClient = new HttpClient())
+			{
+				httpClient.DefaultRequestHeaders.Add("X-ZUMO-AUTH", client.CurrentUser.MobileServiceAuthenticationToken);
+				await httpClient.GetAsync(authUri);
+			}*/
+
+			// Remove the token from the cache
+			//DependencyService.Get<ILoginProvider>().RemoveTokenFromSecureStore();
+
+			// Remove the token from the MobileServiceClient
+			await client.LogoutAsync();
+		 }
 	}
 }

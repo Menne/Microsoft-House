@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
+using MicrosoftHouse.Abstractions;
+using MicrosoftHouse.Helpers;
 using Xamarin.Forms;
 
 namespace MicrosoftHouse
@@ -14,11 +16,18 @@ namespace MicrosoftHouse
 			hamburgerPage.ListView.ItemSelected += OnItemSelected;
 		}
 
-		void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+		public void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var item = e.SelectedItem as MasterPageItem;
+
 			if (item != null)
 			{
+				if (item.Name.Equals("Logout"))
+				{
+					ExecuteLogout();
+					return;
+				}
+
 				Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType))
 				{
 					BarTextColor = Color.White,
@@ -26,6 +35,20 @@ namespace MicrosoftHouse
 				};
 				hamburgerPage.ListView.SelectedItem = null;
 				IsPresented = false;
+			}
+		}
+
+		async Task ExecuteLogout()
+		{
+			try
+			{
+				var cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
+				await cloudService.LogoutAsync();
+				Application.Current.MainPage = new EntryPage();
+			}
+			catch (Exception ex)
+			{
+				await Application.Current.MainPage.DisplayAlert("Logout Failed", ex.Message, "OK");
 			}
 		}
 	}
