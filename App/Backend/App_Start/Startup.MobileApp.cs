@@ -42,7 +42,7 @@ namespace Backend
 
             app.UseWebApi(config);
         }
-    }
+    }//
 
 	public class MobileServiceInitializer : DropCreateDatabaseAlways<MobileServiceContext>
     {
