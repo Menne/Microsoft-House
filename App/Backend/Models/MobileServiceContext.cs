@@ -24,16 +24,9 @@ namespace Backend.Models
 
         public MobileServiceContext() : base(connectionStringName)
         {
-			Database.SetInitializer(new MobileServiceInitializer());
         }
 
-        //public DbSet<TodoItem> TodoItems { get; set; }
-		//public DbSet<User> Users { get; set; }
-		public DbSet<Room> Rooms { get; set; }
-		public DbSet<Event> Events { get; set; }
-		public DbSet<Reservation> Reservations { get; set; }
-		public DbSet<CarPark> CarPark { get; set; }
-		public DbSet<EventLocation> EventLocation { get; set; }
+        public DbSet<TodoItem> TodoItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
