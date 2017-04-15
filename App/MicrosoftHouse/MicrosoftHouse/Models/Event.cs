@@ -9,6 +9,7 @@ namespace MicrosoftHouse.Models
 {
 	public class Event : TableData
 	{
+		public string User { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }
 		public TimeSpan StartingTime { get; set; }
