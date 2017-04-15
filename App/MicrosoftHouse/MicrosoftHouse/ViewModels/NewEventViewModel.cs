@@ -69,13 +69,13 @@ namespace MicrosoftHouse
 				if (SelectedEvent.Id == null)
 				{
 
-						/*var identity = await cloudService.GetIdentityAsync();
-		                if (identity != null)
-		                {
-		                    var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("name")).Value;
-							Title = $"Tasks for {name}";
-		                }*/
-
+					/*var identity = await cloudService.GetIdentityAsync();
+					if (identity != null)
+					{
+						var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("name")).Value;
+						Title = $"Tasks for {name}";
+					}*/
+					SelectedEvent.User = "filippo";
 					await TableEvent.CreateEventAsynch(SelectedEvent);
 				}
 				else
