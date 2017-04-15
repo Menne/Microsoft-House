@@ -37,7 +37,7 @@
 					Padding="30,10,30,10"
 					Orientation="Vertical">
 			<StackLayout Orientation="Horizontal">
-			<local:ExtendedEntry Placeholder="EMAIL"
+			<local:CustomEntry Placeholder="EMAIL"
 									Keyboard="Email"
 									HorizontalOptions="FillAndExpand"
 									VerticalOptions="Center"
@@ -48,7 +48,7 @@
 				<Entry.Behaviors>
 						<local:ValidEmail x:Name="validEmail" />
 				</Entry.Behaviors>
-			</local:ExtendedEntry>
+			</local:CustomEntry>
                         <Image VerticalOptions="Center"
 							   HorizontalOptions="Start">
                             <Image.Source>
@@ -75,7 +75,7 @@
 					Padding="30,10,30,0"
 					Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
-                    <local:ExtendedEntry Placeholder="PASSWORD"
+                    <local:CustomEntry Placeholder="PASSWORD"
 									Keyboard="Default"
 									IsPassword="true"
 									HorizontalOptions="FillAndExpand"

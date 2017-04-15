@@ -142,9 +142,9 @@
     <Compile Include="Pages\NewEventPage.xaml.cs">
       <DependentUpon>NewEventPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\ExtendedEntry.cs" />
-    <Compile Include="Helpers\ExtendedDatePicker.cs" />
-    <Compile Include="Helpers\ExtendedTimePicker.cs" />
+    <Compile Include="Helpers\CustomEntry.cs" />
+    <Compile Include="Helpers\CustomDatePicker.cs" />
+    <Compile Include="Helpers\CustomTimePicker.cs" />
     <Compile Include="Helpers\ValidEvent.cs" />
     <Compile Include="ViewModels\RoomViewModel.cs" />
     <Compile Include="Pages\RoomNavPage.xaml.cs">
@@ -163,7 +163,7 @@
     </Compile>
     <Compile Include="ViewModels\SelectedEventPageViewModel.cs" />
     <Compile Include="Models\Reservation.cs" />
-    <Compile Include="Helpers\ExtendedPicker.cs" />
+    <Compile Include="Helpers\CustomPicker.cs" />
     <Compile Include="Models\EventLocation.cs" />
     <Compile Include="Abstractions\ILoginProvider.cs" />
     <Compile Include="Helpers\Locations.cs" />

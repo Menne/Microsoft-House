@@ -3,10 +3,10 @@ using Xamarin.Forms;
 
 namespace MicrosoftHouse
 {
-	public class ExtendedPicker : Picker
+	public class CustomPicker : Picker
 	{
 		public static readonly BindableProperty TextColorProperty =
-			BindableProperty.Create("TextColor", typeof(Color), typeof(ExtendedDatePicker), Color.Default);
+			BindableProperty.Create("TextColor", typeof(Color), typeof(CustomPicker), Color.Default);
 
 		public Color TextColor
 		{
@@ -18,7 +18,7 @@ namespace MicrosoftHouse
 		/// The font property
 		/// </summary>
 		public static readonly BindableProperty FontProperty =
-			BindableProperty.Create("Font", typeof(Font), typeof(ExtendedDatePicker), new Font());
+			BindableProperty.Create("Font", typeof(Font), typeof(CustomPicker), new Font());
 
 		/// <summary>
 		/// Gets or sets the Font
@@ -32,7 +32,7 @@ namespace MicrosoftHouse
 		public static readonly BindableProperty PlaceHolderProperty = BindableProperty.Create(
 		   "PlaceHolder",
 		   typeof(string),
-		   typeof(ExtendedDatePicker),
+		   typeof(CustomPicker),
 		   "");
 
 		public string PlaceHolder

@@ -12,10 +12,10 @@ using Android.Text.Method;
 using Android.Util;
 using Android.Views;
 
-[assembly: ExportRenderer(typeof(ExtendedEntry), typeof(ExtendedEntryRender))]
+[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRender))]
 namespace MicrosoftHouse.Droid
 {
-	public class ExtendedEntryRender : EntryRenderer
+	public class CustomEntryRender : EntryRenderer
 	{
 		private const int MinDistance = 10;
 
@@ -31,7 +31,7 @@ namespace MicrosoftHouse.Droid
 		{
 			base.OnElementChanged(e);
 
-			var view = (ExtendedEntry)Element;
+			var view = (CustomEntry)Element;
 
 			if (Control != null && e.NewElement != null && e.NewElement.IsPassword)
 			{
@@ -73,17 +73,17 @@ namespace MicrosoftHouse.Droid
 		/// <param name="e">The <see cref="System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
 		protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
-			var view = (ExtendedEntry)Element;
+			var view = (CustomEntry)Element;
 
-			if (e.PropertyName == ExtendedEntry.FontProperty.PropertyName)
+			if (e.PropertyName == CustomEntry.FontProperty.PropertyName)
 			{
 				//SetFont(view);
 			}
-			else if (e.PropertyName == ExtendedEntry.XAlignProperty.PropertyName)
+			else if (e.PropertyName == CustomEntry.XAlignProperty.PropertyName)
 			{
 				SetTextAlignment(view);
 			}
-			else if (e.PropertyName == ExtendedEntry.PlaceholderTextColorProperty.PropertyName)
+			else if (e.PropertyName == CustomEntry.PlaceholderTextColorProperty.PropertyName)
 			{
 				SetPlaceholderTextColor(view);
 			}
@@ -120,7 +120,7 @@ namespace MicrosoftHouse.Droid
 		/// Sets the text alignment.
 		/// </summary>
 		/// <param name="view">The view.</param>
-		private void SetTextAlignment(ExtendedEntry view)
+		private void SetTextAlignment(CustomEntry view)
 		{
 			switch (view.XAlign)
 			{
@@ -153,7 +153,7 @@ namespace MicrosoftHouse.Droid
 		/// Sets the color of the placeholder text.
 		/// </summary>
 		/// <param name="view">The view.</param>
-		private void SetPlaceholderTextColor(ExtendedEntry view)
+		private void SetPlaceholderTextColor(CustomEntry view)
 		{
 			//if (view.PlaceholderTextColor != Color.Default)
 			//{
@@ -165,7 +165,7 @@ namespace MicrosoftHouse.Droid
 		/// Sets the MaxLength characteres.
 		/// </summary>
 		/// <param name="view">The view.</param>
-		private void SetMaxLength(ExtendedEntry view)
+		private void SetMaxLength(CustomEntry view)
 		{
 			Control.SetFilters(new IInputFilter[] { new InputFilterLengthFilter(view.MaxLength) });
 		}

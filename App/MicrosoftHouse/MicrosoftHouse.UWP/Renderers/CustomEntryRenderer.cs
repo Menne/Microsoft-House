@@ -3,7 +3,7 @@ using MicrosoftHouse.UWP;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 
-[assembly: ExportRenderer(typeof(ExtendedEntry), typeof(CustomEntryRenderer))]
+[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRenderer))]
 namespace MicrosoftHouse.UWP
 {
     public class CustomEntryRenderer : EntryRenderer

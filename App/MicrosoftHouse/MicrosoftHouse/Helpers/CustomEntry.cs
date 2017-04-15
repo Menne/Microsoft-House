@@ -3,32 +3,32 @@ using Xamarin.Forms;
 
 namespace MicrosoftHouse
 {
-	public class ExtendedEntry : Entry
+	public class CustomEntry : Entry
 	{
 		/// <summary>
 		/// The font property
 		/// </summary>
 		public static readonly BindableProperty FontProperty =
-			BindableProperty.Create("Font", typeof(Font), typeof(ExtendedEntry), new Font());
+			BindableProperty.Create("Font", typeof(Font), typeof(CustomEntry), new Font());
 
 		/// <summary>
 		/// The XAlign property
 		/// </summary>
 		public static readonly BindableProperty XAlignProperty =
-			BindableProperty.Create("XAlign", typeof(TextAlignment), typeof(ExtendedEntry),
+			BindableProperty.Create("XAlign", typeof(TextAlignment), typeof(CustomEntry),
 			TextAlignment.Start);
 
 		/// <summary>
 		/// The PlaceholderTextColor property
 		/// </summary>
 		public static readonly BindableProperty PlaceholderTextColorProperty =
-			BindableProperty.Create("PlaceholderTextColor", typeof(Color), typeof(ExtendedEntry), Color.Default);
+			BindableProperty.Create("PlaceholderTextColor", typeof(Color), typeof(CustomEntry), Color.Default);
 
 		/// <summary>
 		/// The MaxLength property
 		/// </summary>
 		public static readonly BindableProperty MaxLengthProperty =
-			BindableProperty.Create("MaxLength", typeof(int), typeof(ExtendedEntry), int.MaxValue);
+			BindableProperty.Create("MaxLength", typeof(int), typeof(CustomEntry), int.MaxValue);
 
 		/// <summary>
 		/// Gets or sets the MaxLength

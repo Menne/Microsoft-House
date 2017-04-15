@@ -98,11 +98,11 @@
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork@2x" />
     <None Include="packages.config" />
-    <Compile Include="Renderers\ExtendedEntryRender.cs" />
-    <Compile Include="Renderers\ExtendedDatePickerRender.cs" />
-    <Compile Include="Renderers\ExtendedTimePickerRender.cs" />
+    <Compile Include="Renderers\CustomEntryRender.cs" />
+    <Compile Include="Renderers\CustomDatePickerRender.cs" />
+    <Compile Include="Renderers\CustomTimePickerRender.cs" />
     <Compile Include="Renderers\CustomNavigationPageRender.cs" />
-    <Compile Include="Renderers\ExtendedPickerRender.cs" />
+    <Compile Include="Renderers\CustomPickerRender.cs" />
     <Compile Include="Services\iOSLoginProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -289,9 +289,7 @@
       <Name>MicrosoftHouse</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.224\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.224\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

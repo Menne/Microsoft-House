@@ -5,16 +5,16 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRendererAttribute(typeof(ExtendedDatePicker), typeof(ExtendedDatePickerRender))]
+[assembly: ExportRendererAttribute(typeof(CustomDatePicker), typeof(CustomDatePickerRender))]
 namespace MicrosoftHouse.iOS
 {
-	public class ExtendedDatePickerRender : DatePickerRenderer
+	public class CustomDatePickerRender : DatePickerRenderer
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<DatePicker> e)
 		{
 			base.OnElementChanged(e);
 
-			ExtendedDatePicker datePicker = (ExtendedDatePicker)Element;
+            CustomDatePicker datePicker = (CustomDatePicker)Element;
 
 			if (datePicker != null)
 			{
@@ -37,19 +37,19 @@ namespace MicrosoftHouse.iOS
 				return;
 			}
 
-			ExtendedDatePicker datePicker = (ExtendedDatePicker)Element;
-			if (e.PropertyName == ExtendedDatePicker.FontProperty.PropertyName)
+            CustomDatePicker datePicker = (CustomDatePicker)Element;
+			if (e.PropertyName == CustomDatePicker.FontProperty.PropertyName)
 			{
 				SetFont(datePicker);
 			}
-			if (e.PropertyName == ExtendedDatePicker.TextColorProperty.PropertyName)
+			if (e.PropertyName == CustomDatePicker.TextColorProperty.PropertyName)
 			{
 				this.Control.TextColor = datePicker.TextColor.ToUIColor();
 			}
 		}
 
 		// Setta il FONT_SIZE
-		private void SetFont(ExtendedDatePicker datePicker)
+		private void SetFont(CustomDatePicker datePicker)
 		{
 			UIFont uiFont;
 			if (datePicker.Font != Font.Default && (uiFont = datePicker.Font.ToUIFont()) != null)
@@ -58,12 +58,12 @@ namespace MicrosoftHouse.iOS
 				Control.Font = UIFont.SystemFontOfSize(17f);
 		}
 
-		void SetTextColor(ExtendedDatePicker datePicker)
+		void SetTextColor(CustomDatePicker datePicker)
 		{
 			this.Control.TextColor = datePicker.TextColor.ToUIColor();
 		}
 
-		void SetPlaceholder(ExtendedDatePicker datePicker)
+		void SetPlaceholder(CustomDatePicker datePicker)
 		{
 			this.Control.Text = datePicker.PlaceHolder;
 		}

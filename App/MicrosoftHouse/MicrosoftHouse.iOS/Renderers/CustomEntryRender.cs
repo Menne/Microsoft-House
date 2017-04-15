@@ -8,10 +8,10 @@ using CoreGraphics;
 using Foundation;
 using UIKit;
 
-[assembly: ExportRenderer(typeof(ExtendedEntry), typeof(ExtendedEntryRender))]
+[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRender))]
 namespace MicrosoftHouse.iOS
 {
-	public class ExtendedEntryRender : EntryRenderer
+	public class CustomEntryRender : EntryRenderer
 	{
 			/// <summary>
 			/// The on element changed callback.
@@ -21,7 +21,7 @@ namespace MicrosoftHouse.iOS
 			{
 				base.OnElementChanged(e);
 
-				var view = e.NewElement as ExtendedEntry;
+				var view = e.NewElement as CustomEntry;
 
 				if (view != null)
 				{
@@ -45,13 +45,13 @@ namespace MicrosoftHouse.iOS
 			{
 				base.OnElementPropertyChanged(sender, e);
 
-				var view = (ExtendedEntry)Element;
+				var view = (CustomEntry)Element;
 
-				if (e.PropertyName == ExtendedEntry.FontProperty.PropertyName)
+				if (e.PropertyName == CustomEntry.FontProperty.PropertyName)
 					SetFont(view);
-				if (e.PropertyName == ExtendedEntry.XAlignProperty.PropertyName)
+				if (e.PropertyName == CustomEntry.XAlignProperty.PropertyName)
 					SetTextAlignment(view);
-				if (e.PropertyName == ExtendedEntry.PlaceholderTextColorProperty.PropertyName)
+				if (e.PropertyName == CustomEntry.PlaceholderTextColorProperty.PropertyName)
 					SetPlaceholderTextColor(view);
 
 				//ResizeHeight();
@@ -61,7 +61,7 @@ namespace MicrosoftHouse.iOS
 			/// Sets the text alignment.
 			/// </summary>
 			/// <param name="view">The view.</param>
-			private void SetTextAlignment(ExtendedEntry view)
+			private void SetTextAlignment(CustomEntry view)
 			{
 				switch (view.XAlign)
 				{
@@ -81,7 +81,7 @@ namespace MicrosoftHouse.iOS
 			/// Sets the font.
 			/// </summary>
 			/// <param name="view">The view.</param>
-			private void SetFont(ExtendedEntry view)
+			private void SetFont(CustomEntry view)
 			{
 				UIFont uiFont;
 				if (view.Font != Font.Default && (uiFont = view.Font.ToUIFont()) != null)
@@ -93,7 +93,7 @@ namespace MicrosoftHouse.iOS
 			/// Sets the maxLength.
 			/// </summary>
 			/// <param name="view">The view.</param>
-			private void SetMaxLength(ExtendedEntry view)
+			private void SetMaxLength(CustomEntry view)
 			{
 				Control.ShouldChangeCharacters = (textField, range, replacementString) =>
 				{
@@ -121,7 +121,7 @@ namespace MicrosoftHouse.iOS
 			/// Sets the color of the placeholder text.
 			/// </summary>
 			/// <param name="view">The view.</param>
-			void SetPlaceholderTextColor(ExtendedEntry view)
+			void SetPlaceholderTextColor(CustomEntry view)
 			{
 				/*
 	UIColor *color = [UIColor lightTextColor];

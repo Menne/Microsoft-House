@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 using MicrosoftHouse;
 
-[assembly: ExportRenderer(typeof(ExtendedDatePicker), typeof(CustomDatePickerRenderer))]
+[assembly: ExportRenderer(typeof(CustomDatePicker), typeof(CustomDatePickerRenderer))]
 namespace MicrosoftHouse.UWP
 {
     public class CustomDatePickerRenderer : DatePickerRenderer

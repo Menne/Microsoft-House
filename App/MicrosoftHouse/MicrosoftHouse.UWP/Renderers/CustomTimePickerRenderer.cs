@@ -3,7 +3,7 @@ using MicrosoftHouse.UWP.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 
-[assembly: ExportRenderer(typeof(ExtendedTimePicker), typeof(CustomTimePickerRenderer))]
+[assembly: ExportRenderer(typeof(CustomTimePicker), typeof(CustomTimePickerRenderer))]
 namespace MicrosoftHouse.UWP.Renderers
 {
     public class CustomTimePickerRenderer : TimePickerRenderer

@@ -5,16 +5,16 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRendererAttribute(typeof(ExtendedPicker), typeof(ExtendedPickerRender))]
+[assembly: ExportRendererAttribute(typeof(CustomPicker), typeof(CustomPickerRender))]
 namespace MicrosoftHouse.iOS
 {
-	public class ExtendedPickerRender : PickerRenderer
+	public class CustomPickerRender : PickerRenderer
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<Picker> e)
 		{
 			base.OnElementChanged(e);
 
-			ExtendedPicker picker = (ExtendedPicker)Element;
+			CustomPicker picker = (CustomPicker)Element;
 
 			if (picker != null)
 			{
@@ -37,20 +37,20 @@ namespace MicrosoftHouse.iOS
 				return;
 			}
 
-			ExtendedPicker picker = (ExtendedPicker)Element;
+			CustomPicker picker = (CustomPicker)Element;
 
-			if (e.PropertyName == ExtendedPicker.FontProperty.PropertyName)
+			if (e.PropertyName == CustomPicker.FontProperty.PropertyName)
 			{
 				SetFont(picker);
 			}
-				if (e.PropertyName == ExtendedPicker.TextColorProperty.PropertyName)
+				if (e.PropertyName == CustomPicker.TextColorProperty.PropertyName)
 			{
 				this.Control.TextColor = picker.TextColor.ToUIColor();
 			}
 		}
 
 		// Setta il FONT_SIZE
-		private void SetFont(ExtendedPicker picker)
+		private void SetFont(CustomPicker picker)
 		{
 			UIFont uiFont;
 			if (picker.Font != Font.Default && (uiFont = picker.Font.ToUIFont()) != null)
@@ -59,12 +59,12 @@ namespace MicrosoftHouse.iOS
 			Control.Font = UIFont.SystemFontOfSize(17f);
 		}
 
-		void SetTextColor(ExtendedPicker picker)
+		void SetTextColor(CustomPicker picker)
 		{
 			this.Control.TextColor = picker.TextColor.ToUIColor();
 		}
 
-		void SetPlaceholder(ExtendedPicker picker)
+		void SetPlaceholder(CustomPicker picker)
 		{
 			this.Control.Text = picker.PlaceHolder;
 		}

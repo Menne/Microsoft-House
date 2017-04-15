@@ -117,7 +117,7 @@
 							Padding="30,10,30,10"
 							Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
-						<local:ExtendedDatePicker x:Name="datePicker"
+                    <local:CustomDatePicker x:Name="datePicker"
 										PlaceHolder="DATE"
 										TextColor="Black"
 										Font="Small"
@@ -147,7 +147,7 @@
 									Padding="30,10,30,10"
 									Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
-						<local:ExtendedTimePicker x:Name="timePicker"
+                    <local:CustomTimePicker x:Name="timePicker"
 										PlaceHolder="STARTING TIME"
 										TextColor="Black"
 										Font="Small"
@@ -177,7 +177,7 @@
 					Padding="30,10,30,0"
 					Orientation="Vertical">
 			<StackLayout Orientation="Horizontal">
-			<local:ExtendedEntry Placeholder="PEOPLE"
+                    <local:CustomEntry Placeholder="PEOPLE"
 									Keyboard="Numeric"
 									HorizontalOptions="FillAndExpand"
 									VerticalOptions="Center"

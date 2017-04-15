@@ -4,16 +4,16 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRendererAttribute(typeof(ExtendedTimePicker), typeof(ExtendedTimePickerRender))]
+[assembly: ExportRendererAttribute(typeof(CustomTimePicker), typeof(CustomTimePickerRender))]
 namespace MicrosoftHouse.iOS
 {
-	public class ExtendedTimePickerRender : TimePickerRenderer
+	public class CustomTimePickerRender : TimePickerRenderer
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<TimePicker> e)
 		{
 			base.OnElementChanged(e);
 
-			ExtendedTimePicker timePicker = (ExtendedTimePicker)Element;
+			CustomTimePicker timePicker = (CustomTimePicker)Element;
 
 			if (timePicker != null)
 			{
@@ -37,19 +37,19 @@ namespace MicrosoftHouse.iOS
 				return;
 			}
 
-			ExtendedTimePicker timePicker = (ExtendedTimePicker)Element;
-			if (e.PropertyName == ExtendedTimePicker.FontProperty.PropertyName)
+			CustomTimePicker timePicker = (CustomTimePicker)Element;
+			if (e.PropertyName == CustomTimePicker.FontProperty.PropertyName)
 			{
 				SetFont(timePicker);
 			}
-			if (e.PropertyName == ExtendedTimePicker.TextColorProperty.PropertyName)
+			if (e.PropertyName == CustomTimePicker.TextColorProperty.PropertyName)
 			{
 				this.Control.TextColor = timePicker.TextColor.ToUIColor();
 			}
 		}
 
 		// Setta il FONT_SIZE
-		private void SetFont(ExtendedTimePicker timePicker)
+		private void SetFont(CustomTimePicker timePicker)
 		{
 			UIFont uiFont;
 			if (timePicker.Font != Font.Default && (uiFont = timePicker.Font.ToUIFont()) != null)
@@ -58,12 +58,12 @@ namespace MicrosoftHouse.iOS
 				Control.Font = UIFont.SystemFontOfSize(17f);
 		}
 
-		void SetTextColor(ExtendedTimePicker timePicker)
+		void SetTextColor(CustomTimePicker timePicker)
 		{
 			this.Control.TextColor = timePicker.TextColor.ToUIColor();
 		}
 
-		void SetPlaceholder(ExtendedTimePicker timePicker)
+		void SetPlaceholder(CustomTimePicker timePicker)
 		{
 			this.Control.Text = timePicker.PlaceHolder;
 		}

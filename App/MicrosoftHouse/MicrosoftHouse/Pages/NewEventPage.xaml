@@ -60,7 +60,7 @@
 									Grid.Column="0"
 									VerticalOptions="FillAndExpand"
 									Padding="30,30,30,30">
-						<local:ExtendedEntry x:Name="eventName"
+                <local:CustomEntry x:Name="eventName"
 										Placeholder="Event Name"
 										Keyboard="Text"
 										Text="{Binding SelectedEvent.Name, Mode=TwoWay}"
@@ -74,7 +74,7 @@
 									<Entry.Behaviors>
 										<local:ValidEvent x:Name="validEvent" />
 									</Entry.Behaviors>
-						</local:ExtendedEntry>
+						</local:CustomEntry>
 						<BoxView Color="White"
 									Opacity="0.1"
 									HeightRequest="1"
@@ -86,7 +86,7 @@
            	 					</OnPlatform>
 							</BoxView.IsVisible>
 						</BoxView>
-						<local:ExtendedEntry x:Name="eventDescription"
+                <local:CustomEntry x:Name="eventDescription"
 										Placeholder="DESCRIPTION"
 										Keyboard="Text"
 										Text="{Binding SelectedEvent.Description, Mode=TwoWay}"
@@ -103,7 +103,7 @@
 									Padding="30,10,30,10"
 									Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
-						<local:ExtendedDatePicker x:Name="datePicker"
+                    <local:CustomDatePicker x:Name="datePicker"
 										PlaceHolder="DATE"
 										Date="{Binding SelectedEvent.Date, Mode=TwoWay}"
 										TextColor="Black"
@@ -139,7 +139,7 @@
 									Padding="30,10,30,10"
 									Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
-						<local:ExtendedTimePicker x:Name="timePickerFirst"
+                    <local:CustomTimePicker x:Name="timePickerFirst"
 										PlaceHolder="STARTING TIME"
 										Time="{Binding SelectedEvent.StartingTime, Mode=TwoWay}"
 										TextColor="Black"
@@ -175,7 +175,7 @@
 									Padding="30,10,30,10"
 									Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
-						<local:ExtendedTimePicker x:Name="timePickerSecond"
+                    <local:CustomTimePicker x:Name="timePickerSecond"
 										PlaceHolder="ENDING TIME"
 										Time="{Binding SelectedEvent.EndingTime, Mode=TwoWay}"
 										TextColor="Black"
@@ -211,7 +211,7 @@
 									Padding="30,10,30,10"
 									Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
-						<local:ExtendedPicker x:Name="locationPicker"									
+                    <local:CustomPicker x:Name="locationPicker"									
 										TextColor="Black"
 										Font="Small"
 										SelectedItem="{Binding SelectedEvent.Location, Mode=TwoWay}"
@@ -220,7 +220,7 @@
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center">
 						<!--SelectedItem="{Binding Event.Location, Mode=TwoWay}"-->
-						</local:ExtendedPicker>
+						</local:CustomPicker>
                     <Image VerticalOptions="Center"
 						   HorizontalOptions="Start">
                         <Image.Source>

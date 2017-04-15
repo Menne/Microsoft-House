@@ -8,16 +8,16 @@ using MicrosoftHouse.Droid;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(ExtendedDatePicker), typeof(ExtendedDatePickerRender))]
+[assembly: ExportRenderer(typeof(CustomDatePicker), typeof(CustomDatePickerRender))]
 namespace MicrosoftHouse.Droid
 {
-	public class ExtendedDatePickerRender : DatePickerRenderer
+	public class CustomDatePickerRender : DatePickerRenderer
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<DatePicker> e)
 		{
 			base.OnElementChanged(e);
 
-			ExtendedDatePicker datePicker = (ExtendedDatePicker)Element;
+            CustomDatePicker datePicker = (CustomDatePicker)Element;
 
 			if (datePicker != null)
 			{
@@ -65,20 +65,20 @@ namespace MicrosoftHouse.Droid
 				return;
 			}
 
-			ExtendedDatePicker datePicker = (ExtendedDatePicker)Element;
+            CustomDatePicker datePicker = (CustomDatePicker)Element;
 
-			if (e.PropertyName == ExtendedDatePicker.TextColorProperty.PropertyName)
+			if (e.PropertyName == CustomDatePicker.TextColorProperty.PropertyName)
 			{
 				SetTextColor(datePicker);
 			}
 		}
 
-		void SetTextColor(ExtendedDatePicker datePicker)
+		void SetTextColor(CustomDatePicker datePicker)
 		{
 			this.Control.SetTextColor(datePicker.TextColor.ToAndroid());
 		}
 
-		void SetPlaceholder(ExtendedDatePicker datePicker)
+		void SetPlaceholder(CustomDatePicker datePicker)
 		{
 			this.Control.Text = datePicker.PlaceHolder;
 		}
