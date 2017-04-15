@@ -110,12 +110,17 @@
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"/>
-						<Image Source="CalendarIcon.png"
-								VerticalOptions="Center"
-								HorizontalOptions="Start">
-								<Image.GestureRecognizers>
-									<TapGestureRecognizer Tapped="OnDatePicker"/>
-								</Image.GestureRecognizers>
+						<Image VerticalOptions="Center"
+							   HorizontalOptions="Start">
+                            <Image.Source>
+                                 <OnPlatform x:TypeArguments="ImageSource"
+                                             iOS="CalendarIcon.png"
+                                             Android="CalendarIcon.png"
+                                             WinPhone="Images/CalendarIcon.png" />
+                            </Image.Source>
+                            <Image.GestureRecognizers>
+								<TapGestureRecognizer Tapped="OnDatePicker"/>
+						    </Image.GestureRecognizers>
 						</Image>
 						</StackLayout>
 						<BoxView Color="Black"
@@ -141,14 +146,19 @@
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"/>
-						<Image Source="TimeIcon.png"
-								VerticalOptions="Center"
-								HorizontalOptions="Start">
-								<Image.GestureRecognizers>
-									<TapGestureRecognizer Tapped="OnTimePickerFirst"/>
-								</Image.GestureRecognizers>
-						</Image>
-						</StackLayout>
+                    <Image VerticalOptions="Center"
+						   HorizontalOptions="Start">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="TimeIcon.png"
+                                        Android="TimeIcon.png"
+                                        WinPhone="Images/TimeIcon.png" />
+                        </Image.Source>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTimePickerFirst"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
 									HeightRequest="1">
@@ -172,14 +182,19 @@
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"/>
-						<Image Source="TimeIcon.png"
-								VerticalOptions="Center"
-								HorizontalOptions="Start">
-							<Image.GestureRecognizers>
-									<TapGestureRecognizer Tapped="OnTimePickerSecond"/>
-							</Image.GestureRecognizers>
-						</Image>
-						</StackLayout>
+                    <Image VerticalOptions="Center"
+						   HorizontalOptions="Start">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="TimeIcon.png"
+                                        Android="TimeIcon.png"
+                                        WinPhone="Images/TimeIcon.png" />
+                        </Image.Source>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTimePickerSecond"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
 									HeightRequest="1">
@@ -206,13 +221,18 @@
 										VerticalOptions="Center">
 						<!--SelectedItem="{Binding Event.Location, Mode=TwoWay}"-->
 						</local:ExtendedPicker>
-						<Image Source="ParkIcon.png"
-								VerticalOptions="Center"
-								HorizontalOptions="Start">
-							<Image.GestureRecognizers>
-									<TapGestureRecognizer Tapped="OnLocationPicker"/>
-							</Image.GestureRecognizers>
-						</Image>
+                    <Image VerticalOptions="Center"
+						   HorizontalOptions="Start">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="ParkIcon.png"
+                                        Android="ParkIcon.png"
+                                        WinPhone="Images/ParkIcon.png" />
+                        </Image.Source>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLocationPicker"/>
+                        </Image.GestureRecognizers>
+                    </Image>
 						</StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"

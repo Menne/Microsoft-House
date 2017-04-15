@@ -18,47 +18,47 @@ namespace MicrosoftHouse
 
 			masterPageItems = new List<MasterPageItem>();
 
-			masterPageItems.Add(new MasterPageItem
-			{
-				Name = "Home",
-				IconSource = "HomeIconWhite.png",
-				TargetType = typeof(HomePage)
+            masterPageItems.Add(new MasterPageItem
+            {
+                Name = "Home",
+                IconSource = Device.OnPlatform("HomeIconWhite.png","HomeIconWhite.png", "Images/HomeIconWhite.png"),
+                TargetType = typeof(HomePage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{
 				Name = "Rooms",
-				IconSource = "RoomIconWhite.png",
+                IconSource = Device.OnPlatform("RoomIconWhite.png", "RoomIconWhite.png", "Images/RoomIconWhite.png"),
 				TargetType = typeof(RoomNavPage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{
 				Name = "Calendar",
-				IconSource = "CalendarIconWhite.png",
-				TargetType = typeof(CalendarPage)
+                IconSource = Device.OnPlatform("CalendarIconWhite.png", "CalendarIconWhite.png", "Images/CalendarIconWhite.png"),
+                TargetType = typeof(CalendarPage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{
 				Name = "Park",
-				IconSource = "ParkIconWhite.png",
-				TargetType = typeof(CarParkPage)
+                IconSource = Device.OnPlatform("ParkIconWhite.png", "ParkIconWhite.png", "Images/ParkIconWhite.png"),
+                TargetType = typeof(CarParkPage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{
 				Name = "Settings",
-				IconSource = "SettingsIconWhite.png",
-				TargetType = typeof(SettingsPage)
+                IconSource = Device.OnPlatform("SettingsIconWhite.png", "SettingsIconWhite.png", "Images/SettingsIconWhite.png"),
+                TargetType = typeof(SettingsPage)
 			});
             masterPageItems.Add(new MasterPageItem
             {
                 Name = "About Us",
-                IconSource = "UserIconWhite.png",
-          		TargetType = typeof(AboutUsPage)
+                IconSource = Device.OnPlatform("UserIconWhite.png", "UserIconWhite.png", "Images/UserIconWhite.png"),
+                TargetType = typeof(AboutUsPage)
             });
             masterPageItems.Add(new MasterPageItem
 			{
 				Name = "Logout",
-				IconSource = "LogoutIconWhite.png",
-				TargetType = typeof(EntryPage)
+                IconSource = Device.OnPlatform("LogoutIconWhite.png", "LogoutIconWhite.png", "Images/LogoutIconWhite.png"),
+                TargetType = typeof(EntryPage)
 			});
 
 		}

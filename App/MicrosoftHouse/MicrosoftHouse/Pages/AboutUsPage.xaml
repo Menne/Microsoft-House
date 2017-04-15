@@ -10,10 +10,16 @@
             <StackLayout Orientation="Vertical"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand">
-                <Image Source="LoginIcon180.png"
-				        VerticalOptions="Start"
-				        HorizontalOptions="FillAndExpand"
-                        BackgroundColor="#FF01A4EF"/>
+                <Image VerticalOptions="Start"
+				       HorizontalOptions="FillAndExpand"
+                       BackgroundColor="#FF01A4EF">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource"
+                                    iOS="LoginIcon180.png"
+                                    Android="LoginIcon180.png"
+                                    WinPhone="Images/LoginIcon180.png" />
+                    </Image.Source>
+                </Image>
                 <StackLayout Orientation="Vertical"
                              HorizontalOptions="FillAndExpand"
                              VerticalOptions="FillAndExpand"

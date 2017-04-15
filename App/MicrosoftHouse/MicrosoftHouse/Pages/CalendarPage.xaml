@@ -5,8 +5,15 @@
              x:Class="MicrosoftHouse.CalendarPage"
 			 Title="Calendar">
     <ContentPage.ToolbarItems>
-  		<ToolbarItem Icon="Plus.png" Command="{Binding NewEventCommand}"></ToolbarItem>
-	</ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding SearchRoomCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource"
+                            iOS="Plus.png"
+                            Android="Plus.png"
+                            WinPhone="Images/Plus.png" />
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
             <Grid HorizontalOptions="FillAndExpand" RowSpacing="0">
                 <Grid.RowDefinitions>

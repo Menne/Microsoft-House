@@ -22,10 +22,16 @@
 					 BackgroundColor="#FF01A4EF"
 					 Grid.Row="0"
 					 Grid.Column="0">
-				<Image Source="LoginIcon180.png"
-						VerticalOptions="CenterAndExpand"
-						HorizontalOptions="CenterAndExpand"/>
-		</StackLayout>
+                    <Image VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="LoginIcon180.png"
+                                        Android="LoginIcon180.png"
+                                        WinPhone="Images/LoginIcon180.png" />
+                        </Image.Source>
+                    </Image>
+                </StackLayout>
         <StackLayout Grid.Row="2"
 					Grid.Column="0"
 					Padding="30,10,30,10"
@@ -43,10 +49,16 @@
 						<local:ValidEmail x:Name="validEmail" />
 				</Entry.Behaviors>
 			</local:ExtendedEntry>
-						<Image Source="MailIcon.png"
-								VerticalOptions="Center"
-								HorizontalOptions="Start"/>
-						</StackLayout>
+                        <Image VerticalOptions="Center"
+							   HorizontalOptions="Start">
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="MailIcon.png"
+                                        Android="MailIcon.png"
+                                        WinPhone="Images/MailIcon.png" />
+                            </Image.Source>
+                        </Image>
+                    </StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
 									HeightRequest="1">
@@ -72,10 +84,16 @@
 									TextColor="Black"
 									FontFamily="Avenir"
 									PlaceholderTextColor="Black"/>
-                    <Image Source="PasswordIcon.png"
-								VerticalOptions="Center"
-								HorizontalOptions="Start"/>
-                </StackLayout>
+                        <Image VerticalOptions="Center"
+							   HorizontalOptions="Start">
+                            <Image.Source>
+                                <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="PasswordIcon.png"
+                                        Android="PasswordIcon.png"
+                                        WinPhone="Images/PasswordIcon.png" />
+                            </Image.Source>
+                        </Image>
+                    </StackLayout>
                 <BoxView Color="Black"
 									Opacity="0.05"
 									HeightRequest="1">
