@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using MicrosoftHouse.Abstractions;
 using MicrosoftHouse.Helpers;
@@ -20,11 +21,7 @@ namespace MicrosoftHouse
 
 		public NewEventViewModel()
 		{
-
-			cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
 			//ICloudService cloudService = App.CloudService;
-			TableEvent = cloudService.GetTable<Event>();
-			TableLocation = cloudService.GetTable<EventLocation>();
 
 			CreateCommand = new Command(async () => await ExecuteCreateCommand());
 
@@ -42,18 +39,13 @@ namespace MicrosoftHouse
 
 		public NewEventViewModel(Event selectedEvent = null)
 		{
-			cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
-			TableEvent = cloudService.GetTable<Event>();
-			TableLocation = cloudService.GetTable<EventLocation>();
-
 			// In this case ( Edit Command )
 			CreateCommand = new Command(async () => await ExecuteCreateCommand());
 
 			SelectedEvent = selectedEvent;
 		}
 
-		public ICloudTable<Event> TableEvent { get; set; }
-		public ICloudTable<EventLocation> TableLocation { get; set; }
+		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
 		public Command CreateCommand { get; }
 
 
@@ -65,22 +57,30 @@ namespace MicrosoftHouse
 
 			try
 			{
-				
+				var tableEvent = await CloudService.GetTableAsync<Event>();
 				if (SelectedEvent.Id == null)
 				{
 
+
+					// Get the identity
 					/*var identity = await cloudService.GetIdentityAsync();
 					if (identity != null)
 					{
 						var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("name")).Value;
-						Title = $"Tasks for {name}";
+						SelectedEvent.User = name;
+						Debug.WriteLine(SelectedEvent.User);
+
 					}*/
-					SelectedEvent.User = "filippo";
-					await TableEvent.CreateEventAsynch(SelectedEvent);
+
+					await tableEvent.CreateEventAsynch(SelectedEvent);
+					await CloudService.SyncOfflineCacheAsync();
+
+
 				}
 				else
 				{
-					await TableEvent.UpdateEventAsync(SelectedEvent);
+					await tableEvent.UpdateEventAsync(SelectedEvent);
+					await CloudService.SyncOfflineCacheAsync();
 				}
 				MessagingCenter.Send<NewEventViewModel>(this, "ItemsChanged");
 				await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
@@ -111,7 +111,9 @@ namespace MicrosoftHouse
 		{
 			try
 			{
-				var list = await TableLocation.ReadAllEventLocationsAsync();
+				
+				var tableLocation = await CloudService.GetTableAsync<EventLocation>();
+				var list = await tableLocation.ReadAllEventLocationsAsync();
 				Locations.Clear();
 				foreach (var location in list)
 				{
@@ -119,6 +121,8 @@ namespace MicrosoftHouse
 					LocationsName.Add(location.Name);
 					Debug.WriteLine(location.Name);
 				}
+
+				await CloudService.SyncOfflineCacheAsync();
 
 			}
 			catch (Exception ex)

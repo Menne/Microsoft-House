@@ -1,17 +1,31 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Foundation;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Microsoft.WindowsAzure.MobileServices;
 using MicrosoftHouse.iOS;
 using Newtonsoft.Json.Linq;
 using UIKit;
+using Xamarin.Auth;
 
 [assembly: Xamarin.Forms.Dependency(typeof(iOSLoginProvider))]
 namespace MicrosoftHouse.iOS
 {
 	public class iOSLoginProvider : ILoginProvider
 	{
+
+
+		//public AccountStore AccountStore { get; private set; }
+
+		public UIViewController RootView => UIApplication.SharedApplication.KeyWindow.RootViewController;
+
+		/*public iOSLoginProvider()
+		{
+			//AccountStore = AccountStore.Create();   
+		}*/
+
 		/// <summary>
 		/// Login via ADAL
 		/// </summary>
@@ -35,10 +49,16 @@ namespace MicrosoftHouse.iOS
 
 		public async Task LoginAsync(MobileServiceClient client)
 		{
-			var rootView = UIApplication.SharedApplication.KeyWindow.RootViewController;
+			// Facebook client flow with token
+
+			//var accessToken = await LoginFacebookAsync();
+			//var zumoPayload = new JObject();
+			//zumoPayload["access_token"] = accessToken;
+			//await client.LoginAsync("facebook", zumoPayload);
+
+
 
 			//FACEBOOK
-
 			await client.LoginAsync(RootView, "facebook");
 
 			// Client Flow
@@ -51,7 +71,80 @@ namespace MicrosoftHouse.iOS
 			//await client.LoginAsync(rootView, "aad");   
 		}
 
-		public UIViewController RootView => UIApplication.SharedApplication.KeyWindow.RootViewController;
+		private TaskCompletionSource<string> fbtcs;
+
+
+
+		/*public async Task<string> LoginFacebookAsync()
+		{
+			fbtcs = new TaskCompletionSource<string>();
+			var loginManager = new LoginManager();
+
+			loginManager.LogInWithReadPermissions(new[] { "public_profile" }, RootView, LoginTokenHandler);
+			return await fbtcs.Task;
+		}
+
+		private void LoginTokenHandler(LoginManagerLoginResult loginResult, NSError error)
+		{
+			if (loginResult.Token != null)
+			{
+				fbtcs.TrySetResult(loginResult.Token.TokenString);
+			}
+			else
+			{
+				fbtcs.TrySetException(new Exception("Facebook Client Flow Login Failed"));
+			}
+		}*/
+
+
+
+		/*public void StoreTokenInSecureStore(MobileServiceUser user)
+		{
+			var account = new Account(user.UserId);
+			account.Properties.Add("token", user.MobileServiceAuthenticationToken);
+			AccountStore.Save(account, "tasklist");
+		}
+
+		public void RemoveTokenFromSecureStore()
+		{
+			var accounts = AccountStore.FindAccountsForService("tasklist");
+			if (accounts != null)
+			{
+				foreach (var acct in accounts)
+				{
+					AccountStore.Delete(acct, "tasklist");
+				}
+			}
+		}
+
+		public MobileServiceUser RetrieveTokenFromSecureStore()
+		{
+			var accounts = AccountStore.FindAccountsForService("tasklist");
+			if (accounts != null)
+			{
+				foreach (var acct in accounts)
+				{
+					string token;
+
+					if (acct.Properties.TryGetValue("token", out token))
+					{
+						return new MobileServiceUser(acct.Username)
+						{
+							MobileServiceAuthenticationToken = token
+						};
+					}
+				}
+			}
+			return null;
+		}*/
+
+		public string GetSyncStore()
+		{
+			return "syncstore.db";   
+		}
+
+
+
 	}
 }
 

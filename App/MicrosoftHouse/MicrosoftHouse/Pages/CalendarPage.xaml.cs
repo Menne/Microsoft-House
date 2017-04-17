@@ -10,9 +10,9 @@ namespace MicrosoftHouse
         {
             InitializeComponent();
 
-			calendarProva.SelectedDate = DateTime.Now;
-
             BindingContext = new CalendarViewModel();
+
+			//calendarProva.SelectedDate = DateTime.Now;
         }
 
     }

@@ -11,12 +11,9 @@ namespace MicrosoftHouse
 	public class SelectedEventPageViewModel : BaseViewModel
 	{
 		//ICloudTable<Event> table = App.CloudService.GetTable<Event>();
-		ICloudService cloudService;
 
 		public SelectedEventPageViewModel(Event selectedEvent = null)
 		{
-			cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
-			TableEvent = cloudService.GetTable<Event>();
 
 			RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
 			DeleteCommand = new Command(async () => await ExecuteDeleteCommand());
@@ -31,9 +28,7 @@ namespace MicrosoftHouse
 			RetrieveEvent();
 
 		}
-
-		public ICloudTable<Event> TableEvent { get; set; }
-		public ICloudTable<EventLocation> TableLocation { get; set; }
+		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
 		public Command RefreshCommand { get; }
 		public Command DeleteCommand { get; }
 		public Command EditCommand { get; }
@@ -55,8 +50,8 @@ namespace MicrosoftHouse
 
 			try
 			{
-				
-				var element = await TableEvent.ReadEventAsync(SelectedEvent.Id);
+				var table = await CloudService.GetTableAsync<Event>();
+				var element = await table.ReadEventAsync(SelectedEvent.Id);
 				SelectedEvent = element;
 
 				Debug.WriteLine(SelectedEvent.Name);
@@ -91,7 +86,8 @@ namespace MicrosoftHouse
 			{
 				if (SelectedEvent.Id != null)
 				{
-					await TableEvent.DeleteEventAsync(SelectedEvent);
+					var table = await CloudService.GetTableAsync<Event>();
+					await table.DeleteEventAsync(SelectedEvent);
 				}
 
 				//MessagingCenter.Send<SelectedEventPageViewModel>(this, "ItemsChanged");

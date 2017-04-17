@@ -16,8 +16,6 @@ namespace MicrosoftHouse
 		public RoomViewModel()
 		{
 			// Cloud Variables
-			cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
-			Table = cloudService.GetTable<Room>();
 
 
 			RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
@@ -33,7 +31,7 @@ namespace MicrosoftHouse
 
 		}
 
-		public ICloudTable<Room> Table { get; set; }
+		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
 		public Command RefreshCommand { get; }
 		public Command SearchRoomCommand { get; }
 		public Command RoomAVCommand { get; }
@@ -57,7 +55,8 @@ namespace MicrosoftHouse
 
 			try
 			{
-				var list = await Table.ReadAllRoomsAsync();
+				var table = await CloudService.GetTableAsync<Room>();
+				var list = await table.ReadAllRoomsAsync();
 				AllRooms.Clear();
 				foreach (var room in list)
 				{

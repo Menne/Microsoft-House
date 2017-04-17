@@ -5,30 +5,36 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
+using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
+using MicrosoftHouse.Models;
 
 namespace MicrosoftHouse.Services
 {
 	public class AzureCloudService : ICloudService
 	{
-		MobileServiceClient client;
+		/// <summary>
+		/// The Client reference to the Azure Mobile App
+		/// </summary>
+		private MobileServiceClient Client { get; set; }
 
 		public AzureCloudService()
 		{
-			client = new MobileServiceClient(Locations.AppServiceUrl);
+			Client = new MobileServiceClient(Locations.AppServiceUrl);
 		}
 
 		List<AppServiceIdentity> identities = null;
 
 		public async Task<AppServiceIdentity> GetIdentityAsync()
 		{
-			if (client.CurrentUser == null || client.CurrentUser?.MobileServiceAuthenticationToken == null)
+			if (Client.CurrentUser == null || Client.CurrentUser?.MobileServiceAuthenticationToken == null)
 			{
 				throw new InvalidOperationException("Not Authenticated");
 			}
 
 			if (identities == null)
 			{
-				identities = await client.InvokeApiAsync<List<AppServiceIdentity>>("/.auth/me");
+				identities = await Client.InvokeApiAsync<List<AppServiceIdentity>>("/.auth/me");
 			}
 
 			if (identities.Count > 0)
@@ -36,12 +42,21 @@ namespace MicrosoftHouse.Services
 			return null;
 		}
 
-		public ICloudTable<T> GetTable<T>() where T : TableData => new AzureCloudTable<T>(client);
+		/// <summary>
+		/// Returns a link to the specific table.
+		/// </summary>
+		/// <typeparam name="T">The model</typeparam>
+		/// <returns>The table reference</returns>
+		public async Task<ICloudTable<T>> GetTableAsync<T>() where T : TableData
+		{
+			await InitializeAsync();
+			return new AzureCloudTable<T>(Client);   
+		}
 		
 		public Task LoginAsync()
 		{
 			var loginProvider = DependencyService.Get<ILoginProvider>();
-			return loginProvider.LoginAsync(client);
+			return loginProvider.LoginAsync(Client);
 
 		}
 
@@ -70,7 +85,70 @@ namespace MicrosoftHouse.Services
 			//DependencyService.Get<ILoginProvider>().RemoveTokenFromSecureStore();
 
 			// Remove the token from the MobileServiceClient
-			await client.LogoutAsync();
+			await Client.LogoutAsync();
 		 }
+
+		private async Task InitializeAsync()
+		{
+			// Short circuit - local database is already initialized
+			if (Client.SyncContext.IsInitialized)
+			{
+				Debug.WriteLine("InitializeAsync: Short Circuit");
+				return;
+			}
+
+			// Create a reference to the local sqlite store
+			Debug.WriteLine("InitializeAsync: Initializing store");
+			var store = new MobileServiceSQLiteStore("offlinecache.db");
+
+			// Define the database schema - When defined you have to refresh it in order to modify it
+			Debug.WriteLine("InitializeAsync: Defining Datastore");
+			store.DefineTable<Event>();
+			store.DefineTable<Room>();
+			store.DefineTable<EventLocation>();
+			store.DefineTable<CarPark>();
+			store.DefineTable<Reservation>();
+
+
+			// Actually create the store and update the schema
+			Debug.WriteLine("InitializeAsync: Initializing SyncContext");
+			await Client.SyncContext.InitializeAsync(store);
+
+			// Do the sync
+			Debug.WriteLine("InitializeAsync: Syncing Offline Cache");
+			await SyncOfflineCacheAsync();
+		}
+
+		public async Task SyncOfflineCacheAsync()
+		{
+			Debug.WriteLine("SyncOfflineCacheAsync: Initializing...");
+			await InitializeAsync();
+
+			// Push the Operations Queue to the mobile backend
+			Debug.WriteLine("SyncOfflineCacheAsync: Pushing Changes");
+			await Client.SyncContext.PushAsync();
+
+			// Pull each sync table
+			Debug.WriteLine("SyncOfflineCacheAsync: Pulling tags event");
+			var eventtable = await GetTableAsync<Event>(); 
+			await eventtable.PullAsync();
+
+			Debug.WriteLine("SyncOfflineCacheAsync: Pulling tasks room");
+			var roomTable = await GetTableAsync<Room>(); 
+			await roomTable.PullAsync();
+
+			Debug.WriteLine("SyncOfflineCacheAsync: Pulling tasks locations");
+			var locationTable = await GetTableAsync<EventLocation>(); 
+			await locationTable.PullAsync();
+
+			Debug.WriteLine("SyncOfflineCacheAsync: Pulling tasks park");
+			var parkTable = await GetTableAsync<CarPark>(); 
+			await parkTable.PullAsync();
+
+			Debug.WriteLine("SyncOfflineCacheAsync: Pulling tasks reservation");
+			var reservationTable = await GetTableAsync<Reservation>(); 
+			await reservationTable.PullAsync();
+		}
+
 	}
 }

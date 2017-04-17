@@ -9,7 +9,7 @@ namespace MicrosoftHouse
 {
 	public class RoomDetailViewModel : BaseViewModel
 	{
-		ICloudTable<Room> table = App.CloudService.GetTable<Room>();
+		//ICloudTable<Room> table = App.CloudService.GetTable<Room>();
 
 		public RoomDetailViewModel(Room room = null)
 		{
@@ -26,7 +26,7 @@ namespace MicrosoftHouse
 		}
 
 		public Room Room { get; set; }
-
+		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
 		Command cmdSave;
 		public Command SaveCommand => cmdSave ?? (cmdSave = new Command(async () => await ExecuteSaveCommand()));
 
@@ -40,10 +40,13 @@ namespace MicrosoftHouse
 			{
 				if (Room.Id == null)
 				{
+					var table = await CloudService.GetTableAsync<Room>();
 					await table.CreateRoomAsynch(Room);
+					await CloudService.SyncOfflineCacheAsync();
 				}
 				else
 				{
+					var table = await CloudService.GetTableAsync<Room>();
 					await table.UpdateRoomAsync(Room);
 				}
 				MessagingCenter.Send<RoomDetailViewModel>(this, "ItemsChanged");

@@ -32,6 +32,7 @@ namespace MicrosoftHouse.Droid
 			// MAPPE
             Xamarin.FormsMaps.Init(this, bundle);
 
+			SQLitePCL.Batteries.Init();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 

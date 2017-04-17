@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
+using Microsoft.WindowsAzure.MobileServices.Sync;
 using MicrosoftHouse.Abstractions;
 
 namespace MicrosoftHouse.Services
 {
 	public class AzureCloudTable<T> : ICloudTable<T> where T : TableData
 	{
-		MobileServiceClient client;
-		IMobileServiceTable<T> table;
+		IMobileServiceSyncTable<T> table;
 
 		public AzureCloudTable(MobileServiceClient client)
 		{
-			this.client = client;
-			this.table = client.GetTable<T>();
+			table = client.GetSyncTable<T>();
 		}
 
 		// CREATE
@@ -71,6 +70,8 @@ namespace MicrosoftHouse.Services
 		{
 			await table.DeleteAsync(room);
 		}
+
+
 
 
 		// READ ALL
@@ -154,6 +155,16 @@ namespace MicrosoftHouse.Services
 		{
 			await table.UpdateAsync(room);
 			return room;
+		}
+
+
+
+		// Synch
+
+		public async Task PullAsync()
+		{
+			string queryName = $"incsync_{typeof(T).Name}";
+			await table.PullAsync(queryName, table.CreateQuery());
 		}
 	}
 }

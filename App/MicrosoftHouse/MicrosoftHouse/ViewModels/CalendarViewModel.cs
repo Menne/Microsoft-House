@@ -15,20 +15,15 @@ namespace MicrosoftHouse.ViewModels
 
         public CalendarViewModel()
         {
-			// Cloud Variables
-			cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
-			Table = cloudService.GetTable<Event>();
-
 			// Commands
             RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
             NewEventCommand = new Command(async () => await ExecuteNewEventCommand());
 
 			// First Method to run
-            RetrieveEvents();
+			RefreshCommand.Execute(null);
         }
 
-
-		public ICloudTable<Event> Table { get; set; }
+		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
 		public Command RefreshCommand { get; }
 		public Command NewEventCommand { get; }
 
@@ -88,12 +83,16 @@ namespace MicrosoftHouse.ViewModels
 
 			try
 			{
-				var list = await Table.ReadAllEventsAsync();
+				//await CloudService.SyncOfflineCacheAsync();
+				var table = await CloudService.GetTableAsync<Event>();
+				var list = await table.ReadAllEventsAsync();
 				AllEvents.Clear();
 				foreach (var currentEvent in list)
 				{
 					AllEvents.Add(currentEvent);
 				}
+
+				await CloudService.SyncOfflineCacheAsync();
 
 				Date = DateTime.Now;
 

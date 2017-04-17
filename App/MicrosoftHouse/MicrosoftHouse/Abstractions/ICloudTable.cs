@@ -41,5 +41,7 @@ namespace MicrosoftHouse.Abstractions
 		Task<T> UpdateParkAsync(T room); // -- Utilizzato
 		Task DeleteParkAsync(T room);
 		Task<ICollection<T>> ReadAllParksAsync();
+
+		Task PullAsync();
 	}
 }

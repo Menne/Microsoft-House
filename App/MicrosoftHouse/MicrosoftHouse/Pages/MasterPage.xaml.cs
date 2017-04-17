@@ -16,6 +16,8 @@ namespace MicrosoftHouse
 			hamburgerPage.ListView.ItemSelected += OnItemSelected;
 		}
 
+		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
+
 		public void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
 		{
 			var item = e.SelectedItem as MasterPageItem;
@@ -42,8 +44,7 @@ namespace MicrosoftHouse
 		{
 			try
 			{
-				var cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
-				await cloudService.LogoutAsync();
+				await CloudService.LogoutAsync();
 				Application.Current.MainPage = new EntryPage();
 			}
 			catch (Exception ex)
