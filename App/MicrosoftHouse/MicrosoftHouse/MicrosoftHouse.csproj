@@ -160,6 +160,7 @@
     <Compile Include="Abstractions\ILoginProvider.cs" />
     <Compile Include="Helpers\Locations.cs" />
     <Compile Include="Models\AppServiceIdentity.cs" />
+    <Compile Include="Abstractions\DeviceInstallation.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PageIniziale.xaml">

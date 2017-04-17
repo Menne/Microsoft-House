@@ -150,5 +150,11 @@ namespace MicrosoftHouse.Services
 			await reservationTable.PullAsync();
 		}
 
+		/*public async Task RegisterForPushNotifications()
+		{
+			var platformProvider = DependencyService.Get<ILoginProvider>();
+			await platformProvider.RegisterForPushNotifications(Client);   
+		}*/
+
 	}
 }

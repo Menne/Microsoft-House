@@ -14,7 +14,7 @@ namespace MicrosoftHouse
 
 		//void RemoveTokenFromSecureStore();
 
-
+		//Task RegisterForPushNotifications(MobileServiceClient client);
 		string GetSyncStore();
 	}
 }

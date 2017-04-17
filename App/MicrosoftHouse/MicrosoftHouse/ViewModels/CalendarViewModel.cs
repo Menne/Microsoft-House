@@ -94,7 +94,7 @@ namespace MicrosoftHouse.ViewModels
 
 				await CloudService.SyncOfflineCacheAsync();
 
-				Date = DateTime.Now;
+				//Date = DateTime.Now;
 
 			}
 			catch (Exception ex)

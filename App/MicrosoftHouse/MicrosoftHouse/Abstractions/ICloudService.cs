@@ -15,6 +15,9 @@ namespace MicrosoftHouse.Abstractions
 
 
 		Task SyncOfflineCacheAsync();
+
+		//Task RegisterForPushNotifications();
+
 		// Custom Login
 		//Task LoginAsync(User user);
 	}
