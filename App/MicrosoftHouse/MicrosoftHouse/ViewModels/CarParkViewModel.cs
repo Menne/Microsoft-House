@@ -7,11 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using MicrosoftHouse.Abstractions;
 using Xamarin.Forms;
+using MicrosoftHouse.Models;
+using MicrosoftHouse.Helpers;
 
-namespace MicrosoftHouse.ViewModels
+namespace MicrosoftHouse
 {
     class CarParkViewModel : BaseViewModel
     {
+
+        public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
 
         public CarParkViewModel()
         {
@@ -77,9 +81,19 @@ namespace MicrosoftHouse.ViewModels
             get { return timeToArrival; }
         }
 
-        private void InitializeParkInfo()
+        async private void InitializeParkInfo()
         {
-            parkingSpaces = 25;
+            try
+            {
+                var carParkTable = await CloudService.GetTableAsync<CarPark>();
+                var parkingSpaces = await carParkTable.ReadAllParksAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[RoomList] Error loading items: {ex.Message}");
+            }
+
+
             distance = 3;
             timeToArrival = 15;
         }
