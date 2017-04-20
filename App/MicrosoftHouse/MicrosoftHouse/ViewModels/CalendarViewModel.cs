@@ -83,7 +83,6 @@ namespace MicrosoftHouse.ViewModels
 
 			try
 			{
-				//await CloudService.SyncOfflineCacheAsync();
 				var table = await CloudService.GetTableAsync<Event>();
 				var list = await table.ReadAllEventsAsync();
 				AllEvents.Clear();
@@ -92,7 +91,7 @@ namespace MicrosoftHouse.ViewModels
 					AllEvents.Add(currentEvent);
 				}
 
-				await CloudService.SyncOfflineCacheAsync();
+			//	await CloudService.SyncOfflineCacheAsync();
 
 				//Date = DateTime.Now;
 

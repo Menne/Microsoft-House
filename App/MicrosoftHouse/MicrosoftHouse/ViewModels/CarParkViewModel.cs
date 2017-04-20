@@ -60,8 +60,8 @@ namespace MicrosoftHouse
         }
 
 
-        int parkingSpaces;
-        public int ParkingSpaces
+        string parkingSpaces;
+        public string ParkingSpaces
         {
             set { SetProperty(ref parkingSpaces, value, "ParkingSpaces"); }
             get { return parkingSpaces; }
@@ -86,7 +86,10 @@ namespace MicrosoftHouse
             try
             {
                 var carParkTable = await CloudService.GetTableAsync<CarPark>();
-                var parkingSpaces = await carParkTable.ReadAllParksAsync();
+                var park = await carParkTable.ReadAllParksAsync();
+                Debug.WriteLine(park.Count);
+                parkingSpaces = park.ElementAt(0).Park;
+
             }
             catch (Exception ex)
             {

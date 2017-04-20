@@ -5,6 +5,6 @@ namespace MicrosoftHouse.Models
 {
 	public class CarPark : TableData
 	{
-		public int Park { get; set; }
+		public string Park { get; set; }
 	}
 }
