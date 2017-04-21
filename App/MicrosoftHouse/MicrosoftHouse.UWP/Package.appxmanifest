@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="319d15f2-f44c-46ec-84b7-82fd4d9c21c1" Publisher="CN=menne" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="319d15f2-f44c-46ec-84b7-82fd4d9c21c1" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="58682mennetorelli.MicrosoftHouse" Publisher="CN=196E3A41-A512-4A68-895B-A758F473EB8C" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="96765e43-c191-4545-a1a9-ad19b4ee0e93" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>MicrosoftHouse.UWP</DisplayName>
-    <PublisherDisplayName>menne</PublisherDisplayName>
+    <DisplayName>Microsoft House</DisplayName>
+    <PublisherDisplayName>mennetorelli</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="MicrosoftHouse.UWP.App">
-      <uap:VisualElements DisplayName="MicrosoftHouse.UWP" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="MicrosoftHouse.UWP" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="Microsoft House" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="MicrosoftHouse.UWP" BackgroundColor="transparent">
         <uap:LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png" ShortName="Microsoft House">
           <uap:ShowNameOnTiles>

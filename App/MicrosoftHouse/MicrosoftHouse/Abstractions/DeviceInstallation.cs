@@ -41,4 +41,15 @@ namespace MicrosoftHouse
 		[JsonProperty(PropertyName = "tags")]
 		public List<string> Tags { get; set; }
 	}
+
+    public class WindowsPushTemplate : PushTemplate
+    {
+        public WindowsPushTemplate() : base()
+        {
+            Headers = new Dictionary<string, string>();
+        }
+
+        [JsonProperty(PropertyName = "headers")]
+        public Dictionary<string, string> Headers { get; set; }
+    }
 }
