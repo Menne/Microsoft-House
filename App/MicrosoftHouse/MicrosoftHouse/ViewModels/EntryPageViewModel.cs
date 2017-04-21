@@ -30,12 +30,14 @@ namespace MicrosoftHouse.ViewModels
 
 			try
 			{
-				//var cloudService = App.CloudService;
-				//var cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
-				//await cloudService.LoginAsync(User);
-				// await cloudService.LoginAsync();
-				// Creando una nuova navigation page, non cè più la possibilità di tornare indietro.
-				Application.Current.MainPage = new MasterPage();
+                var cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
+                //await cloudService.LoginAsync(User);
+                // await cloudService.LoginAsync();
+                // Creando una nuova navigation page, non cè più la possibilità di tornare indietro.
+
+                await cloudService.RegisterForPushNotifications();
+
+                Application.Current.MainPage = new MasterPage();
 
 			}
 			catch (Exception ex)

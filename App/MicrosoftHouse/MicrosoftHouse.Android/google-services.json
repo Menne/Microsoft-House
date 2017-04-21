@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "105452590734",
+    "firebase_url": "https://microsoft-house.firebaseio.com",
+    "project_id": "microsoft-house",
+    "storage_bucket": "microsoft-house.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105452590734:android:4d91f5612492cce9",
+        "android_client_info": {
+          "package_name": "MicrosoftHouse.Android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105452590734-gd7hfnq44pgg56im2d278f2jsde6o9mr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLHah58iP4KQIvludcAD20LcvQtfE9zOA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

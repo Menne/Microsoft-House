@@ -32,14 +32,14 @@ namespace MicrosoftHouse.Helpers
 		static readonly Lazy<ServiceLocator> instance = new Lazy<ServiceLocator>(() => new ServiceLocator());
 		readonly Dictionary<Type, Lazy<object>> services = new Dictionary<Type, Lazy<object>>();
 
-		static ServiceLocator Instance => instance.Value;
+		public static ServiceLocator Instance => instance.Value;
 
-		void InternalAdd<TContract, TService>() where TService : new()
+		public void InternalAdd<TContract, TService>() where TService : new()
 		{
 			services[typeof(TContract)] = new Lazy<object>(() => Activator.CreateInstance(typeof(TService)));
 		}
 
-		T Resolve<T>() where T : class
+		public T Resolve<T>() where T : class
 		{
 			Lazy<object> service;
 			if (services.TryGetValue(typeof(T), out service))
