@@ -55,7 +55,7 @@ namespace MicrosoftHouse.Services
 		
 		public Task LoginAsync()
 		{
-			var loginProvider = DependencyService.Get<ILoginProvider>();
+			var loginProvider = DependencyService.Get<IPlatformProvider>();
 			return loginProvider.LoginAsync(Client);
 
 		}
@@ -152,7 +152,7 @@ namespace MicrosoftHouse.Services
 
 		public async Task RegisterForPushNotifications()
 		{
-			var platformProvider = DependencyService.Get<ILoginProvider>();
+			var platformProvider = DependencyService.Get<IPlatformProvider>();
 			await platformProvider.RegisterForPushNotifications(Client);   
 		}
 

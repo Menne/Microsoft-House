@@ -108,7 +108,7 @@
     <Compile Include="Renderers\CustomDatePickerRenderer.cs" />
     <Compile Include="Renderers\CustomPickerRenderer.cs" />
     <Compile Include="Renderers\CustomTimePickerRenderer.cs" />
-    <Compile Include="Services\UWPLoginProvider.cs" />
+    <Compile Include="Services\UWPPlatformProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

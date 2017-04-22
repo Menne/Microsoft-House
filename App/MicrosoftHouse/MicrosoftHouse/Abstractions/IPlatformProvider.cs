@@ -4,7 +4,7 @@ using Microsoft.WindowsAzure.MobileServices;
 
 namespace MicrosoftHouse
 {
-	public interface ILoginProvider
+	public interface IPlatformProvider
 	{
 		Task LoginAsync(MobileServiceClient client);
 

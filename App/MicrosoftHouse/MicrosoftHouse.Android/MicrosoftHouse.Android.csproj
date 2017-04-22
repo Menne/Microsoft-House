@@ -204,7 +204,7 @@
     <Compile Include="Services\GcmHandler.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="Renderers\CustomPickerRender.cs" />
-    <Compile Include="Services\DroidLoginProvider.cs" />
+    <Compile Include="Services\DroidPlatformProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

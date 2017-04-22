@@ -10,10 +10,10 @@ using System.Net.Http;
 using System.Collections.Generic;
 using Android.Util;
 
-[assembly: Xamarin.Forms.Dependency(typeof(DroidLoginProvider))]
+[assembly: Xamarin.Forms.Dependency(typeof(DroidPlatformProvider))]
 namespace MicrosoftHouse.Droid
 {
-	public class DroidLoginProvider : ILoginProvider
+	public class DroidPlatformProvider : IPlatformProvider
 	{
         public Context RootView { get; private set; }
 

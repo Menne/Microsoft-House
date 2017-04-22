@@ -7,10 +7,10 @@ using Windows.Networking.PushNotifications;
 using System.Net.Http;
 using System.Collections.Generic;
 
-[assembly: Xamarin.Forms.Dependency(typeof(UWPLoginProvider))]
+[assembly: Xamarin.Forms.Dependency(typeof(UWPPlatformProvider))]
 namespace TaskList.UWP.Services
 {
-    public class UWPLoginProvider : ILoginProvider
+    public class UWPPlatformProvider : IPlatformProvider
     {
         public static PushNotificationChannel Channel { get; set; } = null;
 
@@ -26,11 +26,11 @@ namespace TaskList.UWP.Services
 
         public async Task RegisterForPushNotifications(MobileServiceClient client)
         {
-            if (UWPLoginProvider.Channel != null)
+            if (UWPPlatformProvider.Channel != null)
             {
                 try
                 {
-                    var registrationId = UWPLoginProvider.Channel.Uri.ToString();
+                    var registrationId = UWPPlatformProvider.Channel.Uri.ToString();
                     var installation = new DeviceInstallation
                     {
                         InstallationId = client.InstallationId,

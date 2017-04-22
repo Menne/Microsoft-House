@@ -157,7 +157,7 @@
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Helpers\CustomPicker.cs" />
     <Compile Include="Models\EventLocation.cs" />
-    <Compile Include="Abstractions\ILoginProvider.cs" />
+    <Compile Include="Abstractions\IPlatformProvider.cs" />
     <Compile Include="Helpers\Locations.cs" />
     <Compile Include="Models\AppServiceIdentity.cs" />
     <Compile Include="Abstractions\DeviceInstallation.cs" />

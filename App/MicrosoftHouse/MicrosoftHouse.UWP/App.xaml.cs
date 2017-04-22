@@ -41,7 +41,7 @@ namespace MicrosoftHouse.UWP
         /// <param name="e">Details about the launch request and process.</param>
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            UWPLoginProvider.Channel = await PushNotificationChannelManager
+            UWPPlatformProvider.Channel = await PushNotificationChannelManager
             .CreatePushNotificationChannelForApplicationAsync();
 
 #if DEBUG

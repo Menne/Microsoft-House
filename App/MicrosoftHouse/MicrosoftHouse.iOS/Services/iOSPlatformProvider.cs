@@ -10,10 +10,10 @@ using Newtonsoft.Json.Linq;
 using UIKit;
 using Xamarin.Auth;
 
-[assembly: Xamarin.Forms.Dependency(typeof(iOSLoginProvider))]
+[assembly: Xamarin.Forms.Dependency(typeof(iOSPlatformProvider))]
 namespace MicrosoftHouse.iOS
 {
-	public class iOSLoginProvider : ILoginProvider
+	public class iOSPlatformProvider : IPlatformProvider
 	{
 
 
@@ -143,8 +143,10 @@ namespace MicrosoftHouse.iOS
 			return "syncstore.db";   
 		}
 
-
-
-	}
+        public Task RegisterForPushNotifications(MobileServiceClient client)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
 

@@ -38,7 +38,7 @@ namespace MicrosoftHouse.Droid
 
 			//LOGIN
 
-			((DroidLoginProvider)DependencyService.Get<ILoginProvider>()).Init(this);
+			((DroidPlatformProvider)DependencyService.Get<IPlatformProvider>()).Init(this);
 
 			// QR CODE
 			ZXing.Net.Mobile.Forms.Android.Platform.Init();
