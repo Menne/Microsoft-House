@@ -9,7 +9,7 @@ namespace MicrosoftHouse
         {
             InitializeComponent();
 
-            MhMap.MoveToRegion(new MapSpan(new Position(45.481739, 9.183140), 360, 360));
+            MhMap.MoveToRegion(new MapSpan(new Position(45.481739, 9.183140), 0.0125, 0.0125));
 
             Position position = new Position(45.481739, 9.183140);
             Pin pin = new Pin
