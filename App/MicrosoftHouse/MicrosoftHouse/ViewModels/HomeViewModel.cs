@@ -5,6 +5,7 @@ using MicrosoftHouse.Abstractions;
 using MicrosoftHouse.ViewModels;
 using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
+using MicrosoftHouse.Pages;
 
 namespace MicrosoftHouse
 {
@@ -81,7 +82,7 @@ namespace MicrosoftHouse
 		{
 			//await Application.Current.MainPage.Navigation.PushAsync(new RoomDetailPage());
 
-			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new RoomNavPage())
+			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new RoomsPage())
 			{
 				//BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#FF01A4EF")
@@ -93,7 +94,7 @@ namespace MicrosoftHouse
 			//From the Bottom - Modal Page --> Aggiungere la Toolbar (Guardare il Capitolo)
 			//await Application.Current.MainPage.Navigation.PushModalAsync(new NewEventPage());
 
-			await(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage());
+			await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage());
 
             /*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new NewEventPage())
 			{

@@ -28,7 +28,7 @@ namespace MicrosoftHouse
 			{
 				Name = "Rooms",
                 IconSource = Device.OnPlatform("RoomIconWhite.png", "RoomIconWhite.png", "Images/RoomIconWhite.png"),
-				TargetType = typeof(RoomNavPage)
+				TargetType = typeof(RoomsNavPage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{

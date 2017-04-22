@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace MicrosoftHouse
 {
-	public partial class RoomNavPage : ContentPage
+	public partial class RoomsNavPage : ContentPage
 	{
-		public RoomNavPage()
+		public RoomsNavPage()
 		{
 			InitializeComponent();
 			BindingContext = new RoomViewModel();

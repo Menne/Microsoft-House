@@ -60,6 +60,16 @@
     <Compile Include="Pages\CalendarPage.xaml.cs">
       <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RoomsPage.cs" />
+    <Compile Include="Pages\RoomsPage.xaml.cs">
+      <DependentUpon>RoomsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RoomsListPage.xaml.cs">
+      <DependentUpon>RoomsListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RoomsReservationsPage.xaml.cs">
+      <DependentUpon>RoomsReservationsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\CarParkPage.xaml.cs">
       <DependentUpon>CarParkPage.xaml</DependentUpon>
@@ -105,9 +115,6 @@
     <Compile Include="Controls\CustomTimePicker.cs" />
     <Compile Include="Helpers\ValidEvent.cs" />
     <Compile Include="ViewModels\RoomViewModel.cs" />
-    <Compile Include="Pages\RoomNavPage.xaml.cs">
-      <DependentUpon>RoomNavPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\SelectedRoomPage.xaml.cs">
       <DependentUpon>SelectedRoomPage.xaml</DependentUpon>
     </Compile>
@@ -232,6 +239,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\AboutUsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\RoomsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\RoomsListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\RoomsReservationsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
