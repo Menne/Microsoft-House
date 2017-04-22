@@ -60,47 +60,14 @@
     <Compile Include="Pages\CalendarPage.xaml.cs">
       <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ValidEventName.cs" />
-    <Compile Include="PageIniziale.xaml.cs">
-      <DependentUpon>PageIniziale.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoomView.xaml.cs">
-      <DependentUpon>RoomView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RoomList.xaml.cs">
-      <DependentUpon>RoomList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RoomPage.xaml.cs">
-      <DependentUpon>RoomPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\CarParkPage.xaml.cs">
       <DependentUpon>CarParkPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Constants.cs" />
-    <Compile Include="SignUp.xaml.cs">
-      <DependentUpon>SignUp.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Piani.xaml.cs">
-      <DependentUpon>Piani.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PianiCode.xaml.cs">
-      <DependentUpon>PianiCode.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="NewRoomList.xaml.cs">
-      <DependentUpon>NewRoomList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="NewRoomPage.xaml.cs">
-      <DependentUpon>NewRoomPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AllRooms.cs" />
-    <Compile Include="AllRoomsView.xaml.cs">
-      <DependentUpon>AllRoomsView.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Helpers\Constants.cs" />
     <Compile Include="ViewModels\CalendarViewModel.cs" />
     <Compile Include="ViewModels\CarParkViewModel.cs" />
     <Compile Include="ViewModels\NewEventViewModel.cs" />
-    <Compile Include="ValidEmail.cs" />
     <Compile Include="Abstractions\ICloudService.cs" />
     <Compile Include="Abstractions\ICloudTable.cs" />
     <Compile Include="Abstractions\TableData.cs" />
@@ -162,42 +129,11 @@
     <Compile Include="Abstractions\DeviceInstallation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PageIniziale.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="RoomView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RoomList.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RoomPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pages\CarParkPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SignUp.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Piani.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PianiCode.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewRoomList.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewRoomPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AllRoomsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\EntryPage.xaml">
