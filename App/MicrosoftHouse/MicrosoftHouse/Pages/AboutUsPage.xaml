@@ -42,8 +42,8 @@
                     <maps:Map x:Name="MhMap"
                               WidthRequest="320"
                               HeightRequest="200"
-                              IsShowingUser="true"
-                              MapType="Hybrid"/>
+                              MapType="Hybrid"
+                              IsShowingUser="True"/>
                     <Label Text="About the app"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="Start"
