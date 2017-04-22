@@ -6,27 +6,29 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using MicrosoftHouse.Helpers;
+using MicrosoftHouse.Pages;
 
 namespace MicrosoftHouse
 {
-    public class RoomsListViewModel : BaseViewModel
+    public class ReservationListViewModel : BaseViewModel
     {
         ICloudService cloudService;
 
-        public RoomsListViewModel()
+        public ReservationListViewModel()
         {
             // Cloud Variables
 
 
             RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
-            SearchRoomCommand = new Command(async () => await ExecuteSearchCommand());
+            NewRoomReservationCommand = new Command(async () => await ExecuteNewRoomReservationCommand());
 
             RefreshList();
+
         }
 
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
         public Command RefreshCommand { get; }
-        public Command SearchRoomCommand { get; }
+        public Command NewRoomReservationCommand { get; }
 
         async Task RefreshList()
         {
@@ -47,11 +49,12 @@ namespace MicrosoftHouse
             {
                 var table = await CloudService.GetTableAsync<Room>();
                 var list = await table.ReadAllRoomsAsync();
-                AllRooms.Clear();
+                ReservedRooms.Clear();
                 foreach (var room in list)
                 {
-                    AllRooms.Add(room);
+                    ReservedRooms.Add(room);
                 }
+
             }
             catch (Exception ex)
             {
@@ -64,11 +67,11 @@ namespace MicrosoftHouse
         }
 
 
-        ObservableCollection<Room> allRooms = new ObservableCollection<Room>();
-        public ObservableCollection<Room> AllRooms
+        ObservableCollection<Room> reservedRooms = new ObservableCollection<Room>();
+        public ObservableCollection<Room> ReservedRooms
         {
-            get { return allRooms; }
-            set { SetProperty(ref allRooms, value, "AllRooms"); }
+            get { return reservedRooms; }
+            set { SetProperty(ref reservedRooms, value, "ReservedRooms"); }
         }
 
 
@@ -84,15 +87,18 @@ namespace MicrosoftHouse
 
                     (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SelectedRoomPage(selectedRoom));
                     SelectedRoom = null;
+                    
                 }
             }
         }
-        
 
-        async Task ExecuteSearchCommand()
+
+
+        async Task ExecuteNewRoomReservationCommand()
         {
-            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SearchRoomPage());
+            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewReservationPage());
         }
+
 
     }
 }

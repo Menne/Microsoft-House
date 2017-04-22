@@ -199,9 +199,6 @@
     <BundleResource Include="Resources\SearchIcon.png" />
     <BundleResource Include="Resources\SearchIcon%402x.png" />
     <BundleResource Include="Resources\SearchIcon%403x.png" />
-    <BundleResource Include="Resources\PointIcon.png" />
-    <BundleResource Include="Resources\PointIcon%402x.png" />
-    <BundleResource Include="Resources\PointIcon%403x.png" />
     <InterfaceDefinition Include="Resources\Launch Screen.storyboard" />
     <BundleResource Include="Resources\Plus.png" />
     <BundleResource Include="Resources\Plus%402x.png" />
@@ -212,12 +209,6 @@
     <BundleResource Include="Resources\RightButton.png" />
     <BundleResource Include="Resources\RightButton%402x.png" />
     <BundleResource Include="Resources\RightButton%403x.png" />
-    <BundleResource Include="Resources\PointIcon2.png" />
-    <BundleResource Include="Resources\PointIcon2%402x.png" />
-    <BundleResource Include="Resources\PointIcon2%403x.png" />
-    <BundleResource Include="Resources\PointIcon3.png" />
-    <BundleResource Include="Resources\PointIcon3%402x.png" />
-    <BundleResource Include="Resources\PointIcon3%403x.png" />
     <BundleResource Include="Resources\EventIcon.png" />
     <BundleResource Include="Resources\EventIcon%402x.png" />
     <BundleResource Include="Resources\EventIcon%403x.png" />

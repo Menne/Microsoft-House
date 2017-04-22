@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:MicrosoftHouse.Pages;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.Pages.RoomsPage"
              Title="Rooms">
-    <local:RoomsListPage/>
-    <local:RoomsReservationsPage/>
+    <local:RoomListPage/>
+    <local:ReservationListPage/>
 </TabbedPage>

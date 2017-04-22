@@ -19,38 +19,10 @@
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="45"/>
 				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-			</Grid.ColumnDefinitions>
-			<!--<StackLayout HeightRequest="50"
-							HorizontalOptions="FillAndExpand"
-							Padding="10"
-							BackgroundColor="#FFBA77FF"
-							Orientation="Horizontal"
-							Grid.Row="0"
-							Grid.Column="0">
-							<Image Source="CrossIconWhite.png"
-									HorizontalOptions="Start"
-									VerticalOptions="Center">
-								<Image.GestureRecognizers>
-									<TapGestureRecognizer Command="{Binding BackCommand}"/>
-								</Image.GestureRecognizers>
-							</Image>
-							<Label Text="New Event"
-									TextColor="White"
-									FontFamily="Avenir"
-									HorizontalOptions="CenterAndExpand"
-									HorizontalTextAlignment="Center"
-									VerticalOptions="Center"/>
-							<Image Source="DoneIcon.png"
-									HorizontalOptions="End"
-									VerticalOptions="Center">
-								<Image.GestureRecognizers>
-									<TapGestureRecognizer Command="{Binding BackCommand}"/>
-								</Image.GestureRecognizers>
-							</Image>
-					</StackLayout>-->
-			<StackLayout BackgroundColor="#FF01A4EF" 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout BackgroundColor="#FF01A4EF" 
 						 Orientation="Horizontal"
 						 Grid.Row="0"
 						 Grid.Column="0"
@@ -70,48 +42,22 @@
 							Text="Seats"
 							HorizontalOptions="Center"
 							TextColor="White"/>
-					<Image Source="PointIcon.png"
-							HorizontalOptions="Center"
-							VerticalOptions="Center">
-					</Image>
 				</StackLayout>
-				<StackLayout Orientation="Vertical"
+                <StackLayout Orientation="Vertical"
 								Padding="10"
 								HorizontalOptions="CenterAndExpand">
-					<Label FontSize="Large"
+                    <Label FontSize="Large"
 							HorizontalOptions="Center"
 							FontFamily="Avenir"
 							Text="{Binding Room.Seats}"
 							TextColor="White"/>
-					<Label FontSize="Small"
+                    <Label FontSize="Small"
 							FontFamily="Avenir"
 							HorizontalOptions="Center"
 							Text="Seats"
 							TextColor="White"/>
-					<Image Source="PointIcon2.png"
-							HorizontalOptions="Center"
-							VerticalOptions="Center">
-					</Image>
-				</StackLayout>
-				<StackLayout Orientation="Vertical"
-								Padding="10"
-								HorizontalOptions="EndAndExpand">
-					<Label FontSize="Large"
-							FontFamily="Avenir"
-							HorizontalOptions="Center"
-							Text="{Binding Room.Seats}"
-							TextColor="White"/>
-					<Label FontSize="Small"
-							FontFamily="Avenir"
-							HorizontalOptions="Center"
-							Text="Seats"
-							TextColor="White"/>
-					<Image Source="PointIcon3.png"
-							HorizontalOptions="Center"
-							VerticalOptions="Center">
-					</Image>
-				</StackLayout>
-			</StackLayout>
+                </StackLayout>
+            </StackLayout>
 			<StackLayout Grid.Row="2"
 							Grid.Column="0"
 							Padding="30,10,30,10"
@@ -215,7 +161,6 @@
 						FontFamily="Avenir"
 						BorderRadius="0"
 						/>
-				<!--IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"-->
 				</StackLayout>
 		</Grid>
 

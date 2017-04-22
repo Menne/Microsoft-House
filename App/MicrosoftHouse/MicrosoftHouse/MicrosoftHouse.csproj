@@ -60,17 +60,17 @@
     <Compile Include="Pages\EventsPage.xaml.cs">
       <DependentUpon>EventsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\NewRoomReservationPage.xaml.cs">
-      <DependentUpon>NewRoomReservationPage.xaml</DependentUpon>
+    <Compile Include="Pages\NewReservationPage.xaml.cs">
+      <DependentUpon>NewReservationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RoomsPage.xaml.cs">
       <DependentUpon>RoomsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\RoomsListPage.xaml.cs">
-      <DependentUpon>RoomsListPage.xaml</DependentUpon>
+    <Compile Include="Pages\RoomListPage.xaml.cs">
+      <DependentUpon>RoomListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\RoomsReservationsPage.xaml.cs">
-      <DependentUpon>RoomsReservationsPage.xaml</DependentUpon>
+    <Compile Include="Pages\ReservationListPage.xaml.cs">
+      <DependentUpon>ReservationListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\CarParkPage.xaml.cs">
@@ -108,9 +108,9 @@
     <Compile Include="Pages\SearchRoomPage.xaml.cs">
       <DependentUpon>SearchRoomPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\NewRoomReservationViewModel.cs" />
-    <Compile Include="ViewModels\RoomsListViewModel.cs" />
-    <Compile Include="ViewModels\RoomsReservationsViewModel.cs" />
+    <Compile Include="ViewModels\NewReservationViewModel.cs" />
+    <Compile Include="ViewModels\RoomListViewModel.cs" />
+    <Compile Include="ViewModels\ReservationListViewModel.cs" />
     <Compile Include="ViewModels\SearchRoomViewModel.cs" />
     <Compile Include="Pages\NewEventPage.xaml.cs">
       <DependentUpon>NewEventPage.xaml</DependentUpon>
@@ -251,19 +251,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\RoomsListPage.xaml">
+    <EmbeddedResource Include="Pages\RoomListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\RoomsReservationsPage.xaml">
+    <EmbeddedResource Include="Pages\ReservationListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\NewRoomReservationPage.xaml">
+    <EmbeddedResource Include="Pages\NewReservationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

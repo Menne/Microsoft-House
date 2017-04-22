@@ -2,22 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
-             x:Class="MicrosoftHouse.Pages.RoomsListPage"
-             Title="All rooms">
+             x:Class="MicrosoftHouse.Pages.ReservationListPage"
+             Title="Your reservations">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Search"
-            Command="{Binding SearchRoomCommand}">
+        <ToolbarItem Text="New Reservation"
+            Command="{Binding NewRoomReservationCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
-                            iOS="Plus.png"
-                            Android="Plus.png"
-                            WinPhone="Images/Plus.png" />
+                            iOS="CalendarIconWhite.png"
+                            Android="CalendarIconWhite.png"
+                            WinPhone="Images/CalendarIconWhite.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView 
-					ItemsSource="{Binding AllRooms, Mode=TwoWay}"
+					ItemsSource="{Binding ReservedRooms, Mode=TwoWay}"
 	                RowHeight="100"
 					SeparatorVisibility="None"
 	                SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
@@ -75,5 +75,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
     </ContentPage.Content>
 </ContentPage>

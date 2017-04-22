@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MicrosoftHouse.ViewModels
 {
-    class NewRoomReservationViewModel
+    class NewReservationViewModel
     {
     }
 }
