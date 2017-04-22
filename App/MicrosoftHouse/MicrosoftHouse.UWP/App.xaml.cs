@@ -64,6 +64,9 @@ namespace MicrosoftHouse.UWP
 
                 Xamarin.Forms.Forms.Init(e);
 
+                ZXing.Net.Mobile.Forms.WindowsUniversal.ZXingScannerViewRenderer.Init();
+                Xamarin.FormsMaps.Init("Nk9QD9nRpPnIGX5mYghH~sI1xsuHgE4DYdtR2I-NF_g~AmQQ3qbR6K0licmbqoStpvoY9JpeCY7pPvGgD42MnO-CQJ87j6I5DBOB_7FLk9pD");
+
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
