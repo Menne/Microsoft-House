@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
+             xmlns:local="clr-namespace:MicrosoftHouse.Pages;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.Pages.RoomsPage"
              Title="Rooms">
-    <local:Pages.RoomsListPage/>
-    
+    <local:RoomsListPage/>
+    <local:RoomsReservationsPage/>
 </TabbedPage>

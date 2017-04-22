@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MicrosoftHouse.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,9 @@ namespace MicrosoftHouse.Pages
         public RoomsReservationsPage()
         {
             InitializeComponent();
+            BindingContext = new RoomsReservationsViewModel();
         }
+
+        public ListView ListView { get { return listView; } }
     }
 }

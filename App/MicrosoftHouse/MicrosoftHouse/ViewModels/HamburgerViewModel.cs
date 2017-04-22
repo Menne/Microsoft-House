@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MicrosoftHouse.Abstractions;
 using Xamarin.Forms;
+using MicrosoftHouse.Pages;
 
 namespace MicrosoftHouse
 {
@@ -28,7 +29,7 @@ namespace MicrosoftHouse
 			{
 				Name = "Rooms",
                 IconSource = Device.OnPlatform("RoomIconWhite.png", "RoomIconWhite.png", "Images/RoomIconWhite.png"),
-				TargetType = typeof(RoomsNavPage)
+				TargetType = typeof(RoomsPage)
 			});
 			masterPageItems.Add(new MasterPageItem
 			{

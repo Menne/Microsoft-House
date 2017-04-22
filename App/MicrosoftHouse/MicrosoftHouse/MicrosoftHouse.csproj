@@ -60,7 +60,6 @@
     <Compile Include="Pages\CalendarPage.xaml.cs">
       <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\RoomsPage.cs" />
     <Compile Include="Pages\RoomsPage.xaml.cs">
       <DependentUpon>RoomsPage.xaml</DependentUpon>
     </Compile>
@@ -106,6 +105,8 @@
     <Compile Include="Pages\SearchRoomPage.xaml.cs">
       <DependentUpon>SearchRoomPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\RoomsListViewModel.cs" />
+    <Compile Include="ViewModels\RoomsReservationsViewModel.cs" />
     <Compile Include="ViewModels\SearchRoomViewModel.cs" />
     <Compile Include="Pages\NewEventPage.xaml.cs">
       <DependentUpon>NewEventPage.xaml</DependentUpon>
@@ -114,7 +115,6 @@
     <Compile Include="Controls\CustomDatePicker.cs" />
     <Compile Include="Controls\CustomTimePicker.cs" />
     <Compile Include="Helpers\ValidEvent.cs" />
-    <Compile Include="ViewModels\RoomViewModel.cs" />
     <Compile Include="Pages\SelectedRoomPage.xaml.cs">
       <DependentUpon>SelectedRoomPage.xaml</DependentUpon>
     </Compile>
@@ -159,9 +159,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\NewEventPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\RoomNavPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\SelectedRoomPage.xaml">
