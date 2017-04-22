@@ -196,14 +196,14 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\CalendarButtonRenderer.cs" />
     <Compile Include="Renderers\CustomButtonRenderer.cs" />
-    <Compile Include="Renderers\CustomDatePickerRender.cs" />
+    <Compile Include="Renderers\CustomDatePickerRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Renderers\CustomEntryRender.cs" />
-    <Compile Include="Renderers\CustomTimePickerRender.cs" />
+    <Compile Include="Renderers\CustomEntryRenderer.cs" />
+    <Compile Include="Renderers\CustomTimePickerRenderer.cs" />
     <Compile Include="Services\GcmHandler.cs" />
     <Compile Include="SplashActivity.cs" />
-    <Compile Include="Renderers\CustomPickerRender.cs" />
+    <Compile Include="Renderers\CustomPickerRenderer.cs" />
     <Compile Include="Services\DroidPlatformProvider.cs" />
   </ItemGroup>
   <ItemGroup>

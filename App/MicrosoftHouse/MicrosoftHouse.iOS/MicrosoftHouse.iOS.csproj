@@ -98,11 +98,11 @@
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork@2x" />
     <None Include="packages.config" />
-    <Compile Include="Renderers\CustomEntryRender.cs" />
-    <Compile Include="Renderers\CustomDatePickerRender.cs" />
-    <Compile Include="Renderers\CustomTimePickerRender.cs" />
-    <Compile Include="Renderers\CustomNavigationPageRender.cs" />
-    <Compile Include="Renderers\CustomPickerRender.cs" />
+    <Compile Include="Renderers\CustomEntryRenderer.cs" />
+    <Compile Include="Renderers\CustomDatePickerRenderer.cs" />
+    <Compile Include="Renderers\CustomTimePickerRenderer.cs" />
+    <Compile Include="Renderers\CustomNavigationPageRenderer.cs" />
+    <Compile Include="Renderers\CustomPickerRenderer.cs" />
     <Compile Include="Services\iOSPlatformProvider.cs" />
   </ItemGroup>
   <ItemGroup>

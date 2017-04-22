@@ -1,24 +1,26 @@
 ﻿using System;
 using Android.Graphics;
+using Android.Graphics.Drawables;
+using Android.Graphics.Drawables.Shapes;
 using MicrosoftHouse;
 using MicrosoftHouse.Droid;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(CustomPicker), typeof(CustomPickerRender))]
+[assembly: ExportRenderer(typeof(CustomTimePicker), typeof(CustomTimePickerRenderer))]
 namespace MicrosoftHouse.Droid
 {
-	public class CustomPickerRender : PickerRenderer
+	public class CustomTimePickerRenderer : TimePickerRenderer
 	{
-		protected override void OnElementChanged(ElementChangedEventArgs<Picker> e)
+		//PUSH - Prova
+		protected override void OnElementChanged(ElementChangedEventArgs<TimePicker> e)
 		{
 			base.OnElementChanged(e);
 
-			CustomPicker picker = (CustomPicker)Element;
+			CustomTimePicker timePicker = (CustomTimePicker)Element;
 
-			if (picker != null)
+			if (timePicker != null)
 			{
-				//Control.SetBackgroundColor(Android.Graphics.Color.White);
 				Control.TextSize = 14f;
 
 				/*var shape = new ShapeDrawable(new RectShape());
@@ -26,7 +28,7 @@ namespace MicrosoftHouse.Droid
 				shape.Paint.SetStyle(Paint.Style.Stroke);
 				Control.SetBackgroundDrawable(shape);*/
 
-				//Border
+
 				Control.Background.SetAlpha(10);
 				Control.Background.SetColorFilter(Android.Graphics.Color.Black, PorterDuff.Mode.SrcAtop);
 
@@ -36,20 +38,8 @@ namespace MicrosoftHouse.Droid
 				//Control.FontFeatureSettings = 
 				//Control.BorderStyle = UITextBorderStyle.None;
 				//Control.Font = UIFont.FromName("Avenir", 14f);
-				SetPlaceholder(picker);
-				SetTextColor(picker);
-				//SetFont(datePicker);
-
-			}
-
-			if (e.OldElement == null)
-			{
-				//Wire events
-			}
-
-			if (e.NewElement == null)
-			{
-				//Unwire events
+				SetPlaceholder(timePicker);
+				SetTextColor(timePicker);
 			}
 		}
 
@@ -62,31 +52,22 @@ namespace MicrosoftHouse.Droid
 				return;
 			}
 
-			CustomPicker picker = (CustomPicker)Element;
+			CustomTimePicker timePicker = (CustomTimePicker)Element;
 
-			if (e.PropertyName == CustomPicker.TextColorProperty.PropertyName)
+			if (e.PropertyName == CustomTimePicker.TextColorProperty.PropertyName)
 			{
-				SetTextColor(picker);
+				this.Control.SetTextColor(timePicker.TextColor.ToAndroid());
 			}
 		}
 
-		void SetTextColor(CustomPicker picker)
+		void SetTextColor(CustomTimePicker timePicker)
 		{
-			this.Control.SetTextColor(picker.TextColor.ToAndroid());
+			this.Control.SetTextColor(timePicker.TextColor.ToAndroid());
 		}
 
-		void SetPlaceholder(CustomPicker picker)
+		void SetPlaceholder(CustomTimePicker timePicker)
 		{
-			this.Control.Text = picker.PlaceHolder;
+			this.Control.Text = timePicker.PlaceHolder;
 		}
-
-		/*private void SetFont(ExtendedDatePicker datePicker)
-		{
-			if (datePicker.Font != Font.Default)
-			{
-				Control.TextSize = datePicker.Font.ToScaledPixel();
-				//Control.Typeface = view.Font.ToExtendedTypeface(Context);
-			}
-			}*/
 	}
 }

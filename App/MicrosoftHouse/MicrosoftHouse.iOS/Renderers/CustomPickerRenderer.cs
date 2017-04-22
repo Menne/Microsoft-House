@@ -5,10 +5,10 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRendererAttribute(typeof(CustomPicker), typeof(CustomPickerRender))]
+[assembly: ExportRendererAttribute(typeof(CustomPicker), typeof(CustomPickerRenderer))]
 namespace MicrosoftHouse.iOS
 {
-	public class CustomPickerRender : PickerRenderer
+	public class CustomPickerRenderer : PickerRenderer
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<Picker> e)
 		{

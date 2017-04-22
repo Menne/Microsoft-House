@@ -5,10 +5,10 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRendererAttribute(typeof(CustomDatePicker), typeof(CustomDatePickerRender))]
+[assembly: ExportRendererAttribute(typeof(CustomDatePicker), typeof(CustomDatePickerRenderer))]
 namespace MicrosoftHouse.iOS
 {
-	public class CustomDatePickerRender : DatePickerRenderer
+	public class CustomDatePickerRenderer : DatePickerRenderer
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<DatePicker> e)
 		{

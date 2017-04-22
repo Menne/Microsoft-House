@@ -5,10 +5,10 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(NavigationPage), typeof(CustomNavigationPageRender))]
+[assembly: ExportRenderer(typeof(NavigationPage), typeof(CustomNavigationPageRenderer))]
 namespace MicrosoftHouse.iOS.Renderer
 {
-	public class CustomNavigationPageRender : NavigationRenderer
+	public class CustomNavigationPageRenderer : NavigationRenderer
 	{
 		public override void ViewWillAppear(bool animated)
 		{

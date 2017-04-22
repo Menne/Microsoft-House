@@ -12,10 +12,10 @@ using Android.Text.Method;
 using Android.Util;
 using Android.Views;
 
-[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRender))]
+[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRenderer))]
 namespace MicrosoftHouse.Droid
 {
-	public class CustomEntryRender : EntryRenderer
+	public class CustomEntryRenderer : EntryRenderer
 	{
 		private const int MinDistance = 10;
 

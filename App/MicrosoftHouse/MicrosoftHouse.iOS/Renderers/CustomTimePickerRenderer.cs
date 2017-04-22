@@ -4,10 +4,10 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRendererAttribute(typeof(CustomTimePicker), typeof(CustomTimePickerRender))]
+[assembly: ExportRendererAttribute(typeof(CustomTimePicker), typeof(CustomTimePickerRenderer))]
 namespace MicrosoftHouse.iOS
 {
-	public class CustomTimePickerRender : TimePickerRenderer
+	public class CustomTimePickerRenderer : TimePickerRenderer
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<TimePicker> e)
 		{

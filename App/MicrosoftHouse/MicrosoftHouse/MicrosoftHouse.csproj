@@ -38,22 +38,21 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Calendar\CalandarChanges.cs" />
-    <Compile Include="Helpers\Calendar\Calendar.cs" />
-    <Compile Include="Helpers\Calendar\Calendar.Disabled.cs" />
-    <Compile Include="Helpers\Calendar\Calendar.MonthNavigation.cs" />
-    <Compile Include="Helpers\Calendar\Calendar.MonthYearView.cs" />
-    <Compile Include="Helpers\Calendar\Calendar.NumberOfWeek.cs" />
-    <Compile Include="Helpers\Calendar\Calendar.OutsideMonth.cs" />
-    <Compile Include="Helpers\Calendar\Calendar.Selected.cs" />
-    <Compile Include="Helpers\Calendar\Calendar.SpecialDates.cs" />
-    <Compile Include="Helpers\Calendar\Calendar.Weekdays.cs" />
-    <Compile Include="Helpers\Calendar\CalendarButton.cs" />
-    <Compile Include="Helpers\Calendar\DateTimeEventArgs.cs" />
-    <Compile Include="Helpers\Calendar\DateTypeEnum.cs" />
-    <Compile Include="Helpers\Calendar\EnumerableExtensions.cs" />
-    <Compile Include="Helpers\Calendar\SpecialDate.cs" />
-    <Compile Include="Helpers\DayOfWeekButton.cs" />
+    <Compile Include="Controls\Calendar\CalandarChanges.cs" />
+    <Compile Include="Controls\Calendar\Calendar.cs" />
+    <Compile Include="Controls\Calendar\Calendar.Disabled.cs" />
+    <Compile Include="Controls\Calendar\Calendar.MonthNavigation.cs" />
+    <Compile Include="Controls\Calendar\Calendar.MonthYearView.cs" />
+    <Compile Include="Controls\Calendar\Calendar.NumberOfWeek.cs" />
+    <Compile Include="Controls\Calendar\Calendar.OutsideMonth.cs" />
+    <Compile Include="Controls\Calendar\Calendar.Selected.cs" />
+    <Compile Include="Controls\Calendar\Calendar.SpecialDates.cs" />
+    <Compile Include="Controls\Calendar\Calendar.Weekdays.cs" />
+    <Compile Include="Controls\Calendar\CalendarButton.cs" />
+    <Compile Include="Controls\Calendar\DateTimeEventArgs.cs" />
+    <Compile Include="Controls\Calendar\DateTypeEnum.cs" />
+    <Compile Include="Controls\Calendar\EnumerableExtensions.cs" />
+    <Compile Include="Controls\Calendar\SpecialDate.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Pages\AboutUsPage.xaml.cs">
       <DependentUpon>AboutUsPage.xaml</DependentUpon>
@@ -134,9 +133,9 @@
     <Compile Include="Pages\NewEventPage.xaml.cs">
       <DependentUpon>NewEventPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\CustomEntry.cs" />
-    <Compile Include="Helpers\CustomDatePicker.cs" />
-    <Compile Include="Helpers\CustomTimePicker.cs" />
+    <Compile Include="Controls\CustomEntry.cs" />
+    <Compile Include="Controls\CustomDatePicker.cs" />
+    <Compile Include="Controls\CustomTimePicker.cs" />
     <Compile Include="Helpers\ValidEvent.cs" />
     <Compile Include="ViewModels\RoomViewModel.cs" />
     <Compile Include="Pages\RoomNavPage.xaml.cs">
@@ -155,7 +154,7 @@
     </Compile>
     <Compile Include="ViewModels\SelectedEventPageViewModel.cs" />
     <Compile Include="Models\Reservation.cs" />
-    <Compile Include="Helpers\CustomPicker.cs" />
+    <Compile Include="Controls\CustomPicker.cs" />
     <Compile Include="Models\EventLocation.cs" />
     <Compile Include="Abstractions\IPlatformProvider.cs" />
     <Compile Include="Helpers\Locations.cs" />

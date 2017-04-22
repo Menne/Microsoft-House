@@ -8,10 +8,10 @@ using MicrosoftHouse.Droid;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(CustomDatePicker), typeof(CustomDatePickerRender))]
+[assembly: ExportRenderer(typeof(CustomDatePicker), typeof(CustomDatePickerRenderer))]
 namespace MicrosoftHouse.Droid
 {
-	public class CustomDatePickerRender : DatePickerRenderer
+	public class CustomDatePickerRenderer : DatePickerRenderer
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<DatePicker> e)
 		{
