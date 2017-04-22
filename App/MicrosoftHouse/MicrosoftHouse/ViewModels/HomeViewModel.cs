@@ -35,7 +35,7 @@ namespace MicrosoftHouse
 		{
 			//await Application.Current.MainPage.Navigation.PushAsync(new RoomDetailPage());
 
-			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new CalendarPage())
+			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new EventsPage())
 			{
 				//BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#FF01A4EF")

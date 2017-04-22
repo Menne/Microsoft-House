@@ -57,8 +57,8 @@
     <Compile Include="Pages\AboutUsPage.xaml.cs">
       <DependentUpon>AboutUsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\CalendarPage.xaml.cs">
-      <DependentUpon>CalendarPage.xaml</DependentUpon>
+    <Compile Include="Pages\EventsPage.xaml.cs">
+      <DependentUpon>EventsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\NewRoomReservationPage.xaml.cs">
       <DependentUpon>NewRoomReservationPage.xaml</DependentUpon>
@@ -77,7 +77,7 @@
       <DependentUpon>CarParkPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Constants.cs" />
-    <Compile Include="ViewModels\CalendarViewModel.cs" />
+    <Compile Include="ViewModels\EventsViewModel.cs" />
     <Compile Include="ViewModels\CarParkViewModel.cs" />
     <Compile Include="ViewModels\NewEventViewModel.cs" />
     <Compile Include="Abstractions\ICloudService.cs" />
@@ -130,7 +130,7 @@
     <Compile Include="Pages\SelectedEventPage.xaml.cs">
       <DependentUpon>SelectedEventPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\SelectedEventPageViewModel.cs" />
+    <Compile Include="ViewModels\SelectedEventViewModel.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Controls\CustomPicker.cs" />
     <Compile Include="Models\EventLocation.cs" />
@@ -233,7 +233,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\CalendarPage.xaml">
+    <EmbeddedResource Include="Pages\EventsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

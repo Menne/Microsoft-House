@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.CarParkPage"
-             Title="Park Detail">
+             Title="Park Details">
 
     <ContentPage.Content>
         <StackLayout Orientation="Vertical"
@@ -40,10 +40,6 @@
 							   FontFamily="Avenir"
                                HorizontalTextAlignment="Center"
 							   TextColor="White"/>
-                        <!--		<Image Source="PointIcon.png"
-							HorizontalOptions="Center"
-							VerticalOptions="Center">
-					</Image>  -->
                     </StackLayout>
                     <StackLayout Orientation="Vertical"
 							 Padding="10"
@@ -62,10 +58,6 @@
 							   FontFamily="Avenir"
                                HorizontalTextAlignment="Center"
 							   TextColor="White"/>
-                        <!--			<Image Source="PointIcon2.png"
-							HorizontalOptions="Center"
-							VerticalOptions="Center">
-					</Image>   -->
                     </StackLayout>
                     <StackLayout Orientation="Vertical"
 								 Padding="10"
@@ -84,10 +76,6 @@
 							   FontFamily="Avenir"
                                HorizontalTextAlignment="Center"
 							   TextColor="White"/>
-                        <!--		<Image Source="PointIcon3.png"
-							HorizontalOptions="Center"
-							VerticalOptions="Center">
-					</Image>   -->
                     </StackLayout>
                 </Grid>
             </StackLayout>
@@ -129,26 +117,6 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Grid Grid.Row="0"
-                          Grid.Column="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Label Text="1"
-                           VerticalTextAlignment="Start"
-                           FontSize="Micro"
-                           Grid.Row="0"/>
-                        <Label Text="0.5"
-                           VerticalTextAlignment="Center"
-                           FontSize="Micro"
-                           Grid.Row="1"/>
-                        <Label Text="0"
-                           VerticalTextAlignment="End"
-                           FontSize="Micro"
-                           Grid.Row="2"/>
-                    </Grid>
                     <BoxView HeightRequest="{Binding SelectedDayStatistics[0]}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"

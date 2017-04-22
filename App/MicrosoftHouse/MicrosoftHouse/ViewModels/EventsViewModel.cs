@@ -9,11 +9,11 @@ using MicrosoftHouse.Helpers;
 
 namespace MicrosoftHouse.ViewModels
 {
-    public class CalendarViewModel : BaseViewModel
+    public class EventsViewModel : BaseViewModel
     {
 		ICloudService cloudService;
 
-        public CalendarViewModel()
+        public EventsViewModel()
         {
 			// Commands
             RefreshCommand = new Command(async () => await ExecuteRefreshCommand());

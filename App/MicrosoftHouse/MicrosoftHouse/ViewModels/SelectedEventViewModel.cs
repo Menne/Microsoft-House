@@ -8,11 +8,11 @@ using Xamarin.Forms;
 
 namespace MicrosoftHouse
 {
-	public class SelectedEventPageViewModel : BaseViewModel
+	public class SelectedEventViewModel : BaseViewModel
 	{
 		//ICloudTable<Event> table = App.CloudService.GetTable<Event>();
 
-		public SelectedEventPageViewModel(Event selectedEvent = null)
+		public SelectedEventViewModel(Event selectedEvent = null)
 		{
 
 			RefreshCommand = new Command(async () => await ExecuteRefreshCommand());

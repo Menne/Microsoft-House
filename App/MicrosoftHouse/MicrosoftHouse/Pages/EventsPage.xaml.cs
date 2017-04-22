@@ -4,13 +4,13 @@ using Xamarin.Forms;
 
 namespace MicrosoftHouse
 {
-    public partial class CalendarPage : ContentPage
+    public partial class EventsPage : ContentPage
     {
-        public CalendarPage()
+        public EventsPage()
         {
             InitializeComponent();
 
-            BindingContext = new CalendarViewModel();
+            BindingContext = new EventsViewModel();
 
 			//calendarProva.SelectedDate = DateTime.Now;
         }
