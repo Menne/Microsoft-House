@@ -11,13 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace MicrosoftHouse.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RoomsListPage : ContentPage
+    public partial class NewRoomReservationPage : ContentPage
     {
-        public RoomsListPage()
+        public NewRoomReservationPage()
         {
             InitializeComponent();
-            BindingContext = new RoomsListViewModel();
+            BindingContext = new NewRoomReservationViewModel();
         }
-        
     }
 }

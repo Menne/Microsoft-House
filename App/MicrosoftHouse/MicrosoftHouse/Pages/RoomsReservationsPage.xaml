@@ -5,19 +5,19 @@
              x:Class="MicrosoftHouse.Pages.RoomsReservationsPage"
              Title="Your reservations">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding SearchRoomCommand}">
+        <ToolbarItem Text="New Reservation"
+            Command="{Binding NewRoomReservationCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
-                            iOS="Plus.png"
-                            Android="Plus.png"
-                            WinPhone="Images/Plus.png" />
+                            iOS="CalendarIconWhite.png"
+                            Android="CalendarIconWhite.png"
+                            WinPhone="Images/CalendarIconWhite.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView 
-					x:Name="listView"
-					ItemsSource="{Binding Rooms, Mode=TwoWay}"
+					ItemsSource="{Binding ReservedRooms, Mode=TwoWay}"
 	                RowHeight="100"
 					SeparatorVisibility="None"
 	                SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
@@ -65,23 +65,6 @@
 	                       Text="{Binding Path=Seats, StringFormat='Seats {0}'}"
 	                       TextColor="#272832"
 						   FontSize="Medium"/>
-                                    <!-- nel caso RESERVATION LISTA-->
-                                    <!--<Label
-						   FontSize="Medium"
-						   FontFamily="Avenir"
-	                       Text="{Binding Path=Name}"
-	                       TextColor="#272832" />
-						<Label
-	                       Text="{Binding Path=Floor, StringFormat='Floor {0}'}"
-	                       TextColor="#272832"
-						   Opacity="0.5"
-						   FontFamily="Avenir"
-						   FontSize="Small"/>
-						<Label
-						   FontFamily="Avenir"
-	                       Text="{Binding Path=Seats, StringFormat='Seats {0}'}"
-	                       TextColor="#272832"
-						   FontSize="Medium"/>-->
                                 </StackLayout>
                             </StackLayout>
                             <BoxView Color="Black"

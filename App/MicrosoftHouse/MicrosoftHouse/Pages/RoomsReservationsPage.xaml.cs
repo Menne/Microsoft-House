@@ -19,6 +19,5 @@ namespace MicrosoftHouse.Pages
             BindingContext = new RoomsReservationsViewModel();
         }
 
-        public ListView ListView { get { return listView; } }
     }
 }

@@ -5,7 +5,8 @@
              x:Class="MicrosoftHouse.Pages.RoomsListPage"
              Title="All rooms">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding SearchRoomCommand}">
+        <ToolbarItem Text="Search"
+            Command="{Binding SearchRoomCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
                             iOS="Plus.png"
@@ -15,10 +16,8 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        
         <ListView 
-					x:Name="listView"
-					ItemsSource="{Binding Rooms, Mode=TwoWay}"
+					ItemsSource="{Binding AllRooms, Mode=TwoWay}"
 	                RowHeight="100"
 					SeparatorVisibility="None"
 	                SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
@@ -66,23 +65,6 @@
 	                       Text="{Binding Path=Seats, StringFormat='Seats {0}'}"
 	                       TextColor="#272832"
 						   FontSize="Medium"/>
-                                    <!-- nel caso RESERVATION LISTA-->
-                                    <!--<Label
-						   FontSize="Medium"
-						   FontFamily="Avenir"
-	                       Text="{Binding Path=Name}"
-	                       TextColor="#272832" />
-						<Label
-	                       Text="{Binding Path=Floor, StringFormat='Floor {0}'}"
-	                       TextColor="#272832"
-						   Opacity="0.5"
-						   FontFamily="Avenir"
-						   FontSize="Small"/>
-						<Label
-						   FontFamily="Avenir"
-	                       Text="{Binding Path=Seats, StringFormat='Seats {0}'}"
-	                       TextColor="#272832"
-						   FontSize="Medium"/>-->
                                 </StackLayout>
                             </StackLayout>
                             <BoxView Color="Black"
@@ -93,6 +75,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
     </ContentPage.Content>
 </ContentPage>
