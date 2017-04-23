@@ -9,6 +9,11 @@ namespace MicrosoftHouse.Models
 {
 	public class Event : TableData
 	{
+
+		//[Newtonsoft.Json.JsonProperty("Id")]
+		//public string Id { get; set; }
+		//[Microsoft.WindowsAzure.MobileServices.Version]
+		//public string AzureVersion { get; set; }
 		public string User { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }

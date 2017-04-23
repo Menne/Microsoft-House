@@ -35,7 +35,7 @@ namespace MicrosoftHouse.ViewModels
                 // await cloudService.LoginAsync();
                 // Creando una nuova navigation page, non cè più la possibilità di tornare indietro.
 
-                await cloudService.RegisterForPushNotifications();
+                //await cloudService.RegisterForPushNotifications();
 
                 Application.Current.MainPage = new MasterPage();
 

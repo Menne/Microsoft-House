@@ -111,6 +111,8 @@ namespace MicrosoftHouse
 		{
 			try
 			{
+				await CloudService.SyncOfflineCacheAsync();
+
                 var tableLocation = await CloudService.GetTableAsync<EventLocation>();
 				var list = await tableLocation.ReadAllEventLocationsAsync();
 				Locations.Clear();
@@ -120,9 +122,6 @@ namespace MicrosoftHouse
 					LocationsName.Add(location.Name);
 					Debug.WriteLine(location.Name);
 				}
-
-				//await CloudService.SyncOfflineCacheAsync();
-
 			}
 			catch (Exception ex)
 			{
