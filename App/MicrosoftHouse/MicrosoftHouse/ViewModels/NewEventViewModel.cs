@@ -27,8 +27,8 @@ namespace MicrosoftHouse
 			           
 			SelectedEvent = new Event();
 			SelectedEvent.Date = DateTime.Now;
-			SelectedEvent.StartingTime = DateTime.Now;
-			SelectedEvent.EndingTime = DateTime.Now;
+			SelectedEvent.StartingTime = DateTime.Now.TimeOfDay;
+			SelectedEvent.EndingTime = DateTime.Now.TimeOfDay;
 			//Event.Location = "LOCATION";
 
 			LoadEventLocations();

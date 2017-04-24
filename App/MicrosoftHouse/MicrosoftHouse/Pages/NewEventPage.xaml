@@ -143,7 +143,7 @@
 						<StackLayout Orientation="Horizontal">
                     <local:CustomTimePicker x:Name="timePickerFirst"
 										PlaceHolder="STARTING TIME"
-										Time="{Binding SelectedEvent.StartingTime.TimeOfDay, Mode=TwoWay}"
+										Time="{Binding SelectedEvent.StartingTime, Mode=TwoWay}"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
@@ -180,7 +180,7 @@
 						<StackLayout Orientation="Horizontal">
                     <local:CustomTimePicker x:Name="timePickerSecond"
 										PlaceHolder="ENDING TIME"
-										Time="{Binding SelectedEvent.EndingTime.TimeOfDay, Mode=TwoWay}"
+										Time="{Binding SelectedEvent.EndingTime, Mode=TwoWay}"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
