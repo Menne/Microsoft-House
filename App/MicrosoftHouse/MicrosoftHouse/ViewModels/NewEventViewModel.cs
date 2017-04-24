@@ -17,8 +17,6 @@ namespace MicrosoftHouse
 		//ICloudTable<Event> table = App.CloudService.GetTable<Event>();
 		//ICloudTable<EventLocation> table_location = App.CloudService.GetTable<EventLocation>();
 
-		ICloudService cloudService;
-
 		public NewEventViewModel()
 		{
 			//ICloudService cloudService = App.CloudService;
@@ -26,14 +24,15 @@ namespace MicrosoftHouse
 			CreateCommand = new Command(async () => await ExecuteCreateCommand());
 
 			Title = "New Event";
-
+			           
 			SelectedEvent = new Event();
 			SelectedEvent.Date = DateTime.Now;
-			SelectedEvent.StartingTime = DateTime.Now.TimeOfDay;
-			SelectedEvent.EndingTime = DateTime.Now.TimeOfDay;
+			SelectedEvent.StartingTime = DateTime.Now;
+			SelectedEvent.EndingTime = DateTime.Now;
 			//Event.Location = "LOCATION";
 
 			LoadEventLocations();
+
 
 		}
 
@@ -61,21 +60,18 @@ namespace MicrosoftHouse
 				if (SelectedEvent.Id == null)
 				{
 
-
+					Debug.WriteLine("Ciao");
 					// Get the identity
-					/*var identity = await cloudService.GetIdentityAsync();
+					var identity = await CloudService.GetIdentityAsync();
 					if (identity != null)
 					{
-						var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("name")).Value;
+						var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
+						Debug.WriteLine(name);
 						SelectedEvent.User = name;
-						Debug.WriteLine(SelectedEvent.User);
-
-					}*/
+					}
 
 					await tableEvent.CreateEventAsynch(SelectedEvent);
 					await CloudService.SyncOfflineCacheAsync();
-
-
 				}
 				else
 				{

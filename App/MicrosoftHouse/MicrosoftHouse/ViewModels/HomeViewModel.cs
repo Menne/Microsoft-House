@@ -6,6 +6,9 @@ using MicrosoftHouse.ViewModels;
 using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
 using MicrosoftHouse.Pages;
+using MicrosoftHouse.Helpers;
+using System.Linq;
+using System.Diagnostics;
 
 namespace MicrosoftHouse
 {
@@ -93,6 +96,17 @@ namespace MicrosoftHouse
 		{
 			//From the Bottom - Modal Page --> Aggiungere la Toolbar (Guardare il Capitolo)
 			//await Application.Current.MainPage.Navigation.PushModalAsync(new NewEventPage());
+			/*var cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
+			var identity = await cloudService.GetIdentityAsync();
+			Debug.WriteLine("Ciao");
+			if (identity != null)
+			{
+				Debug.WriteLine("Ciao");
+				var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
+				//SelectedEvent.User = name;
+				Debug.WriteLine(name);
+
+			}*/
 
 			await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage());
 

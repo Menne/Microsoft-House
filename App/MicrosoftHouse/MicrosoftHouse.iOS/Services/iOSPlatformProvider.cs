@@ -59,7 +59,7 @@ namespace MicrosoftHouse.iOS
 
 
 			//FACEBOOK
-			await client.LoginAsync(RootView, "facebook");
+			await client.LoginAsync(RootView, "microsoftaccount");
 
 			// Client Flow
 			//var accessToken = await LoginADALAsync(rootView);

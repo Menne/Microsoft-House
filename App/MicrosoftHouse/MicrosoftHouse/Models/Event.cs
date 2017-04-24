@@ -17,8 +17,8 @@ namespace MicrosoftHouse.Models
 		public string User { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }
-		public TimeSpan StartingTime { get; set; }
-		public TimeSpan EndingTime { get; set; }
+		public DateTime StartingTime { get; set; }
+		public DateTime EndingTime { get; set; }
 		public DateTime Date { get; set; }
 		public string Location { get; set; }
 
