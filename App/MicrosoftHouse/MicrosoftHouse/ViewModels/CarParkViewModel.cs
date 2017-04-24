@@ -87,18 +87,15 @@ namespace MicrosoftHouse
             {
                 var carParkTable = await CloudService.GetTableAsync<CarPark>();
                 var park = await carParkTable.ReadAllParksAsync();
-                Debug.WriteLine(park.Count);
-                parkingSpaces = park.ElementAt(0).Park;
-
+                ParkingSpaces = park.ElementAt(0).Park;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[RoomList] Error loading items: {ex.Message}");
+                Debug.WriteLine($"[ParkingSpaces] Error loading items: {ex.Message}");
             }
 
-
-            distance = 3;
-            timeToArrival = 15;
+            Distance = 3;
+            TimeToArrival = 15;
         }
 
         private void InitializeStatistics()
