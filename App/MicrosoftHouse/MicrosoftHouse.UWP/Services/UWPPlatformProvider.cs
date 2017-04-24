@@ -16,7 +16,7 @@ namespace TaskList.UWP.Services
 
         public async Task LoginAsync(MobileServiceClient client)
         {
-            await client.LoginAsync("facebook");
+            await client.LoginAsync("microsoftaccount");
         }
 
         public string GetSyncStore()

@@ -45,7 +45,7 @@ namespace MicrosoftHouse.Droid
 
         public async Task LoginAsync(MobileServiceClient client)
 		{
-			await client.LoginAsync(RootView, "facebook");
+			await client.LoginAsync(RootView, "microsoftaccount");
 		}
 
         public async Task RegisterForPushNotifications(MobileServiceClient client)
