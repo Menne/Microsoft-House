@@ -22,6 +22,7 @@ namespace MicrosoftHouse
 	 * 6. implementare metodo reserve per creare una reservation
 	 * 7. capire perchè alla prima pagina non funziona mai il retrieve dei dati
 	 * 8. all'apertura del calendario il giorno corrente deve essere selezionato
+	 * 9. store del token per il login
 	 */
 
 	public class HomeViewModel : BaseViewModel
