@@ -9,15 +9,30 @@ using MicrosoftHouse.Pages;
 using MicrosoftHouse.Helpers;
 using System.Linq;
 using System.Diagnostics;
+using MicrosoftHouse.Models;
 
 namespace MicrosoftHouse
 {
+	/*TODO
+	 * 1. aggiungere metodo park now in park view model, scalando il parcheggio ogni volta che uno utilizza il qrcode
+	 * 2. aggiungere icone a tabbed page
+	 * 3. implementare metodo search nella search room page
+	 * 4. login page: togliere username e password, aggiungere icona microsoft al bottone
+	 * 5. rimettere icone a pallini in Room e Park o qualcosa del genere
+	 * 6. implementare metodo reserve per creare una reservation
+	 * 7. capire perchè alla prima pagina non funziona mai il retrieve dei dati
+	 * 8. all'apertura del calendario il giorno corrente deve essere selezionato
+	 */
+
 	public class HomeViewModel : BaseViewModel
 	{
 		ZXingScannerPage scanPage;
 
 		public HomeViewModel()
 		{
+
+			LoadParkingInfo();
+
 			SearchRoomCommand = new Command(async () => await ExecuteSearchRoomCommand());
 			RoomCommand = new Command(async () => await ExecuteRoomCommand());
 			CalendarCommand = new Command(async () => await ExecuteCalendarCommand());
@@ -33,6 +48,31 @@ namespace MicrosoftHouse
 		public Command ParkDetailCommand { get; }
 		public Command NewEventCommand { get; }
 		public Command NewParkCommand { get; }
+
+		string parkingSpaces;
+		public string ParkingSpaces
+		{
+			set { SetProperty(ref parkingSpaces, value, "ParkingSpaces"); }
+			get { return parkingSpaces; }
+		}
+
+		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
+
+		async void LoadParkingInfo()
+		{
+			try
+			{
+				//await CloudService.SyncOfflineCacheAsync();
+				var carParkTable = await CloudService.GetTableAsync<CarPark>();
+				var park = await carParkTable.ReadAllParksAsync();
+				ParkingSpaces = park.ElementAt(0).Park;
+				Debug.WriteLine(ParkingSpaces);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine($"[ParkingSpaces] Error loading items: {ex.Message}");
+			}
+		}
 
 		async Task ExecuteCalendarCommand()
 		{
@@ -58,33 +98,11 @@ namespace MicrosoftHouse
 
 		async Task ExecuteSearchRoomCommand()
 		{
-            /*Application.Current.MainPage = new NavigationPage(new SearchRoomPage())
-			{
-				BarBackgroundColor = Color.FromHex("#FF01A4EF")
-			};*/
-
-            //await Application.Current.MainPage.Navigation.PushAsync(new SearchRoomPage());
-            System.Diagnostics.Debug.WriteLine("ciao");
-
-			//await Application.Current.MainPage.Navigation.PushModalAsync(new SearchRoomPage());
-
-			// PERFETTTTTOOOO
 			await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SearchRoomPage());
-
-
-
-			/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new SearchRoomPage())
-			{
-				//BarTextColor = Color.White,
-				//BarTitleFontFamily = "Avenir",
-				BarBackgroundColor = Color.FromHex("#FF01A4EF")
-			};*/
 		}
 
 		async Task ExecuteRoomCommand()
 		{
-			//await Application.Current.MainPage.Navigation.PushAsync(new RoomDetailPage());
-
 			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new RoomsPage())
 			{
 				//BarTextColor = Color.White,
@@ -94,31 +112,10 @@ namespace MicrosoftHouse
 
 		async Task ExecuteNewEventCommand()
 		{
-			//From the Bottom - Modal Page --> Aggiungere la Toolbar (Guardare il Capitolo)
-			//await Application.Current.MainPage.Navigation.PushModalAsync(new NewEventPage());
-			/*var cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
-			var identity = await cloudService.GetIdentityAsync();
-			Debug.WriteLine("Ciao");
-			if (identity != null)
-			{
-				Debug.WriteLine("Ciao");
-				var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
-				//SelectedEvent.User = name;
-				Debug.WriteLine(name);
-
-			}*/
-
 			await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage());
-
-            /*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new NewEventPage())
-			{
-				BarTextColor = Color.White,
-				BarBackgroundColor = Color.FromHex("#FF01A4EF")
-			};*/
         }
 
 		// QRCODE
-
 		async void ExecuteNewParkCommand()
 		{
 			var customOverlay = new StackLayout

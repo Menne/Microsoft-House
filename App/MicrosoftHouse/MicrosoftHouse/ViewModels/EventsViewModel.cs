@@ -83,7 +83,7 @@ namespace MicrosoftHouse.ViewModels
 
 			try
 			{
-				//await CloudService.SyncOfflineCacheAsync();
+				await CloudService.SyncOfflineCacheAsync();
 				var table = await CloudService.GetTableAsync<Event>();
 				var list = await table.ReadAllEventsAsync();
 				AllEvents.Clear();

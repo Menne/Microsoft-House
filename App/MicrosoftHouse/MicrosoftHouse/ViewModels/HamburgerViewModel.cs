@@ -4,18 +4,26 @@ using System.Threading.Tasks;
 using MicrosoftHouse.Abstractions;
 using Xamarin.Forms;
 using MicrosoftHouse.Pages;
+using MicrosoftHouse.Helpers;
+using System.Diagnostics;
+using System.Linq;
 
 namespace MicrosoftHouse
 {
 	public class HamburgerViewModel : BaseViewModel
 	{
 		
-
+		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
 		List<MasterPageItem> masterPageItems;
+		string email;
+		string user;
 
 		public HamburgerViewModel()
 		{
 			Title = "Hamburger";
+
+			// Identity of the User
+			LoadIdentity();
 
 			masterPageItems = new List<MasterPageItem>();
 
@@ -64,10 +72,35 @@ namespace MicrosoftHouse
 
 		}
 
+		async void LoadIdentity()
+		{
+			var identity = await CloudService.GetIdentityAsync();
+			if (identity != null)
+			{
+				var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
+				User = name;
+
+				var mail = identity.UserId; //UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
+				Email = mail;
+			}
+		}
+
 		public List<MasterPageItem> MasterPageItems
 		{
 			set { SetProperty(ref masterPageItems, value, "Items"); }
 			get { return masterPageItems; }
+		}
+
+		public string Email
+		{
+			set { SetProperty(ref email, value, "Email"); }
+			get { return email; }
+		}
+
+		public string User
+		{
+			set { SetProperty(ref user, value, "User"); }
+			get { return user; }
 		}
 
 

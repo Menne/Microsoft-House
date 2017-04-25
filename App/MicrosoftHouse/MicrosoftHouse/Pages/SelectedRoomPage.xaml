@@ -57,6 +57,20 @@
 							Text="Seats"
 							TextColor="White"/>
                 </StackLayout>
+				<StackLayout Orientation="Vertical"
+								Padding="10"
+								HorizontalOptions="CenterAndExpand">
+                    <Label FontSize="Large"
+							HorizontalOptions="Center"
+							FontFamily="Avenir"
+							Text="{Binding Room.Seats}"
+							TextColor="White"/>
+                    <Label FontSize="Small"
+							FontFamily="Avenir"
+							HorizontalOptions="Center"
+							Text="Seats"
+							TextColor="White"/>
+                </StackLayout>
             </StackLayout>
 			<StackLayout Grid.Row="2"
 							Grid.Column="0"
