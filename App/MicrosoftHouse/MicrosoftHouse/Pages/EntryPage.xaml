@@ -32,7 +32,7 @@
                         </Image.Source>
                     </Image>
                 </StackLayout>
-        <StackLayout Grid.Row="2"
+        <!--<StackLayout Grid.Row="2"
 					Grid.Column="0"
 					Padding="30,10,30,10"
 					Orientation="Vertical">
@@ -103,7 +103,7 @@
                         </OnPlatform>
                     </BoxView.IsVisible>
                 </BoxView>
-            </StackLayout>
+            </StackLayout>-->
         </Grid>
         <StackLayout VerticalOptions="EndAndExpand"
                      HorizontalOptions="FillAndExpand"
@@ -114,9 +114,10 @@
 						VerticalOptions="FillAndExpand"
 						BackgroundColor="#FF01A4EF"
 						Command="{Binding LoginCommand}"
-						Text="LOGIN"
+						Text="MICROSOFT ACCOUNT"
 						TextColor="White"
 						FontFamily="Avenir"
+						Image="MicrosoftIcon.png"
 						BorderRadius="0"/>
                 <!--IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"-->
             </StackLayout>

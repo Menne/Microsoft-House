@@ -212,6 +212,9 @@
     <BundleResource Include="Resources\EventIcon.png" />
     <BundleResource Include="Resources\EventIcon%402x.png" />
     <BundleResource Include="Resources\EventIcon%403x.png" />
+    <BundleResource Include="Resources\MicrosoftIcon%402x.png" />
+    <BundleResource Include="Resources\MicrosoftIcon.png" />
+    <BundleResource Include="Resources\MicrosoftIcon%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
