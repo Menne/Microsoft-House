@@ -71,6 +71,7 @@
                 SelectedTextColor="#FF01A4EF"
                 SelectedBorderWidth="2"
                 SelectedDate="{Binding Date, Mode=TwoWay}"
+                SpecialDates="{Binding AllEventDates}"
                 Grid.Row="0"
 				Grid.Column="0">
             </controls:Calendar>

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Diagnostics;
 using MicrosoftHouse.Helpers;
+using XamForms.Controls;
+using System.Collections.Generic;
 
 namespace MicrosoftHouse.ViewModels
 {
@@ -66,6 +68,13 @@ namespace MicrosoftHouse.ViewModels
             set { SetProperty(ref allEvents, value, "AllEvents"); }
         }
 
+        ObservableCollection<XamForms.Controls.SpecialDate> allEventDates = new ObservableCollection<XamForms.Controls.SpecialDate>();
+        public ObservableCollection<XamForms.Controls.SpecialDate> AllEventDates
+        {
+            get { return allEventDates; }
+            set { SetProperty(ref allEventDates, value, "AllEventDates"); }
+        }
+
         async Task RetrieveEvents()
         {
 			await ExecuteRefreshCommand();
@@ -87,14 +96,20 @@ namespace MicrosoftHouse.ViewModels
 				var table = await CloudService.GetTableAsync<Event>();
 				var list = await table.ReadAllEventsAsync();
 				AllEvents.Clear();
+                AllEventDates.Clear();
 				foreach (var currentEvent in list)
 				{
 					AllEvents.Add(currentEvent);
+                    XamForms.Controls.SpecialDate specialDate=new XamForms.Controls.SpecialDate(currentEvent.Date);
+                    specialDate.Selectable = true;
+                    specialDate.BorderColor = Color.White;
+                    specialDate.BorderWidth = 2;
+                    AllEventDates.Add(specialDate);
 				}
 
-				//Date = DateTime.Now;
+                //Date = DateTime.Now;
 
-			}
+            }
 			catch (Exception ex)
 			{
 				Debug.WriteLine($"[EventList] Error loading items: {ex.Message}");
