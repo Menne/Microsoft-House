@@ -11,6 +11,7 @@
     "SQLitePCLRaw.core": "1.1.2",
     "Xamarin.Forms": "2.3.4.231",
     "Xamarin.Forms.Maps": "2.3.4.231",
+    "XamForms.Controls.Calendar": "1.1.0",
     "ZXing.Net.Mobile": "2.2.9",
     "ZXing.Net.Mobile.Forms": "2.2.9"
   },

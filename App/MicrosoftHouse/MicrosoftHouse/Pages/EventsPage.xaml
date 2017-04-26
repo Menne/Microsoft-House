@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
+             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"
              x:Class="MicrosoftHouse.EventsPage"
 			 Title="Events">
     <ContentPage.ToolbarItems>
@@ -17,13 +18,13 @@
     <ContentPage.Content>
             <Grid HorizontalOptions="FillAndExpand" RowSpacing="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="280"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <local:Calendar x:Name="calendarProva"
+        <!--        <local:Calendar x:Name="calendarProva"
 							BackgroundColor="#FF4A3764"
 							MonthNavigationShow="true"
 							DatesBackgroundColor="#FF4A3764"
@@ -40,8 +41,40 @@
                             SelectedDate="{Binding Date, Mode=TwoWay}"
                             Grid.Row="0"
 							Grid.Column="0">
-                </local:Calendar>
-
+                </local:Calendar>  -->
+            <controls:Calendar
+                Padding="20,0,20,10"
+                VerticalOptions="CenterAndExpand" 
+                TitleLabelTextColor="White"
+                TitleLabelFontFamily="Avenir"
+                MonthNavigationShow="true"
+                ShowNumberOfWeek="false"
+                StartDay="Monday"
+                TitleLeftArrowText="←"
+                TitleRightArrowText="→"
+                TitleLeftArrowTextColor="White"
+                TitleRightArrowTextColor="White"
+                TitleLeftArrowFontFamily="Avenir"
+                TitleRightArrowFontFamily="Avenir"
+                BorderWidth="0"
+                BorderColor="Transparent"
+                BackgroundColor="#FF01A4EF"
+                WeekdaysTextColor="White"
+                WeekdaysFontFamily="Avenir"
+                WeekdaysFontSize="13"
+                DatesBackgroundColor="#FF01A4EF"
+                DatesBackgroundColorOutsideMonth="#FF01A4EF"
+				DatesTextColor="White"
+				DatesTextColorOutsideMonth="LightGray"
+                SelectedBackgroundColor="White"
+                SelectedBorderColor="Transparent"
+                SelectedTextColor="#FF01A4EF"
+                SelectedBorderWidth="2"
+                SelectedDate="{Binding Date, Mode=TwoWay}"
+                Grid.Row="0"
+				Grid.Column="0">
+            </controls:Calendar>
+                
                 <ListView ItemsSource="{Binding EventsOfSelectedDay, Mode=TwoWay}"
                           RowHeight="100"
 						  SelectedItem="{Binding SelectedEvent, Mode=TwoWay}"
