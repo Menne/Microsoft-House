@@ -215,6 +215,12 @@
     <BundleResource Include="Resources\MicrosoftIcon%402x.png" />
     <BundleResource Include="Resources\MicrosoftIcon.png" />
     <BundleResource Include="Resources\MicrosoftIcon%403x.png" />
+    <BundleResource Include="Resources\AllRoomsIcon.png" />
+    <BundleResource Include="Resources\AllRoomsIcon%402x.png" />
+    <BundleResource Include="Resources\AllRoomsIcon%403x.png" />
+    <BundleResource Include="Resources\ReservationIcon.png" />
+    <BundleResource Include="Resources\ReservationIcon%402x.png" />
+    <BundleResource Include="Resources\ReservationIcon%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
