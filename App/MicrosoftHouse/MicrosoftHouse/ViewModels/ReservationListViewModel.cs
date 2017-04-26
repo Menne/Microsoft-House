@@ -47,7 +47,7 @@ namespace MicrosoftHouse
 
             try
             {
-				await CloudService.SyncOfflineCacheAsync();
+				//await CloudService.SyncOfflineCacheAsync();
                 var table = await CloudService.GetTableAsync<Room>();
                 var list = await table.ReadAllRoomsAsync();
                 ReservedRooms.Clear();
