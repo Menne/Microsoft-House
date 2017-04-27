@@ -5,28 +5,44 @@
 			 x:Class="MicrosoftHouse.EntryPage"
 			 BackgroundColor="#FF01A4EF">
 	<ContentPage.Content>
-        <StackLayout HorizontalOptions="FillAndExpand"
-                     Orientation="Vertical"
-                     VerticalOptions="FillAndExpand">
-                    <Image VerticalOptions="CenterAndExpand"
-                           HorizontalOptions="CenterAndExpand">
-                        <Image.Source>
-                            <OnPlatform x:TypeArguments="ImageSource"
-                                        iOS="LoginIcon180.png"
-                                        Android="LoginIcon180.png"
-                                        WinPhone="Images/LoginIcon180.png" />
-                        </Image.Source>
-                    </Image>
-                    <Button x:Name="loginButton"
-						HorizontalOptions="FillAndExpand"
-						VerticalOptions="FillAndExpand"
-						BackgroundColor="White"
-						Command="{Binding LoginCommand}"
-						Text="MICROSOFT ACCOUNT"
-						TextColor="#FF01A4EF"
-						FontFamily="Avenir"
-						Image="MicrosoftIcon.png"
-						BorderRadius="0"/>
-    	</StackLayout>
+		<Grid HorizontalOptions="FillAndExpand" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+		        <StackLayout HorizontalOptions="FillAndExpand"
+		                     VerticalOptions="FillAndExpand"
+							 Grid.Row="0"
+							 Grid.Column="0">
+		                    <Image VerticalOptions="CenterAndExpand"
+		                           HorizontalOptions="CenterAndExpand">
+		                        <Image.Source>
+		                            <OnPlatform x:TypeArguments="ImageSource"
+		                                        iOS="LoginIcon180.png"
+		                                        Android="LoginIcon180.png"
+		                                        WinPhone="Images/LoginIcon180.png" />
+		                        </Image.Source>
+		                    </Image>
+		    	</StackLayout>
+				<StackLayout HorizontalOptions="FillAndExpand"
+							 VerticalOptions="FillAndExpand"
+							 Grid.Row="1"
+							 Padding="30,0,30,0"
+							 Grid.Column="0">
+					<Button x:Name="loginButton"
+									VerticalOptions="Start"
+									HorizontalOptions="FillAndExpand"
+									BackgroundColor="White"
+									Command="{Binding LoginCommand}"
+									Text="MICROSOFT ACCOUNT"
+									TextColor="#FF01A4EF"
+									FontFamily="Avenir"
+									Image="MicrosoftIcon.png"
+									BorderRadius="0"/>
+				</StackLayout>
+		</Grid>
     </ContentPage.Content>
 </ContentPage>
