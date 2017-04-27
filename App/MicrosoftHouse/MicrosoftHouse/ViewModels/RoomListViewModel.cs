@@ -131,7 +131,7 @@ namespace MicrosoftHouse
                 DisplayedRooms.Clear();
                 foreach (Room room in AllRooms)
                 {
-                    if (room.Name.Equals(searchArgument) || room.Floor.Equals(searchArgument))
+                    if (room.Name.Contains(searchArgument) || room.Floor.Contains(searchArgument))
                     {
                         DisplayedRooms.Add(room);
                     }
