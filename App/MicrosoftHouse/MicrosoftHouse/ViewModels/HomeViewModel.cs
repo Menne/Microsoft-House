@@ -98,7 +98,7 @@ namespace MicrosoftHouse
 
 		async Task ExecuteSearchRoomCommand()
 		{
-			await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SearchRoomPage());
+			await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewReservationPage());
 		}
 
 		async Task ExecuteRoomCommand()

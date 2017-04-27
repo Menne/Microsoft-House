@@ -7,7 +7,7 @@
 		<!--	 Icon="AllRoomsIcon.png"  -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Search"
-            Command="{Binding SearchRoomCommand}">
+            Command="{Binding NewReservationCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
                             iOS="Plus.png"

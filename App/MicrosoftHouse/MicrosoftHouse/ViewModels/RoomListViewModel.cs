@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using MicrosoftHouse.Helpers;
+using MicrosoftHouse.Pages;
 
 namespace MicrosoftHouse
 {
@@ -19,14 +20,14 @@ namespace MicrosoftHouse
 
 
             RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
-            SearchRoomCommand = new Command(async () => await ExecuteSearchCommand());
+            NewReservationCommand = new Command(async () => await ExecuteNewReservationCommand());
 
             RefreshList();
         }
 
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
         public Command RefreshCommand { get; }
-        public Command SearchRoomCommand { get; }
+        public Command NewReservationCommand { get; }
 
         async Task RefreshList()
         {
@@ -72,6 +73,13 @@ namespace MicrosoftHouse
             set { SetProperty(ref allRooms, value, "AllRooms"); }
         }
 
+        string searchArgument;
+        public string SearchArgument
+        {
+            get { return searchArgument; }
+            set { SetProperty(ref searchArgument, value, "SearchArgument"); }
+        }
+
 
         Room selectedRoom;
         public Room SelectedRoom
@@ -90,9 +98,9 @@ namespace MicrosoftHouse
         }
         
 
-        async Task ExecuteSearchCommand()
+        async Task ExecuteNewReservationCommand()
         {
-            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SearchRoomPage());
+            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewReservationPage());
         }
 
     }

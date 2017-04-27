@@ -105,13 +105,9 @@
     <Compile Include="ViewModels\HamburgerViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="Helpers\MasterPageItem.cs" />
-    <Compile Include="Pages\SearchRoomPage.xaml.cs">
-      <DependentUpon>SearchRoomPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\NewReservationViewModel.cs" />
     <Compile Include="ViewModels\RoomListViewModel.cs" />
     <Compile Include="ViewModels\ReservationListViewModel.cs" />
-    <Compile Include="ViewModels\SearchRoomViewModel.cs" />
     <Compile Include="Pages\NewEventPage.xaml.cs">
       <DependentUpon>NewEventPage.xaml</DependentUpon>
     </Compile>
@@ -157,9 +153,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\MasterPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pages\SearchRoomPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\NewEventPage.xaml">

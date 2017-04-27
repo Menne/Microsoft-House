@@ -10,9 +10,9 @@
             Command="{Binding NewRoomReservationCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
-                            iOS="CalendarIconWhite.png"
-                            Android="CalendarIconWhite.png"
-                            WinPhone="Images/CalendarIconWhite.png" />
+                            iOS="Plus.png"
+                            Android="Plus.png"
+                            WinPhone="Images/Plus.png" />
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
