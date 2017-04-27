@@ -94,7 +94,7 @@
 									Padding="30,10,30,10"
 									Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
-                    <local:CustomTimePicker x:Name="timePicker"
+                    <local:CustomTimePicker x:Name="timePickerFirst"
 										PlaceHolder="STARTING TIME"
 										TextColor="Black"
 										Font="Small"
@@ -126,26 +126,27 @@
                 </BoxView>
             </StackLayout>
             <StackLayout Grid.Row="2"
-					Grid.Column="0"
-					Padding="30,10,30,0"
-					Orientation="Vertical">
+									Grid.Column="0"
+									Padding="30,10,30,10"
+									Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
-                    <local:CustomEntry Placeholder="PEOPLE"
-									Keyboard="Numeric"
-									HorizontalOptions="FillAndExpand"
-									VerticalOptions="Center"
-									Font="Small"
-									TextColor="Black"
-									FontFamily="Avenir"
-									PlaceholderTextColor="Black"/>
+                    <local:CustomTimePicker x:Name="timePickerSecond"
+										PlaceHolder="ENDING TIME"
+										TextColor="Black"
+										Font="Small"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="Center"/>
                     <Image VerticalOptions="Center"
 						    HorizontalOptions="Start">
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource"
-                                        iOS="PeopleIcon.png"
-                                        Android="PeopleIcon.png"
-                                        WinPhone="Images/PeopleIcon.png" />
+                                        iOS="TimeIcon.png"
+                                        Android="TimeIcon.png"
+                                        WinPhone="Images/TimeIcon.png" />
                         </Image.Source>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTimePicker"/>
+                        </Image.GestureRecognizers>
                     </Image>
                 </StackLayout>
                 <BoxView Color="Black"
@@ -168,7 +169,7 @@
 						VerticalOptions="Center"
 						BackgroundColor="#FF01A4EF"
 						Text="SEARCH"
-						Command="{Binding SearchCommand}"
+						Command="{Binding SearchAvailableRoomsCommand}"
 						TextColor="White"
 						FontFamily="Avenir"
 						BorderRadius="0"
@@ -191,7 +192,7 @@
                 <ListView ItemsSource="{Binding Rooms}"
 	                RowHeight="100"
 					SeparatorVisibility="None"
-	                SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
+	                SelectedItem="{Binding NewReservationCommand, Mode=TwoWay}"
 					CachingStrategy="RecycleElement"
 					RefreshCommand="{Binding RefreshCommand}"
 					IsPullToRefreshEnabled="True"

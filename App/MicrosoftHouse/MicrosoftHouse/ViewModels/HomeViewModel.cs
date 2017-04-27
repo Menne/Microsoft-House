@@ -15,7 +15,6 @@ namespace MicrosoftHouse
 {
 	/*TODO
 	 * 1. aggiungere metodo park now in park view model, scalando il parcheggio ogni volta che uno utilizza il qrcode
-	 * 3. implementare metodo search nella search room page
 	 * 4. login page: togliere username e password, aggiungere icona microsoft al bottone
 	 * 5. rimettere icone a pallini in Room e Park o qualcosa del genere
 	 * 6. implementare metodo reserve per creare una reservation

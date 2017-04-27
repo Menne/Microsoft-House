@@ -21,7 +21,7 @@ namespace MicrosoftHouse.Pages
 
         public void OnTimePicker(object sender, EventArgs e)
         {
-            timePicker.Focus();
+            timePickerFirst.Focus();
         }
 
         protected override void OnAppearing()

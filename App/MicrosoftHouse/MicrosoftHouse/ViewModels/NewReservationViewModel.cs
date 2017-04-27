@@ -6,6 +6,7 @@ using MicrosoftHouse.Abstractions;
 using MicrosoftHouse.Helpers;
 using MicrosoftHouse.Models;
 using Xamarin.Forms;
+using System.Linq;
 
 namespace MicrosoftHouse
 {
@@ -15,12 +16,21 @@ namespace MicrosoftHouse
 
         public NewReservationViewModel()
         {
-            SearchCommand = new Command(async () => await ExecuteSearchCommand());
+            SearchAvailableRoomsCommand = new Command(async () => await ExecuteSearchAvailableRoomsCommand());
+            NewReservationCommand = new Command(async () => await ExecuteNewReservationCommand());
+
+            NewReservation = new Reservation();
+            NewReservation.Date = DateTime.Now;
+            NewReservation.StartingTime = DateTime.Now.TimeOfDay;
+            NewReservation.EndingTime = DateTime.Now.TimeOfDay;
 
             RefreshList();
         }
 
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
+
+        public Command SearchAvailableRoomsCommand { get; }
+        public Command NewReservationCommand { get; }
 
         async Task RefreshList()
         {
@@ -72,6 +82,20 @@ namespace MicrosoftHouse
             set { SetProperty(ref rooms, value, "Rooms"); }
         }
 
+        ObservableCollection<Reservation> allReservations = new ObservableCollection<Reservation>();
+        public ObservableCollection<Reservation> AllReservations
+        {
+            get { return allReservations; }
+            set { SetProperty(ref allReservations, value, "AllReservations"); }
+        }
+
+        Reservation newReservation;
+        public Reservation NewReservation
+        {
+            get { return newReservation; }
+            set { SetProperty(ref newReservation, value, "NewReservation"); }
+        }
+
         Room selectedRoom;
         public Room SelectedRoom
         {
@@ -87,12 +111,84 @@ namespace MicrosoftHouse
             }
         }
 
-        public Command SearchCommand { get; }
-
-
-        async Task ExecuteSearchCommand()
+        async Task ExecuteSearchAvailableRoomsCommand()
         {
+            if (IsBusy)
+                return;
+            IsBusy = true;
 
+            try
+            {
+                var reservationTable = await CloudService.GetTableAsync<Reservation>();
+                var listOfReservation = await reservationTable.ReadAllReservationsAsync();
+                var roomTable = await CloudService.GetTableAsync<Room>();
+                var listOfRooms = await roomTable.ReadAllRoomsAsync();
+
+                Rooms.Clear();
+
+                foreach (Room room in listOfRooms)
+                { 
+                    foreach (Reservation reservation in listOfReservation)
+                    {
+                        if (reservation.RoomName.Equals(room.Name) && !reservation.Date.Equals(DateTime.Now)
+                            && !reservation.StartingTime.Equals(DateTime.Now) && !reservation.EndingTime.Equals(DateTime.Now))
+                        {
+                            Rooms.Add(room);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[TaskDetail] Save error: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        async Task ExecuteNewReservationCommand()
+        {
+            if (IsBusy)
+                return;
+            IsBusy = true;
+
+            try
+            {
+                var reservationTable = await CloudService.GetTableAsync<Reservation>();
+                if (NewReservation.Id == null)
+                {
+
+                    Debug.WriteLine("Ciao");
+                    // Get the identity
+                    var identity = await CloudService.GetIdentityAsync();
+                    if (identity != null)
+                    {
+                        var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
+                        Debug.WriteLine(name);
+                        NewReservation.User = name;
+                    }
+
+                    await reservationTable.CreateReservationAsynch(NewReservation);
+                    await CloudService.SyncOfflineCacheAsync();
+                }
+                else
+                {
+                    await reservationTable.UpdateReservationAsync(NewReservation);
+                    await CloudService.SyncOfflineCacheAsync();
+                }
+                MessagingCenter.Send<NewReservationViewModel>(this, "ItemsChanged");
+                await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[TaskDetail] Save error: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }
