@@ -2,26 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			 xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
-			 x:Class="MicrosoftHouse.EntryPage">
+			 x:Class="MicrosoftHouse.EntryPage"
+			 BackgroundColor="#FF01A4EF">
 	<ContentPage.Content>
-        <StackLayout BackgroundColor="White">
-		<Grid RowSpacing="0" BackgroundColor="White">
-			<Grid.RowDefinitions>
-				<RowDefinition Height="4*"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="0.8*"/>
-                <RowDefinition Height="0.8*"/>
-                <RowDefinition Height="1.5*"/>
-            </Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-				</Grid.ColumnDefinitions>
         <StackLayout HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
-                     VerticalOptions="FillAndExpand"
-					 BackgroundColor="#FF01A4EF"
-					 Grid.Row="0"
-					 Grid.Column="0">
+                     VerticalOptions="FillAndExpand">
                     <Image VerticalOptions="CenterAndExpand"
                            HorizontalOptions="CenterAndExpand">
                         <Image.Source>
@@ -31,97 +17,16 @@
                                         WinPhone="Images/LoginIcon180.png" />
                         </Image.Source>
                     </Image>
-                </StackLayout>
-        <!--<StackLayout Grid.Row="2"
-					Grid.Column="0"
-					Padding="30,10,30,10"
-					Orientation="Vertical">
-			<StackLayout Orientation="Horizontal">
-                        <local:CustomEntry Placeholder="EMAIL"
-									Keyboard="Email"
-									HorizontalOptions="FillAndExpand"
-									VerticalOptions="Center"
-									Font="Small"
-									TextColor="Black"
-									FontFamily="Avenir"
-									PlaceholderTextColor="Black">
-                        </local:CustomEntry>
-                        <Image VerticalOptions="Center"
-							   HorizontalOptions="Start">
-                            <Image.Source>
-                                <OnPlatform x:TypeArguments="ImageSource"
-                                        iOS="MailIcon.png"
-                                        Android="MailIcon.png"
-                                        WinPhone="Images/MailIcon.png" />
-                            </Image.Source>
-                        </Image>
-                    </StackLayout>
-						<BoxView Color="Black"
-									Opacity="0.05"
-									HeightRequest="1">
-							<BoxView.IsVisible>
-								<OnPlatform x:TypeArguments="x:Boolean">
-                					<OnPlatform.iOS>true</OnPlatform.iOS>
-               		 				<OnPlatform.Android>false</OnPlatform.Android>
-                                    <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
-                                </OnPlatform>
-							</BoxView.IsVisible>
-						</BoxView>
-			</StackLayout>
-            <StackLayout Grid.Row="3"
-					Grid.Column="0"
-					Padding="30,10,30,0"
-					Orientation="Vertical">
-                <StackLayout Orientation="Horizontal">
-                    <local:CustomEntry Placeholder="PASSWORD"
-									Keyboard="Default"
-									IsPassword="true"
-									HorizontalOptions="FillAndExpand"
-									VerticalOptions="Center"
-									Font="Small"
-									TextColor="Black"
-									FontFamily="Avenir"
-									PlaceholderTextColor="Black"/>
-                        <Image VerticalOptions="Center"
-							   HorizontalOptions="Start">
-                            <Image.Source>
-                                <OnPlatform x:TypeArguments="ImageSource"
-                                        iOS="PasswordIcon.png"
-                                        Android="PasswordIcon.png"
-                                        WinPhone="Images/PasswordIcon.png" />
-                            </Image.Source>
-                        </Image>
-                    </StackLayout>
-                <BoxView Color="Black"
-									Opacity="0.05"
-									HeightRequest="1">
-                    <BoxView.IsVisible>
-                        <OnPlatform x:TypeArguments="x:Boolean">
-                            <OnPlatform.iOS>true</OnPlatform.iOS>
-                            <OnPlatform.Android>false</OnPlatform.Android>
-                            <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
-                        </OnPlatform>
-                    </BoxView.IsVisible>
-                </BoxView>
-            </StackLayout>-->
-        </Grid>
-        <StackLayout VerticalOptions="EndAndExpand"
-                     HorizontalOptions="FillAndExpand"
-                     BackgroundColor="White"
-                     Padding="30,10,30,30">
-                <Button x:Name="loginButton"
+                    <Button x:Name="loginButton"
 						HorizontalOptions="FillAndExpand"
 						VerticalOptions="FillAndExpand"
-						BackgroundColor="#FF01A4EF"
+						BackgroundColor="White"
 						Command="{Binding LoginCommand}"
 						Text="MICROSOFT ACCOUNT"
-						TextColor="White"
+						TextColor="#FF01A4EF"
 						FontFamily="Avenir"
 						Image="MicrosoftIcon.png"
 						BorderRadius="0"/>
-                <!--IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"-->
-            </StackLayout>
-
-        </StackLayout>
+    	</StackLayout>
     </ContentPage.Content>
 </ContentPage>
