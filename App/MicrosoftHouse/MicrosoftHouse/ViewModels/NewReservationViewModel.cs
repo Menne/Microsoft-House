@@ -126,14 +126,17 @@ namespace MicrosoftHouse
 
                 Rooms.Clear();
 
+                //insert all the rooms in the collection, then removes the ones which are arleady reserved
                 foreach (Room room in listOfRooms)
-                { 
+                {
+                    rooms.Add(room);
                     foreach (Reservation reservation in listOfReservation)
                     {
-                        if (reservation.RoomName.Equals(room.Name) && !reservation.Date.Equals(DateTime.Now)
-                            && !reservation.StartingTime.Equals(DateTime.Now) && !reservation.EndingTime.Equals(DateTime.Now))
+                        if (reservation.RoomName.Equals(room.Name) && reservation.Date.Date.Equals(NewReservation.Date.Date)
+                            && TimeSpan.Compare(reservation.StartingTime, NewReservation.StartingTime)==1
+                            && TimeSpan.Compare(reservation.EndingTime, NewReservation.EndingTime)==-1)
                         {
-                            Rooms.Add(room);
+                            Rooms.Remove(room);
                         }
                     }
                 }

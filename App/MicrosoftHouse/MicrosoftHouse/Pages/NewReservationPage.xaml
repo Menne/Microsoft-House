@@ -62,8 +62,8 @@
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
-										VerticalOptions="Center"/>
-
+										VerticalOptions="Center"
+                                        Date="{Binding SelectedEvent.Date, Mode=TwoWay}"/>
                     <Image VerticalOptions="Center"
 						    HorizontalOptions="Start">
                         <Image.Source>
@@ -99,7 +99,8 @@
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
-										VerticalOptions="Center"/>
+										VerticalOptions="Center"
+                                        Time="{Binding NewReservation.StartingTime, Mode=TwoWay}"/>
                     <Image VerticalOptions="Center"
 						    HorizontalOptions="Start">
                         <Image.Source>
@@ -135,7 +136,8 @@
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
-										VerticalOptions="Center"/>
+										VerticalOptions="Center"
+                                        Time="{Binding NewReservation.EndingTime, Mode=TwoWay}"/>
                     <Image VerticalOptions="Center"
 						    HorizontalOptions="Start">
                         <Image.Source>
