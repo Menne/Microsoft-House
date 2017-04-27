@@ -105,8 +105,7 @@ namespace MicrosoftHouse
                 SetProperty(ref selectedRoom, value, "SelectedRoom");
                 if (selectedRoom != null)
                 {
-                    (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SelectedRoomPage(selectedRoom));
-                    SelectedRoom = null;
+                    ExecuteNewReservationCommand();
                 }
             }
         }
@@ -171,17 +170,19 @@ namespace MicrosoftHouse
                         var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
                         Debug.WriteLine(name);
                         NewReservation.User = name;
+                        newReservation.RoomName = selectedRoom.Name;
                     }
 
                     await reservationTable.CreateReservationAsynch(NewReservation);
-                    await CloudService.SyncOfflineCacheAsync();
+                    //await CloudService.SyncOfflineCacheAsync();
                 }
                 else
                 {
                     await reservationTable.UpdateReservationAsync(NewReservation);
-                    await CloudService.SyncOfflineCacheAsync();
+                    //await CloudService.SyncOfflineCacheAsync();
                 }
                 MessagingCenter.Send<NewReservationViewModel>(this, "ItemsChanged");
+                SelectedRoom = null;
                 await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
             }
             catch (Exception ex)

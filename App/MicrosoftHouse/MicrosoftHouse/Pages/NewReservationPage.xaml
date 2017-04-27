@@ -63,7 +63,7 @@
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"
-                                        Date="{Binding SelectedEvent.Date, Mode=TwoWay}"/>
+                                        Date="{Binding NewReservation.Date, Mode=TwoWay}"/>
                     <Image VerticalOptions="Center"
 						    HorizontalOptions="Start">
                         <Image.Source>
@@ -194,7 +194,7 @@
                 <ListView ItemsSource="{Binding Rooms}"
 	                RowHeight="100"
 					SeparatorVisibility="None"
-	                SelectedItem="{Binding NewReservationCommand, Mode=TwoWay}"
+	                SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
 					CachingStrategy="RecycleElement"
 					RefreshCommand="{Binding RefreshCommand}"
 					IsPullToRefreshEnabled="True"

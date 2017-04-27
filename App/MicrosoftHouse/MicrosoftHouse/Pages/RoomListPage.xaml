@@ -44,6 +44,17 @@
                                 WinPhone="Images/CalendarIcon.png" />
                 </Image.Source>
             </Image>
+            <BoxView Color="Black"
+								Opacity="0.05"
+								HeightRequest="1">
+                <BoxView.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <OnPlatform.iOS>true</OnPlatform.iOS>
+                        <OnPlatform.Android>false</OnPlatform.Android>
+                        <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
+                    </OnPlatform>
+                </BoxView.IsVisible>
+            </BoxView>
         </StackLayout>
         <ListView x:Name="displayedRooms"
 			    ItemsSource="{Binding DisplayedRooms, Mode=TwoWay}"
