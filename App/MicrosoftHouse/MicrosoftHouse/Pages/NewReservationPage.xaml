@@ -4,4 +4,250 @@
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.Pages.NewReservationPage"
              Title="Reserve a room">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" WinPhone="20,20,20,20" />
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <Grid RowSpacing="0" BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <!--<RowDefinition Height="*"/>-->
+                <!--<RowDefinition Height="0.25*"/>-->
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.75*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--<StackLayout HeightRequest="50"
+							HorizontalOptions="FillAndExpand"
+							Padding="10"
+							BackgroundColor="#FFBA77FF"
+							Orientation="Horizontal"
+							Grid.Row="0"
+							Grid.Column="0">
+							<Image Source="CrossIconWhite.png"
+									HorizontalOptions="Start"
+									VerticalOptions="Center">
+								<Image.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding BackCommand}"/>
+								</Image.GestureRecognizers>
+							</Image>
+							<Label Text="Search Room"
+									TextColor="White"
+									FontFamily="Avenir"
+									HorizontalOptions="CenterAndExpand"
+									HorizontalTextAlignment="Center"
+									VerticalOptions="Center"/>
+							<Image Source="SearchIcon.png"
+									HorizontalOptions="End"
+									VerticalOptions="Center">
+								<Image.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding SearchCommand}"/>
+								</Image.GestureRecognizers>
+							</Image>
+					</StackLayout>-->
+            <StackLayout Grid.Row="0"
+							Grid.Column="0"
+							Padding="30,10,30,10"
+							Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <local:CustomDatePicker x:Name="datePicker"
+										PlaceHolder="DATE"
+										TextColor="Black"
+										Font="Small"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="Center"/>
+
+                    <Image VerticalOptions="Center"
+						    HorizontalOptions="Start">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="CalendarIcon.png"
+                                        Android="CalendarIcon.png"
+                                        WinPhone="Images/CalendarIcon.png" />
+                        </Image.Source>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnDatePicker"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+                <BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1">
+                    <BoxView.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <OnPlatform.iOS>true</OnPlatform.iOS>
+                            <OnPlatform.Android>false</OnPlatform.Android>
+                            <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
+                        </OnPlatform>
+                    </BoxView.IsVisible>
+                </BoxView>
+            </StackLayout>
+            <StackLayout Grid.Row="1"
+									Grid.Column="0"
+									Padding="30,10,30,10"
+									Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <local:CustomTimePicker x:Name="timePicker"
+										PlaceHolder="STARTING TIME"
+										TextColor="Black"
+										Font="Small"
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="Center"/>
+                    <Image VerticalOptions="Center"
+						    HorizontalOptions="Start">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="TimeIcon.png"
+                                        Android="TimeIcon.png"
+                                        WinPhone="Images/TimeIcon.png" />
+                        </Image.Source>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTimePicker"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+                <BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1">
+                    <BoxView.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <OnPlatform.iOS>true</OnPlatform.iOS>
+                            <OnPlatform.Android>false</OnPlatform.Android>
+                            <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
+                        </OnPlatform>
+                    </BoxView.IsVisible>
+                </BoxView>
+            </StackLayout>
+            <StackLayout Grid.Row="2"
+					Grid.Column="0"
+					Padding="30,10,30,0"
+					Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <local:CustomEntry Placeholder="PEOPLE"
+									Keyboard="Numeric"
+									HorizontalOptions="FillAndExpand"
+									VerticalOptions="Center"
+									Font="Small"
+									TextColor="Black"
+									FontFamily="Avenir"
+									PlaceholderTextColor="Black"/>
+                    <Image VerticalOptions="Center"
+						    HorizontalOptions="Start">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="PeopleIcon.png"
+                                        Android="PeopleIcon.png"
+                                        WinPhone="Images/PeopleIcon.png" />
+                        </Image.Source>
+                    </Image>
+                </StackLayout>
+                <BoxView Color="Black"
+									Opacity="0.05"
+									HeightRequest="1">
+                    <BoxView.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <OnPlatform.iOS>true</OnPlatform.iOS>
+                            <OnPlatform.Android>false</OnPlatform.Android>
+                            <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
+                        </OnPlatform>
+                    </BoxView.IsVisible>
+                </BoxView>
+            </StackLayout>
+            <StackLayout Padding="30,0,30,0"
+						Grid.Row="4"
+						Grid.Column="0">
+                <Button x:Name="searchButton"
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="Center"
+						BackgroundColor="#FF01A4EF"
+						Text="SEARCH"
+						Command="{Binding SearchCommand}"
+						TextColor="White"
+						FontFamily="Avenir"
+						BorderRadius="0"
+						/>
+                <!--IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"-->
+            </StackLayout>
+            <StackLayout Grid.Row="6"
+						Grid.Column="0"
+						Padding="30,15,0,0">
+                <Label Text="Available Now"
+						TextColor="Black"
+						FontFamily="Avenir"
+						FontSize="Large"
+						VerticalOptions="Center"
+						HorizontalOptions="StartAndExpand"/>
+            </StackLayout>
+
+            <ScrollView Grid.Row="7"
+						Grid.Column="0">
+                <ListView ItemsSource="{Binding Rooms}"
+	                RowHeight="100"
+					SeparatorVisibility="None"
+	                SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
+					CachingStrategy="RecycleElement"
+					RefreshCommand="{Binding RefreshCommand}"
+					IsPullToRefreshEnabled="True"
+	                IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <StackLayout HorizontalOptions="FillAndExpand"
+	                           Orientation="Horizontal"
+	                           Padding="30,0,30,0"
+	                           VerticalOptions="CenterAndExpand">
+                                        <StackLayout Orientation="Vertical"
+								 HorizontalOptions="Start"
+								 VerticalOptions="StartAndExpand"
+								 Spacing="0"
+								 Padding="0,5,0,0">
+                                            <Button BackgroundColor="Green"
+									HeightRequest="15"
+									WidthRequest="15"
+									IsEnabled="false"
+									BorderRadius="8"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical"
+								 HorizontalOptions="Center"
+								 VerticalOptions="Start"
+								 Padding="20,0,0,0"
+								 Spacing="0">
+                                            <Label
+						   FontSize="Medium"
+						   FontFamily="Avenir"
+	                       Text="{Binding Path=Name}"
+	                       TextColor="#272832" />
+                                            <Label
+	                       Text="{Binding Path=Floor, StringFormat='Floor {0}'}"
+	                       TextColor="#272832"
+						   Opacity="0.5"
+						   FontFamily="Avenir"
+						   FontSize="Small"/>
+                                            <Label
+						   FontFamily="Avenir"
+	                       Text="{Binding Path=Seats, StringFormat='Seats {0}'}"
+	                       TextColor="#272832"
+						   FontSize="Medium"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <BoxView Color="Black"
+							Opacity="0.05"
+							HeightRequest="1">
+                                    </BoxView>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
