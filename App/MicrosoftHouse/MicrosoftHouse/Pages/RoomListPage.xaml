@@ -17,15 +17,43 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView 
-					ItemsSource="{Binding AllRooms, Mode=TwoWay}"
-	                RowHeight="100"
-					SeparatorVisibility="None"
-	                SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
-	                CachingStrategy="RecycleElement"
-					RefreshCommand="{Binding RefreshCommand}"
-					IsPullToRefreshEnabled="True"
-	                IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+        <StackLayout Orientation="Vertical"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal"
+                     VerticalOptions="Start"
+                     HorizontalOptions="FillAndExpand"
+                     Padding="30,10,30,20">
+                <local:CustomEntry x:Name="searchEntry"
+                    Placeholder="Search a room by name or floor"
+					Keyboard="Text"
+					Text="{Binding SearchArgument, Mode=TwoWay}"
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="CenterAndExpand"
+					Font="Large"
+					XAlign="Start"
+					TextColor="DarkGray"
+					FontFamily="Avenir"
+					PlaceholderTextColor="LightGray"/>
+                <Image VerticalOptions="Center"
+				   HorizontalOptions="Start">
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource"
+                                iOS="CalendarIcon.png"
+                                Android="CalendarIcon.png"
+                                WinPhone="Images/CalendarIcon.png" />
+                </Image.Source>
+            </Image>
+        </StackLayout>
+        <ListView x:Name="displayedRooms"
+			    ItemsSource="{Binding DisplayedRooms, Mode=TwoWay}"
+	            RowHeight="100"
+			    SeparatorVisibility="None"
+	            SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
+	            CachingStrategy="RecycleElement"
+			    RefreshCommand="{Binding RefreshCommand}"
+			    IsPullToRefreshEnabled="True"
+	            IsRefreshing="{Binding IsBusy, Mode=OneWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell x:Name="item">
@@ -33,7 +61,7 @@
                             <StackLayout HorizontalOptions="FillAndExpand"
 	                           Orientation="Horizontal"
 	                           Padding="30,0,30,0"
-	                           VerticalOptions="CenterAndExpand">
+	                           VerticalOptions="End">
                                 <StackLayout Orientation="Vertical"
 								 HorizontalOptions="Start"
 								 VerticalOptions="StartAndExpand"
@@ -76,5 +104,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

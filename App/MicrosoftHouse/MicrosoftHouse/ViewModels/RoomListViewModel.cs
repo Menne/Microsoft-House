@@ -25,6 +25,7 @@ namespace MicrosoftHouse
             RefreshList();
         }
 
+
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
         public Command RefreshCommand { get; }
         public Command NewReservationCommand { get; }
@@ -52,7 +53,8 @@ namespace MicrosoftHouse
                 AllRooms.Clear();
                 foreach (var room in list)
                 {
-                    AllRooms.Add(room);
+                    allRooms.Add(room);
+                    displayedRooms.Add(room);
                 }
             }
             catch (Exception ex)
@@ -73,11 +75,22 @@ namespace MicrosoftHouse
             set { SetProperty(ref allRooms, value, "AllRooms"); }
         }
 
-        string searchArgument;
+        ObservableCollection<Room> displayedRooms = new ObservableCollection<Room>();
+        public ObservableCollection<Room> DisplayedRooms
+        {
+            get { return displayedRooms; }
+            set { SetProperty(ref displayedRooms, value, "DisplayedRooms"); }
+        }
+
+        string searchArgument = "";
         public string SearchArgument
         {
             get { return searchArgument; }
-            set { SetProperty(ref searchArgument, value, "SearchArgument"); }
+            set
+            {
+                SetProperty(ref searchArgument, value, "SearchArgument");
+                Search(searchArgument);
+            }
         }
 
 
@@ -101,6 +114,29 @@ namespace MicrosoftHouse
         async Task ExecuteNewReservationCommand()
         {
             await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewReservationPage());
+        }
+
+        void Search(String searchArgument)
+        {
+            Debug.WriteLine(searchArgument);
+            if (searchArgument.Equals(""))
+            { 
+                foreach (Room room in AllRooms)
+                {
+                    DisplayedRooms.Add(room);
+                }
+            }
+            else
+            { 
+                DisplayedRooms.Clear();
+                foreach (Room room in AllRooms)
+                {
+                    if (room.Name.Equals(searchArgument) || room.Floor.Equals(searchArgument))
+                    {
+                        DisplayedRooms.Add(room);
+                    }
+                }
+            }
         }
 
     }
