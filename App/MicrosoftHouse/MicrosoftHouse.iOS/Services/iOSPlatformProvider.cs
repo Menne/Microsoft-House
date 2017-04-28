@@ -16,15 +16,14 @@ namespace MicrosoftHouse.iOS
 	public class iOSPlatformProvider : IPlatformProvider
 	{
 
-
-		//public AccountStore AccountStore { get; private set; }
+		public AccountStore AccountStore { get; private set; }
 
 		public UIViewController RootView => UIApplication.SharedApplication.KeyWindow.RootViewController;
 
-		/*public iOSLoginProvider()
+		public iOSPlatformProvider()
 		{
-			//AccountStore = AccountStore.Create();   
-		}*/
+			AccountStore = AccountStore.Create();   
+		}
 
 		/// <summary>
 		/// Login via ADAL
@@ -138,14 +137,38 @@ namespace MicrosoftHouse.iOS
 			return null;
 		}*/
 
-		public string GetSyncStore()
-		{
-			return "syncstore.db";   
-		}
+		
+
+        Task<MobileServiceUser> IPlatformProvider.LoginAsync(MobileServiceClient client)
+        {
+            throw new NotImplementedException();
+        }
+
+        public MobileServiceUser RetrieveTokenFromSecureStore()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void StoreTokenInSecureStore(MobileServiceUser user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveTokenFromSecureStore()
+        {
+            throw new NotImplementedException();
+        }
+
 
         public Task RegisterForPushNotifications(MobileServiceClient client)
         {
             throw new NotImplementedException();
+        }
+
+
+        public string GetSyncStore()
+        {
+            return "syncstore.db";
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Threading.Tasks;
 
 namespace MicrosoftHouse.Abstractions
@@ -7,18 +8,14 @@ namespace MicrosoftHouse.Abstractions
 	{
 		Task<ICloudTable<T>> GetTableAsync<T>() where T : TableData;
 
-		Task LoginAsync();
+        Task<MobileServiceUser> LoginAsync();
 
-		Task<AppServiceIdentity> GetIdentityAsync();
+        Task<AppServiceIdentity> GetIdentityAsync();
 
 		Task LogoutAsync();
-
 
 		Task SyncOfflineCacheAsync();
 
 		Task RegisterForPushNotifications();
-
-		// Custom Login
-		//Task LoginAsync(User user);
 	}
 }

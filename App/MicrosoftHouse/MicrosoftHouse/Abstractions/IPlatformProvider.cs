@@ -6,13 +6,13 @@ namespace MicrosoftHouse
 {
 	public interface IPlatformProvider
 	{
-		Task LoginAsync(MobileServiceClient client);
+        Task<MobileServiceUser> LoginAsync(MobileServiceClient client);
 
-		//MobileServiceUser RetrieveTokenFromSecureStore();
+        MobileServiceUser RetrieveTokenFromSecureStore();
 
-		//void StoreTokenInSecureStore(MobileServiceUser user);
+        void StoreTokenInSecureStore(MobileServiceUser user);
 
-		//void RemoveTokenFromSecureStore();
+		void RemoveTokenFromSecureStore();
 
 		Task RegisterForPushNotifications(MobileServiceClient client);
 

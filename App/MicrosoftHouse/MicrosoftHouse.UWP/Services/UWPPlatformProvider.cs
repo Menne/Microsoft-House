@@ -6,23 +6,78 @@ using System;
 using Windows.Networking.PushNotifications;
 using System.Net.Http;
 using System.Collections.Generic;
+using Windows.Security.Credentials;
+using System.Linq;
+using Newtonsoft.Json.Linq;
+using System.Text;
+using System.Diagnostics;
 
 [assembly: Xamarin.Forms.Dependency(typeof(UWPPlatformProvider))]
 namespace TaskList.UWP.Services
 {
     public class UWPPlatformProvider : IPlatformProvider
     {
+        public PasswordVault PasswordVault { get; private set; }
         public static PushNotificationChannel Channel { get; set; } = null;
-
-        public async Task LoginAsync(MobileServiceClient client)
+        
+        public UWPPlatformProvider()
         {
-            await client.LoginAsync("microsoftaccount");
+            PasswordVault = new PasswordVault();
         }
 
-        public string GetSyncStore()
+        public async Task<MobileServiceUser> LoginAsync(MobileServiceClient client)
         {
-            throw new NotImplementedException();
+            // Server-Flow Version
+            return await client.LoginAsync("microsoftaccount");
         }
+
+        public MobileServiceUser RetrieveTokenFromSecureStore()
+        {
+            try
+            {
+                // Check if the token is available within the password vault
+                var acct = PasswordVault.FindAllByResource("tasklist").FirstOrDefault();
+                if (acct != null)
+                {
+                    var token = PasswordVault.Retrieve("tasklist", acct.UserName).Password;
+                    if (token != null && token.Length > 0)
+                    {
+                        return new MobileServiceUser(acct.UserName)
+                        {
+                            MobileServiceAuthenticationToken = token
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error retrieving existing token: {ex.Message}");
+            }
+            return null;
+        }
+
+        public void StoreTokenInSecureStore(MobileServiceUser user)
+        {
+            PasswordVault.Add(new PasswordCredential("tasklist", user.UserId, user.MobileServiceAuthenticationToken));
+        }
+
+        public void RemoveTokenFromSecureStore()
+        {
+            try
+            {
+                // Check if the token is available within the password vault
+                var acct = PasswordVault.FindAllByResource("tasklist").FirstOrDefault();
+                if (acct != null)
+                {
+                    PasswordVault.Remove(acct);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error retrieving existing token: {ex.Message}");
+            }
+        }
+
 
         public async Task RegisterForPushNotifications(MobileServiceClient client)
         {
@@ -60,6 +115,12 @@ namespace TaskList.UWP.Services
                     System.Diagnostics.Debug.Fail($"[UWPPlatformProvider]: Could not register with NH: {ex.Message}");
                 }
             }
+        }
+        
+
+        public string GetSyncStore()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -9,6 +9,9 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Collections.Generic;
 using Android.Util;
+using Xamarin.Auth;
+using System.Text;
+using Newtonsoft.Json.Linq;
 
 [assembly: Xamarin.Forms.Dependency(typeof(DroidPlatformProvider))]
 namespace MicrosoftHouse.Droid
@@ -17,14 +20,12 @@ namespace MicrosoftHouse.Droid
 	{
         public Context RootView { get; private set; }
 
-        public string GetSyncStore()
-		{
-			throw new NotImplementedException();
-		}
+        public AccountStore AccountStore { get; private set; }
 
 		public void Init(Context context)
 		{
             RootView = context;
+            AccountStore = AccountStore.Create(context);
 
             try
             {
@@ -43,10 +44,56 @@ namespace MicrosoftHouse.Droid
 
         }
 
-        public async Task LoginAsync(MobileServiceClient client)
+        public async Task<MobileServiceUser> LoginAsync(MobileServiceClient client)
 		{
-			await client.LoginAsync(RootView, "microsoftaccount");
-		}
+            // Server-Flow Version
+            return await client.LoginAsync(RootView, "microsoftaccount");
+        }
+
+        
+
+
+        public MobileServiceUser RetrieveTokenFromSecureStore()
+        {
+            var accounts = AccountStore.FindAccountsForService("tasklist");
+            if (accounts != null)
+            {
+                foreach (var acct in accounts)
+                {
+                    string token;
+
+                    if (acct.Properties.TryGetValue("token", out token))
+                    {
+                        return new MobileServiceUser(acct.Username)
+                        {
+                            MobileServiceAuthenticationToken = token
+                        };
+                    }
+                }
+            }
+            return null;
+        }
+
+        public void StoreTokenInSecureStore(MobileServiceUser user)
+        {
+            var account = new Account(user.UserId);
+            account.Properties.Add("token", user.MobileServiceAuthenticationToken);
+            AccountStore.Save(account, "tasklist");
+        }
+
+        public void RemoveTokenFromSecureStore()
+        {
+            var accounts = AccountStore.FindAccountsForService("tasklist");
+            if (accounts != null)
+            {
+                foreach (var acct in accounts)
+                {
+                    AccountStore.Delete(acct, "tasklist");
+                }
+            }
+        }
+
+
 
         public async Task RegisterForPushNotifications(MobileServiceClient client)
         {
@@ -90,5 +137,12 @@ namespace MicrosoftHouse.Droid
                 Log.Error("DroidPlatformProvider", $"Not registered with FCM");
             }
         }
+
+        public string GetSyncStore()
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }
