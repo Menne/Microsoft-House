@@ -50,8 +50,6 @@ namespace MicrosoftHouse.Droid
             return await client.LoginAsync(RootView, "microsoftaccount");
         }
 
-        
-
 
         public MobileServiceUser RetrieveTokenFromSecureStore()
         {
