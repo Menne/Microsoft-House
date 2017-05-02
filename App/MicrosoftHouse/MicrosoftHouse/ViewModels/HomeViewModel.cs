@@ -51,7 +51,7 @@ namespace MicrosoftHouse
 		{
 			try
 			{
-				await CloudService.SyncOfflineCacheAsync();
+				//await CloudService.SyncOfflineCacheAsync();
 				var carParkTable = await CloudService.GetTableAsync<CarPark>();
 				var park = await carParkTable.ReadAllParksAsync();
 				ParkingSpaces = park.ElementAt(0).Park;
