@@ -13,14 +13,10 @@ namespace MicrosoftHouse.ViewModels
 		{
 			AppService = Locations.AppServiceUrl;
 			LoginCommand = new Command(async () => await ExecuteLoginCommand());
-			// Custom auth
-			//User = new User { Username = "", Password = "" };
 		}
 
 		public string AppService { get; set; }
-		public Command LoginCommand { get; } 
-		// Custom auth
-		//public User User { get; set; }
+		public Command LoginCommand { get; }
 
 		async Task ExecuteLoginCommand()
 		{

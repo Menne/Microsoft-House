@@ -65,8 +65,6 @@ namespace MicrosoftHouse
 
 		async Task ExecuteCalendarCommand()
 		{
-			//await Application.Current.MainPage.Navigation.PushAsync(new RoomDetailPage());
-
 			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new EventsPage())
 			{
 				//BarTextColor = Color.White,
@@ -76,8 +74,6 @@ namespace MicrosoftHouse
 
 		async Task ExecuteParkDetailCommand()
 		{
-			//await Application.Current.MainPage.Navigation.PushAsync(new RoomDetailPage());
-
 			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new CarParkPage())
 			{
 				//BarTextColor = Color.White,

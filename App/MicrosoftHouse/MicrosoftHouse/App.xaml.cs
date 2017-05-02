@@ -18,7 +18,6 @@ namespace MicrosoftHouse
 			ServiceLocator.Add<ICloudService, AzureCloudService>();
 			//CloudService = new AzureCloudService();
 			MainPage = new EntryPage();
-			//MainPage = new RoomList();
         }
 
         protected override void OnStart()

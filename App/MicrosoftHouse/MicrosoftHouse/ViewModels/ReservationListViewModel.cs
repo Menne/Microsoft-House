@@ -12,8 +12,6 @@ namespace MicrosoftHouse
 {
     public class ReservationListViewModel : BaseViewModel
     {
-        ICloudService cloudService;
-
         public ReservationListViewModel()
         {
             // Cloud Variables
@@ -48,18 +46,18 @@ namespace MicrosoftHouse
             try
             {
 				//await CloudService.SyncOfflineCacheAsync();
-                var table = await CloudService.GetTableAsync<Room>();
-                var list = await table.ReadAllRoomsAsync();
-                ReservedRooms.Clear();
-                foreach (var room in list)
+                var reservationTable = await CloudService.GetTableAsync<Reservation>();
+                var reservationList = await reservationTable.ReadAllRoomsAsync();
+                Reservations.Clear();
+                foreach (var reservation in reservationList)
                 {
-                    ReservedRooms.Add(room);
+                    Reservations.Add(reservation);
                 }
 
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[RoomList] Error loading items: {ex.Message}");
+                Debug.WriteLine($"[Reser] Error loading items: {ex.Message}");
             }
             finally
             {
@@ -68,11 +66,11 @@ namespace MicrosoftHouse
         }
 
 
-        ObservableCollection<Room> reservedRooms = new ObservableCollection<Room>();
-        public ObservableCollection<Room> ReservedRooms
+        ObservableCollection<Reservation> reservations = new ObservableCollection<Reservation>();
+        public ObservableCollection<Reservation> Reservations
         {
-            get { return reservedRooms; }
-            set { SetProperty(ref reservedRooms, value, "ReservedRooms"); }
+            get { return reservations; }
+            set { SetProperty(ref reservations, value, "Reservations"); }
         }
 
 
