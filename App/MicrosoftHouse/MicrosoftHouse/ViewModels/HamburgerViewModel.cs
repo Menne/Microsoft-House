@@ -41,17 +41,17 @@ namespace MicrosoftHouse
 			});
 			masterPageItems.Add(new MasterPageItem
 			{
-				Name = "Events",
-                IconSource = Device.OnPlatform("CalendarIconWhite.png", "CalendarIconWhite.png", "Images/CalendarIconWhite.png"),
-                TargetType = typeof(EventsPage)
-			});
-			masterPageItems.Add(new MasterPageItem
-			{
 				Name = "Car Park",
                 IconSource = Device.OnPlatform("ParkIconWhite.png", "ParkIconWhite.png", "Images/ParkIconWhite.png"),
                 TargetType = typeof(CarParkPage)
 			});
-			masterPageItems.Add(new MasterPageItem
+            masterPageItems.Add(new MasterPageItem
+            {
+                Name = "Events",
+                IconSource = Device.OnPlatform("CalendarIconWhite.png", "CalendarIconWhite.png", "Images/CalendarIconWhite.png"),
+                TargetType = typeof(EventsPage)
+            });
+            masterPageItems.Add(new MasterPageItem
 			{
 				Name = "Settings",
                 IconSource = Device.OnPlatform("SettingsIconWhite.png", "SettingsIconWhite.png", "Images/SettingsIconWhite.png"),

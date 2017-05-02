@@ -17,7 +17,6 @@ Da implementare
 Bug
 - Alla prima pagina non funziona il retrieve dei dati
 - In UWP le date del calendario si sovrappongono
-- In UWP desktop il menu hamburger sparisce
 - Icone UWP sgranate
 
 Miglioramenti

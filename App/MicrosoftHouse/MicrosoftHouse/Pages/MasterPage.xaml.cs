@@ -36,8 +36,15 @@ namespace MicrosoftHouse
 					BarBackgroundColor = Color.FromHex("#FF01A4EF")
 				};
 				hamburgerPage.ListView.SelectedItem = null;
-				IsPresented = false;
-			}
+                if (Device.Idiom == TargetIdiom.Desktop)
+                {
+                    IsPresented = true;
+                }
+                else
+                {
+                    IsPresented = false;
+                }
+            }
 		}
 
 		async Task ExecuteLogout()
