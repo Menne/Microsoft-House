@@ -57,7 +57,7 @@ namespace MicrosoftHouse
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[Reser] Error loading items: {ex.Message}");
+                Debug.WriteLine($"[Reservations] Error loading items: {ex.Message}");
             }
             finally
             {

@@ -41,7 +41,7 @@
                                     <Label
 						   FontSize="Medium"
 						   FontFamily="Avenir"
-	                       Text="{Binding Path=Name}"
+	                       Text="{Binding Path=RoomName}"
 	                       TextColor="#272832" />
                                     <Label
 	                       Text="{Binding Path=StartingTime}"
