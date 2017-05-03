@@ -18,7 +18,7 @@ namespace MicrosoftHouse
 
 
             RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
-            NewRoomReservationCommand = new Command(async () => await ExecuteNewRoomReservationCommand());
+            NewReservationCommand = new Command(async () => await ExecuteNewReservationCommand());
 
             RefreshList();
 
@@ -26,7 +26,7 @@ namespace MicrosoftHouse
 
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
         public Command RefreshCommand { get; }
-        public Command NewRoomReservationCommand { get; }
+        public Command NewReservationCommand { get; }
 
         async Task RefreshList()
         {
@@ -93,7 +93,7 @@ namespace MicrosoftHouse
 
 
 
-        async Task ExecuteNewRoomReservationCommand()
+        async Task ExecuteNewReservationCommand()
         {
             await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewReservationPage());
         }

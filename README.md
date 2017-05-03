@@ -13,9 +13,10 @@ Da implementare
 - All'apertura del calendario il giorno corrente deve essere selezionato
 - Controllare se un utente è già loggato prima di mostrare la schermata di login
 - UWP renderers dei picker
+- Calcolare la distanza dalla MH e il tempo di percorrenza nella schermata parcheggio
 
 Bug
-- Alla prima pagina non funziona il retrieve dei dati
+- Problemi con SyncOfflineCacheAsync()
 - In UWP le date del calendario si sovrappongono
 - Icone UWP sgranate
 
