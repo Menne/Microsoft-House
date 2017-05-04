@@ -33,9 +33,10 @@ namespace MicrosoftHouse.ViewModels
         public DateTime? Date
         {
             get { return date; }
-            set { SetProperty(ref date, value, "SelectedDate");
-                if (date != null)
-                    ShowEventsOfTheDay(); 
+            set
+            {
+                SetProperty(ref date, value, "SelectedDate");
+                ShowEventsOfTheDay();
             }
         }
 
@@ -129,9 +130,16 @@ namespace MicrosoftHouse.ViewModels
         private void ShowEventsOfTheDay()
         {
             EventsOfSelectedDay.Clear();
-            foreach (Event item in AllEvents)
-                if (item.Date.Date == Date.Value.Date)
-                    EventsOfSelectedDay.Add(item);
+            if (Date!=null)
+            { 
+                foreach (Event item in AllEvents)
+                {
+                    if (item.Date.Date == Date.Value.Date)
+                    {
+                        EventsOfSelectedDay.Add(item);
+                    }
+                }
+            }
         }
 
 

@@ -42,7 +42,7 @@
                             Grid.Row="0"
 							Grid.Column="0">
                 </local:Calendar>  -->
-            <controls:Calendar
+            <controls:Calendar x:Name="calendar"
                 Padding="20,0,20,10"
                 VerticalOptions="CenterAndExpand" 
                 TitleLabelTextColor="White"

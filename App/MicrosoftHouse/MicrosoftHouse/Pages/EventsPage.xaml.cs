@@ -11,8 +11,6 @@ namespace MicrosoftHouse
             InitializeComponent();
 
             BindingContext = new EventsViewModel();
-
-			//calendarProva.SelectedDate = DateTime.Now;
         }
 
     }
