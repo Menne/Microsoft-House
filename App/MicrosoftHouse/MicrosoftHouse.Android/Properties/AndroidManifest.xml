@@ -12,6 +12,6 @@
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<application android:label="MH">
     <meta-data android:name="com.google.android.maps.v2.API_KEY"
-               android:value="AIzaSyBGbi6lDV6jM964gtYpSSsQknLsFz-psek" />
+               android:value="AIzaSyBhjgqfn76EwhSCot7wveTf_d_7gkUZ1is" />
   </application>
 </manifest>
