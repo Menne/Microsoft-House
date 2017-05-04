@@ -9,6 +9,7 @@ using MicrosoftHouse.Abstractions;
 using Xamarin.Forms;
 using MicrosoftHouse.Models;
 using MicrosoftHouse.Helpers;
+using Plugin.Geolocator;
 
 namespace MicrosoftHouse
 {
@@ -20,13 +21,13 @@ namespace MicrosoftHouse
         public CarParkViewModel()
         {
             InitializeParkInfo();
+            InitializeUserPositionAsync();
             InitializeStatistics();
 
             ChangeDayCommand = new Command<string>(execute: (string dayOfWeek) => ShowStatistics(Int32.Parse(dayOfWeek)));
 
             ShowStatistics(0);
         }
-
 
         public Command ChangeDayCommand { get; private set; }
 
@@ -60,22 +61,22 @@ namespace MicrosoftHouse
         }
 
 
-        string parkingSpaces;
-        public string ParkingSpaces
+        int parkingSpaces;
+        public int ParkingSpaces
         {
             set { SetProperty(ref parkingSpaces, value, "ParkingSpaces"); }
             get { return parkingSpaces; }
         }
 
-        int distance;
-        public int Distance
+        Double distance;
+        public Double Distance
         {
             set { SetProperty(ref distance, value, "Distance"); }
             get { return distance; }
         }
 
-        int timeToArrival;
-        public int TimeToArrival
+        Double timeToArrival;
+        public Double TimeToArrival
         {
             set { SetProperty(ref timeToArrival, value, "TimeToArrival"); }
             get { return timeToArrival; }
@@ -88,15 +89,63 @@ namespace MicrosoftHouse
 				//await CloudService.SyncOfflineCacheAsync();
                 var carParkTable = await CloudService.GetTableAsync<CarPark>();
                 var park = await carParkTable.ReadAllParksAsync();
-                ParkingSpaces = park.ElementAt(0).Park;
+                ParkingSpaces = Int32.Parse(park.ElementAt(0).Park);
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"[ParkingSpaces] Error loading items: {ex.Message}");
             }
+        }
 
-            Distance = 3;
-            TimeToArrival = 15;
+        private async Task InitializeUserPositionAsync()
+        {
+            try
+            {
+                var locator = CrossGeolocator.Current;
+                locator.DesiredAccuracy = 50;
+
+                var position = await locator.GetPositionAsync();
+                if (position == null)
+                    return;
+
+                Debug.WriteLine("Position Latitude: {0}", position.Latitude);
+                Debug.WriteLine("Position Longitude: {0}", position.Longitude);
+
+                Distance = calculateDistance(position.Latitude, position.Longitude, 45.481739, 9.183140, 'K');
+                TimeToArrival = (Math.Round((Distance / 30)*60, 1));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Unable to get location, may need to increase timeout: " + ex);
+            }
+        }
+
+        private double calculateDistance(double lat1, double lon1, double lat2, double lon2, char unit)
+        {
+            double theta = lon1 - lon2;
+            double dist = Math.Sin(deg2rad(lat1)) * Math.Sin(deg2rad(lat2)) + Math.Cos(deg2rad(lat1)) * Math.Cos(deg2rad(lat2)) * Math.Cos(deg2rad(theta));
+            dist = Math.Acos(dist);
+            dist = rad2deg(dist);
+            dist = dist * 60 * 1.1515;
+            if (unit == 'K')
+            {
+                dist = dist * 1.609344;
+            }
+            else if (unit == 'N')
+            {
+                dist = dist * 0.8684;
+            }
+            return (Math.Round(dist, 1));
+        }
+
+        private double deg2rad(double deg)
+        {
+            return (deg * Math.PI / 180.0);
+        }
+
+        private double rad2deg(double rad)
+        {
+            return (rad / Math.PI * 180.0);
         }
 
         private void InitializeStatistics()

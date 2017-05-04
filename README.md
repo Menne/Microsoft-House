@@ -13,7 +13,6 @@ Da implementare
 - All'apertura del calendario il giorno corrente deve essere selezionato
 - Controllare se un utente è già loggato prima di mostrare la schermata di login
 - UWP renderers dei picker
-- Calcolare la distanza dalla MH e il tempo di percorrenza nella schermata parcheggio
 
 Bug
 - Problemi con SyncOfflineCacheAsync()
@@ -25,3 +24,4 @@ Miglioramenti
 - Bottoni date circolari nel calendario
 - Icone 2.0
 - Sostituire bottoni statistiche parcheggio con sottolineatura
+- La distanza dell'utente dalla MH viene calcolata in linea d'aria (e il tempo di percorrenza a caso), bisognerebbe far funzionare il componente TK.CustomMap che calcola in automatico il percorso
