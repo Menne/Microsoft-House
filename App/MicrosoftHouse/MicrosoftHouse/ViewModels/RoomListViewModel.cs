@@ -118,7 +118,6 @@ namespace MicrosoftHouse
 
         void Search(String searchArgument)
         {
-            Debug.WriteLine(searchArgument);
             if (searchArgument.Equals(""))
             { 
                 foreach (Room room in AllRooms)

@@ -7,7 +7,7 @@
     <!--  Icon="ReservationIcon.png" -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="New Reservation"
-            Command="{Binding NewRoomReservationCommand}">
+            Command="{Binding NewReservationCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
                             iOS="Plus.png"

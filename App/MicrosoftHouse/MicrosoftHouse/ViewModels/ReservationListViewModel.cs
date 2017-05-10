@@ -51,9 +51,8 @@ namespace MicrosoftHouse
                 Reservations.Clear();
                 foreach (var reservation in reservationList)
                 {
-                    Reservations.Add(reservation);
+                    Reservations.Add(reservation);   
                 }
-
             }
             catch (Exception ex)
             {

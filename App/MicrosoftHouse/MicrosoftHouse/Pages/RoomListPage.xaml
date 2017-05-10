@@ -6,7 +6,7 @@
              Title="All Rooms">
 		<!--	 Icon="AllRoomsIcon.png"  -->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Search"
+        <ToolbarItem Text="New Reservation"
             Command="{Binding NewReservationCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
