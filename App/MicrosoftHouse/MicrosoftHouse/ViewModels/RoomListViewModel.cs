@@ -16,13 +16,13 @@ namespace MicrosoftHouse
 
         public RoomListViewModel()
         {
-            // Cloud Variables
-
-
+            ChangeAvailabilityLabelText();
+            
             RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
             NewReservationCommand = new Command(async () => await ExecuteNewReservationCommand());
 
             RefreshList();
+            
         }
 
 
@@ -82,8 +82,27 @@ namespace MicrosoftHouse
             set { SetProperty(ref displayedRooms, value, "DisplayedRooms"); }
         }
 
-        string searchArgument = "";
-        public string SearchArgument
+        string availabilityLabelText = "";
+        public string AvailabilityLabelText
+        {
+            get { return availabilityLabelText; }
+            set { SetProperty(ref availabilityLabelText, value, "AvailabilityLabelText"); }
+        }
+
+
+        bool isAvailable = true;
+        public bool IsAvailable
+        {
+            get { return isAvailable; }
+            set
+            {
+                SetProperty(ref isAvailable, value, "IsAvailable");
+                ChangeAvailabilityLabelText();
+            }
+        }
+
+        String searchArgument = "";
+        public String SearchArgument
         {
             get { return searchArgument; }
             set
@@ -138,5 +157,18 @@ namespace MicrosoftHouse
             }
         }
 
+
+        void ChangeAvailabilityLabelText()
+        {
+            if (IsAvailable)
+            {
+                AvailabilityLabelText = "Available Now";
+            }
+            else
+            {
+                availabilityLabelText = "Reserved by/n prova";
+            }
+                
+        }
     }
 }

@@ -58,7 +58,7 @@
         </StackLayout>
         <ListView x:Name="displayedRooms"
 			    ItemsSource="{Binding DisplayedRooms, Mode=TwoWay}"
-	            RowHeight="100"
+	            RowHeight="85"
 			    SeparatorVisibility="None"
 	            SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
 	            CachingStrategy="RecycleElement"
@@ -69,44 +69,54 @@
                 <DataTemplate>
                     <ViewCell x:Name="item">
                         <StackLayout>
-                            <StackLayout HorizontalOptions="FillAndExpand"
+                            <StackLayout 
 	                           Orientation="Horizontal"
-	                           Padding="30,0,30,0"
-	                           VerticalOptions="End">
-                                <StackLayout Orientation="Vertical"
-								 HorizontalOptions="Start"
-								 VerticalOptions="StartAndExpand"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand"
+	                           Padding="30,0,30,0" >
+                                    <StackLayout Orientation="Vertical"
+								 HorizontalOptions="StartAndExpand"
+								 VerticalOptions="FillAndExpand"
 								 Spacing="0"
 								 Padding="0,5,0,0">
-                                    <Button BackgroundColor="Green"
-									HeightRequest="15"
-									WidthRequest="15"
-									IsEnabled="false"
-									BorderRadius="8"/>
+                                        <Label
+						                FontSize="Medium"
+						                FontFamily="Avenir"
+	                                    Text="{Binding Path=Name}"
+	                                    TextColor="#272832" />
+                                        <Label
+	                                    Text="{Binding Path=Floor, StringFormat='Floor {0}'}"
+	                                    TextColor="#272832"
+						                Opacity="0.5"
+						                FontFamily="Avenir"
+						                FontSize="Small"/>
+                                        <Label
+						                FontFamily="Avenir"
+	                                    Text="{Binding Path=Seats, StringFormat='Seats {0}'}"
+	                                    TextColor="#272832"
+						                FontSize="Medium"/>
                                 </StackLayout>
-                                <StackLayout Orientation="Vertical"
-								 HorizontalOptions="Center"
-								 VerticalOptions="Start"
-								 Padding="20,0,0,0"
-								 Spacing="0">
-                                    <Label
-						   FontSize="Medium"
-						   FontFamily="Avenir"
-	                       Text="{Binding Path=Name}"
-	                       TextColor="#272832" />
-                                    <Label
-	                       Text="{Binding Path=Floor, StringFormat='Floor {0}'}"
-	                       TextColor="#272832"
-						   Opacity="0.5"
-						   FontFamily="Avenir"
-						   FontSize="Small"/>
-                                    <Label
-						   FontFamily="Avenir"
-	                       Text="{Binding Path=Seats, StringFormat='Seats {0}'}"
-	                       TextColor="#272832"
-						   FontSize="Medium"/>
+                                    <StackLayout Orientation="Vertical"
+								            HorizontalOptions="End"
+								            VerticalOptions="FillAndExpand"
+								            Padding="0,0,0,0"
+								            Spacing="0">
+                                        <Label Text="{Binding AvailabilityLabelText}"
+						                FontSize="Small"
+						                FontFamily="Avenir"    
+	                                    TextColor="#272832" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal"
+								            HorizontalOptions="End"
+								            VerticalOptions="FillAndExpand"
+								            Padding="0,0,0,0"
+								            Spacing="0">
+                                            <BoxView BackgroundColor="Green"
+                                                     VerticalOptions="CenterAndExpand"
+                                                     HorizontalOptions="End"
+									                WidthRequest="8"/>
+                                    </StackLayout>
                                 </StackLayout>
-                            </StackLayout>
                             <BoxView Color="Black"
 							Opacity="0.05"
 							HeightRequest="1"/>
