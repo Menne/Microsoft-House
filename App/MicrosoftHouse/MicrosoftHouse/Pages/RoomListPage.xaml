@@ -7,7 +7,7 @@
 		<!--	 Icon="AllRoomsIcon.png"  -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="New Reservation"
-            Command="{Binding NewReservationCommand}">
+                    Command="{Binding NewReservationCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
                             iOS="Plus.png"
@@ -58,68 +58,74 @@
         </StackLayout>
         <ListView x:Name="displayedRooms"
 			    ItemsSource="{Binding DisplayedRooms, Mode=TwoWay}"
-	            RowHeight="85"
-			    SeparatorVisibility="None"
+	            SeparatorVisibility="None"
 	            SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
 	            CachingStrategy="RecycleElement"
 			    RefreshCommand="{Binding RefreshCommand}"
 			    IsPullToRefreshEnabled="True"
 	            IsRefreshing="{Binding IsBusy, Mode=OneWay}">
-            <ListView.ItemTemplate>
+                <ListView.RowHeight>
+                    <OnPlatform x:TypeArguments="x:Int32"
+                                iOS="100"
+                                Android="85"
+                                WinPhone="80" />
+                </ListView.RowHeight>
+                <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell x:Name="item">
-                        <StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="FillAndExpand">
                             <StackLayout 
 	                           Orientation="Horizontal"
                                HorizontalOptions="FillAndExpand"
                                VerticalOptions="FillAndExpand"
 	                           Padding="30,0,30,0" >
-                                    <StackLayout Orientation="Vertical"
-								 HorizontalOptions="StartAndExpand"
-								 VerticalOptions="FillAndExpand"
-								 Spacing="0"
-								 Padding="0,5,0,0">
+                               <StackLayout Orientation="Vertical"
+								    HorizontalOptions="FillAndExpand"
+								    VerticalOptions="FillAndExpand"
+								    Spacing="0"
+								    Padding="0,5,0,5">
                                         <Label
-						                FontSize="Medium"
-						                FontFamily="Avenir"
-	                                    Text="{Binding Path=Name}"
-	                                    TextColor="#272832" />
+						                    FontSize="Medium"
+						                    FontFamily="Avenir"
+	                                        Text="{Binding Path=Name}"
+	                                        TextColor="#272832" />
                                         <Label
-	                                    Text="{Binding Path=Floor, StringFormat='Floor {0}'}"
-	                                    TextColor="#272832"
-						                Opacity="0.5"
-						                FontFamily="Avenir"
-						                FontSize="Small"/>
+	                                        Text="{Binding Path=Floor, StringFormat='Floor {0}'}"
+                                            FontSize="Small"
+	                                        TextColor="#272832"
+						                    Opacity="0.5"
+						                    FontFamily="Avenir"/>
                                         <Label
-						                FontFamily="Avenir"
-	                                    Text="{Binding Path=Seats, StringFormat='Seats {0}'}"
-	                                    TextColor="#272832"
-						                FontSize="Medium"/>
-                                </StackLayout>
-                                    <StackLayout Orientation="Vertical"
-								            HorizontalOptions="End"
-								            VerticalOptions="FillAndExpand"
-								            Padding="0,0,0,0"
-								            Spacing="0">
-                                        <Label Text="{Binding AvailabilityLabelText}"
-						                FontSize="Small"
-						                FontFamily="Avenir"    
-	                                    TextColor="#272832" />
+						                    FontFamily="Avenir"
+	                                        Text="{Binding Path=Seats, StringFormat='Seats {0}'}"
+	                                        TextColor="#272832"
+						                    FontSize="Medium"/>
                                     </StackLayout>
+                                    
                                     <StackLayout Orientation="Horizontal"
 								            HorizontalOptions="End"
 								            VerticalOptions="FillAndExpand"
-								            Padding="0,0,0,0"
 								            Spacing="0">
-                                            <BoxView BackgroundColor="Green"
-                                                     VerticalOptions="CenterAndExpand"
-                                                     HorizontalOptions="End"
+                                        <StackLayout Padding="10,5,10,5">
+                                            <Label Text="Available now"
+                                               HorizontalOptions="End"
+                                               VerticalOptions="CenterAndExpand"
+						                       FontSize="Small"
+						                       FontFamily="Avenir"
+	                                           TextColor="#272832"
+                                               Opacity="0.5"/>
+                                        </StackLayout>
+                                        <BoxView BackgroundColor="Green"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    HorizontalOptions="End"
+                                                    HeightRequest="50"
 									                WidthRequest="8"/>
                                     </StackLayout>
                                 </StackLayout>
                             <BoxView Color="Black"
-							Opacity="0.05"
-							HeightRequest="1"/>
+							        Opacity="0.05"
+							        HeightRequest="1"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

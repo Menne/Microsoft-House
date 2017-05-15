@@ -82,11 +82,11 @@ namespace MicrosoftHouse
             set { SetProperty(ref displayedRooms, value, "DisplayedRooms"); }
         }
 
-        string availabilityLabelText = "";
-        public string AvailabilityLabelText
+        String availabilityText="prova";
+        public String AvailabilityText
         {
-            get { return availabilityLabelText; }
-            set { SetProperty(ref availabilityLabelText, value, "AvailabilityLabelText"); }
+            get { return availabilityText; }
+            set { SetProperty(ref availabilityText, value, "AvailabilityText"); }
         }
 
 
@@ -162,11 +162,11 @@ namespace MicrosoftHouse
         {
             if (IsAvailable)
             {
-                AvailabilityLabelText = "Available Now";
+                AvailabilityText = "Available Now";
             }
             else
             {
-                availabilityLabelText = "Reserved by/n prova";
+                AvailabilityText = "Reserved by/n prova";
             }
                 
         }
