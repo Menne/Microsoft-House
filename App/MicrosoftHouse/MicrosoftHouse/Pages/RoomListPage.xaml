@@ -66,9 +66,9 @@
 	            IsRefreshing="{Binding IsBusy, Mode=OneWay}">
                 <ListView.RowHeight>
                     <OnPlatform x:TypeArguments="x:Int32"
-                                iOS="100"
-                                Android="85"
-                                WinPhone="80" />
+                                iOS="80"
+                                Android="60"
+                                WinPhone="70" />
                 </ListView.RowHeight>
                 <ListView.ItemTemplate>
                 <DataTemplate>
@@ -89,18 +89,21 @@
 						                    FontSize="Medium"
 						                    FontFamily="Avenir"
 	                                        Text="{Binding Path=Name}"
-	                                        TextColor="#272832" />
-                                        <Label
-	                                        Text="{Binding Path=Floor, StringFormat='Floor {0}'}"
-                                            FontSize="Small"
-	                                        TextColor="#272832"
-						                    Opacity="0.5"
-						                    FontFamily="Avenir"/>
-                                        <Label
-						                    FontFamily="Avenir"
-	                                        Text="{Binding Path=Seats, StringFormat='Seats {0}'}"
-	                                        TextColor="#272832"
-						                    FontSize="Medium"/>
+	                                        TextColor="Black" />
+                                        <StackLayout Orientation="Horizontal"
+                                                     HorizontalOptions="FillAndExpand"
+                                                     VerticalOptions="FillAndExpand">
+                                            <Label
+	                                            Text="{Binding Path=Floor, StringFormat='Floor {0} -'}"
+                                                FontSize="Small"
+	                                            TextColor="DarkGray"
+						                        FontFamily="Avenir"/>
+                                            <Label
+						                        FontFamily="Avenir"
+	                                            Text="{Binding Path=Seats, StringFormat='{0} Seats'}"
+	                                            TextColor="DarkGray"
+						                        FontSize="Small"/>
+                                        </StackLayout>
                                     </StackLayout>
                                     
                                     <StackLayout Orientation="Horizontal"
@@ -113,13 +116,12 @@
                                                VerticalOptions="CenterAndExpand"
 						                       FontSize="Small"
 						                       FontFamily="Avenir"
-	                                           TextColor="#272832"
-                                               Opacity="0.5"/>
+	                                           TextColor="DarkGray"/>
                                         </StackLayout>
                                         <BoxView BackgroundColor="Green"
                                                     VerticalOptions="CenterAndExpand"
                                                     HorizontalOptions="End"
-                                                    HeightRequest="50"
+                                                    HeightRequest="45"
 									                WidthRequest="8"/>
                                     </StackLayout>
                                 </StackLayout>

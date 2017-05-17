@@ -19,16 +19,22 @@
     <ContentPage.Content>
         <ListView 
 					ItemsSource="{Binding Reservations, Mode=TwoWay}"
-	                RowHeight="100"
-					SeparatorVisibility="None"
+	                SeparatorVisibility="None"
 	                CachingStrategy="RecycleElement"
 					RefreshCommand="{Binding RefreshCommand}"
 					IsPullToRefreshEnabled="True"
 	                IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+            <ListView.RowHeight>
+                <OnPlatform x:TypeArguments="x:Int32"
+                                iOS="100"
+                                Android="85"
+                                WinPhone="100" />
+            </ListView.RowHeight>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell x:Name="item">
-                        <StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="FillAndExpand">
                             <StackLayout HorizontalOptions="FillAndExpand"
 	                           Orientation="Horizontal"
 	                           Padding="30,0,30,0"
@@ -36,24 +42,33 @@
                                 <StackLayout Orientation="Vertical"
 								 HorizontalOptions="Center"
 								 VerticalOptions="Start"
-								 Padding="20,0,0,0"
+								 Padding="0,5,0,5"
 								 Spacing="0">
                                     <Label
 						   FontSize="Medium"
 						   FontFamily="Avenir"
 	                       Text="{Binding Path=RoomName}"
-	                       TextColor="#272832" />
-                                    <Label
-	                       Text="{Binding Path=StartingTime}"
-	                       TextColor="#272832"
-						   Opacity="0.5"
-						   FontFamily="Avenir"
-						   FontSize="Small"/>
-                                    <Label
-						   FontFamily="Avenir"
-	                       Text="{Binding Path=EndingTime}"
-	                       TextColor="#272832"
-						   FontSize="Medium"/>
+	                       TextColor="Black" />
+                                    <StackLayout Orientation="Horizontal"
+								 HorizontalOptions="StartAndExpand"
+								 VerticalOptions="FillAndExpand"
+								 Spacing="0">
+                                        <Label
+	                                       Text="{Binding Path=Date, StringFormat='{}{0:MM/dd/yyyy} - '}"
+	                                       TextColor="DarkGray"
+						                   FontFamily="Avenir"
+						                   FontSize="Small"/>       
+                                        <Label
+	                                       Text="{Binding Path=StartingTime, StringFormat='From: {0} '}"
+	                                       TextColor="DarkGray"
+						                   FontFamily="Avenir"
+						                   FontSize="Small"/>
+                                        <Label
+						                   FontFamily="Avenir"
+	                                       Text="{Binding Path=EndingTime, StringFormat='To {0}'}"
+	                                       TextColor="DarkGray"
+						                   FontSize="Small"/>
+                                    </StackLayout>
                                 </StackLayout>
                             </StackLayout>
                             <BoxView Color="Black"
