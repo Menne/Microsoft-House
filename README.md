@@ -9,10 +9,15 @@ Da implementare
 - Mandare le notifiche una volta che è stato creato un evento
 - Abilitare/disabilitare le notifiche nella schermata settings
 - Aggiungere metodo park now in CarParkViewModel, scalando il parcheggio ogni volta che si utilizza il qrcode
-- Mostrare le reservations
 - All'apertura del calendario il giorno corrente deve essere selezionato
 - Controllare se un utente è già loggato prima di mostrare la schermata di login
 - UWP renderers dei picker
+- Capire come mostrare la disponibilità delle stanze all'interno della listview (non si può cambiare l'itemsource)
+- Eliminare le reservations
+- Aggiungere degli alert dialogs
+- Aggiustare la schermata new event (titolo e descrizione dell'evento)
+- Aggiustare la schermata new reservation
+- Aggiustare la schermata dettagli room (labels in alto e lista reservations)
 
 Bug
 - Problemi con SyncOfflineCacheAsync()
