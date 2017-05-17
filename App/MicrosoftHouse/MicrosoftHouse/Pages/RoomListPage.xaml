@@ -73,12 +73,13 @@
                 <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell x:Name="item">
-                        <StackLayout VerticalOptions="FillAndExpand"
-                                     HorizontalOptions="FillAndExpand">
+                        <StackLayout VerticalOptions="CenterAndExpand"
+                                     HorizontalOptions="FillAndExpand"
+                                     Spacing="3">
                             <StackLayout 
 	                           Orientation="Horizontal"
                                HorizontalOptions="FillAndExpand"
-                               VerticalOptions="FillAndExpand"
+                               VerticalOptions="CenterAndExpand"
 	                           Padding="30,0,30,0" >
                                <StackLayout Orientation="Vertical"
 								    HorizontalOptions="FillAndExpand"
@@ -92,7 +93,8 @@
 	                                        TextColor="Black" />
                                         <StackLayout Orientation="Horizontal"
                                                      HorizontalOptions="FillAndExpand"
-                                                     VerticalOptions="FillAndExpand">
+                                                     VerticalOptions="FillAndExpand"
+                                                     Spacing="0">
                                             <Label
 	                                            Text="{Binding Path=Floor, StringFormat='Floor {0} -'}"
                                                 FontSize="Small"
@@ -100,29 +102,26 @@
 						                        FontFamily="Avenir"/>
                                             <Label
 						                        FontFamily="Avenir"
-	                                            Text="{Binding Path=Seats, StringFormat='{0} Seats'}"
+	                                            Text="{Binding Path=Seats, StringFormat=' {0} Seats'}"
 	                                            TextColor="DarkGray"
 						                        FontSize="Small"/>
                                         </StackLayout>
                                     </StackLayout>
-                                    
+
                                     <StackLayout Orientation="Horizontal"
 								            HorizontalOptions="End"
-								            VerticalOptions="FillAndExpand"
-								            Spacing="0">
-                                        <StackLayout Padding="10,5,10,5">
-                                            <Label Text="Available now"
+								            VerticalOptions="CenterAndExpand">
+                                        <Label Text="Available now"
                                                HorizontalOptions="End"
                                                VerticalOptions="CenterAndExpand"
 						                       FontSize="Small"
 						                       FontFamily="Avenir"
 	                                           TextColor="DarkGray"/>
-                                        </StackLayout>
                                         <BoxView BackgroundColor="Green"
-                                                    VerticalOptions="CenterAndExpand"
-                                                    HorizontalOptions="End"
-                                                    HeightRequest="45"
-									                WidthRequest="8"/>
+                                                VerticalOptions="CenterAndExpand"
+                                                HorizontalOptions="End"
+                                                HeightRequest="45"
+									            WidthRequest="8"/>
                                     </StackLayout>
                                 </StackLayout>
                             <BoxView Color="Black"

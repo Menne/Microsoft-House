@@ -26,9 +26,9 @@
 	                IsRefreshing="{Binding IsBusy, Mode=OneWay}">
             <ListView.RowHeight>
                 <OnPlatform x:TypeArguments="x:Int32"
-                                iOS="100"
-                                Android="85"
-                                WinPhone="100" />
+                                iOS="80"
+                                Android="60"
+                                WinPhone="70" />
             </ListView.RowHeight>
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -52,20 +52,20 @@
                                     <StackLayout Orientation="Horizontal"
 								 HorizontalOptions="StartAndExpand"
 								 VerticalOptions="FillAndExpand"
-								 Spacing="0">
+								 Spacing="3">
                                         <Label
-	                                       Text="{Binding Path=Date, StringFormat='{}{0:MM/dd/yyyy} - '}"
+	                                       Text="{Binding Path=Date, StringFormat='{0:MM/dd/yyyy} -'}"
 	                                       TextColor="DarkGray"
 						                   FontFamily="Avenir"
 						                   FontSize="Small"/>       
                                         <Label
-	                                       Text="{Binding Path=StartingTime, StringFormat='From: {0} '}"
+	                                       Text="{Binding Path=StartingTime, StringFormat=' From: {0:hh}'}"
 	                                       TextColor="DarkGray"
 						                   FontFamily="Avenir"
 						                   FontSize="Small"/>
                                         <Label
 						                   FontFamily="Avenir"
-	                                       Text="{Binding Path=EndingTime, StringFormat='To {0}'}"
+	                                       Text="{Binding Path=EndingTime, StringFormat=' To {0:hh}'}"
 	                                       TextColor="DarkGray"
 						                   FontSize="Small"/>
                                     </StackLayout>
