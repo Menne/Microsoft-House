@@ -31,33 +31,19 @@
 						 VerticalOptions="FillAndExpand">
 				<StackLayout Orientation="Vertical" 
 								Padding="10"
-								HorizontalOptions="StartAndExpand">
+								HorizontalOptions="CenterAndExpand">
 					<Label FontSize="Large"
 							FontFamily="Avenir"
-							Text="{Binding Room.Seats}"
+							Text="{Binding Room.Floor}"
 							HorizontalOptions="Center"
 							TextColor="White"/>
 					<Label FontSize="Small"
 							FontFamily="Avenir"
-							Text="Seats"
+							Text="Floor"
 							HorizontalOptions="Center"
 							TextColor="White"/>
 				</StackLayout>
                 <StackLayout Orientation="Vertical"
-								Padding="10"
-								HorizontalOptions="CenterAndExpand">
-                    <Label FontSize="Large"
-							HorizontalOptions="Center"
-							FontFamily="Avenir"
-							Text="{Binding Room.Seats}"
-							TextColor="White"/>
-                    <Label FontSize="Small"
-							FontFamily="Avenir"
-							HorizontalOptions="Center"
-							Text="Seats"
-							TextColor="White"/>
-                </StackLayout>
-				<StackLayout Orientation="Vertical"
 								Padding="10"
 								HorizontalOptions="CenterAndExpand">
                     <Label FontSize="Large"
@@ -104,21 +90,21 @@
 						</BoxView>
 			</StackLayout>
 			<StackLayout Grid.Row="3"
-									Grid.Column="0"
-									Padding="30,10,30,10"
-									Orientation="Vertical">
+						Grid.Column="0"
+						Padding="30,10,30,10"
+						Orientation="Vertical">
 						<StackLayout Orientation="Horizontal">
-                    <local:CustomTimePicker x:Name="timePicker"
-										PlaceHolder="STARTING TIME"
-										TextColor="Black"
-										Font="Small"
-										HorizontalOptions="FillAndExpand"
-										VerticalOptions="Center"/>
+                    <local:CustomTimePicker x:Name="startingTimePicker"
+							PlaceHolder="STARTING TIME"
+							TextColor="Black"
+							Font="Small"
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="Center"/>
 						<Image Source="TimeIcon.png"
 								VerticalOptions="Center"
 								HorizontalOptions="Start">
 							<Image.GestureRecognizers>
-									<TapGestureRecognizer Tapped="OnTimePicker"/>
+								<TapGestureRecognizer Tapped="OnStartingTimePicker"/>
 							</Image.GestureRecognizers>
 						</Image>
 						</StackLayout>
@@ -134,35 +120,38 @@
 							</BoxView.IsVisible>
 						</BoxView>
 			</StackLayout>
-			<StackLayout Grid.Row="4"
-					Grid.Column="0"
-					Padding="30,10,30,0"
-					Orientation="Vertical">
-			<StackLayout Orientation="Horizontal">
-                    <local:CustomEntry Placeholder="PEOPLE"
-									Keyboard="Numeric"
-									HorizontalOptions="FillAndExpand"
-									VerticalOptions="Center"
-									Font="Small"
-									TextColor="Black"
-									FontFamily="Avenir"
-									PlaceholderTextColor="Black"/>
-						<Image Source="PeopleIcon.png"
-								VerticalOptions="Center"
-								HorizontalOptions="Start"/>
-						</StackLayout>
-						<BoxView Color="Black"
-									Opacity="0.05"
-									HeightRequest="1">
-							<BoxView.IsVisible>
-								<OnPlatform x:TypeArguments="x:Boolean">
-                					<OnPlatform.iOS>true</OnPlatform.iOS>
-               		 				<OnPlatform.Android>false</OnPlatform.Android>
-                                    <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
-                                </OnPlatform>
-							</BoxView.IsVisible>
-						</BoxView>
-			</StackLayout>
+            <StackLayout Grid.Row="4"
+						Grid.Column="0"
+						Padding="30,10,30,10"
+						Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <local:CustomTimePicker x:Name="endingTimePicker"
+							PlaceHolder="ENDING TIME"
+							TextColor="Black"
+							Font="Small"
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="Center"/>
+                    <Image Source="TimeIcon.png"
+							VerticalOptions="Center"
+							HorizontalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEndingTimePicker"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+                <BoxView Color="Black"
+						Opacity="0.05"
+						HeightRequest="1">
+                    <BoxView.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <OnPlatform.iOS>true</OnPlatform.iOS>
+                            <OnPlatform.Android>false</OnPlatform.Android>
+                            <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
+                        </OnPlatform>
+                    </BoxView.IsVisible>
+                </BoxView>
+            </StackLayout>
+            
 			<StackLayout Grid.Row="9"
 						Grid.Column="0">
 					<Button x:Name="searchButton"
