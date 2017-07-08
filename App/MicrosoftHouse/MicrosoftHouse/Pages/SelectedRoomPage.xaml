@@ -4,21 +4,16 @@
 				xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 				x:Class="MicrosoftHouse.SelectedRoomPage"
 				Title="{Binding Room.Name}">
-	<ContentPage.Content>
-		<Grid RowSpacing="0" BackgroundColor="White">
-				<Grid.RowDefinitions>
-					<!--<RowDefinition Height="*"/>-->
-					<RowDefinition Height="3*"/>
-					<RowDefinition Height="0.5*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="45"/>
-				</Grid.RowDefinitions>
+    <ContentPage.Content>
+        <Grid RowSpacing="0" BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
@@ -29,20 +24,20 @@
 						 Padding="30,10,30,10"
 						 HorizontalOptions="FillAndExpand"
 						 VerticalOptions="FillAndExpand">
-				<StackLayout Orientation="Vertical" 
+                <StackLayout Orientation="Vertical" 
 								Padding="10"
 								HorizontalOptions="CenterAndExpand">
-					<Label FontSize="Large"
+                    <Label FontSize="Large"
 							FontFamily="Avenir"
 							Text="{Binding Room.Floor}"
 							HorizontalOptions="Center"
 							TextColor="White"/>
-					<Label FontSize="Small"
+                    <Label FontSize="Small"
 							FontFamily="Avenir"
 							Text="Floor"
 							HorizontalOptions="Center"
 							TextColor="White"/>
-				</StackLayout>
+                </StackLayout>
                 <StackLayout Orientation="Vertical"
 								Padding="10"
 								HorizontalOptions="CenterAndExpand">
@@ -58,101 +53,168 @@
 							TextColor="White"/>
                 </StackLayout>
             </StackLayout>
-			<StackLayout Grid.Row="2"
+
+            <StackLayout HorizontalOptions="FillAndExpand"
+						 VerticalOptions="FillAndExpand"
+                         Grid.Row="2"
+						 Grid.Column="0"
+                         Padding="30,0,30,0">
+                <Label
+	                Text="List of reservations"
+	                TextColor="Black"
+					FontFamily="Avenir"
+					FontSize="Medium"/>
+                <ListView ItemsSource="{Binding ReservationsOfSelectedRoom, Mode=TwoWay}"
+                          RowHeight="100"
+						  SeparatorVisibility="None"
+                   		  CachingStrategy="RecycleElement"
+                          IsPullToRefreshEnabled="True"
+						  RefreshCommand="{Binding RefreshCommand}">
+                    <ListView.RowHeight>
+                        <OnPlatform x:TypeArguments="x:Int32"
+                                iOS="40"
+                                Android="30"
+                                WinPhone="35" />
+                    </ListView.RowHeight>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell x:Name="item">
+                                <StackLayout VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="FillAndExpand">
+                                    <StackLayout HorizontalOptions="FillAndExpand"
+	                           Orientation="Horizontal"
+	                           Padding="5,0,5,0"
+	                           VerticalOptions="CenterAndExpand">
+
+                                        <StackLayout Orientation="Horizontal"
+								 HorizontalOptions="StartAndExpand"
+								 VerticalOptions="FillAndExpand"
+								 Spacing="3">
+                                            <Label
+	                                       Text="{Binding Path=Date, StringFormat='{0:MM/dd/yyyy} -'}"
+	                                       TextColor="DarkGray"
+						                   FontFamily="Avenir"
+						                   FontSize="Small"/>
+                                            <Label
+	                                       Text="{Binding Path=StartingTime, StringFormat=' From: {0:hh}'}"
+	                                       TextColor="DarkGray"
+						                   FontFamily="Avenir"
+						                   FontSize="Small"/>
+                                            <Label
+						                   FontFamily="Avenir"
+	                                       Text="{Binding Path=EndingTime, StringFormat=' To {0:hh}'}"
+	                                       TextColor="DarkGray"
+						                   FontSize="Small"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <BoxView Color="Black"
+							Opacity="0.05"
+							HeightRequest="1"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout Grid.Row="3"
 							Grid.Column="0"
 							Padding="30,10,30,10"
 							Orientation="Vertical">
-						<StackLayout Orientation="Horizontal">
-                    <local:CustomDatePicker x:Name="datePicker"
+                <Label
+	                Text="Reserve this room"
+	                TextColor="Black"
+					FontFamily="Avenir"
+					FontSize="Medium"/>
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+                        <local:CustomDatePicker x:Name="datePicker"
 										PlaceHolder="DATE"
 										TextColor="Black"
 										Font="Small"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"/>
-						<Image Source="CalendarIcon.png"
+                        <Image Source="CalendarIcon.png"
 								VerticalOptions="Center"
 								HorizontalOptions="Start">
-							<Image.GestureRecognizers>
-									<TapGestureRecognizer Tapped="OnDatePicker"/>
-							</Image.GestureRecognizers>
-						</Image>
-						</StackLayout>
-						<BoxView Color="Black"
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnDatePicker"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <BoxView Color="Black"
 									Opacity="0.05"
 									HeightRequest="1">
-							<BoxView.IsVisible>
-								<OnPlatform x:TypeArguments="x:Boolean">
-                					<OnPlatform.iOS>true</OnPlatform.iOS>
-               		 				<OnPlatform.Android>false</OnPlatform.Android>
-                                    <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
-                                </OnPlatform>
-							</BoxView.IsVisible>
-						</BoxView>
-			</StackLayout>
-			<StackLayout Grid.Row="3"
-						Grid.Column="0"
-						Padding="30,10,30,10"
-						Orientation="Vertical">
-						<StackLayout Orientation="Horizontal">
-                    <local:CustomTimePicker x:Name="startingTimePicker"
+                        <BoxView.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <OnPlatform.iOS>true</OnPlatform.iOS>
+                                <OnPlatform.Android>false</OnPlatform.Android>
+                                <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
+                            </OnPlatform>
+                        </BoxView.IsVisible>
+                    </BoxView>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+                        <local:CustomTimePicker x:Name="startingTimePicker"
 							PlaceHolder="STARTING TIME"
 							TextColor="Black"
 							Font="Small"
 							HorizontalOptions="FillAndExpand"
 							VerticalOptions="Center"/>
-						<Image Source="TimeIcon.png"
+                        <Image Source="TimeIcon.png"
 								VerticalOptions="Center"
 								HorizontalOptions="Start">
-							<Image.GestureRecognizers>
-								<TapGestureRecognizer Tapped="OnStartingTimePicker"/>
-							</Image.GestureRecognizers>
-						</Image>
-						</StackLayout>
-						<BoxView Color="Black"
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnStartingTimePicker"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <BoxView Color="Black"
 									Opacity="0.05"
 									HeightRequest="1">
-							<BoxView.IsVisible>
-								<OnPlatform x:TypeArguments="x:Boolean">
-                					<OnPlatform.iOS>true</OnPlatform.iOS>
-               		 				<OnPlatform.Android>false</OnPlatform.Android>
-                                    <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
-                                </OnPlatform>
-							</BoxView.IsVisible>
-						</BoxView>
-			</StackLayout>
-            <StackLayout Grid.Row="4"
-						Grid.Column="0"
-						Padding="30,10,30,10"
-						Orientation="Vertical">
-                <StackLayout Orientation="Horizontal">
-                    <local:CustomTimePicker x:Name="endingTimePicker"
+                        <BoxView.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <OnPlatform.iOS>true</OnPlatform.iOS>
+                                <OnPlatform.Android>false</OnPlatform.Android>
+                                <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
+                            </OnPlatform>
+                        </BoxView.IsVisible>
+                    </BoxView>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+                        <local:CustomTimePicker x:Name="endingTimePicker"
 							PlaceHolder="ENDING TIME"
 							TextColor="Black"
 							Font="Small"
 							HorizontalOptions="FillAndExpand"
 							VerticalOptions="Center"/>
-                    <Image Source="TimeIcon.png"
+                        <Image Source="TimeIcon.png"
 							VerticalOptions="Center"
 							HorizontalOptions="Start">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnEndingTimePicker"/>
-                        </Image.GestureRecognizers>
-                    </Image>
-                </StackLayout>
-                <BoxView Color="Black"
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnEndingTimePicker"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <BoxView Color="Black"
 						Opacity="0.05"
 						HeightRequest="1">
-                    <BoxView.IsVisible>
-                        <OnPlatform x:TypeArguments="x:Boolean">
-                            <OnPlatform.iOS>true</OnPlatform.iOS>
-                            <OnPlatform.Android>false</OnPlatform.Android>
-                            <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
-                        </OnPlatform>
-                    </BoxView.IsVisible>
-                </BoxView>
+                        <BoxView.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <OnPlatform.iOS>true</OnPlatform.iOS>
+                                <OnPlatform.Android>false</OnPlatform.Android>
+                                <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
+                            </OnPlatform>
+                        </BoxView.IsVisible>
+                    </BoxView>
+                </StackLayout>
             </StackLayout>
-            
-			<StackLayout Grid.Row="9"
+
+            <StackLayout Grid.Row="5"
 						Grid.Column="0">
 					<Button x:Name="searchButton"
 						HorizontalOptions="FillAndExpand"

@@ -22,27 +22,9 @@
                     <RowDefinition Height="1.25*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-        <!--        <local:Calendar x:Name="calendarProva"
-							BackgroundColor="#FF4A3764"
-							MonthNavigationShow="true"
-							DatesBackgroundColor="#FF4A3764"
-							NumberOfWeekTextColor="White"
-							DatesTextColor="White"
-							DatesBackgroundColorOutsideMonth="#FF4A3764"
-							TitleLabelFontFamily="Avenir"
-                            SelectedBorderColor="White"
-                            SelectedBorderWidth="1"
-                            BorderColor="Transparent"
-                            DatesTextColorOutsideMonth="Gray"
-                            ShowNumberOfWeek="false"
-                            StartDay="Monday"
-                            SelectedDate="{Binding Date, Mode=TwoWay}"
-                            Grid.Row="0"
-							Grid.Column="0">
-                </local:Calendar>  -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <controls:Calendar x:Name="calendar"
                 Padding="20,0,20,10"
                 VerticalOptions="CenterAndExpand" 
