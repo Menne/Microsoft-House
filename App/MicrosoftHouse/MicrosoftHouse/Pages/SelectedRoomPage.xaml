@@ -7,12 +7,12 @@
     <ContentPage.Content>
         <Grid RowSpacing="0" BackgroundColor="White">
             <Grid.RowDefinitions>
-                <RowDefinition Height="2.5*"/>
-                <RowDefinition Height="0.5*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="0.1*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.3*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -54,73 +54,12 @@
                 </StackLayout>
             </StackLayout>
 
-            <StackLayout HorizontalOptions="FillAndExpand"
-						 VerticalOptions="FillAndExpand"
-                         Grid.Row="2"
-						 Grid.Column="0"
-                         Padding="30,0,30,0">
-                <Label
-	                Text="List of reservations"
-	                TextColor="Black"
-					FontFamily="Avenir"
-					FontSize="Medium"/>
-                <ListView ItemsSource="{Binding ReservationsOfSelectedRoom, Mode=TwoWay}"
-                          RowHeight="100"
-						  SeparatorVisibility="None"
-                   		  CachingStrategy="RecycleElement"
-                          IsPullToRefreshEnabled="True"
-						  RefreshCommand="{Binding RefreshCommand}">
-                    <ListView.RowHeight>
-                        <OnPlatform x:TypeArguments="x:Int32"
-                                iOS="40"
-                                Android="30"
-                                WinPhone="35" />
-                    </ListView.RowHeight>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell x:Name="item">
-                                <StackLayout VerticalOptions="FillAndExpand"
-                                     HorizontalOptions="FillAndExpand">
-                                    <StackLayout HorizontalOptions="FillAndExpand"
-	                           Orientation="Horizontal"
-	                           Padding="5,0,5,0"
-	                           VerticalOptions="CenterAndExpand">
-
-                                        <StackLayout Orientation="Horizontal"
-								 HorizontalOptions="StartAndExpand"
-								 VerticalOptions="FillAndExpand"
-								 Spacing="3">
-                                            <Label
-	                                       Text="{Binding Path=Date, StringFormat='{0:MM/dd/yyyy} -'}"
-	                                       TextColor="DarkGray"
-						                   FontFamily="Avenir"
-						                   FontSize="Small"/>
-                                            <Label
-	                                       Text="{Binding Path=StartingTime, StringFormat=' From: {0:hh}'}"
-	                                       TextColor="DarkGray"
-						                   FontFamily="Avenir"
-						                   FontSize="Small"/>
-                                            <Label
-						                   FontFamily="Avenir"
-	                                       Text="{Binding Path=EndingTime, StringFormat=' To {0:hh}'}"
-	                                       TextColor="DarkGray"
-						                   FontSize="Small"/>
-                                        </StackLayout>
-                                    </StackLayout>
-                                    <BoxView Color="Black"
-							Opacity="0.05"
-							HeightRequest="1"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-
-            <StackLayout Grid.Row="3"
-							Grid.Column="0"
-							Padding="30,10,30,10"
-							Orientation="Vertical">
+            <StackLayout VerticalOptions="StartAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                        Grid.Row="2"
+						Grid.Column="0"
+						Padding="30,10,30,10"
+						Orientation="Vertical" >
                 <Label
 	                Text="Reserve this room"
 	                TextColor="Black"
@@ -212,6 +151,69 @@
                         </BoxView.IsVisible>
                     </BoxView>
                 </StackLayout>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="FillAndExpand"
+						 VerticalOptions="EndAndExpand"
+                         Grid.Row="3"
+						 Grid.Column="0"
+                         Padding="30,0,30,0">
+                <Label
+	                Text="List of reservations"
+	                TextColor="Black"
+					FontFamily="Avenir"
+					FontSize="Medium"/>
+                <ListView ItemsSource="{Binding ReservationsOfSelectedRoom, Mode=TwoWay}"
+                          RowHeight="100"
+						  SeparatorVisibility="None"
+                   		  CachingStrategy="RecycleElement"
+                          IsPullToRefreshEnabled="True"
+						  RefreshCommand="{Binding RefreshCommand}">
+                    <ListView.RowHeight>
+                        <OnPlatform x:TypeArguments="x:Int32"
+                                iOS="40"
+                                Android="30"
+                                WinPhone="35" />
+                    </ListView.RowHeight>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell x:Name="item">
+                                <StackLayout VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="FillAndExpand">
+                                    <StackLayout HorizontalOptions="FillAndExpand"
+	                           Orientation="Horizontal"
+	                           Padding="5,0,5,0"
+	                           VerticalOptions="CenterAndExpand">
+
+                                        <StackLayout Orientation="Horizontal"
+								 HorizontalOptions="StartAndExpand"
+								 VerticalOptions="FillAndExpand"
+								 Spacing="3">
+                                            <Label
+	                                       Text="{Binding Path=Date, StringFormat='{0:MM/dd/yyyy} -'}"
+	                                       TextColor="DarkGray"
+						                   FontFamily="Avenir"
+						                   FontSize="Small"/>
+                                            <Label
+	                                       Text="{Binding Path=StartingTime, StringFormat=' From: {0:hh}'}"
+	                                       TextColor="DarkGray"
+						                   FontFamily="Avenir"
+						                   FontSize="Small"/>
+                                            <Label
+						                   FontFamily="Avenir"
+	                                       Text="{Binding Path=EndingTime, StringFormat=' To {0:hh}'}"
+	                                       TextColor="DarkGray"
+						                   FontSize="Small"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <BoxView Color="Black"
+							Opacity="0.05"
+							HeightRequest="1"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
 
             <StackLayout Grid.Row="5"
