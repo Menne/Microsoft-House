@@ -60,9 +60,8 @@
             </controls:Calendar>
                 
                 <ListView ItemsSource="{Binding EventsOfSelectedDay, Mode=TwoWay}"
-                          RowHeight="100"
-						  SelectedItem="{Binding SelectedEvent, Mode=TwoWay}"
-						  SeparatorVisibility="None"
+                          SeparatorVisibility="None"
+                          SelectedItem="{Binding SelectedEvent, Mode=TwoWay}"  
                           Grid.Row="1"
 						  Grid.Column="0"
                    		  CachingStrategy="RecycleElement"

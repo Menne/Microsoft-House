@@ -14,8 +14,8 @@ namespace MicrosoftHouse
 
         public void OnDelete(object sender, EventArgs e)
         {
-            var mi = ((MenuItem)sender);
-            DisplayAlert("Are you sure?", mi.CommandParameter + " will be deleted", "OK");
+            var mi = ((MenuItem)sender); //potrebbe servire
+            DisplayAlert("Are you sure?", "This event will be deleted, and will disappear from everybody's calendar!", "OK");
         }
 
     }

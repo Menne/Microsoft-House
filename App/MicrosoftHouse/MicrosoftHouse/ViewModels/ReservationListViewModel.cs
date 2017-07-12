@@ -19,6 +19,7 @@ namespace MicrosoftHouse
 
             RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
             NewReservationCommand = new Command(async () => await ExecuteNewReservationCommand());
+            DeleteReservationCommand = new Command(async () => await ExecuteDeleteReservationCommand());
 
             RefreshList();
 
@@ -27,6 +28,7 @@ namespace MicrosoftHouse
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
         public Command RefreshCommand { get; }
         public Command NewReservationCommand { get; }
+        public Command DeleteReservationCommand { get; }
 
         async Task RefreshList()
         {
@@ -73,21 +75,11 @@ namespace MicrosoftHouse
         }
 
 
-        Room selectedRoom;
-        public Room SelectedRoom
+        Reservation selectedReservation;
+        public Reservation SelectedReservation
         {
-            get { return selectedRoom; }
-            set
-            {
-                SetProperty(ref selectedRoom, value, "SelectedRoom");
-                if (selectedRoom != null)
-                {
-
-                    (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SelectedRoomPage(selectedRoom));
-                    SelectedRoom = null;
-                    
-                }
-            }
+            get { return selectedReservation; }
+            set { SetProperty(ref selectedReservation, value, "SelectedReservation"); }
         }
 
 
@@ -95,6 +87,34 @@ namespace MicrosoftHouse
         async Task ExecuteNewReservationCommand()
         {
             await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewReservationPage());
+        }
+
+
+        async Task ExecuteDeleteReservationCommand()
+        {
+            if (IsBusy)
+                return;
+            IsBusy = true;
+
+            try
+            {
+                if (SelectedReservation.Id != null)
+                {
+                    var table = await CloudService.GetTableAsync<Reservation>();
+                    await table.DeleteEventAsync(SelectedReservation);
+                }
+
+                //MessagingCenter.Send<SelectedEventPageViewModel>(this, "ItemsChanged");
+                await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[TaskDetail] Save error: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
 

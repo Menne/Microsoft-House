@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.Pages.ReservationListPage"	 
+             x:Name="ReservationListPage"
              Title="Your Reservations">
     <!--  Icon="ReservationIcon.png" -->
     <ContentPage.ToolbarItems>
@@ -17,7 +18,7 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView 
+        <ListView x:Name="reservationListView"
 					ItemsSource="{Binding Reservations, Mode=TwoWay}"
 	                SeparatorVisibility="None"
 	                CachingStrategy="RecycleElement"
@@ -35,6 +36,7 @@
                     <ViewCell x:Name="item">
                         <ViewCell.ContextActions>
                             <MenuItem Clicked="OnDelete"
+                                      Command="{Binding Path=BindingContext.DeleteReservationCommand, Source={x:Reference Name=ReservationListPage}}"
                                       CommandParameter="{Binding .}"
                                       Text="Delete"
                                       IsDestructive="True" />

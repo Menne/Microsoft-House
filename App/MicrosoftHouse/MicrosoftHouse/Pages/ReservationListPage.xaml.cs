@@ -21,8 +21,8 @@ namespace MicrosoftHouse.Pages
 
         public void OnDelete(object sender, EventArgs e)
         {
-            var mi = ((MenuItem)sender);
-            DisplayAlert("Are you sure?", mi.CommandParameter + " will be deleted", "OK");
+            var mi = ((MenuItem)sender); //potrebbe servire
+            DisplayAlert("Are you sure?", "Your reservation for this room will be deleted", "OK");
         }
 
     }
