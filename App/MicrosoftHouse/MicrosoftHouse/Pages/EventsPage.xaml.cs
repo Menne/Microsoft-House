@@ -9,8 +9,13 @@ namespace MicrosoftHouse
         public EventsPage()
         {
             InitializeComponent();
-
             BindingContext = new EventsViewModel();
+        }
+
+        public void OnDelete(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            DisplayAlert("Are you sure?", mi.CommandParameter + " will be deleted", "OK");
         }
 
     }

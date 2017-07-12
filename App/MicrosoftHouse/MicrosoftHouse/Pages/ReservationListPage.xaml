@@ -33,6 +33,12 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell x:Name="item">
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="OnDelete"
+                                      CommandParameter="{Binding .}"
+                                      Text="Delete"
+                                      IsDestructive="True" />
+                        </ViewCell.ContextActions>
                         <StackLayout VerticalOptions="FillAndExpand"
                                      HorizontalOptions="FillAndExpand">
                             <StackLayout HorizontalOptions="FillAndExpand"
