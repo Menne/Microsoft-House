@@ -35,8 +35,7 @@
                 <DataTemplate>
                     <ViewCell x:Name="item">
                         <ViewCell.ContextActions>
-                            <MenuItem Clicked="OnDelete"
-                                      Command="{Binding Path=BindingContext.DeleteReservationCommand, Source={x:Reference Name=ReservationListPage}}"
+                            <MenuItem Command="{Binding Path=BindingContext.DeleteReservationCommand, Source={x:Reference Name=ReservationListPage}}"
                                       CommandParameter="{Binding .}"
                                       Text="Delete"
                                       IsDestructive="True" />

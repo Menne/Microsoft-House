@@ -19,11 +19,5 @@ namespace MicrosoftHouse.Pages
             BindingContext = new ReservationListViewModel();
         }
 
-        public void OnDelete(object sender, EventArgs e)
-        {
-            var mi = ((MenuItem)sender); //potrebbe servire
-            DisplayAlert("Are you sure?", "Your reservation for this room will be deleted", "OK");
-        }
-
     }
 }

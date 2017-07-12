@@ -19,7 +19,7 @@ namespace MicrosoftHouse
 
             RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
             NewReservationCommand = new Command(async () => await ExecuteNewReservationCommand());
-            DeleteReservationCommand = new Command(async () => await ExecuteDeleteReservationCommand());
+            DeleteReservationCommand = new Command(async reservation => await ExecuteDeleteReservationCommand((Reservation) reservation));
 
             RefreshList();
 
@@ -74,23 +74,13 @@ namespace MicrosoftHouse
             set { SetProperty(ref reservations, value, "Reservations"); }
         }
 
-
-        Reservation selectedReservation;
-        public Reservation SelectedReservation
-        {
-            get { return selectedReservation; }
-            set { SetProperty(ref selectedReservation, value, "SelectedReservation"); }
-        }
-
-
-
         async Task ExecuteNewReservationCommand()
         {
             await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewReservationPage());
         }
 
 
-        async Task ExecuteDeleteReservationCommand()
+        async Task ExecuteDeleteReservationCommand(Reservation reservation)
         {
             if (IsBusy)
                 return;
@@ -98,10 +88,10 @@ namespace MicrosoftHouse
 
             try
             {
-                if (SelectedReservation.Id != null)
+                if (reservation.Id != null)
                 {
                     var table = await CloudService.GetTableAsync<Reservation>();
-                    await table.DeleteEventAsync(SelectedReservation);
+                    await table.DeleteEventAsync(reservation);
                 }
 
                 //MessagingCenter.Send<SelectedEventPageViewModel>(this, "ItemsChanged");
@@ -116,7 +106,6 @@ namespace MicrosoftHouse
                 IsBusy = false;
             }
         }
-
 
     }
 }
