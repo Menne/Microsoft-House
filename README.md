@@ -19,9 +19,11 @@ Da implementare
 
 Bug
 - Problemi con SyncOfflineCacheAsync()
+- Problemi con MessagingCenter.Send(...)
 - In UWP le date del calendario si sovrappongono
 - Icone UWP sgranate
 - All'apertura del calendario il giorno corrente deve essere selezionato
+- Quando si creano/eliminano eventi il calendario non viene aggiornato subito
 
 Miglioramenti
 - Sostituire bottoni statistiche parcheggio con sottolineatura
