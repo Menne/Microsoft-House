@@ -178,7 +178,7 @@
                 <!--IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"-->
             </StackLayout>
 
-            <ListView ItemsSource="{Binding Rooms}"
+            <ListView ItemsSource="{Binding AvailableRooms}"
                     Grid.Row="7"
 			    	Grid.Column="0"
 					SeparatorVisibility="None"

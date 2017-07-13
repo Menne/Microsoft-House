@@ -123,11 +123,24 @@ namespace MicrosoftHouse
                 {
                     foreach (Reservation reservation in listOfReservation)
                     {
-                        if (!(reservation.RoomName.Equals(room.Name) || reservation.Date.Date.Equals(NewReservation.Date.Date)
-                            || TimeSpan.Compare(reservation.StartingTime, NewReservation.StartingTime)==1
-                            || TimeSpan.Compare(reservation.EndingTime, NewReservation.EndingTime)==-1))
+                        if (!(reservation.RoomName.Equals(room.Name)))
                         {
                             AvailableRooms.Add(room);
+                        }
+                        else
+                        {
+                            if (!(reservation.Date.Date.Equals(NewReservation.Date.Date)))
+                            {
+                                AvailableRooms.Add(room);
+                            }
+                            else
+                            {
+                                if (!(TimeSpan.Compare(reservation.StartingTime, NewReservation.StartingTime) == 1
+                                    || TimeSpan.Compare(reservation.EndingTime, NewReservation.EndingTime) == -1))
+                                {
+                                    AvailableRooms.Add(room);
+                                }
+                            }
                         }
                     }
                 }
