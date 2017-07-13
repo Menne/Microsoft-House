@@ -22,7 +22,7 @@ Bug
 - In UWP le date del calendario si sovrappongono
 - Icone UWP sgranate
 - All'apertura del calendario il giorno corrente deve essere selezionato
-- Quando si creano/eliminano eventi il calendario non viene aggiornato subito
+- Quando si fa PopAsync() la listview della pagina precedente non viene aggiornata (calendario e reservations)
 - Le stanze ci sono sempre due volte
 
 Miglioramenti
