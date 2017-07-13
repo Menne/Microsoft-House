@@ -13,7 +13,6 @@ Da implementare
 - Controllare se un utente è già loggato prima di mostrare la schermata di login
 - UWP renderers dei picker
 - Aggiustare la schermata new event (titolo e descrizione dell'evento)
-- Aggiustare la schermata new reservation
 - Aggiustare la schermata dettagli room (labels in alto e lista reservations)
 - Icone 2.0
 
@@ -24,6 +23,7 @@ Bug
 - Icone UWP sgranate
 - All'apertura del calendario il giorno corrente deve essere selezionato
 - Quando si creano/eliminano eventi il calendario non viene aggiornato subito
+- Le stanze ci sono sempre due volte
 
 Miglioramenti
 - Sostituire bottoni statistiche parcheggio con sottolineatura
