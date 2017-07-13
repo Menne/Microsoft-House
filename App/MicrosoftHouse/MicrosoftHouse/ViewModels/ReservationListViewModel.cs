@@ -33,10 +33,10 @@ namespace MicrosoftHouse
         async Task RefreshList()
         {
             await ExecuteRefreshCommand();
-            /*MessagingCenter.Subscribe<SelectedRoomViewModel>(this, "ItemsChanged", async (sender) =>
+            MessagingCenter.Subscribe<SelectedRoomViewModel>(this, "ItemsChanged", async (sender) =>
 			{
 				await ExecuteRefreshCommand();   
-			});*/
+			});
         }
 
         async Task ExecuteRefreshCommand()

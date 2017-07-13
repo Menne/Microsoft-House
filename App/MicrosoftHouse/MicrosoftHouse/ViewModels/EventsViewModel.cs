@@ -81,10 +81,14 @@ namespace MicrosoftHouse.ViewModels
         async Task RetrieveEvents()
         {
 			await ExecuteRefreshCommand();
-			/*MessagingCenter.Subscribe<NewEventViewModel>(this, "ItemsChanged", async (sender) =>
+			MessagingCenter.Subscribe<NewEventViewModel>(this, "ItemsChanged", async (sender) =>
 			{
 				await ExecuteRefreshCommand();   
-			});*/
+			});
+            MessagingCenter.Subscribe<SelectedEventViewModel>(this, "ItemsChanged", async (sender) =>
+            {
+                await ExecuteRefreshCommand();
+            });
         }
 
 		async Task ExecuteRefreshCommand()
