@@ -105,6 +105,7 @@ namespace MicrosoftHouse
             {
                 IsBusy = false;
             }
+            await ExecuteRefreshCommand();
         }
 
     }
