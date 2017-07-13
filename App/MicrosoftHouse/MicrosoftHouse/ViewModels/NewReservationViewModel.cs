@@ -112,39 +112,36 @@ namespace MicrosoftHouse
             try
             {
                 var reservationTable = await CloudService.GetTableAsync<Reservation>();
-                var listOfReservation = await reservationTable.ReadAllReservationsAsync();
+                var listOfReservations = await reservationTable.ReadAllReservationsAsync();
                 var roomTable = await CloudService.GetTableAsync<Room>();
                 var listOfRooms = await roomTable.ReadAllRoomsAsync();
 
                 AvailableRooms.Clear();
 
-                //insert all the rooms in the collection, then removes the ones which are arleady reserved
+                //inserts all the rooms in the collection, then removes the ones which are arleady reserved
                 foreach (Room room in listOfRooms)
                 {
-                    foreach (Reservation reservation in listOfReservation)
+                    AvailableRooms.Add(room);
+                    foreach (Reservation reservation in listOfReservations)
                     {
-                        if (!(reservation.RoomName.Equals(room.Name)))
+                        if (reservation.RoomName.Equals(room.Name))
                         {
-                            AvailableRooms.Add(room);
-                        }
-                        else
-                        {
-                            if (!(reservation.Date.Date.Equals(NewReservation.Date.Date)))
+                            if (reservation.Date.Date.Equals(NewReservation.Date.Date))
                             {
-                                AvailableRooms.Add(room);
-                            }
-                            else
-                            {
-                                if (!(TimeSpan.Compare(reservation.StartingTime, NewReservation.StartingTime) == 1
-                                    || TimeSpan.Compare(reservation.EndingTime, NewReservation.EndingTime) == -1))
+                                if ((TimeSpan.Compare(reservation.StartingTime, NewReservation.EndingTime) == -1
+                                    && TimeSpan.Compare(reservation.EndingTime, NewReservation.EndingTime) == 1) ||
+                                   (TimeSpan.Compare(reservation.StartingTime, NewReservation.StartingTime) == -1
+                                    && TimeSpan.Compare(reservation.EndingTime, NewReservation.StartingTime) == 1) ||
+                                   (TimeSpan.Compare(reservation.StartingTime, NewReservation.StartingTime) == 1
+                                    && TimeSpan.Compare(reservation.EndingTime, NewReservation.EndingTime) == -1))
                                 {
-                                    AvailableRooms.Add(room);
+                                    AvailableRooms.Remove(room);
+                                    break;
                                 }
                             }
                         }
                     }
                 }
-                Debug.WriteLine(availableRooms.Count());
             }
             catch (Exception ex)
             {
