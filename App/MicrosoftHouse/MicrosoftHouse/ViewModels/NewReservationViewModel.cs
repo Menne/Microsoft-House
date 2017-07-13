@@ -16,6 +16,7 @@ namespace MicrosoftHouse
 
         public NewReservationViewModel()
         {
+            //RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
             SearchAvailableRoomsCommand = new Command(async () => await ExecuteSearchAvailableRoomsCommand());
             NewReservationCommand = new Command(async () => await ExecuteNewReservationCommand());
 
@@ -24,27 +25,26 @@ namespace MicrosoftHouse
             NewReservation.StartingTime = DateTime.Now.TimeOfDay;
             NewReservation.EndingTime = DateTime.Now.TimeOfDay;
 
-            RefreshList();
+            //RefreshList();
+            AvailableRooms.Clear();
         }
 
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
 
+        public Command RefreshCommand { get; }
         public Command SearchAvailableRoomsCommand { get; }
         public Command NewReservationCommand { get; }
 
         async Task RefreshList()
         {
-            await ExecuteRefreshCommand();
+            //await ExecuteRefreshCommand();
             /*MessagingCenter.Subscribe<SelectedRoomViewModel>(this, "ItemsChanged", async (sender) =>
 			{
 				await ExecuteRefreshCommand();   
 			});*/
         }
 
-        Command refreshCmd;
-        public Command RefreshCommand => refreshCmd ?? (refreshCmd = new Command(async () => await ExecuteRefreshCommand()));
-
-        async Task ExecuteRefreshCommand()
+        /*async Task ExecuteRefreshCommand()
         {
             if (IsBusy)
                 return;
@@ -57,10 +57,10 @@ namespace MicrosoftHouse
                 var list = await table.ReadAllRoomsAsync();
 
                 // Rooms available now
-                Rooms.Clear();
+                AvailableRooms.Clear();
                 foreach (var room in list)
                 {
-                    Rooms.Add(room);
+                    AvailableRooms.Add(room);
                 }
 
             }
@@ -72,21 +72,14 @@ namespace MicrosoftHouse
             {
                 IsBusy = false;
             }
-        }
+        }*/
 
 
-        ObservableCollection<Room> rooms = new ObservableCollection<Room>();
-        public ObservableCollection<Room> Rooms
+        ObservableCollection<Room> availableRooms = new ObservableCollection<Room>();
+        public ObservableCollection<Room> AvailableRooms
         {
-            get { return rooms; }
-            set { SetProperty(ref rooms, value, "Rooms"); }
-        }
-
-        ObservableCollection<Reservation> allReservations = new ObservableCollection<Reservation>();
-        public ObservableCollection<Reservation> AllReservations
-        {
-            get { return allReservations; }
-            set { SetProperty(ref allReservations, value, "AllReservations"); }
+            get { return availableRooms; }
+            set { SetProperty(ref availableRooms, value, "AvailableRooms"); }
         }
 
         Reservation newReservation;
@@ -123,22 +116,22 @@ namespace MicrosoftHouse
                 var roomTable = await CloudService.GetTableAsync<Room>();
                 var listOfRooms = await roomTable.ReadAllRoomsAsync();
 
-                Rooms.Clear();
+                AvailableRooms.Clear();
 
                 //insert all the rooms in the collection, then removes the ones which are arleady reserved
                 foreach (Room room in listOfRooms)
                 {
-                    rooms.Add(room);
                     foreach (Reservation reservation in listOfReservation)
                     {
-                        if (reservation.RoomName.Equals(room.Name) && reservation.Date.Date.Equals(NewReservation.Date.Date)
-                            && TimeSpan.Compare(reservation.StartingTime, NewReservation.StartingTime)==1
-                            && TimeSpan.Compare(reservation.EndingTime, NewReservation.EndingTime)==-1)
+                        if (!(reservation.RoomName.Equals(room.Name) || reservation.Date.Date.Equals(NewReservation.Date.Date)
+                            || TimeSpan.Compare(reservation.StartingTime, NewReservation.StartingTime)==1
+                            || TimeSpan.Compare(reservation.EndingTime, NewReservation.EndingTime)==-1))
                         {
-                            Rooms.Remove(room);
+                            AvailableRooms.Add(room);
                         }
                     }
                 }
+                Debug.WriteLine(availableRooms.Count());
             }
             catch (Exception ex)
             {
@@ -148,6 +141,7 @@ namespace MicrosoftHouse
             {
                 IsBusy = false;
             }
+            //await ExecuteRefreshCommand();
         }
 
         async Task ExecuteNewReservationCommand()
@@ -162,7 +156,6 @@ namespace MicrosoftHouse
                 if (NewReservation.Id == null)
                 {
 
-                    Debug.WriteLine("Ciao");
                     // Get the identity
                     var identity = await CloudService.GetIdentityAsync();
                     if (identity != null)
@@ -181,7 +174,7 @@ namespace MicrosoftHouse
                     await reservationTable.UpdateReservationAsync(NewReservation);
                     //await CloudService.SyncOfflineCacheAsync();
                 }
-                MessagingCenter.Send<NewReservationViewModel>(this, "ItemsChanged");
+                //MessagingCenter.Send<NewReservationViewModel>(this, "ItemsChanged");
                 SelectedRoom = null;
                 await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
             }
@@ -193,6 +186,7 @@ namespace MicrosoftHouse
             {
                 IsBusy = false;
             }
+            //await ExecuteRefreshCommand();
         }
     }
 }
