@@ -59,26 +59,23 @@ namespace MicrosoftHouse
 				var tableEvent = await CloudService.GetTableAsync<Event>();
 				if (SelectedEvent.Id == null)
 				{
-
-					Debug.WriteLine("Ciao");
 					// Get the identity
 					var identity = await CloudService.GetIdentityAsync();
 					if (identity != null)
 					{
 						var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
-						Debug.WriteLine(name);
 						SelectedEvent.User = name;
 					}
 
 					await tableEvent.CreateEventAsynch(SelectedEvent);
-					await CloudService.SyncOfflineCacheAsync();
+					//await CloudService.SyncOfflineCacheAsync();
 				}
 				else
 				{
 					await tableEvent.UpdateEventAsync(SelectedEvent);
-					await CloudService.SyncOfflineCacheAsync();
+					//await CloudService.SyncOfflineCacheAsync();
 				}
-				MessagingCenter.Send<NewEventViewModel>(this, "ItemsChanged");
+				//MessagingCenter.Send<NewEventViewModel>(this, "ItemsChanged");
 				await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
 			}
 			catch (Exception ex)
