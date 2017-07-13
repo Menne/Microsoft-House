@@ -271,7 +271,7 @@
 					VerticalOptions="EndAndExpand"
 					HorizontalOptions="FillAndExpand"
                     Text="PARK NOW"
-                    TextColor="#ffffff"
+                    TextColor="White"
 					BorderRadius="0"
 					FontFamily="Avenir"/>
         </StackLayout>

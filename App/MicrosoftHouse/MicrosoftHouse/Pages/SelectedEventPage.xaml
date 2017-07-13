@@ -179,12 +179,12 @@
 									HeightRequest="1">
 						</BoxView>
 			</StackLayout>
-			<Button BackgroundColor="#FFBA77FF"
+            <Button BackgroundColor="#FF00BAFF"
 						VerticalOptions="FillAndExpand"
 						HorizontalOptions="FillAndExpand"
 						Text="DELETE"
 						FontFamily="Avenir"
-						TextColor="Red"
+						TextColor="White"
 						Grid.Row="9"
 						Grid.Column="0"
 						BorderRadius="0"

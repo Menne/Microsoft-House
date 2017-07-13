@@ -99,7 +99,7 @@
 						   FontSize="Medium"
 						   FontFamily="Avenir"
 	                       Text="{Binding Path=Name}"
-	                       TextColor="#272832" />
+	                       TextColor="Black" />
                                         <StackLayout Orientation="Horizontal"
                                 HorizontalOptions="FillAndExpand"
                                 VerticalOptions="FillAndExpand"

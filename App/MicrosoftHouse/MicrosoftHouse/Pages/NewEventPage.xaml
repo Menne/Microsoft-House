@@ -55,7 +55,7 @@
 								</Image.GestureRecognizers>
 							</Image>
 					</StackLayout>-->
-					<StackLayout BackgroundColor="#FF4A3764"
+            <StackLayout BackgroundColor="#FF00BAFF"
 									Grid.Row="0"
 									Grid.Column="0"
 									VerticalOptions="FillAndExpand"
@@ -304,7 +304,7 @@
 					</StackLayout>
 
 				<Button x:Name="newEventButton"
-						BackgroundColor="#FFBA77FF"
+						BackgroundColor="#FF00BAFF"
 						VerticalOptions="FillAndExpand"
 						HorizontalOptions="FillAndExpand"
 						Text="CREATE"
