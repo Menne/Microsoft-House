@@ -4,6 +4,7 @@
 			 xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"
              x:Class="MicrosoftHouse.EventsPage"
+             x:Name="EventsPage"
 			 Title="Events">
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding NewEventCommand}">
@@ -77,7 +78,7 @@
 	          <DataTemplate>
 	            <ViewCell>
                             <ViewCell.ContextActions>
-                                <MenuItem Clicked="OnDelete"
+                                <MenuItem Command="{Binding Path=BindingContext.DeleteEventCommand, Source={x:Reference Name=EventsPage}}"
                                 CommandParameter="{Binding .}"
                                 Text="Delete"
                                 IsDestructive="True" />

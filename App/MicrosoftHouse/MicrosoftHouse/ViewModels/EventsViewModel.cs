@@ -20,14 +20,16 @@ namespace MicrosoftHouse.ViewModels
 			// Commands
             RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
             NewEventCommand = new Command(async () => await ExecuteNewEventCommand());
+            DeleteEventCommand = new Command(async e => await ExecuteDeleteEventCommand((Event) e));
 
-			// First Method to run
-			RefreshCommand.Execute(null);
+            // First Method to run
+            RefreshCommand.Execute(null);
         }
 
 		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
 		public Command RefreshCommand { get; }
 		public Command NewEventCommand { get; }
+        public Command DeleteEventCommand { get; }
 
         DateTime? date;
         public DateTime? Date
@@ -142,6 +144,34 @@ namespace MicrosoftHouse.ViewModels
             }
         }
 
+
+        async Task ExecuteDeleteEventCommand(Event e)
+        {
+            if (IsBusy)
+                return;
+            IsBusy = true;
+
+            try
+            {
+                if (e.Id != null)
+                {
+                    var table = await CloudService.GetTableAsync<Event>();
+                    await table.DeleteEventAsync(e);
+                }
+
+                //MessagingCenter.Send<SelectedEventPageViewModel>(this, "ItemsChanged");
+                await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[TaskDetail] Save error: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+            await ExecuteRefreshCommand();
+        }
 
     }
 
