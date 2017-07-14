@@ -64,7 +64,7 @@
 	                Text="Reserve this room"
 	                TextColor="Black"
 					FontFamily="Avenir"
-					FontSize="Medium"/>
+					FontSize="18"/>
                 <StackLayout Orientation="Vertical">
                     <StackLayout Orientation="Horizontal">
                         <local:CustomDatePicker x:Name="datePicker"

@@ -87,10 +87,10 @@
                 <StackLayout Orientation="Horizontal">
                     <Label Text="{Binding SelectedDayOfWeek}"
                            TextColor="Black"
-                           FontSize="Medium"/>
+                           FontSize="18"/>
                     <Label Text="parking availability"
                            TextColor="Black"
-                           FontSize="Medium"/>
+                           FontSize="18"/>
                 </StackLayout>
 
                 <Grid x:Name="StatisticsGrid"

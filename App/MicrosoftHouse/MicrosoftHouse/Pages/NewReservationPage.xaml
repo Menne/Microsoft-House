@@ -70,8 +70,7 @@
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource"
                                         iOS="CalendarIcon.png"
-                                        Android="CalendarIcon.png"
-                                        WinPhone="Images/CalendarIcon.png" />
+                                        Android="CalendarIcon.png"/>
                         </Image.Source>
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnDatePicker"/>
@@ -107,8 +106,7 @@
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource"
                                         iOS="TimeIcon.png"
-                                        Android="TimeIcon.png"
-                                        WinPhone="Images/TimeIcon.png" />
+                                        Android="TimeIcon.png"/>
                         </Image.Source>
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnTimePicker"/>
@@ -144,8 +142,7 @@
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource"
                                         iOS="TimeIcon.png"
-                                        Android="TimeIcon.png"
-                                        WinPhone="Images/TimeIcon.png" />
+                                        Android="TimeIcon.png"/>
                         </Image.Source>
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnTimePicker"/>
