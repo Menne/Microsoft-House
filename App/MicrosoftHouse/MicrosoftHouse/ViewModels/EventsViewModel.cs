@@ -129,8 +129,13 @@ namespace MicrosoftHouse.ViewModels
 
         async Task ExecuteNewEventCommand()
 		{
-            await(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage());
+            if (IsBusy)
+                return;
+            IsBusy = true;
 
+            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage());
+
+            IsBusy = false;
         }
 
         private void ShowEventsOfTheDay()
