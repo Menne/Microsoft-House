@@ -27,17 +27,17 @@
                     <Label Text="About the Microsoft House"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="Start"
-                           Font="Large"
+                           FontSize="22"
                            FontFamily="Avenir"/>
                     <Label Text="Designed by the prestigious Herzog and De Meuron, the building is inspired by the simplicity and the impressive scale of the structures that characterize the historical architecture in Milan. The entire area is proposed as a new space for citizenship, whose spirit translates into the opening on the outside date by the impressive stained glass that symbolising transparency and partnership. From December 2016 it's the headquarter of Giangiacomo Feltrinelli Foundation."
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="Start"
-                           Font="Medium"
+                           FontSize="Default"
                            FontFamily="Avenir"/>
                     <Label Text="Where we are"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="Start"
-                           Font="Large"
+                           FontSize="22"
                            FontFamily="Avenir"/>
                     <maps:Map x:Name="MhMap"
                               WidthRequest="320"
@@ -47,12 +47,12 @@
                     <Label Text="About the app"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="Start"
-                           Font="Large"
+                           FontSize="22"
                            FontFamily="Avenir"/>
                     <Label Text="Microsoft House app is designed and developed by Filippo Pedrazzini and Emanuele Torelli for the course 'Design and implementation of mobile applications' of Politecnico di Milano"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="Start"
-                           Font="Medium"
+                           FontSize="Default"
                            FontFamily="Avenir"/>
                 </StackLayout>
             </StackLayout>

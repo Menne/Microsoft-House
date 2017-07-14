@@ -76,18 +76,23 @@
                         <StackLayout VerticalOptions="CenterAndExpand"
                                      HorizontalOptions="FillAndExpand"
                                      Spacing="3">
-                            <StackLayout 
+                                <StackLayout 
 	                           Orientation="Horizontal"
                                HorizontalOptions="FillAndExpand"
-                               VerticalOptions="CenterAndExpand"
-	                           Padding="30,0,30,0" >
-                               <StackLayout Orientation="Vertical"
+                               VerticalOptions="CenterAndExpand">
+                                    <StackLayout.Padding>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                        iOS="30,0,30,0"
+                                        Android="30,0,30,0"
+                                        WinPhone="10,0,10,0" />
+                                    </StackLayout.Padding>
+                                    <StackLayout Orientation="Vertical"
 								    HorizontalOptions="FillAndExpand"
 								    VerticalOptions="FillAndExpand"
 								    Spacing="0"
 								    Padding="0,5,0,5">
                                         <Label
-						                    FontSize="Medium"
+						                    FontSize="18"
 						                    FontFamily="Avenir"
 	                                        Text="{Binding Path=Name}"
 	                                        TextColor="Black" />
@@ -97,14 +102,14 @@
                                                      Spacing="0">
                                             <Label
 	                                            Text="{Binding Path=Floor, StringFormat='Floor {0} -'}"
-                                                FontSize="Small"
+                                                FontSize="14"
 	                                            TextColor="DarkGray"
 						                        FontFamily="Avenir"/>
                                             <Label
 						                        FontFamily="Avenir"
 	                                            Text="{Binding Path=Seats, StringFormat=' {0} Seats'}"
 	                                            TextColor="DarkGray"
-						                        FontSize="Small"/>
+						                        FontSize="14"/>
                                         </StackLayout>
                                     </StackLayout>
 
@@ -114,7 +119,7 @@
                                         <Label Text="Available now"
                                                HorizontalOptions="End"
                                                VerticalOptions="CenterAndExpand"
-						                       FontSize="Small"
+						                       FontSize="14"
 						                       FontFamily="Avenir"
 	                                           TextColor="DarkGray"/>
                                         <BoxView BackgroundColor="Green"

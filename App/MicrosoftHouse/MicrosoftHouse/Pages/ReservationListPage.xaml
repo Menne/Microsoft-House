@@ -44,15 +44,20 @@
                                      HorizontalOptions="FillAndExpand">
                             <StackLayout HorizontalOptions="FillAndExpand"
 	                           Orientation="Horizontal"
-	                           Padding="30,0,30,0"
 	                           VerticalOptions="CenterAndExpand">
+                                <StackLayout.Padding>
+                                    <OnPlatform x:TypeArguments="Thickness"
+                                        iOS="30,0,30,0"
+                                        Android="30,0,30,0"
+                                        WinPhone="10,0,10,0" />
+                                </StackLayout.Padding>
                                 <StackLayout Orientation="Vertical"
 								 HorizontalOptions="Center"
 								 VerticalOptions="Start"
 								 Padding="0,5,0,5"
 								 Spacing="0">
                                     <Label
-						   FontSize="Medium"
+						   FontSize="18"
 						   FontFamily="Avenir"
 	                       Text="{Binding Path=RoomName}"
 	                       TextColor="Black" />
@@ -64,17 +69,17 @@
 	                                       Text="{Binding Path=Date, StringFormat='{0:MM/dd/yyyy} -'}"
 	                                       TextColor="DarkGray"
 						                   FontFamily="Avenir"
-						                   FontSize="Small"/>       
+						                   FontSize="14"/>       
                                         <Label
 	                                       Text="{Binding Path=StartingTime, StringFormat=' From: {0:hh}'}"
 	                                       TextColor="DarkGray"
 						                   FontFamily="Avenir"
-						                   FontSize="Small"/>
+						                   FontSize="14"/>
                                         <Label
 						                   FontFamily="Avenir"
 	                                       Text="{Binding Path=EndingTime, StringFormat=' To {0:hh}'}"
 	                                       TextColor="DarkGray"
-						                   FontSize="Small"/>
+						                   FontSize="14"/>
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>

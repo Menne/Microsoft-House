@@ -96,7 +96,7 @@
 								Spacing="0"
 								Padding="0,5,0,5">
                                         <Label
-						   FontSize="Medium"
+						   FontSize="18"
 						   FontFamily="Avenir"
 	                       Text="{Binding Path=Name}"
 	                       TextColor="Black" />
@@ -108,17 +108,17 @@
 	                               Text="{Binding Path=Location, StringFormat='{0} -'}"
 	                               TextColor="DarkGray"
 						           FontFamily="Avenir"
-						           FontSize="Small"/>
+						           FontSize="14"/>
                                             <Label
 							       FontFamily="Avenir"
 		                           Text="{Binding Path=StartingTime, StringFormat=' From: {0:hh}'}"
 		                           TextColor="DarkGray"
-							       FontSize="Small"/>
+							       FontSize="14"/>
                                             <Label
 							        FontFamily="Avenir"
 		                            Text="{Binding Path=EndingTime, StringFormat=' To: {0:hh}'}"
 		                            TextColor="DarkGray"
-							        FontSize="Small"/>
+							        FontSize="14"/>
                                         </StackLayout>
                                     </StackLayout>
                                 </StackLayout>
