@@ -15,6 +15,8 @@ Da implementare
 - Aggiustare la schermata new event (titolo e descrizione dell'evento)
 - Aggiustare la schermata dettagli room (labels in alto e lista reservations)
 - Icone 2.0
+- La homepage dovrebbe essere sempre la prima pagina della navigation stack
+- Aggiungere degli alert dialogs
 
 Bug
 - Problemi con SyncOfflineCacheAsync()
@@ -23,9 +25,3 @@ Bug
 - Icone UWP sgranate
 - All'apertura del calendario il giorno corrente deve essere selezionato
 - Le stanze e le locations ci sono sempre due volte
-
-Miglioramenti
-- Sostituire bottoni statistiche parcheggio con sottolineatura
-- La distanza dell'utente dalla MH viene calcolata in linea d'aria (e il tempo di percorrenza a caso), bisognerebbe far funzionare il componente TK.CustomMap che calcola in automatico il percorso
-- Capire come mostrare la disponibilità delle stanze all'interno della listview (non si può cambiare l'itemsource)
-- Aggiungere degli alert dialogs

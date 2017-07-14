@@ -37,10 +37,15 @@
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-						<Image Source="EventIcon.png"
-								VerticalOptions="Center"
+						<Image VerticalOptions="Center"
 								HorizontalOptions="Start">
-						</Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="EventIcon.png"
+                                        Android="EventIcon.png"
+                                        WinPhone="Images/EventIcon.png" />
+                        </Image.Source>
+                    </Image>
 						</StackLayout>
 						<Label Text="{Binding SelectedEvent.Name, Mode=TwoWay}"
 								TextColor="Black"
@@ -66,10 +71,15 @@
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-						<Image Source="EventIcon.png"
-								VerticalOptions="Center"
+						<Image VerticalOptions="Center"
 								HorizontalOptions="Start">
-						</Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="EventIcon.png"
+                                        Android="EventIcon.png"
+                                        WinPhone="Images/EventIcon.png" />
+                        </Image.Source>
+                    </Image>
 						</StackLayout>
 						<Label Text="{Binding SelectedEvent.Description}"
 								TextColor="Black"
@@ -95,10 +105,15 @@
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-						<Image Source="CalendarIcon.png"
-								VerticalOptions="Center"
+						<Image VerticalOptions="Center"
 								HorizontalOptions="Start">
-						</Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="CalendarIcon.png"
+                                        Android="CalendarIcon.png"
+                                        WinPhone="Images/CalendarIcon.png" />
+                        </Image.Source>
+                    </Image>
 						</StackLayout>
 						<Label Text="{Binding SelectedEvent.Date.Date, StringFormat='{0:MMMM dd, yyyy}'}"
 								TextColor="Black"
@@ -124,10 +139,15 @@
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-						<Image Source="TimeIcon.png"
-								VerticalOptions="Center"
+						<Image VerticalOptions="Center"
 								HorizontalOptions="Start">
-						</Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="TimeIcon.png"
+                                        Android="TimeIcon.png"
+                                        WinPhone="Images/TimeIcon.png" />
+                        </Image.Source>
+                    </Image>
 						</StackLayout>
 						<StackLayout Orientation="Horizontal">
 							<Label Text="{Binding SelectedEvent.StartingTime, StringFormat='{}{0:hh\\:mm} - '}"
@@ -165,7 +185,13 @@
 						<Image Source="ParkIcon.png"
 								VerticalOptions="Center"
 								HorizontalOptions="Start">
-						</Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource"
+                                        iOS="ParkIcon.png"
+                                        Android="ParkIcon.png"
+                                        WinPhone="Images/ParkIcon.png" />
+                        </Image.Source>
+                    </Image>
 						</StackLayout>
 						<Label Text="{Binding SelectedEvent.Location}"
 								TextColor="Black"
