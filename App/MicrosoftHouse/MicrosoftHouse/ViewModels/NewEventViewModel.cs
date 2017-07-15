@@ -19,36 +19,37 @@ namespace MicrosoftHouse
 
 		public NewEventViewModel()
 		{
-			//ICloudService cloudService = App.CloudService;
+            //ICloudService cloudService = App.CloudService;
 
-			CreateCommand = new Command(async () => await ExecuteCreateCommand());
+            CreateEventCommand = new Command(async () => await ExecuteCreateEventCommand());
 
-			Title = "New Event";
+            Title = "New Event";
 			           
 			SelectedEvent = new Event();
 			SelectedEvent.Date = DateTime.Now;
 			SelectedEvent.StartingTime = DateTime.Now.TimeOfDay;
 			SelectedEvent.EndingTime = DateTime.Now.TimeOfDay;
-			//Event.Location = "LOCATION";
+            //Event.Location = "LOCATION";
 
-			LoadEventLocations();
-
-
+            ExecuteRefreshLocationsPickerCommand();
 		}
 
 		public NewEventViewModel(Event selectedEvent = null)
 		{
-			// In this case ( Edit Command )
-			CreateCommand = new Command(async () => await ExecuteCreateCommand());
+            // In this case ( Edit Command )
+            CreateEventCommand = new Command(async () => await ExecuteCreateEventCommand());
+            
+            SelectedEvent = selectedEvent;
 
-			SelectedEvent = selectedEvent;
-		}
+            ExecuteRefreshLocationsPickerCommand();
+        }
 
 		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
-		public Command CreateCommand { get; }
+		public Command CreateEventCommand { get; }
 
 
-		async Task ExecuteCreateCommand()
+
+        async Task ExecuteCreateEventCommand()
 		{
 			if (IsBusy)
 				return;
@@ -100,7 +101,7 @@ namespace MicrosoftHouse
 			}
 		}
 
-		async Task LoadEventLocations()
+		async Task ExecuteRefreshLocationsPickerCommand()
 		{
 			try
 			{

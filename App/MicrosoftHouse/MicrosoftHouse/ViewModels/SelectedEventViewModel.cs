@@ -14,15 +14,14 @@ namespace MicrosoftHouse
 
 		public SelectedEventViewModel(Event selectedEvent = null)
 		{
+            if (selectedEvent != null)
+            {
+                SelectedEvent = selectedEvent;
+                //Title = selectedEvent.Name;
+            }
 
-			DeleteEventCommand = new Command(async () => await ExecuteDeleteEventCommand());
+            DeleteEventCommand = new Command(async () => await ExecuteDeleteEventCommand());
 			EditEventCommand = new Command(async () => await ExecuteEditEventCommand());
-
-			if (selectedEvent != null)
-			{
-				SelectedEvent = selectedEvent;
-				//Title = selectedEvent.Name;
-			}
 		}
 
 		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();

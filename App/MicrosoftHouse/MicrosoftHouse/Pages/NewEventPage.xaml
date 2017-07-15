@@ -305,7 +305,7 @@
 						VerticalOptions="FillAndExpand"
 						HorizontalOptions="FillAndExpand"
 						Text="CREATE"
-						Command= "{Binding CreateCommand}"
+						Command= "{Binding CreateEventCommand}"
 						FontFamily="Avenir"
 						TextColor="White"
 						Grid.Row="9"
