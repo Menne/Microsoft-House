@@ -4,7 +4,7 @@
 			 x:Class="MicrosoftHouse.SelectedEventPage"
 			 Title="Event Details">
 	<ContentPage.ToolbarItems>
-  		<ToolbarItem Text="Edit" Command="{Binding EditCommand}"></ToolbarItem>
+  		<ToolbarItem Text="Edit" Command="{Binding EditEventCommand}"></ToolbarItem>
 	</ContentPage.ToolbarItems>
 	<ContentPage.Content>
 			<Grid RowSpacing="0" BackgroundColor="White">
@@ -214,7 +214,7 @@
 						Grid.Row="9"
 						Grid.Column="0"
 						BorderRadius="0"
-						Command="{Binding DeleteCommand}"/>
+						Command="{Binding DeleteEventCommand}"/>
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>

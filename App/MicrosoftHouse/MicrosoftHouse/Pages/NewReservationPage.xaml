@@ -182,7 +182,7 @@
 					SeparatorVisibility="None"
 	                SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"
 					CachingStrategy="RecycleElement"
-					RefreshCommand="{Binding RefreshCommand}"
+					RefreshCommand="{Binding SearchAvailableRoomsCommand}"
 					IsPullToRefreshEnabled="True"
 	                IsRefreshing="{Binding IsBusy, Mode=OneWay}">
                 <ListView.RowHeight>

@@ -22,8 +22,19 @@ namespace MicrosoftHouse.ViewModels
             NewEventCommand = new Command(async () => await ExecuteNewEventCommand());
             DeleteEventCommand = new Command(async e => await ExecuteDeleteEventCommand((Event) e));
 
-            // First Method to run
-            RetrieveEvents();
+            // Subscribe to events from the new event page
+            MessagingCenter.Subscribe<NewEventViewModel>(this, "ItemsChanged", async (sender) =>
+            {
+                await ExecuteRefreshCommand();
+            });
+            // Subscribe to events from the selected event page
+            MessagingCenter.Subscribe<SelectedEventViewModel>(this, "ItemsChanged", async (sender) =>
+            {
+                await ExecuteRefreshCommand();
+            });
+
+            // Execute the refresh command
+            RefreshCommand.Execute(null);
         }
 
 		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
@@ -76,19 +87,6 @@ namespace MicrosoftHouse.ViewModels
         {
             get { return allEventDates; }
             set { SetProperty(ref allEventDates, value, "AllEventDates"); }
-        }
-
-        async Task RetrieveEvents()
-        {
-			await ExecuteRefreshCommand();
-			MessagingCenter.Subscribe<NewEventViewModel>(this, "ItemsChanged", async (sender) =>
-			{
-				await ExecuteRefreshCommand();   
-			});
-            MessagingCenter.Subscribe<SelectedEventViewModel>(this, "ItemsChanged", async (sender) =>
-            {
-                await ExecuteRefreshCommand();
-            });
         }
 
 		async Task ExecuteRefreshCommand()

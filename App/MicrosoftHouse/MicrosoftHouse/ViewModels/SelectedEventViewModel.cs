@@ -15,68 +15,32 @@ namespace MicrosoftHouse
 		public SelectedEventViewModel(Event selectedEvent = null)
 		{
 
-			RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
-			DeleteCommand = new Command(async () => await ExecuteDeleteCommand());
-			EditCommand = new Command(async () => await ExecuteEditCommand());
+			DeleteEventCommand = new Command(async () => await ExecuteDeleteEventCommand());
+			EditEventCommand = new Command(async () => await ExecuteEditEventCommand());
 
 			if (selectedEvent != null)
 			{
 				SelectedEvent = selectedEvent;
 				//Title = selectedEvent.Name;
 			}
-
-			RetrieveEvent();
-
 		}
+
 		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
-		public Command RefreshCommand { get; }
-		public Command DeleteCommand { get; }
-		public Command EditCommand { get; }
+		public Command DeleteEventCommand { get; }
+		public Command EditEventCommand { get; }
 
 
-		async Task RetrieveEvent()
-		{
-			MessagingCenter.Subscribe<NewEventViewModel>(this, "ItemsChanged", async (sender) =>
-			{
-				await ExecuteRefreshCommand();
-			});
-		}
+        Event selectedEvent;
+        public Event SelectedEvent
+        {
+            get { return selectedEvent; }
+            set
+            {
+                SetProperty(ref selectedEvent, value, "SelectedEvent");
+            }
+        }
 
-		async Task ExecuteRefreshCommand()
-		{
-			if (IsBusy)
-				return;
-			IsBusy = true;
-
-			try
-			{
-				var table = await CloudService.GetTableAsync<Event>();
-				var element = await table.ReadEventAsync(SelectedEvent.Id);
-				SelectedEvent = element;
-
-				Debug.WriteLine(SelectedEvent.Name);
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine($"[EventList] Error loading items: {ex.Message}");
-			}
-			finally
-			{
-				IsBusy = false;
-			}
-		}
-		Event selectedEvent;
-		public Event SelectedEvent
-		{
-			get { return selectedEvent; }
-			set
-			{
-				SetProperty(ref selectedEvent, value, "SelectedEvent");
-			}
-		}
-
-
-		async Task ExecuteDeleteCommand()
+		async Task ExecuteDeleteEventCommand()
 		{
 			if (IsBusy)
                 return;
@@ -102,9 +66,15 @@ namespace MicrosoftHouse
             }
 		}
 
-		async Task ExecuteEditCommand()
+		async Task ExecuteEditEventCommand()
 		{
-			(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage(SelectedEvent));
-		}
+            if (IsBusy)
+                return;
+            IsBusy = true;
+
+            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage(SelectedEvent));
+
+            IsBusy = false;
+        }
 	}
 }

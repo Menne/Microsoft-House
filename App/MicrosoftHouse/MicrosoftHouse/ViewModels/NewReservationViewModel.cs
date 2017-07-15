@@ -16,9 +16,8 @@ namespace MicrosoftHouse
 
         public NewReservationViewModel()
         {
-            //RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
             SearchAvailableRoomsCommand = new Command(async () => await ExecuteSearchAvailableRoomsCommand());
-            NewReservationCommand = new Command(async () => await ExecuteNewReservationCommand());
+            CreateReservationCommand = new Command(async () => await ExecuteCreateReservationCommand());
 
             NewReservation = new Reservation();
             NewReservation.Date = DateTime.Now;
@@ -28,40 +27,9 @@ namespace MicrosoftHouse
 
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
 
-        public Command RefreshCommand { get; }
+        public Command RefreshListCommand { get; }
         public Command SearchAvailableRoomsCommand { get; }
-        public Command NewReservationCommand { get; }
-
-
-        /*async Task ExecuteRefreshCommand()
-        {
-            if (IsBusy)
-                return;
-            IsBusy = true;
-
-            try
-            {
-                //await CloudService.SyncOfflineCacheAsync();
-                var table = await CloudService.GetTableAsync<Room>();
-                var list = await table.ReadAllRoomsAsync();
-
-                // Rooms available now
-                AvailableRooms.Clear();
-                foreach (var room in list)
-                {
-                    AvailableRooms.Add(room);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"[RoomList] Error loading items: {ex.Message}");
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-        }*/
+        public Command CreateReservationCommand { get; }
 
 
         ObservableCollection<Room> availableRooms = new ObservableCollection<Room>();
@@ -87,7 +55,7 @@ namespace MicrosoftHouse
                 SetProperty(ref selectedRoom, value, "SelectedRoom");
                 if (selectedRoom != null)
                 {
-                    ExecuteNewReservationCommand();
+                    ExecuteCreateReservationCommand();
                 }
             }
         }
@@ -143,7 +111,7 @@ namespace MicrosoftHouse
             //await ExecuteRefreshCommand();
         }
 
-        async Task ExecuteNewReservationCommand()
+        async Task ExecuteCreateReservationCommand()
         {
             if (IsBusy)
                 return;
@@ -185,7 +153,6 @@ namespace MicrosoftHouse
             {
                 IsBusy = false;
             }
-            //await ExecuteRefreshCommand();
         }
     }
 }
