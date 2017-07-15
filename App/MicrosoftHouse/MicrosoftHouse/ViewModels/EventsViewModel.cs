@@ -33,6 +33,8 @@ namespace MicrosoftHouse.ViewModels
                 await ExecuteRefreshCommand();
             });
 
+            //Date = DateTime.Now;
+
             // Execute the refresh command
             RefreshCommand.Execute(null);
         }
@@ -111,8 +113,6 @@ namespace MicrosoftHouse.ViewModels
                     specialDate.BorderWidth = 2;
                     AllEventDates.Add(specialDate);
 				}
-
-                //Date = DateTime.Now;
 
             }
 			catch (Exception ex)

@@ -7,11 +7,10 @@
   		<ToolbarItem Text="Edit" Command="{Binding EditEventCommand}"></ToolbarItem>
 	</ContentPage.ToolbarItems>
 	<ContentPage.Content>
-			<Grid RowSpacing="0" BackgroundColor="White">
-				<Grid.RowDefinitions>
-					<!--<RowDefinition Height="*"/>-->
-					<!--<RowDefinition Height="0.25*"/>-->
-					<RowDefinition Height="0.5*"/>
+		<Grid RowSpacing="0"
+              BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
 					<RowDefinition Height="1.5*"/>
 					<RowDefinition Height="1.5*"/>
 					<RowDefinition Height="1.5*"/>

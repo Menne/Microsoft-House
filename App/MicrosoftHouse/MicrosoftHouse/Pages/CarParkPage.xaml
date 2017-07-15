@@ -4,196 +4,209 @@
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.CarParkPage"
              Title="Park Details">
-
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical"
-					 VerticalOptions="FillAndExpand"
-					 HorizontalOptions="FillAndExpand">
-            <StackLayout BackgroundColor="#FF01A4EF" 
+        <Grid RowSpacing="0"
+              BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="45"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout BackgroundColor="#FF01A4EF"
+                         Grid.Row="0"
+                         Grid.Column="0"
 						 Padding="20,10,20,20"
 						 HorizontalOptions="FillAndExpand"
 						 VerticalOptions="FillAndExpand">
-                <Grid HorizontalOptions="FillAndExpand"
+                    <Grid HorizontalOptions="FillAndExpand"
                       VerticalOptions="FillAndExpand">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackLayout Orientation="Vertical" 
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Orientation="Vertical" 
 							 Padding="10"
 							 HorizontalOptions="CenterAndExpand"
                              Grid.Row="0"
                              Grid.Column="0">
-                        <Label FontSize="Large"
+                            <Label FontSize="Large"
 							FontFamily="Avenir"
                             HorizontalOptions="Center"
 							Text="{Binding ParkingSpaces}"
                             HorizontalTextAlignment="Center"
 							TextColor="White"/>
-                        <Label HorizontalOptions="Center"
+                            <Label HorizontalOptions="Center"
                                Text="Spaces"
                                FontSize="Small"
 							   FontFamily="Avenir"
                                HorizontalTextAlignment="Center"
 							   TextColor="White"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Vertical"
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
 							 Padding="10"
 							 HorizontalOptions="CenterAndExpand"
                              Grid.Row="0"
                              Grid.Column="1">
-                        <Label FontSize="Large"
+                            <Label FontSize="Large"
 							HorizontalOptions="Center"
 							FontFamily="Avenir"
 							Text="{Binding TimeToArrival}"
                             HorizontalTextAlignment="Center"
 							TextColor="White"/>
-                        <Label HorizontalOptions="Center"
+                            <Label HorizontalOptions="Center"
                                Text="Min to arrival"
                                FontSize="Small"
 							   FontFamily="Avenir"
                                HorizontalTextAlignment="Center"
 							   TextColor="White"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Vertical"
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
 								 Padding="10"
 								 HorizontalOptions="CenterAndExpand"
                                  Grid.Row="0"
                                  Grid.Column="2">
-                        <Label FontSize="Large"
+                            <Label FontSize="Large"
 							FontFamily="Avenir"
 							HorizontalOptions="Center"
 							Text="{Binding Distance}"
                             HorizontalTextAlignment="Center"
 							TextColor="White"/>
-                        <Label HorizontalOptions="Center"
+                            <Label HorizontalOptions="Center"
                                Text="Km to arrival"
                                FontSize="Small"
 							   FontFamily="Avenir"
                                HorizontalTextAlignment="Center"
 							   TextColor="White"/>
-                    </StackLayout>
-                </Grid>
-            </StackLayout>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
 
-            <StackLayout Orientation="Vertical"
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             Grid.Row="1"
+                             Grid.Column="0">
+                <StackLayout Orientation="Vertical"
                          HorizontalOptions="FillAndExpand"
                          VerticalOptions="CenterAndExpand"
                          Padding="30,20,30,30">
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="{Binding SelectedDayOfWeek}"
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding SelectedDayOfWeek}"
                            TextColor="Black"
                            FontSize="18"/>
-                    <Label Text="parking availability"
+                        <Label Text="parking availability"
                            TextColor="Black"
                            FontSize="18"/>
-                </StackLayout>
+                    </StackLayout>
 
-                <Grid x:Name="StatisticsGrid"
+                    <Grid x:Name="StatisticsGrid"
                       VerticalOptions="FillAndExpand"
                       HorizontalOptions="FillAndExpand"
                       Padding="0,20,0,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <BoxView HeightRequest="{Binding SelectedDayStatistics[0]}"
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <BoxView HeightRequest="{Binding SelectedDayStatistics[0]}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"
                              Grid.Row="0"
                              Grid.Column="1"/>
-                    <BoxView HeightRequest="{Binding SelectedDayStatistics[1]}"
+                        <BoxView HeightRequest="{Binding SelectedDayStatistics[1]}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"
                              Grid.Row="0"
                              Grid.Column="2"/>
-                    <BoxView HeightRequest="{Binding SelectedDayStatistics[2])}"
+                        <BoxView HeightRequest="{Binding SelectedDayStatistics[2])}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"
                              Grid.Row="0"
                              Grid.Column="3"/>
-                    <BoxView HeightRequest="{Binding SelectedDayStatistics[3]}"
+                        <BoxView HeightRequest="{Binding SelectedDayStatistics[3]}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"
                              Grid.Row="0"
                              Grid.Column="4"/>
-                    <BoxView HeightRequest="{Binding SelectedDayStatistics[4]}"
+                        <BoxView HeightRequest="{Binding SelectedDayStatistics[4]}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"
                              Grid.Row="0"
                              Grid.Column="5"/>
-                    <BoxView HeightRequest="{Binding SelectedDayStatistics[5]}"
+                        <BoxView HeightRequest="{Binding SelectedDayStatistics[5]}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"
                              Grid.Row="0"
                              Grid.Column="6"/>
-                    <BoxView HeightRequest="{Binding SelectedDayStatistics[6]}"
+                        <BoxView HeightRequest="{Binding SelectedDayStatistics[6]}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"
                              Grid.Row="0"
                              Grid.Column="7"/>
-                    <BoxView HeightRequest="{Binding SelectedDayStatistics[7]}"
+                        <BoxView HeightRequest="{Binding SelectedDayStatistics[7]}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"
                              Grid.Row="0"
                              Grid.Column="8"/>
-                    <BoxView HeightRequest="{Binding SelectedDayStatistics[8]}"
+                        <BoxView HeightRequest="{Binding SelectedDayStatistics[8]}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"
                              Grid.Row="0"
                              Grid.Column="9"/>
-                    <BoxView HeightRequest="{Binding SelectedDayStatistics[9]}"
+                        <BoxView HeightRequest="{Binding SelectedDayStatistics[9]}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"
                              Grid.Row="0"
                              Grid.Column="10"/>
-                    <BoxView HeightRequest="{Binding SelectedDayStatistics[10]}"
+                        <BoxView HeightRequest="{Binding SelectedDayStatistics[10]}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"
                              Grid.Row="0"
                              Grid.Column="11"/>
-                    <BoxView HeightRequest="{Binding SelectedDayStatistics[11]}"
+                        <BoxView HeightRequest="{Binding SelectedDayStatistics[11]}"
                              Color="#FF01A4EF"
                              VerticalOptions="End"
                              Grid.Row="0"
                              Grid.Column="12"/>
-                    <BoxView HeightRequest="-1"
+                        <BoxView HeightRequest="-1"
                              Grid.Row="0"
                              Grid.Column="12"/>
-                </Grid>
+                    </Grid>
 
 
-                <Grid x:Name="DaysOfWeekButtonsGrid">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button x:Name="mondayButton"
+                    <Grid x:Name="DaysOfWeekButtonsGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="mondayButton"
 							FontFamily="Avenir"
                             Text="M"
 							BackgroundColor="#FF01A4EF"
@@ -204,7 +217,7 @@
 						    BorderRadius="20"
                             BorderWidth="0"
                             Grid.Column="0"/>
-                    <Button x:Name="tuesdayButton"
+                        <Button x:Name="tuesdayButton"
 							FontFamily="Avenir"
                             Text="T"
                             Command="{Binding ChangeDayCommand}"
@@ -214,7 +227,7 @@
                             BorderWidth="0"
                             BackgroundColor="Transparent"
                             Grid.Column="1"/>
-                    <Button x:Name="wednesdayButton"
+                        <Button x:Name="wednesdayButton"
 							FontFamily="Avenir"
                             Text="W"
                             Command="{Binding ChangeDayCommand}"
@@ -224,7 +237,7 @@
                             BorderWidth="0"
                             BackgroundColor="Transparent"
                             Grid.Column="2"/>
-                    <Button x:Name="thursdayButton"
+                        <Button x:Name="thursdayButton"
 							FontFamily="Avenir"
                             Text="T"
                             Command="{Binding ChangeDayCommand}"
@@ -234,7 +247,7 @@
                             BorderWidth="0"
                             BackgroundColor="Transparent"
                             Grid.Column="3"/>
-                    <Button x:Name="fridayButton"
+                        <Button x:Name="fridayButton"
 							FontFamily="Avenir"
                             Text="F"
                             Command="{Binding ChangeDayCommand}"
@@ -244,7 +257,7 @@
                             BorderWidth="0"
                             BackgroundColor="Transparent"
                             Grid.Column="4"/>
-                    <Button x:Name="saturdayButton"
+                        <Button x:Name="saturdayButton"
 							FontFamily="Avenir"
                             Text="S"
                             Command="{Binding ChangeDayCommand}"
@@ -254,7 +267,7 @@
                             BorderWidth="0"
                             BackgroundColor="Transparent"
                             Grid.Column="5"/>
-                    <Button x:Name="sundayButton"
+                        <Button x:Name="sundayButton"
 							FontFamily="Avenir"
                             Text="S"
                             Command="{Binding ChangeDayCommand}"
@@ -264,16 +277,19 @@
                             BorderWidth="0"
                             BackgroundColor="Transparent"
                             Grid.Column="6"/>
-                </Grid>
-            </StackLayout>
+                    </Grid>
+                </StackLayout>
+                </StackLayout>
             <Button x:Name="parkCar"
                     BackgroundColor="#FF00BAFF"
-					VerticalOptions="EndAndExpand"
+					VerticalOptions="FillAndExpand"
 					HorizontalOptions="FillAndExpand"
+                    Grid.Row="2"
+                    Grid.Column="0"
                     Text="PARK NOW"
                     TextColor="White"
 					BorderRadius="0"
 					FontFamily="Avenir"/>
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
