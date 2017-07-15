@@ -20,8 +20,7 @@ Da implementare
 
 Bug
 - Problemi con SyncOfflineCacheAsync()
-- Problemi con PopAsync(), potrebbe essere MessagingCentre...
+- Problemi col refresh del calendario
 - In UWP le date del calendario si sovrappongono
 - Icone UWP sgranate
-- All'apertura del calendario il giorno corrente deve essere selezionato
 - Le stanze e le locations ci sono sempre due volte
