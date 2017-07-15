@@ -22,6 +22,7 @@ namespace MicrosoftHouse
             //ICloudService cloudService = App.CloudService;
 
             CreateEventCommand = new Command(async () => await ExecuteCreateEventCommand());
+            RefreshLocationsPickerCommand = new Command(async () => await ExecuteRefreshLocationsPickerCommand());
 
             Title = "New Event";
 			           
@@ -31,23 +32,48 @@ namespace MicrosoftHouse
 			SelectedEvent.EndingTime = DateTime.Now.TimeOfDay;
             //Event.Location = "LOCATION";
 
-            ExecuteRefreshLocationsPickerCommand();
+            RefreshLocationsPickerCommand.Execute(null);
 		}
 
 		public NewEventViewModel(Event selectedEvent = null)
 		{
             // In this case ( Edit Command )
             CreateEventCommand = new Command(async () => await ExecuteCreateEventCommand());
-            
+            RefreshLocationsPickerCommand = new Command(async () => await ExecuteRefreshLocationsPickerCommand());
+
             SelectedEvent = selectedEvent;
 
-            ExecuteRefreshLocationsPickerCommand();
+            RefreshLocationsPickerCommand.Execute(null);
         }
 
 		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
 		public Command CreateEventCommand { get; }
+        public Command RefreshLocationsPickerCommand { get; }
 
 
+        ObservableCollection<EventLocation> locations = new ObservableCollection<EventLocation>();
+        public ObservableCollection<EventLocation> Locations
+        {
+            get { return locations; }
+            set { SetProperty(ref locations, value, "Locations"); }
+        }
+
+        ObservableCollection<string> locationsName = new ObservableCollection<string>();
+        public ObservableCollection<string> LocationsName
+        {
+            get { return locationsName; }
+            set { SetProperty(ref locationsName, value, "LocationsName"); }
+        }
+
+        Event selectedEvent;
+        public Event SelectedEvent
+        {
+            get { return selectedEvent; }
+            set
+            {
+                SetProperty(ref selectedEvent, value, "SelectedEvent");
+            }
+        }
 
         async Task ExecuteCreateEventCommand()
 		{
@@ -89,18 +115,6 @@ namespace MicrosoftHouse
 			}
 		}
 
-
-
-		Event selectedEvent;
-		public Event SelectedEvent
-		{
-			get { return selectedEvent; }
-			set
-			{
-				SetProperty(ref selectedEvent, value, "SelectedEvent");
-			}
-		}
-
 		async Task ExecuteRefreshLocationsPickerCommand()
 		{
 			try
@@ -123,18 +137,6 @@ namespace MicrosoftHouse
 			}
 		}
 
-		ObservableCollection<EventLocation> locations = new ObservableCollection<EventLocation>();
-		public ObservableCollection<EventLocation> Locations
-		{
-			get { return locations; }
-			set { SetProperty(ref locations, value, "Locations"); }
-		}
-
-		ObservableCollection<string> locationsName = new ObservableCollection<string>();
-		public ObservableCollection<string> LocationsName
-		{
-			get { return locationsName; }
-			set { SetProperty(ref locationsName, value, "LocationsName"); }
-		}
+		
     }
 }
