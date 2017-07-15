@@ -289,7 +289,8 @@
                     Text="PARK NOW"
                     TextColor="White"
 					BorderRadius="0"
-					FontFamily="Avenir"/>
+					FontFamily="Avenir"
+                    Command="{Binding ParkCommand}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

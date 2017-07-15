@@ -9,7 +9,7 @@ Da implementare
 - Notifiche iOS
 - Mandare le notifiche una volta che è stato creato un evento
 - Abilitare/disabilitare le notifiche nella schermata settings
-- Aggiungere metodo park now in CarParkViewModel, scalando il parcheggio ogni volta che si utilizza il qrcode
+- Gestire conteggio parcheggio
 - Controllare se un utente è già loggato prima di mostrare la schermata di login
 - UWP renderers dei picker
 - Aggiustare la schermata new event (titolo e descrizione dell'evento)

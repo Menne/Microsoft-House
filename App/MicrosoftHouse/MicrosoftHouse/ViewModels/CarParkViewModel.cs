@@ -10,6 +10,7 @@ using Xamarin.Forms;
 using MicrosoftHouse.Models;
 using MicrosoftHouse.Helpers;
 using Plugin.Geolocator;
+using ZXing.Net.Mobile.Forms;
 
 namespace MicrosoftHouse
 {
@@ -17,6 +18,7 @@ namespace MicrosoftHouse
     {
 
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
+        ZXingScannerPage scanPage;
 
         public CarParkViewModel()
         {
@@ -25,11 +27,13 @@ namespace MicrosoftHouse
             InitializeStatistics();
 
             ChangeDayCommand = new Command<string>(execute: (string dayOfWeek) => ShowStatistics(Int32.Parse(dayOfWeek)));
+            ParkCommand = new Command(async () => await ExecuteParkCommand());
 
             ShowStatistics(0);
         }
 
-        public Command ChangeDayCommand { get; private set; }
+        public Command ChangeDayCommand { get; set; }
+        public Command ParkCommand { get; set; }
 
         List<String> daysOfWeek = new List<String> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
         public List<String> DaysOfWeek
@@ -170,5 +174,88 @@ namespace MicrosoftHouse
         }
 
 
+
+        // QRCODE
+        async Task ExecuteParkCommand()
+        {
+
+            var customOverlay = new StackLayout
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                Padding = new Thickness(20, 30, 20, 30),
+                Orientation = StackOrientation.Horizontal
+            };
+            var torch = new Button
+            {
+                Text = "Torch",
+                TextColor = Color.White,
+                FontFamily = "Avenir",
+                VerticalOptions = LayoutOptions.Start,
+                HorizontalOptions = LayoutOptions.EndAndExpand,
+                BackgroundColor = Color.FromHex("#FF01A4EF"),
+                HeightRequest = 40,
+                WidthRequest = 80,
+                BorderRadius = 20
+            };
+
+            var close = new Button
+            {
+                Text = "X",
+                TextColor = Color.White,
+                FontFamily = "Avenir",
+                VerticalOptions = LayoutOptions.Start,
+                HorizontalOptions = LayoutOptions.StartAndExpand,
+                BackgroundColor = Color.FromHex("#FF01A4EF"),
+                HeightRequest = 40,
+                WidthRequest = 40,
+                BorderRadius = 20
+            };
+
+            scanPage = new ZXingScannerPage(customOverlay: customOverlay)
+            {
+                Title = "Park",
+                Padding = new Thickness(0, Device.OnPlatform(20, 0, 0), 0, 0)
+            };
+
+            torch.Clicked += delegate
+            {
+                scanPage.ToggleTorch();
+            };
+
+            close.Clicked += delegate
+            {
+                Application.Current.MainPage.Navigation.PopModalAsync();
+            };
+
+            customOverlay.Children.Add(close);
+            customOverlay.Children.Add(torch);
+
+
+            scanPage.OnScanResult += (result) =>
+            {
+                scanPage.IsScanning = false;
+
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Application.Current.MainPage.Navigation.PopModalAsync();
+                    //Task<bool> task = DisplayAlert("Simple Alert", "Decide on an option", "Ok", "Cancel");
+                    //bool result = await task
+
+                    //await App.Current.MainPage.DisplayAlert("Park Done", result.Text, "OK");
+
+                    if (String.Equals(result.Text, "ParkingCode"))
+                    {
+
+                        await App.Current.MainPage.DisplayAlert("Park Done", "Thank You", "OK");
+                    }
+                });
+            };
+
+            //await(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(scanPage);
+
+            await Application.Current.MainPage.Navigation.PushModalAsync(scanPage);
+        }
     }
+
 }
