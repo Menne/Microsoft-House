@@ -14,15 +14,23 @@ namespace MicrosoftHouse
     {
         public ReservationListViewModel()
         {
-            // Cloud Variables
-
-
             RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
             NewReservationCommand = new Command(async () => await ExecuteNewReservationCommand());
             DeleteReservationCommand = new Command(async reservation => await ExecuteDeleteReservationCommand((Reservation) reservation));
 
-            RefreshList();
+            //Subscribe to event from the selected room page
+            MessagingCenter.Subscribe<SelectedRoomViewModel>(this, "ItemsChanged", async (sender) =>
+            {
+                await ExecuteRefreshCommand();
+            });
+            //Subscribe to event from the new reservation page
+            MessagingCenter.Subscribe<NewReservationViewModel>(this, "ItemsChanged", async (sender) =>
+            {
+                await ExecuteRefreshCommand();
+            });
 
+            // Execute the refresh command
+            RefreshCommand.Execute(null);
         }
 
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
@@ -30,14 +38,6 @@ namespace MicrosoftHouse
         public Command NewReservationCommand { get; }
         public Command DeleteReservationCommand { get; }
 
-        async Task RefreshList()
-        {
-            await ExecuteRefreshCommand();
-            MessagingCenter.Subscribe<SelectedRoomViewModel>(this, "ItemsChanged", async (sender) =>
-			{
-				await ExecuteRefreshCommand();   
-			});
-        }
 
         async Task ExecuteRefreshCommand()
         {

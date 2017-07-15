@@ -56,7 +56,7 @@
                 </BoxView.IsVisible>
             </BoxView>
         </StackLayout>
-        <ListView x:Name="displayedRooms"
+            <ListView x:Name="displayedRooms"
 			    ItemsSource="{Binding DisplayedRooms, Mode=TwoWay}"
 	            SeparatorVisibility="None"
 	            SelectedItem="{Binding SelectedRoom, Mode=TwoWay}"

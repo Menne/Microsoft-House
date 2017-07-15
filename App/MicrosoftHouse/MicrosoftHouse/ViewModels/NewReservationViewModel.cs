@@ -24,9 +24,6 @@ namespace MicrosoftHouse
             NewReservation.Date = DateTime.Now;
             NewReservation.StartingTime = DateTime.Now.TimeOfDay;
             NewReservation.EndingTime = DateTime.Now.TimeOfDay;
-
-            //RefreshList();
-            AvailableRooms.Clear();
         }
 
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
@@ -35,14 +32,6 @@ namespace MicrosoftHouse
         public Command SearchAvailableRoomsCommand { get; }
         public Command NewReservationCommand { get; }
 
-        async Task RefreshList()
-        {
-            //await ExecuteRefreshCommand();
-            /*MessagingCenter.Subscribe<SelectedRoomViewModel>(this, "ItemsChanged", async (sender) =>
-			{
-				await ExecuteRefreshCommand();   
-			});*/
-        }
 
         /*async Task ExecuteRefreshCommand()
         {

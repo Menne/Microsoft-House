@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using MicrosoftHouse.Helpers;
+using System.Linq;
 
 namespace MicrosoftHouse
 {
@@ -16,18 +17,26 @@ namespace MicrosoftHouse
 		{
 			if (room != null)
 			{
-				Room = room;
+                SelectedRoom = room;
 				Title = room.Name;
 			}
 
-			BackCommand = new Command(async () => await ExecuteBackCommand());
+            NewReservation = new Reservation();
+            NewReservation.Date = DateTime.Now;
+            NewReservation.StartingTime = DateTime.Now.TimeOfDay;
+            NewReservation.EndingTime = DateTime.Now.TimeOfDay;
 
-            RefreshList();
+            NewReservationCommand = new Command(async () => await ExecuteNewReservationCommand());
+            RefreshReservationsCommand = new Command(async () => await ExecuteRefreshReservationsCommand());
+
+            RefreshReservationsCommand.Execute(null);
         }
 
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
-        public Room Room { get; set; }
-		public Command BackCommand { get; }
+        public Room SelectedRoom { get; set; }
+        public Reservation NewReservation { get; set; }
+		public Command NewReservationCommand { get; }
+        public Command RefreshReservationsCommand { get; }
 
         ObservableCollection<Reservation> reservationsOfSelectedRoom = new ObservableCollection<Reservation>();
         public ObservableCollection<Reservation> ReservationsOfSelectedRoom
@@ -36,16 +45,7 @@ namespace MicrosoftHouse
             set { SetProperty(ref reservationsOfSelectedRoom, value, "ReservationsOfSelectedRoom"); }
         }
 
-        async Task RefreshList()
-        {
-            await ExecuteRefreshCommand();
-            /*MessagingCenter.Subscribe<SelectedRoomViewModel>(this, "ItemsChanged", async (sender) =>
-			{
-				await ExecuteRefreshCommand();   
-			});*/
-        }
-
-        async Task ExecuteRefreshCommand()
+        async Task ExecuteRefreshReservationsCommand()
         {
             if (IsBusy)
                 return;
@@ -59,7 +59,7 @@ namespace MicrosoftHouse
                 ReservationsOfSelectedRoom.Clear();
                 foreach (var reservation in reservationList)
                 {
-                    if (reservation.RoomName.Equals(Room.Name))
+                    if (reservation.RoomName.Equals(SelectedRoom.Name))
                     {
                         ReservationsOfSelectedRoom.Add(reservation);
                         Debug.WriteLine(reservation.RoomName);
@@ -77,17 +77,50 @@ namespace MicrosoftHouse
         }
 
 
-        async Task ExecuteBackCommand()
-		{
-			//From the Bottom - Modal Page --> Aggiungere la Toolbar (Guardare il Capitolo)
-			await Application.Current.MainPage.Navigation.PopModalAsync();
+        async Task ExecuteNewReservationCommand()
+        {
+            if (IsBusy)
+                return;
+            IsBusy = true;
 
-			/*(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new NewEventPage())
-			{
-				BarTextColor = Color.White,
-				BarBackgroundColor = Color.FromHex("#FF01A4EF")
-			};*/
-		}
+            try
+            {
+                var reservationTable = await CloudService.GetTableAsync<Reservation>();
+                if (NewReservation.Id == null)
+                {
 
-	}
+                    // Get the identity
+                    var identity = await CloudService.GetIdentityAsync();
+                    if (identity != null)
+                    {
+                        var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
+                        Debug.WriteLine(name);
+                        NewReservation.User = name;
+                        NewReservation.RoomName = SelectedRoom.Name;
+                    }
+
+                    await reservationTable.CreateReservationAsynch(NewReservation);
+                    //await CloudService.SyncOfflineCacheAsync();
+                }
+                else
+                {
+                    await reservationTable.UpdateReservationAsync(NewReservation);
+                    //await CloudService.SyncOfflineCacheAsync();
+                }
+                SelectedRoom = null;
+                await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
+                MessagingCenter.Send<SelectedRoomViewModel>(this, "ItemsChanged");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[TaskDetail] Save error: {ex.Message}");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+            //await ExecuteRefreshCommand();
+        }
+
+    }
 }

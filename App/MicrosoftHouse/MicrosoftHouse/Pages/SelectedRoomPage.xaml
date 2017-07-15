@@ -3,7 +3,7 @@
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 				x:Class="MicrosoftHouse.SelectedRoomPage"
-				Title="{Binding Room.Name}">
+				Title="{Binding SelectedRoom.Name}">
     <ContentPage.Content>
         <Grid RowSpacing="0" BackgroundColor="White">
             <Grid.RowDefinitions>
@@ -29,7 +29,7 @@
 								HorizontalOptions="CenterAndExpand">
                     <Label FontSize="Large"
 							FontFamily="Avenir"
-							Text="{Binding Room.Floor}"
+							Text="{Binding SelectedRoom.Floor}"
 							HorizontalOptions="Center"
 							TextColor="White"/>
                     <Label FontSize="Small"
@@ -44,7 +44,7 @@
                     <Label FontSize="Large"
 							HorizontalOptions="Center"
 							FontFamily="Avenir"
-							Text="{Binding Room.Seats}"
+							Text="{Binding SelectedRoom.Seats}"
 							TextColor="White"/>
                     <Label FontSize="Small"
 							FontFamily="Avenir"
@@ -163,7 +163,7 @@
 						  SeparatorVisibility="None"
                    		  CachingStrategy="RecycleElement"
                           IsPullToRefreshEnabled="True"
-						  RefreshCommand="{Binding RefreshCommand}">
+						  RefreshCommand="{Binding RefreshReservationsCommand}">
                     <ListView.Header>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="RESERVATIONS FOR THIS ROOM"
@@ -225,7 +225,7 @@
 						VerticalOptions="FillAndExpand"
 						BackgroundColor="#FF01A4EF"
 						Text="RESERVE"
-						Command="{Binding BackCommand}"
+						Command="{Binding NewReservationCommand}"
 						TextColor="White"
 						FontFamily="Avenir"
 						BorderRadius="0"
