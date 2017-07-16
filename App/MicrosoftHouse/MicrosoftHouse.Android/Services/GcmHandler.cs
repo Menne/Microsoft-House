@@ -5,6 +5,8 @@ using Android.Support.V7.App;
 using Android.Util;
 using Gcm.Client;
 using MicrosoftHouse.Droid;
+using MicrosoftHouse.Models;
+using Xamarin.Forms;
 
 [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -37,24 +39,45 @@ namespace TaskList.Droid.Services
         protected override void OnMessage(Context context, Intent intent)
         {
             Log.Info("GcmService", $"Message {intent.ToString()}");
+            var op = intent.Extras.GetString("op");
+            if (op != null)
+            {
+                var syncMessage = new PushToSync()
+                {
+                    Table = intent.Extras.GetString("table"),
+                    Id = intent.Extras.GetString("id")
+                };
+                MessagingCenter.Send<PushToSync>(syncMessage, "ItemsChanged");
+            }
+            else
+            {
+                var message = intent.Extras.GetString("message") ?? "Unknown Message";
+                var picture = intent.Extras.GetString("picture");
+                CreateNotification("event", message, picture);
+            }
+        }
 
-            var message = intent.Extras.GetString("message");
+        private void CreateNotification(string title, string msg, string parameter = null)
+        {
+            var startupIntent = new Intent(this, typeof(MainActivity));
+            startupIntent.PutExtra("param", parameter);
 
-            var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
-            var uiIntent = new Intent(context, typeof(MainActivity));
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+            var stackBuilder = TaskStackBuilder.Create(this);
+            stackBuilder.AddParentStack(Java.Lang.Class.FromType(typeof(MainActivity)));
+            stackBuilder.AddNextIntent(startupIntent);
 
-            var notification = builder.SetContentIntent(PendingIntent.GetActivity(context, 0, uiIntent, 0))
+            var pendingIntent = stackBuilder.GetPendingIntent(0, PendingIntentFlags.OneShot);
+            var notification = new Notification.Builder(this)
+                .SetContentIntent(pendingIntent)
+                .SetContentTitle(title)
+                .SetContentText(msg)
                 .SetSmallIcon(Android.Resource.Drawable.SymDefAppIcon)
-                .SetTicker("TaskList")
-                .SetContentTitle("TaskList")
-                .SetContentText(message)
-                .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
                 .SetAutoCancel(true)
                 .Build();
-
-            notificationManager.Notify(1, notification);
+            var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
+            notificationManager.Notify(0, notification);
         }
+
 
         protected override void OnError(Context context, string errorId)
         {

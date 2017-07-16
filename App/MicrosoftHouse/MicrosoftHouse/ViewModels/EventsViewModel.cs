@@ -32,6 +32,11 @@ namespace MicrosoftHouse.ViewModels
             {
                 await ExecuteRefreshCommand();
             });
+            // Subscribe to push to sync notifications
+            MessagingCenter.Subscribe<PushToSync>(this, "ItemsChanged", async (sender) =>
+            {
+                await ExecuteRefreshCommand();
+            });
 
             //Date = DateTime.Now;
 

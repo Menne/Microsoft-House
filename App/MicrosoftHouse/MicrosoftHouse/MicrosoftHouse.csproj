@@ -55,6 +55,7 @@
     <Compile Include="Controls\Calendar\SpecialDate.cs" />
     <Compile Include="Helpers\AuthenticationDelegatingHandler.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\PushToSync.cs" />
     <Compile Include="Pages\AboutUsPage.xaml.cs">
       <DependentUpon>AboutUsPage.xaml</DependentUpon>
     </Compile>
