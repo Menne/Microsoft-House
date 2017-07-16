@@ -28,9 +28,9 @@ namespace MicrosoftHouse.ViewModels
 			{
                 var cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
                 await cloudService.LoginAsync();
-                // Creando una nuova navigation page, non cè più la possibilità di tornare indietro.
+                // Creando una nuova navigation page, non c'è più la possibilità di tornare indietro.
 
-                //await cloudService.RegisterForPushNotifications();
+                await cloudService.RegisterForPushNotifications();
 
                 Application.Current.MainPage = new MasterPage();
 
