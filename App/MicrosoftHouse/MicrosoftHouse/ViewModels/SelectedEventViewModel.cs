@@ -51,7 +51,8 @@ namespace MicrosoftHouse
 				{
 					var table = await CloudService.GetTableAsync<Event>();
 					await table.DeleteEventAsync(SelectedEvent);
-				}
+                    await CloudService.SyncOfflineCacheAsync();
+                }
 				await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
                 MessagingCenter.Send<SelectedEventViewModel>(this, "ItemsChanged");
             }

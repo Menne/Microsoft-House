@@ -92,14 +92,13 @@ namespace MicrosoftHouse
 					}
 
 					await tableEvent.CreateEventAsynch(SelectedEvent);
-					//await CloudService.SyncOfflineCacheAsync();
 				}
 				else
 				{
 					await tableEvent.UpdateEventAsync(SelectedEvent);
-					//await CloudService.SyncOfflineCacheAsync();
 				}
 				await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
+                await CloudService.SyncOfflineCacheAsync();
                 MessagingCenter.Send<NewEventViewModel>(this, "ItemsChanged");
             }
 			catch (Exception ex)
@@ -116,8 +115,6 @@ namespace MicrosoftHouse
 		{
 			try
 			{
-				//await CloudService.SyncOfflineCacheAsync();
-
                 var tableLocation = await CloudService.GetTableAsync<EventLocation>();
 				var list = await tableLocation.ReadAllEventLocationsAsync();
 				Locations.Clear();
@@ -125,7 +122,6 @@ namespace MicrosoftHouse
 				{
 					Locations.Add(location);
 					LocationsName.Add(location.Name);
-					Debug.WriteLine(location.Name);
 				}
 			}
 			catch (Exception ex)
