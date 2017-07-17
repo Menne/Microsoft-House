@@ -98,12 +98,12 @@ namespace MicrosoftHouse
 					await tableEvent.UpdateEventAsync(SelectedEvent);
 				}
 				await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
-                await CloudService.SyncOfflineCacheAsync();
                 MessagingCenter.Send<NewEventViewModel>(this, "ItemsChanged");
+                await CloudService.SyncOfflineCacheAsync();
             }
 			catch (Exception ex)
 			{
-				Debug.WriteLine($"[TaskDetail] Save error: {ex.Message}");
+				Debug.WriteLine($"[NewEventViewModel] Save error: {ex.Message}");
 			}
 			finally
 			{
@@ -126,7 +126,7 @@ namespace MicrosoftHouse
 			}
 			catch (Exception ex)
 			{
-				Debug.WriteLine($"[EventLocations] Error loading items: {ex.Message}");
+				Debug.WriteLine($"[NewEventViewModel] Error loading items: {ex.Message}");
 			}
 		}
 

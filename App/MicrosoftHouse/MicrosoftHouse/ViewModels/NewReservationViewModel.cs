@@ -12,8 +12,6 @@ namespace MicrosoftHouse
 {
     public class NewReservationViewModel : BaseViewModel
     {
-        ICloudService cloudService;
-
         public NewReservationViewModel()
         {
             SearchAvailableRoomsCommand = new Command(async () => await ExecuteSearchAvailableRoomsCommand());
@@ -26,7 +24,6 @@ namespace MicrosoftHouse
         }
 
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
-
         public Command RefreshListCommand { get; }
         public Command SearchAvailableRoomsCommand { get; }
         public Command CreateReservationCommand { get; }
@@ -55,7 +52,8 @@ namespace MicrosoftHouse
                 SetProperty(ref selectedRoom, value, "SelectedRoom");
                 if (selectedRoom != null)
                 {
-                    ExecuteCreateReservationCommand();
+                    NewReservation.RoomName = selectedRoom.Name;
+                    CreateReservationCommand.Execute(null);
                 }
             }
         }
@@ -102,13 +100,12 @@ namespace MicrosoftHouse
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[TaskDetail] Save error: {ex.Message}");
+                Debug.WriteLine($"[ReservationListViewModel] Save error: {ex.Message}");
             }
             finally
             {
                 IsBusy = false;
             }
-            //await ExecuteRefreshCommand();
         }
 
         async Task ExecuteCreateReservationCommand()
@@ -128,26 +125,23 @@ namespace MicrosoftHouse
                     if (identity != null)
                     {
                         var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
-                        Debug.WriteLine(name);
                         NewReservation.User = name;
-                        newReservation.RoomName = selectedRoom.Name;
                     }
 
                     await reservationTable.CreateReservationAsynch(NewReservation);
-                    //await CloudService.SyncOfflineCacheAsync();
                 }
                 else
                 {
                     await reservationTable.UpdateReservationAsync(NewReservation);
-                    //await CloudService.SyncOfflineCacheAsync();
                 }
                 SelectedRoom = null;
                 await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
                 MessagingCenter.Send<NewReservationViewModel>(this, "ItemsChanged");
+                await CloudService.SyncOfflineCacheAsync();
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[TaskDetail] Save error: {ex.Message}");
+                Debug.WriteLine($"[NewReservationViewModel] Save error: {ex.Message}");
             }
             finally
             {

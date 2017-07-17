@@ -47,7 +47,6 @@ namespace MicrosoftHouse
 
             try
             {
-				//await CloudService.SyncOfflineCacheAsync();
                 var reservationTable = await CloudService.GetTableAsync<Reservation>();
                 var reservationList = await reservationTable.ReadAllReservationsAsync();
                 Reservations.Clear();
@@ -58,7 +57,7 @@ namespace MicrosoftHouse
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[Reservations] Error loading items: {ex.Message}");
+                Debug.WriteLine($"[ReservationListViewModel] Error loading items: {ex.Message}");
             }
             finally
             {
@@ -92,11 +91,12 @@ namespace MicrosoftHouse
                 {
                     var table = await CloudService.GetTableAsync<Reservation>();
                     await table.DeleteEventAsync(reservation);
+                    await CloudService.SyncOfflineCacheAsync();
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[TaskDetail] Save error: {ex.Message}");
+                Debug.WriteLine($"[ReservationListViewModel] Save error: {ex.Message}");
             }
             finally
             {

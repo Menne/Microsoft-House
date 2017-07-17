@@ -7,7 +7,6 @@ Design and Implementation of Mobile Applications project - Filippo Pedrazzini, E
 Da implementare
 - Restyling home
 - Notifiche iOS
-- Mandare le notifiche una volta che è stato creato un evento
 - Abilitare/disabilitare le notifiche nella schermata settings
 - Gestire conteggio parcheggio
 - Controllare se un utente è già loggato prima di mostrare la schermata di login
@@ -19,7 +18,6 @@ Da implementare
 - Aggiungere degli alert dialogs
 
 Bug
-- Problemi con SyncOfflineCacheAsync()
 - Problemi col refresh del calendario
 - In UWP le date del calendario si sovrappongono
 - Icone UWP sgranate
