@@ -6,7 +6,7 @@ namespace MicrosoftHouse.Abstractions
 {
 	public interface ICloudService
 	{
-		ICloudTable<T> GetTableAsync<T>() where T : TableData;
+        Task<ICloudTable<T>> GetTableAsync<T>() where T : TableData;
 
         Task<MobileServiceUser> LoginAsync();
 
