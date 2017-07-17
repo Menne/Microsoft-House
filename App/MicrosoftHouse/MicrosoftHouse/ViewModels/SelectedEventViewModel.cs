@@ -41,7 +41,11 @@ namespace MicrosoftHouse
 
 		async Task ExecuteDeleteEventCommand()
 		{
-			if (IsBusy)
+            var answer = await Application.Current.MainPage.DisplayAlert("Are you sure?", "Nobody will be able to see this event anymore from the shared calendar", "Yes", "No");
+            if (!answer)
+                return;
+
+            if (IsBusy)
                 return;
             IsBusy = true;
 
@@ -53,8 +57,8 @@ namespace MicrosoftHouse
 					await table.DeleteEventAsync(SelectedEvent);
                 }
 				await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
-                await CloudService.SyncOfflineCacheAsync();
                 MessagingCenter.Send<SelectedEventViewModel>(this, "ItemsChanged");
+                await CloudService.SyncOfflineCacheAsync();
             }
 			catch (Exception ex)
             {

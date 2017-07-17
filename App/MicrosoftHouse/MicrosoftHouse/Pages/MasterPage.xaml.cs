@@ -26,7 +26,7 @@ namespace MicrosoftHouse
 			{
 				if (item.Name.Equals("Logout"))
 				{
-					ExecuteLogout();
+					 ExecuteLogout();
 					return;
 				}
 
@@ -49,7 +49,11 @@ namespace MicrosoftHouse
 
 		async Task ExecuteLogout()
 		{
-			try
+            var answer = await Application.Current.MainPage.DisplayAlert("Are you sure?", "We hope to see you soon", "Yes", "No");
+            if (!answer)
+                return;
+
+            try
 			{
 				await CloudService.LogoutAsync();
 				Application.Current.MainPage = new EntryPage();

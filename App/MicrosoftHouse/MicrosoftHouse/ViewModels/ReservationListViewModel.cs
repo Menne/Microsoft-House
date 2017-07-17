@@ -81,6 +81,10 @@ namespace MicrosoftHouse
 
         async Task ExecuteDeleteReservationCommand(Reservation reservation)
         {
+            var answer = await Application.Current.MainPage.DisplayAlert("Are you sure?", "Your reservation for this room will be deleted", "Yes", "No");
+            if (!answer)
+                return;
+
             if (IsBusy)
                 return;
             IsBusy = true;
