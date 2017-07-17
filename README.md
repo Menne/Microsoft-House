@@ -15,7 +15,6 @@ Da implementare
 - Aggiustare la schermata dettagli room (labels in alto e lista reservations)
 - Icone 2.0
 - La homepage dovrebbe essere sempre la prima pagina della navigation stack
-- Aggiungere degli alert dialogs
 
 Bug
 - Problemi col refresh del calendario

@@ -26,7 +26,8 @@ namespace MicrosoftHouse
 			{
 				if (item.Name.Equals("Logout"))
 				{
-					 ExecuteLogout();
+                    hamburgerPage.ListView.SelectedItem = null;
+                    ExecuteLogout();
 					return;
 				}
 
