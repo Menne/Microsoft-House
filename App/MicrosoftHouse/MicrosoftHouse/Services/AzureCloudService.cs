@@ -194,7 +194,7 @@ namespace MicrosoftHouse.Services
 			await client.SyncContext.PushAsync();
 
 			// Pull each sync table
-			Debug.WriteLine("SyncOfflineCacheAsync: Pulling tags event");
+			Debug.WriteLine("SyncOfflineCacheAsync: Pulling tasks event");
 			var eventtable = await GetTableAsync<Event>(); 
 			await eventtable.PullAsync();
 
