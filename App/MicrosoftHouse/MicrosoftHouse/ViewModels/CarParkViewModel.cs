@@ -16,24 +16,34 @@ namespace MicrosoftHouse
 {
     class CarParkViewModel : BaseViewModel
     {
-
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
         ZXingScannerPage scanPage;
 
         public CarParkViewModel()
         {
-            InitializeParkInfo();
-            InitializeUserPositionAsync();
             InitializeStatistics();
 
             ChangeDayCommand = new Command<string>(execute: (string dayOfWeek) => ShowStatistics(Int32.Parse(dayOfWeek)));
             ParkCommand = new Command(async () => await ExecuteParkCommand());
+            RefreshParkInfo = new Command(async () => await ExecuteRefreshParkInfo());
+            RefreshUserPosition = new Command(async () => await ExecuteRefreshUserPosition());
+
+            // Subscribe to a new parking from the scan page
+            MessagingCenter.Subscribe<CarParkViewModel>(this, "ItemsChanged", async (sender) =>
+            {
+                await ExecuteRefreshParkInfo();
+            });
+
+            RefreshParkInfo.Execute(null);
+            RefreshUserPosition.Execute(null);
 
             ShowStatistics(0);
         }
 
         public Command ChangeDayCommand { get; set; }
         public Command ParkCommand { get; set; }
+        public Command RefreshParkInfo { get; set; }
+        public Command RefreshUserPosition { get; set; }
 
         List<String> daysOfWeek = new List<String> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
         public List<String> DaysOfWeek
@@ -86,22 +96,21 @@ namespace MicrosoftHouse
             get { return timeToArrival; }
         }
 
-        async private void InitializeParkInfo()
+        async Task ExecuteRefreshParkInfo()
         {
             try
             {
-				//await CloudService.SyncOfflineCacheAsync();
                 var carParkTable = await CloudService.GetTableAsync<CarPark>();
                 var park = await carParkTable.ReadAllParksAsync();
-                ParkingSpaces = Int32.Parse(park.ElementAt(0).Park);
+                ParkingSpaces = 100-park.Count();
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[ParkingSpaces] Error loading items: {ex.Message}");
+                Debug.WriteLine($"[CarParkViewModel] Error loading items: {ex.Message}");
             }
         }
 
-        private async Task InitializeUserPositionAsync()
+        async Task ExecuteRefreshUserPosition()
         {
             try
             {
@@ -151,6 +160,7 @@ namespace MicrosoftHouse
         {
             return (rad / Math.PI * 180.0);
         }
+
 
         private void InitializeStatistics()
         {
@@ -238,7 +248,42 @@ namespace MicrosoftHouse
 
                 Device.BeginInvokeOnMainThread(async () =>
                 {
+                    var carParkTable = await CloudService.GetTableAsync<CarPark>();
+                    var listOfSlots = await carParkTable.ReadAllRoomsAsync();
+                    String name = "";
+
+                    // Get the identity
+                    var identity = await CloudService.GetIdentityAsync();
+                    if (identity != null)
+                    {
+                        name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
+                    }
+                    CarPark newSlot = new CarPark();
+                    newSlot.Park = name;
+
+                    bool hasParked = false;
+                    foreach (var slot in listOfSlots)
+                    {
+                        if (slot.Park.Equals(newSlot.Park))
+                        {
+                            hasParked = true;
+                            break;
+                        }
+                    }
+
+                    if (hasParked)
+                    {
+                        await carParkTable.CreateReservationAsynch(newSlot);
+                    }
+                    else
+                    {
+                        await carParkTable.CreateReservationAsynch(newSlot);
+                    }
+
                     await Application.Current.MainPage.Navigation.PopModalAsync();
+                    MessagingCenter.Send<CarParkViewModel>(this, "ItemsChanged");
+                    await CloudService.SyncOfflineCacheAsync();
+
                     //Task<bool> task = DisplayAlert("Simple Alert", "Decide on an option", "Ok", "Cancel");
                     //bool result = await task
 
@@ -246,7 +291,6 @@ namespace MicrosoftHouse
 
                     if (String.Equals(result.Text, "ParkingCode"))
                     {
-
                         await App.Current.MainPage.DisplayAlert("Park Done", "Thank You", "OK");
                     }
                 });
