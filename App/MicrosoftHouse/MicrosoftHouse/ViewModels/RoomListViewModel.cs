@@ -21,8 +21,7 @@ namespace MicrosoftHouse
             RefreshCommand = new Command(async () => await ExecuteRefreshCommand());
             NewReservationCommand = new Command(async () => await ExecuteNewReservationCommand());
 
-            RefreshList();
-            
+            RefreshCommand.Execute(null);
         }
 
 
@@ -30,14 +29,6 @@ namespace MicrosoftHouse
         public Command RefreshCommand { get; }
         public Command NewReservationCommand { get; }
 
-        async Task RefreshList()
-        {
-            await ExecuteRefreshCommand();
-            /*MessagingCenter.Subscribe<SelectedRoomViewModel>(this, "ItemsChanged", async (sender) =>
-			{
-				await ExecuteRefreshCommand();   
-			});*/
-        }
 
         async Task ExecuteRefreshCommand()
         {
@@ -47,7 +38,6 @@ namespace MicrosoftHouse
 
             try
             {
-				//await CloudService.SyncOfflineCacheAsync();
                 var table = await CloudService.GetTableAsync<Room>();
                 var list = await table.ReadAllRoomsAsync();
                 AllRooms.Clear();
@@ -59,7 +49,7 @@ namespace MicrosoftHouse
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[RoomList] Error loading items: {ex.Message}");
+                Debug.WriteLine($"[RoomListViewModel] Error loading items: {ex.Message}");
             }
             finally
             {
@@ -82,7 +72,7 @@ namespace MicrosoftHouse
             set { SetProperty(ref displayedRooms, value, "DisplayedRooms"); }
         }
 
-        String availabilityText="prova";
+        String availabilityText = "prova";
         public String AvailabilityText
         {
             get { return availabilityText; }
@@ -122,7 +112,6 @@ namespace MicrosoftHouse
                 SetProperty(ref selectedRoom, value, "SelectedRoom");
                 if (selectedRoom != null)
                 {
-
                     (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new SelectedRoomPage(selectedRoom));
                     SelectedRoom = null;
                 }
@@ -132,7 +121,13 @@ namespace MicrosoftHouse
 
         async Task ExecuteNewReservationCommand()
         {
+            if (IsBusy)
+                return;
+            IsBusy = true;
+
             await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewReservationPage());
+
+            IsBusy = false;
         }
 
         void Search(String searchArgument)

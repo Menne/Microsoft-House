@@ -122,7 +122,7 @@ namespace MicrosoftHouse.ViewModels
             }
 			catch (Exception ex)
 			{
-				Debug.WriteLine($"[EventList] Error loading items: {ex.Message}");
+				Debug.WriteLine($"[EventsViewModel] Error loading items: {ex.Message}");
 			}
 			finally
 			{
@@ -169,11 +169,12 @@ namespace MicrosoftHouse.ViewModels
                 {
                     var table = await CloudService.GetTableAsync<Event>();
                     await table.DeleteEventAsync(e);
+                    await CloudService.SyncOfflineCacheAsync();
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[TaskDetail] Save error: {ex.Message}");
+                Debug.WriteLine($"[EventsViewModel] Save error: {ex.Message}");
             }
             finally
             {
