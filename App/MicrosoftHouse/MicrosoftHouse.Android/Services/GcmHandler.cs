@@ -53,7 +53,7 @@ namespace TaskList.Droid.Services
             {
                 var message = intent.Extras.GetString("message") ?? "Unknown Message";
                 var picture = intent.Extras.GetString("picture");
-                CreateNotification("event", message, picture);
+                CreateNotification("Microsoft House", message, picture);
             }
         }
 

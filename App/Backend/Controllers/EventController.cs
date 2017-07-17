@@ -37,7 +37,7 @@ namespace Backend
 		public async Task<Event> PatchEvent(string id, Delta<Event> patch)
 		{
 			var item = await UpdateAsync(id, patch);
-            await PushToSyncAsync("event", item.Id);
+            await PushToSyncAsync("Event", item.Id);
             return item;
         }
 
@@ -45,14 +45,14 @@ namespace Backend
         public async Task<IHttpActionResult> PostEvent(Event currentEvent)
 		{
 			Event current = await InsertAsync(currentEvent);
-            await PushToSyncAsync("event", currentEvent.Id);
+            await PushToSyncAsync("Event", currentEvent.Id);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
 		}
 
 		// DELETE tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
 		public async Task DeleteEvent(string id)
 		{
-            await PushToSyncAsync("event", id);
+            await PushToSyncAsync("Event", id);
             await DeleteAsync(id);
         }
 

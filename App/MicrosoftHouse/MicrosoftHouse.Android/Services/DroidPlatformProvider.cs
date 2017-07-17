@@ -110,9 +110,9 @@ namespace MicrosoftHouse.Droid
                         PushChannel = registrationId
                     };
                     // Set up tags to request
-                    installation.Tags.Add("topic:Sports");
+                    installation.Tags.Add("topic:Events");
                     // Set up templates to request
-                    PushTemplate genericTemplate = new PushTemplate
+                    var genericTemplate = new PushTemplate
                     {
                         Body = @"{""data"":{""message"":""$(message)""}}"
                     };

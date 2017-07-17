@@ -93,9 +93,6 @@ namespace MicrosoftHouse
                     var table = await CloudService.GetTableAsync<Reservation>();
                     await table.DeleteEventAsync(reservation);
                 }
-
-                //MessagingCenter.Send<SelectedEventPageViewModel>(this, "ItemsChanged");
-                await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
             }
             catch (Exception ex)
             {
