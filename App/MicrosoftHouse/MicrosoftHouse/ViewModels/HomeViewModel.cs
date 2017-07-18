@@ -59,7 +59,7 @@ namespace MicrosoftHouse
 			}
 			catch (Exception ex)
 			{
-				Debug.WriteLine($"[ParkingSpaces] Error loading items: {ex.Message}");
+				Debug.WriteLine($"[HomeViewModel] Error loading items: {ex.Message}");
 			}
 		}
 

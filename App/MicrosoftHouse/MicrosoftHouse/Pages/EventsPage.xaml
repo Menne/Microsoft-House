@@ -20,15 +20,21 @@
             <Grid HorizontalOptions="FillAndExpand"
                   RowSpacing="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1.25*"/>
-                    <RowDefinition Height="*"/>
+                <RowDefinition>
+                    <RowDefinition.Height>
+                        <OnPlatform x:TypeArguments="GridLength"
+                                iOS="1.25*"
+                                Android="1.25*"
+                                WinPhone="3.25*"/>
+                    </RowDefinition.Height>
+                </RowDefinition>
+                <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <controls:Calendar x:Name="calendar"
-                Padding="20,0,20,10"
-                VerticalOptions="CenterAndExpand" 
+                VerticalOptions="StartAndExpand" 
                 TitleLabelTextColor="White"
                 TitleLabelFontFamily="Avenir"
                 MonthNavigationShow="true"
@@ -58,6 +64,12 @@
                 SpecialDates="{Binding AllEventDates}"
                 Grid.Row="0"
 				Grid.Column="0">
+                <controls:Calendar.Padding>
+                    <OnPlatform x:TypeArguments="Thickness"
+                                iOS="20,0,20,10"
+                                Android="20,0,20,10"
+                                WinPhone="10,0,10,0"/>
+                </controls:Calendar.Padding>
             </controls:Calendar>
                 
                 <ListView ItemsSource="{Binding EventsOfSelectedDay, Mode=TwoWay}"
