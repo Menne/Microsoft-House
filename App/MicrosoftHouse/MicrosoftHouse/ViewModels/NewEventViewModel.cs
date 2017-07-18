@@ -91,7 +91,7 @@ namespace MicrosoftHouse
 						SelectedEvent.User = name;
 					}
 
-					await tableEvent.CreateEventAsynch(SelectedEvent);
+					await tableEvent.CreateEventAsync(SelectedEvent);
 				}
 				else
 				{

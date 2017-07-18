@@ -17,29 +17,30 @@ namespace MicrosoftHouse.Services
 		}
 
 		// CREATE
-		public async Task<T> CreateEventAsynch(T newEvent)
+		public async Task<T> CreateEventAsync(T newEvent)
 		{
 			await table.InsertAsync(newEvent);
 			return newEvent;
 		}
 
-		public Task<T> CreateEventLocationAsynch(T room)
+		public Task<T> CreateEventLocationAsync(T location)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Task<T> CreateParkAsynch(T room)
+		public async Task<T> CreateParkAsync(T slot)
 		{
-			throw new NotImplementedException();
-		}
+            await table.InsertAsync(slot);
+            return slot;
+        }
 
-		public async Task<T> CreateReservationAsynch(T reservation)
+		public async Task<T> CreateReservationAsync(T reservation)
 		{
 			await table.InsertAsync(reservation);
 			return reservation;
 		}
 
-		public async Task<T> CreateRoomAsynch(T room)
+		public async Task<T> CreateRoomAsync(T room)
 		{
 			await table.InsertAsync(room);
 			return room;
@@ -51,15 +52,15 @@ namespace MicrosoftHouse.Services
 			await table.DeleteAsync(currentEvent);
 		}
 
-		public Task DeleteEventLocationAsync(T room)
+		public Task DeleteEventLocationAsync(T location)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Task DeleteParkAsync(T room)
+		public async Task DeleteParkAsync(T slot)
 		{
-			throw new NotImplementedException();
-		}
+            await table.DeleteAsync(slot);
+        }
 
 		public async Task DeleteReservationAsync(T reservation)
 		{
@@ -139,10 +140,10 @@ namespace MicrosoftHouse.Services
 			throw new NotImplementedException();
 		}
 
-		public async Task<T> UpdateParkAsync(T park)
+		public async Task<T> UpdateParkAsync(T slot)
 		{
-			await table.UpdateAsync(park);
-			return park;
+			await table.UpdateAsync(slot);
+			return slot;
 		}
 
 		public async Task<T> UpdateReservationAsync(T reservation)

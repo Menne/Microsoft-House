@@ -128,7 +128,7 @@ namespace MicrosoftHouse
                         NewReservation.User = name;
                     }
 
-                    await reservationTable.CreateReservationAsynch(NewReservation);
+                    await reservationTable.CreateReservationAsync(NewReservation);
                 }
                 else
                 {

@@ -94,7 +94,7 @@ namespace MicrosoftHouse
                 if (reservation.Id != null)
                 {
                     var table = await CloudService.GetTableAsync<Reservation>();
-                    await table.DeleteEventAsync(reservation);
+                    await table.DeleteReservationAsync(reservation);
                     await CloudService.SyncOfflineCacheAsync();
                 }
             }

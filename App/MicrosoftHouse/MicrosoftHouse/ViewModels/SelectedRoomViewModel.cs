@@ -99,7 +99,7 @@ namespace MicrosoftHouse
                         NewReservation.RoomName = SelectedRoom.Name;
                     }
 
-                    await reservationTable.CreateReservationAsynch(NewReservation);
+                    await reservationTable.CreateReservationAsync(NewReservation);
                     //await CloudService.SyncOfflineCacheAsync();
                 }
                 else

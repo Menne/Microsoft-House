@@ -248,55 +248,55 @@ namespace MicrosoftHouse
 
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    var carParkTable = await CloudService.GetTableAsync<CarPark>();
-                    var listOfSlots = await carParkTable.ReadAllRoomsAsync();
-                    String name = "";
-
-                    // Get the identity
-                    var identity = await CloudService.GetIdentityAsync();
-                    if (identity != null)
+                    try
                     {
-                        name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
-                    }
-                    CarPark newSlot = new CarPark();
-                    newSlot.Park = name;
+                        var carParkTable = await CloudService.GetTableAsync<CarPark>();
+                        var listOfSlots = await carParkTable.ReadAllRoomsAsync();
+                        String name = "";
 
-                    bool hasParked = false;
-                    foreach (var slot in listOfSlots)
-                    {
-                        if (slot.Park.Equals(newSlot.Park))
+                        // Get the identity
+                        var identity = await CloudService.GetIdentityAsync();
+                        if (identity != null)
                         {
-                            hasParked = true;
-                            break;
+                            name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
                         }
-                    }
+                        CarPark currentSlot = new CarPark();
+                        currentSlot.Park = name;
+                        Debug.WriteLine(currentSlot.Park);
+                        Debug.WriteLine(name);
 
-                    if (hasParked)
+                        bool hasParked = false;
+                        foreach (var slot in listOfSlots)
+                        {
+                            if (slot.Park.Equals(currentSlot.Park))
+                            {
+                                hasParked = true;
+                                currentSlot = slot;
+                                break;
+                            }
+                        }
+                        Debug.WriteLine(hasParked);
+
+                        if (hasParked)
+                        {
+                            await carParkTable.DeleteParkAsync(currentSlot);
+                            await App.Current.MainPage.DisplayAlert("Welcome " + name, "QR scanning went successfully", "OK");
+                        }
+                        else
+                        {
+                            await carParkTable.CreateParkAsync(currentSlot);
+                            await App.Current.MainPage.DisplayAlert("Bye " + name, "QR scanning went successfully", "OK");
+                        }
+                        await Application.Current.MainPage.Navigation.PopModalAsync();
+                        MessagingCenter.Send<CarParkViewModel>(this, "ItemsChanged");
+                        await CloudService.SyncOfflineCacheAsync();
+                    }
+                    catch (Exception ex)
                     {
-                        await carParkTable.CreateReservationAsynch(newSlot);
-                    }
-                    else
-                    {
-                        await carParkTable.CreateReservationAsynch(newSlot);
-                    }
-
-                    await Application.Current.MainPage.Navigation.PopModalAsync();
-                    MessagingCenter.Send<CarParkViewModel>(this, "ItemsChanged");
-                    await CloudService.SyncOfflineCacheAsync();
-
-                    //Task<bool> task = DisplayAlert("Simple Alert", "Decide on an option", "Ok", "Cancel");
-                    //bool result = await task
-
-                    //await App.Current.MainPage.DisplayAlert("Park Done", result.Text, "OK");
-
-                    if (String.Equals(result.Text, "ParkingCode"))
-                    {
-                        await App.Current.MainPage.DisplayAlert("Park Done", "Thank You", "OK");
-                    }
+                        Debug.WriteLine($"[ScanPage] Error saving items: {ex.Message}");
+                    }   
                 });
             };
-
-            //await(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(scanPage);
 
             await Application.Current.MainPage.Navigation.PushModalAsync(scanPage);
         }
