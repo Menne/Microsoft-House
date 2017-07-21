@@ -4,8 +4,8 @@
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.Pages.ReservationListPage"	 
              x:Name="ReservationListPage"
-             Title="Your Reservations">
-    <!--  Icon="ReservationIcon.png" -->
+             Title="Your Reservations"
+    Icon="ReservationIcon.png">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="New Reservation"
             Command="{Binding NewReservationCommand}">
