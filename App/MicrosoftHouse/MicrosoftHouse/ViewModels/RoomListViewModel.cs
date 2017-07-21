@@ -41,10 +41,11 @@ namespace MicrosoftHouse
                 var table = await CloudService.GetTableAsync<Room>();
                 var list = await table.ReadAllRoomsAsync();
                 AllRooms.Clear();
+                DisplayedRooms.Clear();
                 foreach (var room in list)
                 {
-                    allRooms.Add(room);
-                    displayedRooms.Add(room);
+                    AllRooms.Add(room);
+                    DisplayedRooms.Add(room);
                 }
             }
             catch (Exception ex)

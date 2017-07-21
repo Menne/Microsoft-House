@@ -158,6 +158,10 @@ namespace MicrosoftHouse.ViewModels
 
         async Task ExecuteDeleteEventCommand(Event e)
         {
+            var answer = await Application.Current.MainPage.DisplayAlert("Are you sure?", "Nobody will be able to see this event anymore from the shared calendar", "Yes", "No");
+            if (!answer)
+                return;
+
             if (IsBusy)
                 return;
             IsBusy = true;
