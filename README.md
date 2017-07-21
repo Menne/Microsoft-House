@@ -23,3 +23,4 @@ Miglioramenti
 - UWP renderers dei picker
 - Aggiustare la schermata new event (titolo e descrizione dell'evento)
 - Cambiare bottoni statistiche parcheggio con sottolineatura
+- Rendere i picker coerenti (ending time > starting time)
