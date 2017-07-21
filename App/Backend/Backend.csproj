@@ -162,7 +162,7 @@
     <Compile Include="App_Start\Startup.MobileApp.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\EventLocationController.cs" />
-    <Compile Include="Controllers\ParkController.cs" />
+    <Compile Include="Controllers\CarParkController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="DataObjects\CarPark.cs" />

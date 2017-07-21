@@ -10,7 +10,7 @@ using Microsoft.Azure.Mobile.Server;
 
 namespace Backend
 {
-	public class ParkController : TableController<CarPark>
+	public class CarParkController : TableController<CarPark>
 	{
 		protected override void Initialize(HttpControllerContext controllerContext)
 		{
