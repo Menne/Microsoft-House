@@ -25,7 +25,7 @@ namespace MicrosoftHouse
 			CalendarCommand = new Command(async () => await ExecuteCalendarCommand());
 			ParkDetailCommand = new Command(async () => await ExecuteParkDetailCommand());
 			NewEventCommand = new Command(async () => ExecuteNewEventCommand());
-			NewParkCommand = new Command(async () => ExecuteNewParkCommand());
+			NewParkCommand = new Command(async () => ExecuteParkCommand());
 
             LoadInfoCommand.Execute(null);
         }
@@ -57,78 +57,110 @@ namespace MicrosoftHouse
 
 		async Task ExecuteCalendarCommand()
 		{
-			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new EventsPage())
+            if (IsBusy)
+                return;
+            IsBusy = true;
+
+            (Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new EventsPage())
 			{
 				//BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#FF01A4EF")
-			};		
+			};
+
+            IsBusy = false;
 		}
 
 		async Task ExecuteParkDetailCommand()
 		{
-			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new CarParkPage())
+            if (IsBusy)
+                return;
+            IsBusy = true;
+
+            (Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new CarParkPage())
 			{
 				//BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#FF01A4EF")
-			};		
-		}
+			};
+
+            IsBusy = false;
+        }
 
 		async Task ExecuteSearchRoomCommand()
 		{
-			await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewReservationPage());
-		}
+            if (IsBusy)
+                return;
+            IsBusy = true;
+
+            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewReservationPage());
+
+            IsBusy = false;
+        }
 
 		async Task ExecuteRoomCommand()
 		{
-			(Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new RoomsPage())
+            if (IsBusy)
+                return;
+            IsBusy = true;
+
+            (Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new RoomsPage())
 			{
 				//BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#FF01A4EF")
 			};
-		}
+
+            IsBusy = false;
+        }
 
 		async Task ExecuteNewEventCommand()
 		{
-			await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage());
+            if (IsBusy)
+                return;
+            IsBusy = true;
+
+            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage());
+
+            IsBusy = false;
         }
 
-		// QRCODE
-		async void ExecuteNewParkCommand()
-		{
+        // QRCODE
+        async Task ExecuteParkCommand()
+        {
+            if (IsBusy)
+                return;
+            IsBusy = true;
 
+            var customOverlay = new StackLayout
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                Padding = new Thickness(20, 30, 20, 30),
+                Orientation = StackOrientation.Horizontal
+            };
+            var torch = new Button
+            {
+                Text = "Torch",
+                TextColor = Color.White,
+                FontFamily = "Avenir",
+                VerticalOptions = LayoutOptions.Start,
+                HorizontalOptions = LayoutOptions.EndAndExpand,
+                BackgroundColor = Color.FromHex("#FF01A4EF"),
+                HeightRequest = 40,
+                WidthRequest = 80,
+                BorderRadius = 20
+            };
 
-			var customOverlay = new StackLayout
-			{
-				HorizontalOptions = LayoutOptions.FillAndExpand,
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				Padding = new Thickness(20, 30, 20, 30),
-				Orientation = StackOrientation.Horizontal
-			};
-			var torch = new Button
-			{
-				Text = "Torch",
-				TextColor = Color.White,
-				FontFamily = "Avenir",
-				VerticalOptions = LayoutOptions.Start,
-				HorizontalOptions = LayoutOptions.EndAndExpand,
-				BackgroundColor = Color.FromHex("#FF01A4EF"),
-				HeightRequest = 40,
-				WidthRequest = 80,
-				BorderRadius = 20
-			};
-
-			var close = new Button
-			{
-				Text = "X",
-				TextColor = Color.White,
-				FontFamily = "Avenir",
-				VerticalOptions = LayoutOptions.Start,
-				HorizontalOptions = LayoutOptions.StartAndExpand,
-				BackgroundColor = Color.FromHex("#FF01A4EF"),
-				HeightRequest = 40,
-				WidthRequest = 40,
-				BorderRadius = 20
-			};
+            var close = new Button
+            {
+                Text = "X",
+                TextColor = Color.White,
+                FontFamily = "Avenir",
+                VerticalOptions = LayoutOptions.Start,
+                HorizontalOptions = LayoutOptions.StartAndExpand,
+                BackgroundColor = Color.FromHex("#FF01A4EF"),
+                HeightRequest = 40,
+                WidthRequest = 40,
+                BorderRadius = 20
+            };
 
             scanPage = new ZXingScannerPage(customOverlay: customOverlay)
             {
@@ -137,42 +169,79 @@ namespace MicrosoftHouse
             };
 
             torch.Clicked += delegate
-			{
-				scanPage.ToggleTorch();
-			};
+            {
+                scanPage.ToggleTorch();
+            };
 
-			close.Clicked += delegate
-			{
-				Application.Current.MainPage.Navigation.PopModalAsync();
-			};
+            close.Clicked += delegate
+            {
+                Application.Current.MainPage.Navigation.PopModalAsync();
+            };
 
-			customOverlay.Children.Add(close);
-			customOverlay.Children.Add(torch);
+            customOverlay.Children.Add(close);
+            customOverlay.Children.Add(torch);
 
-            
-			scanPage.OnScanResult += (result) =>
-			{
-				scanPage.IsScanning = false;
 
-				Device.BeginInvokeOnMainThread(async () =>
-				{
-					await Application.Current.MainPage.Navigation.PopModalAsync();
-					//Task<bool> task = DisplayAlert("Simple Alert", "Decide on an option", "Ok", "Cancel");
-					//bool result = await task
+            scanPage.OnScanResult += (result) =>
+            {
+                scanPage.IsScanning = false;
 
-					//await App.Current.MainPage.DisplayAlert("Park Done", result.Text, "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    try
+                    {
+                        var carParkTable = await CloudService.GetTableAsync<CarPark>();
+                        var listOfSlots = await carParkTable.ReadAllRoomsAsync();
+                        String name = "";
 
-					if (String.Equals(result.Text,"ParkingCode"))
-					{
-						
-						await App.Current.MainPage.DisplayAlert("Park Done", "Thank You", "OK");
-					}
-				});
-			};
+                        // Get the identity
+                        var identity = await CloudService.GetIdentityAsync();
+                        if (identity != null)
+                        {
+                            name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
+                        }
+                        CarPark currentSlot = new CarPark();
+                        currentSlot.Park = name;
+                        Debug.WriteLine(currentSlot.Park);
+                        Debug.WriteLine(name);
 
-			//await(Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(scanPage);
+                        bool hasParked = false;
+                        foreach (var slot in listOfSlots)
+                        {
+                            if (slot.Park.Equals(currentSlot.Park))
+                            {
+                                hasParked = true;
+                                currentSlot = slot;
+                                break;
+                            }
+                        }
+                        Debug.WriteLine(hasParked);
 
-			await Application.Current.MainPage.Navigation.PushModalAsync(scanPage);
-		}
-	}
+                        if (hasParked)
+                        {
+                            await carParkTable.DeleteParkAsync(currentSlot);
+                            await Application.Current.MainPage.Navigation.PopModalAsync();
+                            await App.Current.MainPage.DisplayAlert("Bye, " + name, "QR scanning went successfully", "OK");
+                            await CloudService.SyncOfflineCacheAsync();
+                        }
+                        else
+                        {
+                            await carParkTable.CreateParkAsync(currentSlot);
+                            await Application.Current.MainPage.Navigation.PopModalAsync();
+                            await App.Current.MainPage.DisplayAlert("Welcome, " + name, "QR scanning went successfully", "OK");
+                            await CloudService.SyncOfflineCacheAsync();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"[ScanPage] Error saving items: {ex.Message}");
+                    }
+                });
+            };
+
+            await Application.Current.MainPage.Navigation.PushModalAsync(scanPage);
+
+            IsBusy = false;
+        }
+    }
 }

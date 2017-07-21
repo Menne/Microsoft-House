@@ -188,6 +188,9 @@ namespace MicrosoftHouse
         // QRCODE
         async Task ExecuteParkCommand()
         {
+            if (IsBusy)
+                return;
+            IsBusy = true;
 
             var customOverlay = new StackLayout
             {
@@ -281,17 +284,18 @@ namespace MicrosoftHouse
                         {
                             await carParkTable.DeleteParkAsync(currentSlot);
                             await Application.Current.MainPage.Navigation.PopModalAsync();
-                            await App.Current.MainPage.DisplayAlert("Welcome " + name, "QR scanning went successfully", "OK");
+                            MessagingCenter.Send<CarParkViewModel>(this, "ItemsChanged");
+                            await App.Current.MainPage.DisplayAlert("Bye, " + name, "QR scanning went successfully", "OK");
+                            await CloudService.SyncOfflineCacheAsync();
                         }
                         else
                         {
                             await carParkTable.CreateParkAsync(currentSlot);
                             await Application.Current.MainPage.Navigation.PopModalAsync();
-                            await App.Current.MainPage.DisplayAlert("Bye " + name, "QR scanning went successfully", "OK");
+                            MessagingCenter.Send<CarParkViewModel>(this, "ItemsChanged");
+                            await App.Current.MainPage.DisplayAlert("Welcome, " + name, "QR scanning went successfully", "OK");
+                            await CloudService.SyncOfflineCacheAsync(); 
                         }
-                        
-                        MessagingCenter.Send<CarParkViewModel>(this, "ItemsChanged");
-                        await CloudService.SyncOfflineCacheAsync();
                     }
                     catch (Exception ex)
                     {
@@ -301,6 +305,8 @@ namespace MicrosoftHouse
             };
 
             await Application.Current.MainPage.Navigation.PushModalAsync(scanPage);
+
+            IsBusy = false;
         }
     }
 
