@@ -16,7 +16,6 @@ Da implementare
 Bug
 - In Android il refreshing delle listview non finisce mai
 - Icone UWP sgranate
-- Le stanze e le locations ci sono sempre due volte
 
 Miglioramenti
 - UWP renderers dei picker
