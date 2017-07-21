@@ -19,49 +19,41 @@ namespace MicrosoftHouse
 
 		public HomeViewModel()
 		{
-
-			LoadParkingInfo();
-
-			SearchRoomCommand = new Command(async () => await ExecuteSearchRoomCommand());
+            LoadInfoCommand = new Command(async () => await ExecuteLoadInfoCommand());
+            SearchRoomCommand = new Command(async () => await ExecuteSearchRoomCommand());
 			RoomCommand = new Command(async () => await ExecuteRoomCommand());
 			CalendarCommand = new Command(async () => await ExecuteCalendarCommand());
 			ParkDetailCommand = new Command(async () => await ExecuteParkDetailCommand());
 			NewEventCommand = new Command(async () => ExecuteNewEventCommand());
 			NewParkCommand = new Command(async () => ExecuteNewParkCommand());
 
-		}
+            LoadInfoCommand.Execute(null);
+        }
 
-		public Command SearchRoomCommand { get; }
+        public Command LoadInfoCommand { get; }
+        public Command SearchRoomCommand { get; }
 		public Command RoomCommand { get; }
 		public Command CalendarCommand { get; }
 		public Command ParkDetailCommand { get; }
 		public Command NewEventCommand { get; }
 		public Command NewParkCommand { get; }
 
-		string parkingSpaces;
-		public string ParkingSpaces
-		{
-			set { SetProperty(ref parkingSpaces, value, "ParkingSpaces"); }
-			get { return parkingSpaces; }
-		}
 
 		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
 
-		async void LoadParkingInfo()
-		{
-			try
-			{
-				//await CloudService.SyncOfflineCacheAsync();
-				var carParkTable = await CloudService.GetTableAsync<CarPark>();
-				var park = await carParkTable.ReadAllParksAsync();
-				ParkingSpaces = park.ElementAt(0).Park;
-				Debug.WriteLine(ParkingSpaces);
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine($"[HomeViewModel] Error loading items: {ex.Message}");
-			}
-		}
+
+        async Task ExecuteLoadInfoCommand()
+        {
+            try
+            {
+                await CloudService.SyncOfflineCacheAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[HomeViewModel] Sync error: {ex.Message}");
+            }
+        }
+
 
 		async Task ExecuteCalendarCommand()
 		{

@@ -56,7 +56,7 @@ namespace Backend
             await DeleteAsync(id);
         }
 
-
+        // Push notifications
         private async Task PushToSyncAsync(string table, string id)
         {
             var appSettings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();

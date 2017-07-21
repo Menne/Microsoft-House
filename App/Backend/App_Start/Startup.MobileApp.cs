@@ -85,10 +85,7 @@ namespace Backend
 			{
 				context.Set<Room>().Add(room);
 			}
-
-			// Parcheggio
-
-			context.Set<CarPark>().Add(new CarPark { Id = Guid.NewGuid().ToString(), Park = "30" });
+            
 
 			List<EventLocation> locations = new List<EventLocation>
 			{

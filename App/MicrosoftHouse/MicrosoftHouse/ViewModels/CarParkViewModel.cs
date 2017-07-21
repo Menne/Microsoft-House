@@ -280,14 +280,16 @@ namespace MicrosoftHouse
                         if (hasParked)
                         {
                             await carParkTable.DeleteParkAsync(currentSlot);
+                            await Application.Current.MainPage.Navigation.PopModalAsync();
                             await App.Current.MainPage.DisplayAlert("Welcome " + name, "QR scanning went successfully", "OK");
                         }
                         else
                         {
                             await carParkTable.CreateParkAsync(currentSlot);
+                            await Application.Current.MainPage.Navigation.PopModalAsync();
                             await App.Current.MainPage.DisplayAlert("Bye " + name, "QR scanning went successfully", "OK");
                         }
-                        await Application.Current.MainPage.Navigation.PopModalAsync();
+                        
                         MessagingCenter.Send<CarParkViewModel>(this, "ItemsChanged");
                         await CloudService.SyncOfflineCacheAsync();
                     }
