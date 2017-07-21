@@ -33,15 +33,16 @@
 							 Padding="30,0,30,0"
 							 Grid.Column="0">
 					<Button x:Name="loginButton"
-									VerticalOptions="Start"
-									HorizontalOptions="FillAndExpand"
-									BackgroundColor="White"
-									Command="{Binding LoginCommand}"
-									Text="MICROSOFT ACCOUNT"
-									TextColor="#FF01A4EF"
-									FontFamily="Avenir"
-									Image="MicrosoftIcon.png"
-									BorderRadius="0"/>
+							VerticalOptions="Start"
+							HorizontalOptions="FillAndExpand"
+                            HeightRequest="40"
+							BackgroundColor="White"
+							Command="{Binding LoginCommand}"
+							Text="MICROSOFT ACCOUNT"
+							TextColor="#FF01A4EF"
+							FontFamily="Avenir"
+							Image="MicrosoftIcon.png"
+							BorderRadius="0"/>
 				</StackLayout>
 		</Grid>
     </ContentPage.Content>

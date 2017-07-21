@@ -19,7 +19,7 @@
 							VerticalOptions="FillAndExpand"
 							Orientation="Vertical"
 							Padding="20"
-							BackgroundColor="#FF4A3764"
+							BackgroundColor="#FF01A4EF"
 							Grid.Row="0"
 							Grid.Column="0">
 					<StackLayout HorizontalOptions="FillAndExpand"
@@ -35,18 +35,22 @@
 					<StackLayout HorizontalOptions="FillAndExpand"
 									VerticalOptions="FillAndExpand"
 									Orientation="Horizontal">
-						<Button x:Name="availableRoomsButton"
-								BackgroundColor="#FF5B4972"
+                    <Button x:Name="availableRoomsButton"
+                                BackgroundColor="#2079E6"
 								HeightRequest="40"
 								Command="{Binding RoomCommand}"
 								WidthRequest="40"
 								VerticalOptions="Center"
 								HorizontalOptions="Start"
-								Text="15"
-								TextColor="White"
-								FontFamily="Avenir"
-								BorderRadius="20"/>
-						<Label Text="Available Now"
+								BorderRadius="20">
+                        <Button.Image>
+                            <OnPlatform x:TypeArguments="FileImageSource"
+                                iOS="RoomIconWhite.png"
+                                Android="RoomIconWhite.png"
+                                WinPhone="Images/RoomIconWhite.png" />
+                            </Button.Image>
+                    </Button>
+                    <Label Text="See a list of all rooms"
 								FontSize="18"
 								BackgroundColor="Transparent"
 								TextColor="White"
@@ -58,7 +62,7 @@
 									VerticalOptions="FillAndExpand"
 									Orientation="Horizontal">
 						<Button x:Name="newRoomButton"
-									BackgroundColor="#FFBA77FF"
+									BackgroundColor="#2079E6"
 									HeightRequest="40"
 									WidthRequest="120"
 									Command="{Binding SearchRoomCommand}"
@@ -76,7 +80,7 @@
 							VerticalOptions="FillAndExpand"
 							Orientation="Vertical"
 							Padding="20"
-							BackgroundColor="#FF4A3764"
+							BackgroundColor="#FF01A4EF"
 							Grid.Row="1"
 							Grid.Column="0">
 					<StackLayout HorizontalOptions="FillAndExpand"
@@ -92,18 +96,22 @@
 					<StackLayout HorizontalOptions="FillAndExpand"
 									VerticalOptions="FillAndExpand"
 									Orientation="Horizontal">
-						<Button x:Name="availableSeatsButton"
+                    <Button x:Name="availableSeatsButton"
 								Command="{Binding ParkDetailCommand}"
-								BackgroundColor="#FF5B4972"
+								BackgroundColor="#2079E6"
 								HeightRequest="40"
 								WidthRequest="40"
 								VerticalOptions="Center"
 								HorizontalOptions="Start"
-								Text="15"
-								TextColor="White"
-								FontFamily="Avenir"
-								BorderRadius="20"/>
-						<Label Text="Available Seats"
+								BorderRadius="20">
+                        <Button.Image>
+                        <OnPlatform x:TypeArguments="FileImageSource"
+                                iOS="ParkIconWhite.png"
+                                Android="ParkIconWhite.png"
+                                WinPhone="Images/ParkIconWhite.png" />
+                        </Button.Image>
+                    </Button>
+                    <Label Text="See park statistics"
 								FontSize="18"
 								BackgroundColor="Transparent"
 								TextColor="White"
@@ -115,7 +123,7 @@
 									VerticalOptions="FillAndExpand"
 									Orientation="Horizontal">
 						<Button x:Name="newParkButton"
-									BackgroundColor="#FFBA77FF"
+									BackgroundColor="#2079E6"
 									HeightRequest="40"
 									WidthRequest="120"
 									VerticalOptions="CenterAndExpand"
@@ -132,7 +140,7 @@
 							VerticalOptions="FillAndExpand"
 							Orientation="Vertical"
 							Padding="20"
-							BackgroundColor="#FF4A3764"
+							BackgroundColor="#FF01A4EF"
 							Grid.Row="2"
 							Grid.Column="0">
 					<StackLayout HorizontalOptions="FillAndExpand"
@@ -149,17 +157,21 @@
 									VerticalOptions="FillAndExpand"
 									Orientation="Horizontal">
 						<Button x:Name="todayEventsButton"
-								BackgroundColor="#FF5B4972"
+								BackgroundColor="#2079E6"
 								HeightRequest="40"
 								WidthRequest="40"
 								Command="{Binding CalendarCommand}"
 								VerticalOptions="Center"
 								HorizontalOptions="Start"
-								Text="15"
-								TextColor="White"
-								FontFamily="Avenir"
-								BorderRadius="20"/>
-						<Label Text="Events Today"
+								BorderRadius="20">
+                        <Button.Image>
+                            <OnPlatform x:TypeArguments="FileImageSource"
+                                iOS="CalendarIconWhite.png"
+                                Android="CalendarIconWhite.png"
+                                WinPhone="Images/CalendarIconWhite.png" />
+                        </Button.Image>
+                    </Button>
+                    <Label Text="See all the planned events"
 								FontSize="18"
 								BackgroundColor="Transparent"
 								TextColor="White"
@@ -171,7 +183,7 @@
 									VerticalOptions="FillAndExpand"
 									Orientation="Horizontal">
 						<Button x:Name="newEventButton"
-									BackgroundColor="#FFBA77FF"
+									BackgroundColor="#2079E6"
 									HeightRequest="40"
 									WidthRequest="120"
 									Command="{Binding NewEventCommand}"

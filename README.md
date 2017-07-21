@@ -5,7 +5,6 @@ Design and Implementation of Mobile Applications project - Filippo Pedrazzini, E
 # TO DO
 
 Da implementare
-- Restyling home
 - Notifiche iOS
 - Finire implementazione notifiche
 - Abilitare/disabilitare le notifiche nella schermata settings
