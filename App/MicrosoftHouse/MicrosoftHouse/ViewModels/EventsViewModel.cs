@@ -49,13 +49,13 @@ namespace MicrosoftHouse.ViewModels
 		public Command NewEventCommand { get; }
         public Command DeleteEventCommand { get; }
 
-        DateTime? date;
-        public DateTime? Date
+        DateTime? selectedDate;
+        public DateTime? SelectedDate
         {
-            get { return date; }
+            get { return selectedDate; }
             set
             {
-                SetProperty(ref date, value, "SelectedDate");
+                SetProperty(ref selectedDate, value, "SelectedDate");
                 ShowEventsOfTheDay();
             }
         }
@@ -75,11 +75,11 @@ namespace MicrosoftHouse.ViewModels
 			}
 		}
 
-        ObservableCollection<Event> eventsOfSelectedDay = new ObservableCollection<Event>();
-        public ObservableCollection<Event> EventsOfSelectedDay
+        ObservableCollection<Event> eventsOfSelectedDate = new ObservableCollection<Event>();
+        public ObservableCollection<Event> EventsOfSelectedDate
         {
-            get { return eventsOfSelectedDay; }
-            set { SetProperty(ref eventsOfSelectedDay, value, "EventsOfSelectedDay"); }
+            get { return eventsOfSelectedDate; }
+            set { SetProperty(ref eventsOfSelectedDate, value, "EventsOfSelectedDate"); }
         }
 
 		ObservableCollection<Event> allEvents = new ObservableCollection<Event>();
@@ -89,11 +89,11 @@ namespace MicrosoftHouse.ViewModels
             set { SetProperty(ref allEvents, value, "AllEvents"); }
         }
 
-        ObservableCollection<XamForms.Controls.SpecialDate> allEventDates = new ObservableCollection<XamForms.Controls.SpecialDate>();
-        public ObservableCollection<XamForms.Controls.SpecialDate> AllEventDates
+        ObservableCollection<SpecialDate> datesWithEvents = new ObservableCollection<SpecialDate>();
+        public ObservableCollection<SpecialDate> DatesWithEvents
         {
-            get { return allEventDates; }
-            set { SetProperty(ref allEventDates, value, "AllEventDates"); }
+            get { return datesWithEvents; }
+            set { SetProperty(ref datesWithEvents, value, "DatesWithEvents"); }
         }
 
 		async Task ExecuteRefreshCommand()
@@ -107,16 +107,17 @@ namespace MicrosoftHouse.ViewModels
 				var table = await CloudService.GetTableAsync<Event>();
 				var list = await table.ReadAllEventsAsync();
 				AllEvents.Clear();
-                AllEventDates.Clear();
-				foreach (var currentEvent in list)
+                DatesWithEvents.Clear();
+                foreach (var currentEvent in list)
 				{
 					AllEvents.Add(currentEvent);
-                    XamForms.Controls.SpecialDate specialDate=new XamForms.Controls.SpecialDate(currentEvent.Date);
+                    SpecialDate specialDate = new SpecialDate(currentEvent.Date);
                     specialDate.Selectable = true;
                     specialDate.BorderColor = Color.White;
                     specialDate.BorderWidth = 2;
-                    AllEventDates.Add(specialDate);
+                    DatesWithEvents.Add(specialDate);
 				}
+                ShowEventsOfTheDay();
 
             }
 			catch (Exception ex)
@@ -142,14 +143,14 @@ namespace MicrosoftHouse.ViewModels
 
         private void ShowEventsOfTheDay()
         {
-            EventsOfSelectedDay.Clear();
-            if (Date!=null)
+            EventsOfSelectedDate.Clear();
+            if (SelectedDate != null)
             { 
-                foreach (Event item in AllEvents)
+                foreach (Event e in AllEvents)
                 {
-                    if (item.Date.Date == Date.Value.Date)
+                    if (e.Date.Date == SelectedDate.Value.Date)
                     {
-                        EventsOfSelectedDay.Add(item);
+                        EventsOfSelectedDate.Add(e);
                     }
                 }
             }

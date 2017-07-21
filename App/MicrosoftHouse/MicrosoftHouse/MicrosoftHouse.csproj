@@ -38,21 +38,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Calendar\CalandarChanges.cs" />
-    <Compile Include="Controls\Calendar\Calendar.cs" />
-    <Compile Include="Controls\Calendar\Calendar.Disabled.cs" />
-    <Compile Include="Controls\Calendar\Calendar.MonthNavigation.cs" />
-    <Compile Include="Controls\Calendar\Calendar.MonthYearView.cs" />
-    <Compile Include="Controls\Calendar\Calendar.NumberOfWeek.cs" />
-    <Compile Include="Controls\Calendar\Calendar.OutsideMonth.cs" />
-    <Compile Include="Controls\Calendar\Calendar.Selected.cs" />
-    <Compile Include="Controls\Calendar\Calendar.SpecialDates.cs" />
-    <Compile Include="Controls\Calendar\Calendar.Weekdays.cs" />
-    <Compile Include="Controls\Calendar\CalendarButton.cs" />
-    <Compile Include="Controls\Calendar\DateTimeEventArgs.cs" />
-    <Compile Include="Controls\Calendar\DateTypeEnum.cs" />
-    <Compile Include="Controls\Calendar\EnumerableExtensions.cs" />
-    <Compile Include="Controls\Calendar\SpecialDate.cs" />
     <Compile Include="Helpers\AuthenticationDelegatingHandler.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\PushToSync.cs" />

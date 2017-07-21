@@ -60,8 +60,8 @@
                 SelectedBorderColor="Transparent"
                 SelectedTextColor="#FF01A4EF"
                 SelectedBorderWidth="2"
-                SelectedDate="{Binding Date, Mode=TwoWay}"
-                SpecialDates="{Binding AllEventDates}"
+                SelectedDate="{Binding SelectedDate, Mode=TwoWay}"
+                SpecialDates="{Binding DatesWithEvents, Mode=TwoWay}"
                 Grid.Row="0"
 				Grid.Column="0">
                 <controls:Calendar.Padding>
@@ -72,7 +72,7 @@
                 </controls:Calendar.Padding>
             </controls:Calendar>
                 
-                <ListView ItemsSource="{Binding EventsOfSelectedDay, Mode=TwoWay}"
+                <ListView ItemsSource="{Binding EventsOfSelectedDate, Mode=TwoWay}"
                           SeparatorVisibility="None"
                           SelectedItem="{Binding SelectedEvent, Mode=TwoWay}"  
                           Grid.Row="1"
