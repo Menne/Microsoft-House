@@ -33,10 +33,7 @@ namespace MicrosoftHouse
         public Event SelectedEvent
         {
             get { return selectedEvent; }
-            set
-            {
-                SetProperty(ref selectedEvent, value, "SelectedEvent");
-            }
+            set { SetProperty(ref selectedEvent, value, "SelectedEvent"); }
         }
 
 		async Task ExecuteDeleteEventCommand()

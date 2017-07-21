@@ -15,7 +15,6 @@ Da implementare
 
 Bug
 - In Android il refreshing delle listview non finisce mai
-- Problemi col refresh del calendario, le date vengono aggiornate solo cliccandoci sopra
 - Icone UWP sgranate
 - Le stanze e le locations ci sono sempre due volte
 

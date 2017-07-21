@@ -78,8 +78,9 @@
                           Grid.Row="1"
 						  Grid.Column="0"
                    		  CachingStrategy="RecycleElement"
+                          RefreshCommand="{Binding RefreshCommand}"
                           IsPullToRefreshEnabled="True"
-						  RefreshCommand="{Binding RefreshCommand}">
+                          IsRefreshing="{Binding IsBusy, Mode=OneWay}">
                 <ListView.RowHeight>
                     <OnPlatform x:TypeArguments="x:Int32"
                                 iOS="80"

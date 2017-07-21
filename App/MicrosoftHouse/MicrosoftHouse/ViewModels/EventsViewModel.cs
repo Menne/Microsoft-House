@@ -122,7 +122,7 @@ namespace MicrosoftHouse.ViewModels
             }
 			catch (Exception ex)
 			{
-				Debug.WriteLine($"[EventsViewModel] Error loading items: {ex.Message}");
+				Debug.WriteLine($"[EventsViewModel] Error loading events: {ex.Message}");
 			}
 			finally
 			{
@@ -178,7 +178,7 @@ namespace MicrosoftHouse.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[EventsViewModel] Save error: {ex.Message}");
+                Debug.WriteLine($"[EventsViewModel] Delete error: {ex.Message}");
             }
             finally
             {
