@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using MicrosoftHouse.Abstractions;
 using MicrosoftHouse.Helpers;
 using Xamarin.Forms;
+using System.Linq;
 
 namespace MicrosoftHouse.ViewModels
 {
@@ -13,12 +14,13 @@ namespace MicrosoftHouse.ViewModels
 		{
 			AppService = Locations.AppServiceUrl;
 			LoginCommand = new Command(async () => await ExecuteLoginCommand());
-		}
+        }
 
-		public string AppService { get; set; }
+        public string AppService { get; set; }
 		public Command LoginCommand { get; }
 
-		async Task ExecuteLoginCommand()
+
+        async Task ExecuteLoginCommand()
 		{
 			if (IsBusy)
 				return;

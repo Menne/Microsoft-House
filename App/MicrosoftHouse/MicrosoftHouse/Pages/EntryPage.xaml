@@ -33,17 +33,23 @@
 							 Padding="30,0,30,0"
 							 Grid.Column="0">
 					<Button x:Name="loginButton"
-							VerticalOptions="Start"
+							VerticalOptions="Center"
 							HorizontalOptions="FillAndExpand"
                             HeightRequest="40"
 							BackgroundColor="White"
 							Command="{Binding LoginCommand}"
-							Text="MICROSOFT ACCOUNT"
+							Text="LOGIN WITH MICROSOFT ACCOUNT"
 							TextColor="#FF01A4EF"
 							FontFamily="Avenir"
-							Image="MicrosoftIcon.png"
-							BorderRadius="0"/>
-				</StackLayout>
+							BorderRadius="0">
+                    <Button.Image>
+                        <OnPlatform x:TypeArguments="FileImageSource"
+                                iOS="MicrosoftIcon.png"
+                                Android="MicrosoftIcon.png"
+                                WinPhone="Images/MicrosoftIcon.png" />
+                    </Button.Image>
+                </Button>
+            </StackLayout>
 		</Grid>
     </ContentPage.Content>
 </ContentPage>

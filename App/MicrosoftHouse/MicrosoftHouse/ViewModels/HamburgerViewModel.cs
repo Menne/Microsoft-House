@@ -12,13 +12,9 @@ namespace MicrosoftHouse
 {
 	public class HamburgerViewModel : BaseViewModel
 	{
-		
 		public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
-		List<MasterPageItem> masterPageItems;
-		string email;
-		string user;
 
-		public HamburgerViewModel()
+        public HamburgerViewModel()
 		{
 			Title = "Hamburger";
 
@@ -72,7 +68,30 @@ namespace MicrosoftHouse
 
 		}
 
-		async void LoadIdentity()
+        List<MasterPageItem> masterPageItems;
+        public List<MasterPageItem> MasterPageItems
+        {
+            set { SetProperty(ref masterPageItems, value, "Items"); }
+            get { return masterPageItems; }
+        }
+
+
+        string email;
+        public string Email
+        {
+            set { SetProperty(ref email, value, "Email"); }
+            get { return email; }
+        }
+
+        string user;
+        public string User
+        {
+            set { SetProperty(ref user, value, "User"); }
+            get { return user; }
+        }
+
+
+        async void LoadIdentity()
 		{
 			var identity = await CloudService.GetIdentityAsync();
 			if (identity != null)
@@ -84,25 +103,5 @@ namespace MicrosoftHouse
 				Email = mail;
 			}
 		}
-
-		public List<MasterPageItem> MasterPageItems
-		{
-			set { SetProperty(ref masterPageItems, value, "Items"); }
-			get { return masterPageItems; }
-		}
-
-		public string Email
-		{
-			set { SetProperty(ref email, value, "Email"); }
-			get { return email; }
-		}
-
-		public string User
-		{
-			set { SetProperty(ref user, value, "User"); }
-			get { return user; }
-		}
-
-
 	}
 }

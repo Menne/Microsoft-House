@@ -20,12 +20,24 @@ namespace MicrosoftHouse
 
             if (loadParameter == null)
             {
-                MainPage = new NavigationPage(new EntryPage());
+                var cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
+                if (cloudService.GetIdentityAsync() == null)
+                {
+                    MainPage = new NavigationPage(new EntryPage());
+                }
+                else
+                {
+                    if (loadParameter == "eventsync")
+                    {
+                        MainPage = new NavigationPage(new EntryPage());
+                    }
+                    else
+                    {
+                        MainPage = new NavigationPage(new EntryPage());
+                    }
+                }
             }
-            if (loadParameter == "eventsync")
-            {
-                MainPage = new NavigationPage(new EntryPage());
-            }
+            
         }
 
         protected override void OnStart()
