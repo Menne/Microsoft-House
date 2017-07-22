@@ -143,15 +143,18 @@
     <Content Include="Assets\StoreLogo.scale-150.png" />
     <Content Include="Assets\StoreLogo.scale-200.png" />
     <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Images\AboutUsIconWhite.png" />
     <Content Include="Images\CalendarIcon.png" />
     <Content Include="Images\CalendarIconWhite.png" />
     <Content Include="Images\CrossIconWhite.png" />
+    <Content Include="Images\EditIconWhite.png" />
     <Content Include="Images\EventIcon.png" />
     <Content Include="Images\HomeIconWhite.png" />
     <Content Include="Images\LeftButton.png" />
     <Content Include="Images\LoginIcon180.png" />
     <Content Include="Images\LogoutIconWhite.png" />
     <Content Include="Images\MailIcon.png" />
+    <Content Include="Images\MicrosoftIcon.png" />
     <Content Include="Images\ParkIcon.png" />
     <Content Include="Images\ParkIconWhite.png" />
     <Content Include="Images\PasswordIcon.png" />
@@ -162,7 +165,6 @@
     <Content Include="Images\SearchIcon.png" />
     <Content Include="Images\SettingsIconWhite.png" />
     <Content Include="Images\TimeIcon.png" />
-    <Content Include="Images\UserIconWhite.png" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-100.png" />

@@ -7,7 +7,8 @@
              x:Name="EventsPage"
 			 Title="Events">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding NewEventCommand}">
+        <ToolbarItem Text="New Event"
+                    Command="{Binding NewEventCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
                             iOS="Plus.png"

@@ -105,7 +105,7 @@
 								HorizontalOptions="Start"
 								BorderRadius="20">
                         <Button.Image>
-                        <OnPlatform x:TypeArguments="FileImageSource"
+                            <OnPlatform x:TypeArguments="FileImageSource"
                                 iOS="ParkIconWhite.png"
                                 Android="ParkIconWhite.png"
                                 WinPhone="Images/ParkIconWhite.png" />
