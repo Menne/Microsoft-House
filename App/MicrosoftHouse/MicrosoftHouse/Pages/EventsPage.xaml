@@ -41,12 +41,8 @@
                 MonthNavigationShow="true"
                 ShowNumberOfWeek="false"
                 StartDay="Monday"
-                TitleLeftArrowText="←"
-                TitleRightArrowText="→"
-                TitleLeftArrowTextColor="White"
-                TitleRightArrowTextColor="White"
-                TitleLeftArrowFontFamily="Avenir"
-                TitleRightArrowFontFamily="Avenir"
+                TitleRightArrowText=""
+                TitleLeftArrowText=""
                 BorderWidth="0"
                 BorderColor="Transparent"
                 BackgroundColor="#FF01A4EF"
@@ -71,6 +67,18 @@
                                 Android="20,0,20,10"
                                 WinPhone="10,0,10,0"/>
                 </controls:Calendar.Padding>
+                <controls:Calendar.TitleLeftArrowImage>
+                    <OnPlatform x:TypeArguments="FileImageSource"
+                                iOS="LeftButton.png"
+                                Android="LeftButton.png"
+                                WinPhone="Images/LeftButton.png"/>
+                </controls:Calendar.TitleLeftArrowImage>
+                <controls:Calendar.TitleRightArrowImage>
+                    <OnPlatform x:TypeArguments="FileImageSource"
+                                iOS="RightButton.png"
+                                Android="RightButton.png"
+                                WinPhone="Images/RightButton.png"/>
+                </controls:Calendar.TitleRightArrowImage>
             </controls:Calendar>
                 
                 <ListView ItemsSource="{Binding EventsOfSelectedDate, Mode=TwoWay}"
