@@ -1,5 +1,6 @@
 ﻿using System;
 using MicrosoftHouse.Abstractions;
+using System.Diagnostics;
 
 namespace MicrosoftHouse
 {
@@ -9,11 +10,15 @@ namespace MicrosoftHouse
 		{
 		}
 
-        Boolean notificationsOn;
-        private Boolean NotificationsOn
+        Boolean notificationsEnabled = true;
+        public Boolean NotificationsEnabled
         {
-            get { return notificationsOn; }
-            set { SetProperty(ref notificationsOn, value, "NotificationsOn"); }
+            get { return notificationsEnabled; }
+            set
+            {
+                SetProperty(ref notificationsEnabled, value, "NotificationsEnabled");
+                Debug.WriteLine(notificationsEnabled);
+            }
         }
 	}
 }

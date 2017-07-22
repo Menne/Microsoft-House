@@ -30,8 +30,8 @@
                            FontFamily="Avenir"/>
                 </StackLayout>
                 <Switch VerticalOptions="Center"
-				        HorizontalOptions="Start"/>
-                <!--      Toggled="{Binding NotificationsOn}"/>  -->
+				        HorizontalOptions="Start"
+                        IsToggled="{Binding NotificationsEnabled, Mode=TwoWay}"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
