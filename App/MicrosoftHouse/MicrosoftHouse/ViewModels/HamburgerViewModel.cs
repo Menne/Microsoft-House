@@ -56,7 +56,7 @@ namespace MicrosoftHouse
             masterPageItems.Add(new MasterPageItem
             {
                 Name = "About Us",
-                IconSource = Device.OnPlatform("UserIconWhite.png", "AboutUsIconWhite.png", "Images/UserIconWhite.png"),
+                IconSource = Device.OnPlatform("AboutUsIconWhite.png", "AboutUsIconWhite.png", "Images/AboutUsIconWhite.png"),
                 TargetType = typeof(AboutUsPage)
             });
             masterPageItems.Add(new MasterPageItem
