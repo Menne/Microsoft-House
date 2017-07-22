@@ -6,7 +6,7 @@ Design and Implementation of Mobile Applications project - Filippo Pedrazzini, E
 
 Da implementare
 - Notifiche iOS
-- Finire implementazione notifiche
+- Notifiche UWP
 - Abilitare/disabilitare le notifiche nella schermata settings
 - Controllare se un utente è già loggato prima di mostrare la schermata di login
 - Icone 2.0
@@ -15,9 +15,11 @@ Da implementare
 Bug
 - In Android il refreshing delle listview non finisce mai
 - Icone UWP sgranate
+- A volte le notifiche non contengono info nei campi
 
 Miglioramenti
 - UWP renderers dei picker
 - Aggiustare la schermata new event (titolo e descrizione dell'evento)
 - Cambiare bottoni statistiche parcheggio con sottolineatura
 - Rendere i picker coerenti (ending time > starting time)
+- Immagine notifiche Android
