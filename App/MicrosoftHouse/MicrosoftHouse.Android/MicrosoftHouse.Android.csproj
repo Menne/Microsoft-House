@@ -263,7 +263,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\SearchIcon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\SettingsIconWhite.png" />
     <AndroidResource Include="Resources\drawable-hdpi\TimeIcon.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\UserIconWhite.png" />
     <AndroidResource Include="Resources\drawable-ldpi\CalendarIcon.png" />
     <AndroidResource Include="Resources\drawable-ldpi\CalendarIconWhite.png" />
     <AndroidResource Include="Resources\drawable-ldpi\CrossIconWhite.png" />
@@ -276,7 +275,6 @@
     <AndroidResource Include="Resources\drawable-ldpi\SettingsIconWhite.png" />
     <AndroidResource Include="Resources\drawable-ldpi\SplashIcon120.png" />
     <AndroidResource Include="Resources\drawable-ldpi\TimeIcon.png" />
-    <AndroidResource Include="Resources\drawable-ldpi\UserIconWhite.png" />
     <AndroidResource Include="Resources\drawable-mdpi\CalendarIcon.png" />
     <AndroidResource Include="Resources\drawable-mdpi\CalendarIconWhite.png" />
     <AndroidResource Include="Resources\drawable-mdpi\CrossIconWhite.png" />
@@ -290,7 +288,6 @@
     <AndroidResource Include="Resources\drawable-mdpi\SearchIcon.png" />
     <AndroidResource Include="Resources\drawable-mdpi\SettingsIconWhite.png" />
     <AndroidResource Include="Resources\drawable-mdpi\TimeIcon.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\UserIconWhite.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\CalendarIcon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\CrossIconWhite.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\LoginIcon180.png" />
@@ -303,7 +300,6 @@
     <AndroidResource Include="Resources\drawable-xhdpi\SearchIcon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\SettingsIconWhite.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\TimeIcon.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\UserIconWhite.png" />
     <AndroidResource Include="Resources\drawable-hdpi\LogoutIconWhite.png" />
     <AndroidResource Include="Resources\drawable-ldpi\LogoutIconWhite.png" />
     <AndroidResource Include="Resources\drawable-mdpi\LogoutIconWhite.png" />
@@ -345,7 +341,9 @@
       <Name>MicrosoftHouse</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\AboutUsIconWhite.png" />
+  </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.auth">
       <Version>1.2.3.1</Version>
@@ -355,6 +353,30 @@
       <Version>1.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-ldpi\AboutUsIconWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\AboutUsIconWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\AboutUsIconWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\EditIconWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-ldpi\EditIconWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\EditIconWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\EditIconWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\CalendarIconWhite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

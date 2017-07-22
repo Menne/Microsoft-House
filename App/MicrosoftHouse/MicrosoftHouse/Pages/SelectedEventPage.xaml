@@ -4,7 +4,15 @@
 			 x:Class="MicrosoftHouse.SelectedEventPage"
 			 Title="Event Details">
 	<ContentPage.ToolbarItems>
-  		<ToolbarItem Text="Edit" Command="{Binding EditEventCommand}"></ToolbarItem>
+        <ToolbarItem Text="Edit"
+                     Command="{Binding EditEventCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource"
+                            iOS="EditIconWhite.png"
+                            Android="EditIconWhite.png"
+                            WinPhone="Images/EditIconWhite.png" />
+            </ToolbarItem.Icon>
+        </ToolbarItem>
 	</ContentPage.ToolbarItems>
 	<ContentPage.Content>
 		<Grid RowSpacing="0"
