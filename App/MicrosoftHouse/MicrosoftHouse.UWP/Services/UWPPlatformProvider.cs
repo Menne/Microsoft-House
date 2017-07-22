@@ -93,15 +93,16 @@ namespace TaskList.UWP.Services
                         PushChannel = registrationId
                     };
                     // Set up tags to request
-                    installation.Tags.Add("topic:Sports");
+                    installation.Tags.Add("topic:Events");
                     // Set up templates to request
                     var genericTemplate = new WindowsPushTemplate
                     {
                         Body = @"<toast><visual><binding template=""genericTemplate""><text id=""1"">$(message)</text></binding></visual></toast>"
                     };
                     genericTemplate.Headers.Add("X-WNS-Type", "wns/toast");
-
                     installation.Templates.Add("genericTemplate", genericTemplate);
+
+
                     // Register with NH
                     var recordedInstallation = await client.InvokeApiAsync<DeviceInstallation, DeviceInstallation>(
                         $"/push/installations/{client.InstallationId}",
