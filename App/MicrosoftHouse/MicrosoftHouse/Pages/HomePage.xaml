@@ -146,7 +146,7 @@
 					<StackLayout HorizontalOptions="FillAndExpand"
 									VerticalOptions="FillAndExpand"
 									Orientation="Horizontal">
-						<Label Text="Next Events"
+						<Label Text="Shared Calendar"
 								FontSize="Large"
 								TextColor="White"
 								VerticalOptions="StartAndExpand"

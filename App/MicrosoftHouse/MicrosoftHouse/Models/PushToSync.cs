@@ -8,7 +8,6 @@ namespace MicrosoftHouse.Models
 {
     public class PushToSync
     {
-        public string Table { get; set; }
-        public string Id { get; set; }
+        public string Message { get; set; }
     }
 }

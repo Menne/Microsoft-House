@@ -6,6 +6,7 @@ using Android.Util;
 using Gcm.Client;
 using MicrosoftHouse.Droid;
 using MicrosoftHouse.Models;
+using System.Diagnostics;
 using Xamarin.Forms;
 
 [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -40,21 +41,18 @@ namespace TaskList.Droid.Services
         {
             Log.Info("GcmService", $"Message {intent.ToString()}");
             var op = intent.Extras.GetString("op");
-            if (op != null)
+            if (op == "sync")
             {
                 var syncMessage = new PushToSync()
                 {
-                    Table = intent.Extras.GetString("table"),
-                    Id = intent.Extras.GetString("id")
+                    Message = intent.Extras.GetString("message") ?? "Unknown Message",
                 };
                 MessagingCenter.Send<PushToSync>(syncMessage, "ItemsChanged");
             }
-            else
-            {
-                var message = intent.Extras.GetString("message") ?? "Unknown Message";
-                var picture = intent.Extras.GetString("picture");
-                CreateNotification("Microsoft House", message, picture);
-            }
+
+            var message = intent.Extras.GetString("message") ?? "Unknown Message";
+            var picture = intent.Extras.GetString("picture");
+            CreateNotification("Microsoft House", message, picture);
         }
 
         private void CreateNotification(string title, string msg, string parameter = null)
@@ -72,6 +70,7 @@ namespace TaskList.Droid.Services
                 .SetContentTitle(title)
                 .SetContentText(msg)
                 .SetSmallIcon(Android.Resource.Drawable.SymDefAppIcon)
+                .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
                 .SetAutoCancel(true)
                 .Build();
             var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;

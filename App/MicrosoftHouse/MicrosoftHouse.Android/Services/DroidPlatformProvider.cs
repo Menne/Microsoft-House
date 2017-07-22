@@ -120,7 +120,7 @@ namespace MicrosoftHouse.Droid
 
                     var pushToSyncTemplate = new PushTemplate
                     {
-                        Body = @"{""data"":{""op"":""$(op)"",""table"":""$(table)"",""id"":""$(id)""}}"
+                        Body = @"{""data"":{""op"":""$(op)"",""message"":""$(message)""}}"
                     };
                     installation.Templates.Add("pushToSync", pushToSyncTemplate);
 
