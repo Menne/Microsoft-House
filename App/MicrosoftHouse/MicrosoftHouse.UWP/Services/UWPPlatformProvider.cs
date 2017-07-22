@@ -102,7 +102,6 @@ namespace TaskList.UWP.Services
                     genericTemplate.Headers.Add("X-WNS-Type", "wns/toast");
                     installation.Templates.Add("genericTemplate", genericTemplate);
 
-
                     // Register with NH
                     var recordedInstallation = await client.InvokeApiAsync<DeviceInstallation, DeviceInstallation>(
                         $"/push/installations/{client.InstallationId}",
