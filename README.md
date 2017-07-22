@@ -16,6 +16,7 @@ Bug
 - In Android il refreshing delle listview non finisce mai
 - Icone UWP sgranate
 - A volte le notifiche non contengono info nei campi
+- Le notifiche non arrivano se l'app è spenta
 
 Miglioramenti
 - UWP renderers dei picker
