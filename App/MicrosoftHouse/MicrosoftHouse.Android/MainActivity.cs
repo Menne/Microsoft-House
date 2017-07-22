@@ -29,7 +29,7 @@ namespace MicrosoftHouse.Droid
 			// AZURE
 			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 
-			// MAPPE
+			// MAPs
             Xamarin.FormsMaps.Init(this, bundle);
 
 			SQLitePCL.Batteries.Init();
@@ -37,14 +37,13 @@ namespace MicrosoftHouse.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
 			//LOGIN
-
 			((DroidPlatformProvider)DependencyService.Get<IPlatformProvider>()).Init(this);
 
 			// QR CODE
 			ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
-
-            LoadApplication(new App());
+            string param = this.Intent.GetStringExtra("param");
+            LoadApplication(new App(loadParameter: param));
 
 			var spannableString = new SpannableString(SupportActionBar.Title);
 			spannableString.SetSpan(new TypefaceSpan("Avenir"), 0, spannableString.Length(), SpanTypes.ExclusiveExclusive);

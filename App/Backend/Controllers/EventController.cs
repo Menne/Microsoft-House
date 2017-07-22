@@ -68,7 +68,7 @@ namespace Backend
 
             // Create a template message
             var templateParams = new Dictionary<string, string>();
-            templateParams["op"] = "sync";
+            templateParams["op"] = "eventsync";
             templateParams["message"] = message;
 
             // Send the template message

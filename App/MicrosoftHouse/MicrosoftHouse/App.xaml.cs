@@ -13,11 +13,19 @@ namespace MicrosoftHouse
     {
 		public static ICloudService CloudService { get; set; }
 
-		public App()
+
+        public App(string loadParameter = null)
         {
-			ServiceLocator.Add<ICloudService, AzureCloudService>();
-			//CloudService = new AzureCloudService();
-			MainPage = new EntryPage();
+            ServiceLocator.Add<ICloudService, AzureCloudService>();
+
+            if (loadParameter == null)
+            {
+                MainPage = new NavigationPage(new EntryPage());
+            }
+            if (loadParameter == "eventsync")
+            {
+                MainPage = new NavigationPage(new EntryPage());
+            }
         }
 
         protected override void OnStart()

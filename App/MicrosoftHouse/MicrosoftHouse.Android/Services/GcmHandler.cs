@@ -41,18 +41,18 @@ namespace TaskList.Droid.Services
         {
             Log.Info("GcmService", $"Message {intent.ToString()}");
             var op = intent.Extras.GetString("op");
-            if (op == "sync")
+            if (op == "eventsync")
             {
                 var syncMessage = new PushToSync()
                 {
                     Message = intent.Extras.GetString("message") ?? "Unknown Message",
                 };
                 MessagingCenter.Send<PushToSync>(syncMessage, "ItemsChanged");
+              
             }
-
             var message = intent.Extras.GetString("message") ?? "Unknown Message";
-            var picture = intent.Extras.GetString("picture");
-            CreateNotification("Microsoft House", message, picture);
+            CreateNotification("Microsoft House", message, op);
+
         }
 
         private void CreateNotification(string title, string msg, string parameter = null)
