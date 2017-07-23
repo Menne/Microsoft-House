@@ -113,7 +113,7 @@ namespace MicrosoftHouse
         private void SortRooms(ObservableCollection<Room> source, Room item)
         {
             var oldIndex = source.IndexOf(item);
-            var list = source.OrderBy(_ => _.Floor).ToList();
+            var list = source.OrderBy(_ => _.Floor).ThenBy(_ => _.Name).ToList();
             var newIndex = list.IndexOf(item);
 
             source.Move(oldIndex, newIndex);

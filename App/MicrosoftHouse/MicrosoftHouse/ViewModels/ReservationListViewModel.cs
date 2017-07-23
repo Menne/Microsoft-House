@@ -71,7 +71,7 @@ namespace MicrosoftHouse
         private void SortReservations(ObservableCollection<Reservation> source, Reservation item)
         {
             var oldIndex = source.IndexOf(item);
-            var list = source.OrderBy(_ => _.StartingTime).ToList();
+            var list = source.OrderBy(_ => _.Date).ThenBy(_ => _.StartingTime).ToList();
             var newIndex = list.IndexOf(item);
 
             source.Move(oldIndex, newIndex);
