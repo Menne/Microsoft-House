@@ -19,12 +19,12 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView x:Name="reservationListView"
-					ItemsSource="{Binding Reservations, Mode=TwoWay}"
-	                SeparatorVisibility="None"
-	                CachingStrategy="RecycleElement"
-					RefreshCommand="{Binding RefreshCommand}"
-					IsPullToRefreshEnabled="True"
-	                IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+			      ItemsSource="{Binding Reservations, Mode=TwoWay}"
+	              SeparatorVisibility="None"
+	              CachingStrategy="RecycleElement"
+		       	  RefreshCommand="{Binding RefreshCommand}"
+				  IsPullToRefreshEnabled="True"
+	              IsRefreshing="{Binding IsBusy, Mode=OneWay}">
             <ListView.RowHeight>
                 <OnPlatform x:TypeArguments="x:Int32"
                                 iOS="80"

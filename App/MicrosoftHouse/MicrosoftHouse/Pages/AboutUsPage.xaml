@@ -32,7 +32,7 @@
                     <Label Text="Designed by the prestigious Herzog and De Meuron, the building is inspired by the simplicity and the impressive scale of the structures that characterize the historical architecture in Milan. The entire area is proposed as a new space for citizenship, whose spirit translates into the opening on the outside date by the impressive stained glass that symbolising transparency and partnership. From December 2016 it's the headquarter of Giangiacomo Feltrinelli Foundation."
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="Start"
-                           FontSize="Default"
+                           FontSize="15"
                            FontFamily="Avenir"/>
                     <Label Text="Where we are"
                            HorizontalOptions="FillAndExpand"
@@ -52,7 +52,7 @@
                     <Label Text="Microsoft House app is designed and developed by Filippo Pedrazzini and Emanuele Torelli for the course 'Design and implementation of mobile applications' of Politecnico di Milano"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="Start"
-                           FontSize="Default"
+                           FontSize="15"
                            FontFamily="Avenir"/>
                 </StackLayout>
             </StackLayout>

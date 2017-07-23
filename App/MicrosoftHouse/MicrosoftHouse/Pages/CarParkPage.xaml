@@ -36,7 +36,7 @@
 							 HorizontalOptions="CenterAndExpand"
                              Grid.Row="0"
                              Grid.Column="0">
-                            <Label FontSize="Large"
+                        <Label FontSize="26"
 							FontFamily="Avenir"
                             HorizontalOptions="Center"
 							Text="{Binding ParkingSpaces}"
@@ -44,7 +44,7 @@
 							TextColor="White"/>
                             <Label HorizontalOptions="Center"
                                Text="Spaces"
-                               FontSize="Small"
+                               FontSize="15"
 							   FontFamily="Avenir"
                                HorizontalTextAlignment="Center"
 							   TextColor="White"/>
@@ -54,7 +54,7 @@
 							 HorizontalOptions="CenterAndExpand"
                              Grid.Row="0"
                              Grid.Column="1">
-                            <Label FontSize="Large"
+                        <Label FontSize="26"
 							HorizontalOptions="Center"
 							FontFamily="Avenir"
 							Text="{Binding TimeToArrival}"
@@ -62,7 +62,7 @@
 							TextColor="White"/>
                             <Label HorizontalOptions="Center"
                                Text="Min to arrival"
-                               FontSize="Small"
+                               FontSize="15"
 							   FontFamily="Avenir"
                                HorizontalTextAlignment="Center"
 							   TextColor="White"/>
@@ -72,7 +72,7 @@
 								 HorizontalOptions="CenterAndExpand"
                                  Grid.Row="0"
                                  Grid.Column="2">
-                            <Label FontSize="Large"
+                        <Label FontSize="26"
 							FontFamily="Avenir"
 							HorizontalOptions="Center"
 							Text="{Binding Distance}"
@@ -80,7 +80,7 @@
 							TextColor="White"/>
                             <Label HorizontalOptions="Center"
                                Text="Km to arrival"
-                               FontSize="Small"
+                               FontSize="15"
 							   FontFamily="Avenir"
                                HorizontalTextAlignment="Center"
 							   TextColor="White"/>
