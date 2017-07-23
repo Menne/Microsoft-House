@@ -67,7 +67,7 @@
 	            IsRefreshing="{Binding IsBusy, Mode=OneWay}">
                 <ListView.RowHeight>
                     <OnPlatform x:TypeArguments="x:Int32"
-                                iOS="80"
+                                iOS="60"
                                 Android="60"
                                 WinPhone="60" />
                 </ListView.RowHeight>

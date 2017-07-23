@@ -11,8 +11,6 @@
     <ContentPage.Content>
         <Grid RowSpacing="0" BackgroundColor="White">
             <Grid.RowDefinitions>
-                <!--<RowDefinition Height="*"/>-->
-                <!--<RowDefinition Height="0.25*"/>-->
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -146,7 +144,6 @@
 						TextColor="White"
 						FontFamily="Avenir"
 						BorderRadius="0"/>
-                <!--IsEnabled="{Binding Source={x:Reference validEmail},Path=IsValid}"-->
             </StackLayout>
 
             <ListView ItemsSource="{Binding AvailableRooms}"
@@ -160,7 +157,7 @@
 	                IsRefreshing="{Binding IsBusy, Mode=OneWay}">
                 <ListView.RowHeight>
                     <OnPlatform x:TypeArguments="x:Int32"
-                                iOS="80"
+                                iOS="60"
                                 Android="60"
                                 WinPhone="60" />
                 </ListView.RowHeight>
