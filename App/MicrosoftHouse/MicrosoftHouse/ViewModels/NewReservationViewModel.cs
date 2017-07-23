@@ -77,6 +77,7 @@ namespace MicrosoftHouse
                 foreach (Room room in listOfRooms)
                 {
                     AvailableRooms.Add(room);
+                    SortRooms(AvailableRooms, room);
                     foreach (Reservation reservation in listOfReservations)
                     {
                         if (reservation.RoomName.Equals(room.Name))
@@ -106,6 +107,16 @@ namespace MicrosoftHouse
             {
                 IsBusy = false;
             }
+        }
+
+        // Sorting algotirhm for the collection of rooms
+        private void SortRooms(ObservableCollection<Room> source, Room item)
+        {
+            var oldIndex = source.IndexOf(item);
+            var list = source.OrderBy(_ => _.Floor).ToList();
+            var newIndex = list.IndexOf(item);
+
+            source.Move(oldIndex, newIndex);
         }
 
         async Task ExecuteCreateReservationCommand()

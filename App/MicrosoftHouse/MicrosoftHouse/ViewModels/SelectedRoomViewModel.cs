@@ -61,6 +61,7 @@ namespace MicrosoftHouse
                     if (reservation.RoomName.Equals(SelectedRoom.Name))
                     {
                         ReservationsOfSelectedRoom.Add(reservation);
+                        SortReservations(ReservationsOfSelectedRoom, reservation);
                     }
                 }
             }
@@ -72,6 +73,16 @@ namespace MicrosoftHouse
             {
                 IsBusy = false;
             }
+        }
+
+        // Sorting algotirhm for the collection of reservations
+        private void SortReservations(ObservableCollection<Reservation> source, Reservation item)
+        {
+            var oldIndex = source.IndexOf(item);
+            var list = source.OrderBy(_ => _.StartingTime).ToList();
+            var newIndex = list.IndexOf(item);
+
+            source.Move(oldIndex, newIndex);
         }
 
 

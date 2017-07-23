@@ -8,6 +8,7 @@ using System.Diagnostics;
 using MicrosoftHouse.Helpers;
 using XamForms.Controls;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MicrosoftHouse.ViewModels
 {
@@ -151,9 +152,20 @@ namespace MicrosoftHouse.ViewModels
                     if (e.Date.Date == SelectedDate.Value.Date)
                     {
                         EventsOfSelectedDate.Add(e);
+                        SortEvents(EventsOfSelectedDate, e);
                     }
                 }
             }
+        }
+
+        // Sorting algotirhm for the collection of events
+        private void SortEvents(ObservableCollection<Event> source, Event item)
+        {
+            var oldIndex = source.IndexOf(item);
+            var list = source.OrderBy(_ => _.StartingTime).ToList();
+            var newIndex = list.IndexOf(item);
+
+            source.Move(oldIndex, newIndex);
         }
 
 

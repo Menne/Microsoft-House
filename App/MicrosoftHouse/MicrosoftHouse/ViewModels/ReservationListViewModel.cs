@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using MicrosoftHouse.Helpers;
 using MicrosoftHouse.Pages;
+using System.Linq;
 
 namespace MicrosoftHouse
 {
@@ -52,7 +53,8 @@ namespace MicrosoftHouse
                 Reservations.Clear();
                 foreach (var reservation in reservationList)
                 {
-                    Reservations.Add(reservation);   
+                    Reservations.Add(reservation);
+                    SortReservations(Reservations, reservation);
                 }
             }
             catch (Exception ex)
@@ -63,6 +65,16 @@ namespace MicrosoftHouse
             {
                 IsBusy = false;
             }
+        }
+
+        // Sorting algotirhm for the collection of reservations
+        private void SortReservations(ObservableCollection<Reservation> source, Reservation item)
+        {
+            var oldIndex = source.IndexOf(item);
+            var list = source.OrderBy(_ => _.StartingTime).ToList();
+            var newIndex = list.IndexOf(item);
+
+            source.Move(oldIndex, newIndex);
         }
 
 

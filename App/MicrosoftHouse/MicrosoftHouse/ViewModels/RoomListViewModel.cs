@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using MicrosoftHouse.Helpers;
 using MicrosoftHouse.Pages;
+using System.Linq;
 
 namespace MicrosoftHouse
 {
@@ -45,6 +46,7 @@ namespace MicrosoftHouse
                 {
                     AllRooms.Add(room);
                     DisplayedRooms.Add(room);
+                    SortRooms(DisplayedRooms, room);
                 }
             }
             catch (Exception ex)
@@ -55,6 +57,16 @@ namespace MicrosoftHouse
             {
                 IsBusy = false;
             }
+        }
+
+        // Sorting algotirhm for the collection of rooms
+        private void SortRooms(ObservableCollection<Room> source, Room item)
+        {
+            var oldIndex = source.IndexOf(item);
+            var list = source.OrderBy(_ => _.Floor).ToList();
+            var newIndex = list.IndexOf(item);
+
+            source.Move(oldIndex, newIndex);
         }
 
 
