@@ -29,12 +29,12 @@
 									VerticalOptions="FillAndExpand"
 									Padding="30,30,30,30">
                 <local:CustomEntry x:Name="eventName"
-										Placeholder="Event Name"
+										Placeholder="INSERT NAME"
 										Keyboard="Text"
 										Text="{Binding SelectedEvent.Name, Mode=TwoWay}"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="CenterAndExpand"
-										Font="Large"
+										Font="14"
 										XAlign="Center"
 										TextColor="White"
 										FontFamily="Avenir"
@@ -62,7 +62,7 @@
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="CenterAndExpand"
 										XAlign="Center"
-										Font="Small"
+										Font="14"
 										TextColor="White"
 										FontFamily="Avenir"
 										PlaceholderTextColor="White"/>
@@ -76,7 +76,7 @@
 										PlaceHolder="DATE"
 										Date="{Binding SelectedEvent.Date, Mode=TwoWay}"
 										TextColor="Black"
-										Font="Small"
+										Font="14"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"/>
 						<Image VerticalOptions="Center"
@@ -112,7 +112,7 @@
 										PlaceHolder="STARTING TIME"
 										Time="{Binding SelectedEvent.StartingTime, Mode=TwoWay}"
 										TextColor="Black"
-										Font="Small"
+										Font="14"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"/>
                     <Image VerticalOptions="Center"
@@ -148,7 +148,7 @@
 										PlaceHolder="ENDING TIME"
 										Time="{Binding SelectedEvent.EndingTime, Mode=TwoWay}"
 										TextColor="Black"
-										Font="Small"
+										Font="14"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center"/>
                     <Image VerticalOptions="Center"
@@ -182,7 +182,7 @@
                 <StackLayout Orientation="Horizontal">
                     <local:CustomPicker x:Name="locationPicker"									
 										TextColor="Black"
-										Font="Small"
+										Font="14"
 										SelectedItem="{Binding SelectedEvent.Location, Mode=TwoWay}"
 										ItemsSource="{Binding LocationsName}"
 										PlaceHolder="LOCATION"

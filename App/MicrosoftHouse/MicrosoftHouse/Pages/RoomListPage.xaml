@@ -31,13 +31,13 @@
 					Text="{Binding SearchArgument, Mode=TwoWay}"
 					HorizontalOptions="FillAndExpand"
 					VerticalOptions="CenterAndExpand"
-					Font="Large"
+					Font="14"
 					XAlign="Start"
 					TextColor="DarkGray"
 					FontFamily="Avenir"
 					PlaceholderTextColor="LightGray"/>
                 <Image VerticalOptions="Center"
-				   HorizontalOptions="Start">
+				   HorizontalOptions="End">
                 <Image.Source>
                     <OnPlatform x:TypeArguments="ImageSource"
                                 iOS="SearchIcon.png"
