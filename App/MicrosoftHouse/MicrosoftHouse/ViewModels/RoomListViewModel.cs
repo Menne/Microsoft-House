@@ -12,7 +12,6 @@ namespace MicrosoftHouse
 {
     public class RoomListViewModel : BaseViewModel
     {
-        ICloudService cloudService;
 
         public RoomListViewModel()
         {

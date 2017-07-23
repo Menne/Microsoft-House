@@ -53,7 +53,6 @@ namespace MicrosoftHouse
 
             try
             {
-                //await CloudService.SyncOfflineCacheAsync();
                 var reservationTable = await CloudService.GetTableAsync<Reservation>();
                 var reservationList = await reservationTable.ReadAllReservationsAsync();
                 ReservationsOfSelectedRoom.Clear();
@@ -62,7 +61,6 @@ namespace MicrosoftHouse
                     if (reservation.RoomName.Equals(SelectedRoom.Name))
                     {
                         ReservationsOfSelectedRoom.Add(reservation);
-                        Debug.WriteLine(reservation.RoomName);
                     }
                 }
             }
@@ -100,16 +98,15 @@ namespace MicrosoftHouse
                     }
 
                     await reservationTable.CreateReservationAsync(NewReservation);
-                    //await CloudService.SyncOfflineCacheAsync();
                 }
                 else
                 {
                     await reservationTable.UpdateReservationAsync(NewReservation);
-                    //await CloudService.SyncOfflineCacheAsync();
                 }
                 SelectedRoom = null;
-                await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
+                await CloudService.SyncOfflineCacheAsync();
                 MessagingCenter.Send<SelectedRoomViewModel>(this, "ItemsChanged");
+                await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
             }
             catch (Exception ex)
             {
@@ -119,7 +116,6 @@ namespace MicrosoftHouse
             {
                 IsBusy = false;
             }
-            //await ExecuteRefreshCommand();
         }
 
     }
