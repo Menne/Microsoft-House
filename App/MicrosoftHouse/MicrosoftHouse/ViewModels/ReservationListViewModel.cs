@@ -30,8 +30,11 @@ namespace MicrosoftHouse
                 await ExecuteRefreshCommand();
             });
 
+            var cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
+            cloudService.GetIdentityAsync() ;
+
             // Execute the refresh command
-            RefreshCommand.Execute(null);
+                RefreshCommand.Execute(null);
         }
 
         public ICloudService CloudService => ServiceLocator.Get<ICloudService>();
@@ -48,14 +51,23 @@ namespace MicrosoftHouse
 
             try
             {
-                var reservationTable = await CloudService.GetTableAsync<Reservation>();
-                var reservationList = await reservationTable.ReadAllReservationsAsync();
-                Reservations.Clear();
-                foreach (var reservation in reservationList)
+                var identity = await CloudService.GetIdentityAsync();
+                if (identity != null)
                 {
-                    Reservations.Add(reservation);
-                    SortReservations(Reservations, reservation);
+                    var name = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value;
+                    var reservationTable = await CloudService.GetTableAsync<Reservation>();
+                    var reservationList = await reservationTable.ReadAllReservationsAsync();
+                    Reservations.Clear();
+                    foreach (var reservation in reservationList)
+                    {
+                        if (reservation.User == name)
+                        {
+                            Reservations.Add(reservation);
+                            SortReservations(Reservations, reservation);
+                        }
+                    }
                 }
+                
             }
             catch (Exception ex)
             {

@@ -16,7 +16,7 @@ namespace MicrosoftHouse
 
         public HamburgerViewModel()
 		{
-			Title = "Hamburger";
+			Title = "Hamburger menu";
 
 			// Identity of the User
 			LoadIdentity();
