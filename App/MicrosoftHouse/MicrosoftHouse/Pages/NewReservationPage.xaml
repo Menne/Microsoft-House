@@ -25,34 +25,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <!--<StackLayout HeightRequest="50"
-							HorizontalOptions="FillAndExpand"
-							Padding="10"
-							BackgroundColor="#FFBA77FF"
-							Orientation="Horizontal"
-							Grid.Row="0"
-							Grid.Column="0">
-							<Image Source="CrossIconWhite.png"
-									HorizontalOptions="Start"
-									VerticalOptions="Center">
-								<Image.GestureRecognizers>
-									<TapGestureRecognizer Command="{Binding BackCommand}"/>
-								</Image.GestureRecognizers>
-							</Image>
-							<Label Text="Search Room"
-									TextColor="White"
-									FontFamily="Avenir"
-									HorizontalOptions="CenterAndExpand"
-									HorizontalTextAlignment="Center"
-									VerticalOptions="Center"/>
-							<Image Source="SearchIcon.png"
-									HorizontalOptions="End"
-									VerticalOptions="Center">
-								<Image.GestureRecognizers>
-									<TapGestureRecognizer Command="{Binding SearchCommand}"/>
-								</Image.GestureRecognizers>
-							</Image>
-					</StackLayout>-->
             <StackLayout Grid.Row="0"
 							Grid.Column="0"
 							Padding="30,10,30,10"
@@ -167,6 +139,7 @@
                 <Button x:Name="searchButton"
 						HorizontalOptions="FillAndExpand"
 						VerticalOptions="Center"
+                        HeightRequest="45"
 						BackgroundColor="#FF01A4EF"
 						Text="SEARCH"
 						Command="{Binding SearchAvailableRoomsCommand}"

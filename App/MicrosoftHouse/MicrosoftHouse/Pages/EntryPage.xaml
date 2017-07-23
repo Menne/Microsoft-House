@@ -35,7 +35,7 @@
 					<Button x:Name="loginButton"
 							VerticalOptions="Center"
 							HorizontalOptions="FillAndExpand"
-                            HeightRequest="40"
+                            HeightRequest="45"
 							BackgroundColor="White"
 							Command="{Binding LoginCommand}"
 							Text="LOGIN WITH MICROSOFT ACCOUNT"
