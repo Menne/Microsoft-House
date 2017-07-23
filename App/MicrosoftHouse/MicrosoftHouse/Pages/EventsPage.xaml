@@ -94,7 +94,7 @@
                     <OnPlatform x:TypeArguments="x:Int32"
                                 iOS="80"
                                 Android="60"
-                                WinPhone="70" />
+                                WinPhone="60" />
                 </ListView.RowHeight>
                 <ListView.ItemTemplate>
 	          <DataTemplate>

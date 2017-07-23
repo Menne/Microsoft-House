@@ -189,13 +189,14 @@
                     <OnPlatform x:TypeArguments="x:Int32"
                                 iOS="80"
                                 Android="60"
-                                WinPhone="70" />
+                                WinPhone="60" />
                 </ListView.RowHeight>
                 <ListView.ItemTemplate>
                         <DataTemplate>
                         <ViewCell>
                             <StackLayout VerticalOptions="FillAndExpand"
-                                     HorizontalOptions="FillAndExpand">
+                                     HorizontalOptions="FillAndExpand"
+                                     Spacing="3">
                                 <StackLayout HorizontalOptions="FillAndExpand"
 	                                   Orientation="Horizontal"
 	                                   Padding="30,0,30,0"

@@ -41,7 +41,8 @@
                                       IsDestructive="True" />
                         </ViewCell.ContextActions>
                         <StackLayout VerticalOptions="FillAndExpand"
-                                     HorizontalOptions="FillAndExpand">
+                                     HorizontalOptions="FillAndExpand"
+                                     Spacing="3">
                             <StackLayout HorizontalOptions="FillAndExpand"
 	                           Orientation="Horizontal"
 	                           VerticalOptions="CenterAndExpand">
