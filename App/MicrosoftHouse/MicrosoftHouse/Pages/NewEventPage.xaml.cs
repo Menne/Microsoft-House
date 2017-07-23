@@ -10,20 +10,16 @@ namespace MicrosoftHouse
 		public NewEventPage()
 		{
 			InitializeComponent();
-			//timePickerFirst = DateTime.No;
-
 			BindingContext = new NewEventViewModel();
 		}
 
-		// PAGINA PER L'EDIT
+		// Edit page
 		public NewEventPage(Event selectedEvent = null)
 		{
 			InitializeComponent();
 			Title = "Edit Event";
-			newEventButton.Text = "EDIT";
+			newEventButton.Text = "SAVE";
 			BindingContext = new NewEventViewModel(selectedEvent);
-			//eventName.Text = selectedEvent.Name;
-			//eventDescription.Text = selectedEvent.Description;
 		}
 
 		protected override void OnAppearing()

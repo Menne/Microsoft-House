@@ -13,17 +13,9 @@ namespace MicrosoftHouse
 {
 	public class NewEventViewModel : BaseViewModel
 	{
-
-		//ICloudTable<Event> table = App.CloudService.GetTable<Event>();
-		//ICloudTable<EventLocation> table_location = App.CloudService.GetTable<EventLocation>();
-
+        
 		public NewEventViewModel(Event selectedEvent = null)
 		{
-            //ICloudService cloudService = App.CloudService;
-
-            Title = "New Event";
-
-
             if (selectedEvent != null)
             {
                 SelectedEvent = selectedEvent;

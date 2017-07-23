@@ -4,14 +4,12 @@
 				xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 				x:Class="MicrosoftHouse.NewEventPage"
 				Title="New Event">
-	<!--<ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness" iOS="0, 0, 0, 0" WinPhone="20,20,20,20" />
-	</ContentPage.Padding>-->
-	<ContentPage.Content>
-			<Grid x:Name="grid" RowSpacing="0" BackgroundColor="White">
-				<Grid.RowDefinitions>
-					<!--<RowDefinition Height="*"/>-->
-					<RowDefinition Height="3*"/>
+    <ContentPage.Content>
+			<Grid x:Name="grid"
+                  RowSpacing="0"
+                  BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
 					<RowDefinition Height="0.5*"/>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="*"/>
@@ -22,39 +20,9 @@
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="45"/>
 				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*"/>
-				</Grid.ColumnDefinitions>
-					<!--<StackLayout HeightRequest="50"
-							HorizontalOptions="FillAndExpand"
-							Padding="10"
-							BackgroundColor="#FFBA77FF"
-							Orientation="Horizontal"
-							Grid.Row="0"
-							Grid.Column="0">
-							<Image Source="CrossIconWhite.png"
-									HorizontalOptions="Start"
-									VerticalOptions="Center">
-								<Image.GestureRecognizers>
-									<TapGestureRecognizer Command="{Binding BackCommand}"/>
-								</Image.GestureRecognizers>
-							</Image>
-							<Label Text="New Event"
-									TextColor="White"
-									FontFamily="Avenir"
-									HorizontalOptions="CenterAndExpand"
-									HorizontalTextAlignment="Center"
-									VerticalOptions="Center"/>
-							<Image Source="DoneIcon.png"
-									HorizontalOptions="End"
-									VerticalOptions="Center"
-									IsEnabled="{Binding Source={x:Reference validEvent},Path=IsValid}"
-									Opacity="{Binding Source={x:Reference validEvent},Path=IsValid}">
-								<Image.GestureRecognizers>
-									<TapGestureRecognizer Command="{Binding CreateCommand}"/>
-								</Image.GestureRecognizers>
-							</Image>
-					</StackLayout>-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <StackLayout BackgroundColor="#FF00BAFF"
 									Grid.Row="0"
 									Grid.Column="0"
@@ -207,11 +175,11 @@
 							</BoxView.IsVisible>
 						</BoxView>
 					</StackLayout>
-					<StackLayout Grid.Row="5"
+            <StackLayout Grid.Row="5"
 									Grid.Column="0"
 									Padding="30,10,30,10"
 									Orientation="Vertical">
-						<StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal">
                     <local:CustomPicker x:Name="locationPicker"									
 										TextColor="Black"
 										Font="Small"
@@ -220,8 +188,7 @@
 										PlaceHolder="LOCATION"
 										HorizontalOptions="FillAndExpand"
 										VerticalOptions="Center">
-						<!--SelectedItem="{Binding Event.Location, Mode=TwoWay}"-->
-						</local:CustomPicker>
+                    </local:CustomPicker>
                     <Image VerticalOptions="Center"
 						   HorizontalOptions="Start">
                         <Image.Source>
@@ -234,73 +201,21 @@
                             <TapGestureRecognizer Tapped="OnLocationPicker"/>
                         </Image.GestureRecognizers>
                     </Image>
-						</StackLayout>
-						<BoxView Color="Black"
+                </StackLayout>
+                <BoxView Color="Black"
 									Opacity="0.05"
 									HeightRequest="1">
-							<BoxView.IsVisible>
-								<OnPlatform x:TypeArguments="x:Boolean">
-                					<OnPlatform.iOS>true</OnPlatform.iOS>
-               		 				<OnPlatform.Android>false</OnPlatform.Android>
-                                    <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
-                                </OnPlatform>
-							</BoxView.IsVisible>
-						</BoxView>
-					</StackLayout>
-					<!--<StackLayout Grid.Row="5"
-									Grid.Column="0"
-									Padding="30,10,30,10"
-									Orientation="Vertical">
-						<StackLayout Orientation="Horizontal">
-						<Label Text="LOCATION"
-									TextColor="Black"
-										FontSize="Small"
-										FontFamily="Avenir"
-										HorizontalOptions="FillAndExpand"
-										VerticalOptions="Center"/>
-						<Image Source="ParkIcon.png"
-								VerticalOptions="Center"
-								HorizontalOptions="Start"/>
-						</StackLayout>
-						<BoxView Color="Black"
-									Opacity="0.05"
-									HeightRequest="1">
-							<BoxView.IsVisible>
-								<OnPlatform x:TypeArguments="x:Boolean">
-                					<OnPlatform.iOS>true</OnPlatform.iOS>
-               		 				<OnPlatform.Android>false</OnPlatform.Android>
-           	 					</OnPlatform>
-							</BoxView.IsVisible>
-						</BoxView>
-					</StackLayout>
-					<StackLayout Grid.Row="6"
-									Grid.Column="0"
-									Padding="30,10,30,10"
-									Orientation="Vertical">
-						<StackLayout Orientation="Horizontal">
-						<Label Text="NOTIFICATION"
-									TextColor="Black"
-										FontSize="Small"
-										FontFamily="Avenir"
-										HorizontalOptions="FillAndExpand"
-										VerticalOptions="Center"/>
-						<Switch VerticalOptions="Center"
-								HorizontalOptions="Start"/>
-						</StackLayout>
-						<BoxView Color="Black"
-									Opacity="0.05"
-									HeightRequest="1">
-							<BoxView.IsVisible>
-								<OnPlatform x:TypeArguments="x:Boolean">
-                					<OnPlatform.iOS>true</OnPlatform.iOS>
-               		 				<OnPlatform.Android>false</OnPlatform.Android>
-                                    <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
-                                </OnPlatform>
-							</BoxView.IsVisible>
-						</BoxView>
-					</StackLayout>-->
+                    <BoxView.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <OnPlatform.iOS>true</OnPlatform.iOS>
+                            <OnPlatform.Android>false</OnPlatform.Android>
+                            <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
+                        </OnPlatform>
+                    </BoxView.IsVisible>
+                </BoxView>
+            </StackLayout>
 
-				<Button x:Name="newEventButton"
+            <Button x:Name="newEventButton"
 						BackgroundColor="#FF00BAFF"
 						VerticalOptions="FillAndExpand"
 						HorizontalOptions="FillAndExpand"
@@ -311,7 +226,7 @@
 						Grid.Row="9"
 						Grid.Column="0"
 						BorderRadius="0"
-						IsEnabled="{Binding Source={x:Reference validEvent},Path=IsValid}"/>
+						IsEnabled="{Binding Source={x:Reference validEvent}, Path=IsValid}"/>
 			</Grid>
 	</ContentPage.Content>
 </ContentPage>

@@ -30,6 +30,7 @@ namespace MicrosoftHouse
 			CustomEntry entry = (CustomEntry)sender;
 			IsValid = IsValidEvent(entry.Text);
 		}
+
 		bool IsValidEvent(string strIn)
 		{
 			if (String.IsNullOrEmpty(strIn))
