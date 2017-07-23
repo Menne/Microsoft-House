@@ -4,11 +4,8 @@
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.Pages.RoomListPage"
              x:Name="RoomListPage"
-             Title="All Rooms">
-    <ContentPage.Icon>
-        <OnPlatform x:TypeArguments="ImageSource"
-                    iOS="AllRoomsIcon.png"/>
-    </ContentPage.Icon>
+             Title="All Rooms"
+             Icon="RoomIconWhite.png">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="New Reservation"
                     Command="{Binding NewReservationCommand}">

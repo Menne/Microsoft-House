@@ -4,11 +4,8 @@
              xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
              x:Class="MicrosoftHouse.Pages.ReservationListPage"	 
              x:Name="ReservationListPage"
-             Title="Your Reservations">
-    <ContentPage.Icon>
-        <OnPlatform x:TypeArguments="ImageSource"
-                    iOS="ReservationIcon.png"/>
-    </ContentPage.Icon>
+             Title="Your Reservations"
+             Icon="EventIcon.png">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="New Reservation"
             Command="{Binding NewReservationCommand}">
@@ -32,7 +29,7 @@
                 <OnPlatform x:TypeArguments="x:Int32"
                                 iOS="80"
                                 Android="60"
-                                WinPhone="70" />
+                                WinPhone="60" />
             </ListView.RowHeight>
             <ListView.ItemTemplate>
                 <DataTemplate>
