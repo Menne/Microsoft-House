@@ -9,6 +9,7 @@ Da implementare
 - Abilitare/disabilitare le notifiche nella schermata settings
 - Controllare se un utente è già loggato prima di mostrare la schermata di login
 - La homepage dovrebbe essere sempre la prima pagina della navigation stack
+- Icone 2.0
 
 Bug
 - In Android il refreshing delle listview non finisce mai
@@ -22,3 +23,4 @@ Miglioramenti
 - Cambiare bottoni statistiche parcheggio con sottolineatura
 - Rendere i picker coerenti (ending time > starting time)
 - Immagine notifiche Android
+- Disabilitare click in alcune listview
