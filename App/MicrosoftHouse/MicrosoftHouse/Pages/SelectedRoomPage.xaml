@@ -84,14 +84,7 @@
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnDatePicker"/>
                             </Image.GestureRecognizers>
-                            <Image.WidthRequest>
-                                <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="24"/>
-                            </Image.WidthRequest>
-                            <Image.HeightRequest>
-                                <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="24"/>
-                            </Image.HeightRequest>
+
                         </Image>
                     </StackLayout>
                     <BoxView Color="Black"
@@ -125,14 +118,7 @@
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnStartingTimePicker"/>
                             </Image.GestureRecognizers>
-                            <Image.WidthRequest>
-                                <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="24"/>
-                            </Image.WidthRequest>
-                            <Image.HeightRequest>
-                                <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="24"/>
-                            </Image.HeightRequest>
+
                         </Image>
                     </StackLayout>
                     <BoxView Color="Black"
@@ -166,14 +152,7 @@
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnEndingTimePicker"/>
                             </Image.GestureRecognizers>
-                            <Image.WidthRequest>
-                                <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="24"/>
-                            </Image.WidthRequest>
-                            <Image.HeightRequest>
-                                <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="24"/>
-                            </Image.HeightRequest>
+
                         </Image>
                     </StackLayout>
                     <BoxView Color="Black"
