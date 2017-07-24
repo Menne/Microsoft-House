@@ -67,18 +67,18 @@
 								 VerticalOptions="FillAndExpand"
 								 Spacing="3">
                                         <Label
-	                                       Text="{Binding Path=Date, StringFormat='{0:MM/dd/yyyy} -'}"
+	                                       Text="{Binding Path=Date, StringFormat='{0:MMMM dd, yyyy} -'}"
 	                                       TextColor="DarkGray"
 						                   FontFamily="Avenir"
 						                   FontSize="14"/>       
                                         <Label
-	                                       Text="{Binding Path=StartingTime, StringFormat=' From: {0:hh}'}"
+	                                       Text="{Binding Path=StartingTime, StringFormat=' From: {0:hh\\:mm}'}"
 	                                       TextColor="DarkGray"
 						                   FontFamily="Avenir"
 						                   FontSize="14"/>
                                         <Label
 						                   FontFamily="Avenir"
-	                                       Text="{Binding Path=EndingTime, StringFormat=' To {0:hh}'}"
+	                                       Text="{Binding Path=EndingTime, StringFormat=' to {0:hh\\:mm}'}"
 	                                       TextColor="DarkGray"
 						                   FontSize="14"/>
                                     </StackLayout>

@@ -133,12 +133,12 @@
 						           FontSize="14"/>
                                             <Label
 							       FontFamily="Avenir"
-		                           Text="{Binding Path=StartingTime, StringFormat=' From: {0:hh}'}"
+		                           Text="{Binding Path=StartingTime, StringFormat=' From: {0:hh\\:mm}'}"
 		                           TextColor="DarkGray"
 							       FontSize="14"/>
                                             <Label
 							        FontFamily="Avenir"
-		                            Text="{Binding Path=EndingTime, StringFormat=' To: {0:hh}'}"
+		                            Text="{Binding Path=EndingTime, StringFormat=' to: {0:hh\\:mm}'}"
 		                            TextColor="DarkGray"
 							        FontSize="14"/>
                                         </StackLayout>
