@@ -11,6 +11,7 @@ using MicrosoftHouse.Models;
 using System.Text;
 using TaskList.Helpers;
 using System.Net.Http;
+using Plugin.Connectivity;
 
 namespace MicrosoftHouse.Services
 {
@@ -187,7 +188,13 @@ namespace MicrosoftHouse.Services
 		public async Task SyncOfflineCacheAsync()
 		{
 			Debug.WriteLine("SyncOfflineCacheAsync: Initializing...");
-			await InitializeAsync(); 
+			await InitializeAsync();
+
+            if (!(await CrossConnectivity.Current.IsRemoteReachable(Client.MobileAppUri.Host, 443)))
+            {
+                Debug.WriteLine($"Cannot connect to {Client.MobileAppUri} right now - offline");
+                return;
+            }
 
 
             // Push the Operations Queue to the mobile backend
