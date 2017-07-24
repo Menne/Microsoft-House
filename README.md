@@ -11,7 +11,6 @@ Da implementare
 - La homepage dovrebbe essere sempre la prima pagina della navigation stack
 
 Bug
-- Icone UWP sgranate
 - Le notifiche UWP hanno sempre il campo message vuoto, le notifiche Android spesso
 - Il calendario ha problemi ad aggiornarsi
 - Spesso il DB locale non riflette quello reale
@@ -22,5 +21,4 @@ Miglioramenti
 - Rendere i picker coerenti (ending time > starting time)
 - Immagine notifiche Android
 - Disabilitare click in alcune listview
-- Aggiustare colori
 - Cambiare nomi aule e locations nel db
