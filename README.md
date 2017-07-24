@@ -9,7 +9,6 @@ Da implementare
 - Abilitare/disabilitare le notifiche nella schermata settings
 - Controllare se un utente è già loggato prima di mostrare la schermata di login
 - La homepage dovrebbe essere sempre la prima pagina della navigation stack
-- Icone 2.0
 
 Bug
 - Icone UWP sgranate

@@ -5,7 +5,7 @@
              x:Class="MicrosoftHouse.Pages.ReservationListPage"	 
              x:Name="ReservationListPage"
              Title="Your Reservations"
-             Icon="EventIcon.png">
+             Icon="ReservationsIconWhite.png">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="New Reservation"
             Command="{Binding NewReservationCommand}">

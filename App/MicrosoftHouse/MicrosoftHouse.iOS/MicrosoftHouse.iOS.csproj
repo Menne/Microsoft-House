@@ -217,9 +217,6 @@
     <BundleResource Include="Resources\MicrosoftIcon%402x.png" />
     <BundleResource Include="Resources\MicrosoftIcon.png" />
     <BundleResource Include="Resources\MicrosoftIcon%403x.png" />
-    <BundleResource Include="Resources\AllRoomsIcon.png" />
-    <BundleResource Include="Resources\AllRoomsIcon%402x.png" />
-    <BundleResource Include="Resources\AllRoomsIcon%403x.png" />
     <BundleResource Include="Resources\ReservationIcon.png" />
     <BundleResource Include="Resources\ReservationIcon%402x.png" />
     <BundleResource Include="Resources\ReservationIcon%403x.png" />
@@ -336,12 +333,20 @@
       <Name>MicrosoftHouse</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\ReservationsIconWhite%403x.png" />
+  </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.auth">
       <Version>1.2.3.1</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ReservationsIconWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ReservationsIconWhite%402x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
