@@ -105,7 +105,7 @@ namespace MicrosoftHouse.ViewModels
 
 			try
 			{
-				var table = await CloudService.GetTableAsync<Event>();
+                var table = await CloudService.GetTableAsync<Event>();
 				var list = await table.ReadAllEventsAsync();
 				AllEvents.Clear();
                 DatesWithEvents.Clear();
@@ -119,7 +119,7 @@ namespace MicrosoftHouse.ViewModels
                     DatesWithEvents.Add(specialDate);
 				}
                 ShowEventsOfTheDay();
-
+                await CloudService.SyncOfflineCacheAsync();
             }
 			catch (Exception ex)
 			{

@@ -19,28 +19,28 @@ namespace MicrosoftHouse.Services
 		/// <summary>
 		/// The Client reference to the Azure Mobile App
 		/// </summary>
-		private MobileServiceClient client { get; set; }
+		private MobileServiceClient Client { get; set; }
 
         public AzureCloudService()
         {
-            client = new MobileServiceClient(Locations.AppServiceUrl, new AuthenticationDelegatingHandler());
+            Client = new MobileServiceClient(Locations.AppServiceUrl, new AuthenticationDelegatingHandler());
 
             if (Locations.AlternateLoginHost != null)
-                client.AlternateLoginHost = new Uri(Locations.AlternateLoginHost);
+                Client.AlternateLoginHost = new Uri(Locations.AlternateLoginHost);
         }
 
 		List<AppServiceIdentity> identities = null;
 
 		public async Task<AppServiceIdentity> GetIdentityAsync()
 		{
-			if (client.CurrentUser == null || client.CurrentUser?.MobileServiceAuthenticationToken == null)
+			if (Client.CurrentUser == null || Client.CurrentUser?.MobileServiceAuthenticationToken == null)
 			{
 				throw new InvalidOperationException("Not Authenticated");
 			}
 
 			if (identities == null)
 			{
-				identities = await client.InvokeApiAsync<List<AppServiceIdentity>>("/.auth/me");
+				identities = await Client.InvokeApiAsync<List<AppServiceIdentity>>("/.auth/me");
 			}
 
 			if (identities.Count > 0)
@@ -56,20 +56,20 @@ namespace MicrosoftHouse.Services
         public async Task<ICloudTable<T>> GetTableAsync<T>() where T : TableData
         {
             await InitializeAsync();
-            return new AzureCloudTable<T>(client);
+            return new AzureCloudTable<T>(Client);
         }
 
         public async Task<MobileServiceUser> LoginAsync()
         {
             var loginProvider = DependencyService.Get<IPlatformProvider>();
 
-            client.CurrentUser = loginProvider.RetrieveTokenFromSecureStore();
-            if (client.CurrentUser != null)
+            Client.CurrentUser = loginProvider.RetrieveTokenFromSecureStore();
+            if (Client.CurrentUser != null)
             {
                 // User has previously been authenticated - try to Refresh the token
                 try
                 {
-                    var refreshed = await client.RefreshUserAsync();
+                    var refreshed = await Client.RefreshUserAsync();
                     if (refreshed != null)
                     {
                         loginProvider.StoreTokenInSecureStore(refreshed);
@@ -82,20 +82,20 @@ namespace MicrosoftHouse.Services
                 }
             }
 
-            if (client.CurrentUser != null && !IsTokenExpired(client.CurrentUser.MobileServiceAuthenticationToken))
+            if (Client.CurrentUser != null && !IsTokenExpired(Client.CurrentUser.MobileServiceAuthenticationToken))
             {
                 // User has previously been authenticated, no refresh is required
-                return client.CurrentUser;
+                return Client.CurrentUser;
             }
 
             // We need to ask for credentials at this point
-            await loginProvider.LoginAsync(client);
-            if (client.CurrentUser != null)
+            await loginProvider.LoginAsync(Client);
+            if (Client.CurrentUser != null)
             {
                 // We were able to successfully log in
-                loginProvider.StoreTokenInSecureStore(client.CurrentUser);
+                loginProvider.StoreTokenInSecureStore(Client.CurrentUser);
             }
-            return client.CurrentUser;
+            return Client.CurrentUser;
         }
 
         bool IsTokenExpired(string token)
@@ -133,16 +133,16 @@ namespace MicrosoftHouse.Services
 
         public async Task LogoutAsync()
 		{
-            if (client.CurrentUser == null || client.CurrentUser.MobileServiceAuthenticationToken == null)
+            if (Client.CurrentUser == null || Client.CurrentUser.MobileServiceAuthenticationToken == null)
                 return;
 
             // Log out of the identity provider (if required)
 
             // Invalidate the token on the mobile backend
-            var authUri = new Uri($"{client.MobileAppUri}/.auth/logout");
+            var authUri = new Uri($"{Client.MobileAppUri}/.auth/logout");
             using (var httpClient = new HttpClient())
             {
-                httpClient.DefaultRequestHeaders.Add("X-ZUMO-AUTH", client.CurrentUser.MobileServiceAuthenticationToken);
+                httpClient.DefaultRequestHeaders.Add("X-ZUMO-AUTH", Client.CurrentUser.MobileServiceAuthenticationToken);
                 await httpClient.GetAsync(authUri);
             }
 
@@ -150,13 +150,13 @@ namespace MicrosoftHouse.Services
             DependencyService.Get<IPlatformProvider>().RemoveTokenFromSecureStore();
 
             // Remove the token from the MobileServiceClient
-            await client.LogoutAsync();
+            await Client.LogoutAsync();
         }
 
         private async Task InitializeAsync()
 		{
 			// Short circuit - local database is already initialized
-			if (client.SyncContext.IsInitialized)
+			if (Client.SyncContext.IsInitialized)
 			{
 				Debug.WriteLine("InitializeAsync: Short Circuit");
 				return;
@@ -177,7 +177,7 @@ namespace MicrosoftHouse.Services
 
 			// Actually create the store and update the schema
 			Debug.WriteLine("InitializeAsync: Initializing SyncContext");
-			await client.SyncContext.InitializeAsync(store);
+			await Client.SyncContext.InitializeAsync(store);
 
 			// Do the sync
 			Debug.WriteLine("InitializeAsync: Syncing Offline Cache");
@@ -187,11 +187,12 @@ namespace MicrosoftHouse.Services
 		public async Task SyncOfflineCacheAsync()
 		{
 			Debug.WriteLine("SyncOfflineCacheAsync: Initializing...");
-			await InitializeAsync();
+			await InitializeAsync(); 
 
-			// Push the Operations Queue to the mobile backend
-			Debug.WriteLine("SyncOfflineCacheAsync: Pushing Changes");
-			await client.SyncContext.PushAsync();
+
+            // Push the Operations Queue to the mobile backend
+            Debug.WriteLine("SyncOfflineCacheAsync: Pushing Changes");
+			await Client.SyncContext.PushAsync();
 
 			// Pull each sync table
 			Debug.WriteLine("SyncOfflineCacheAsync: Pulling tasks event");
@@ -218,8 +219,8 @@ namespace MicrosoftHouse.Services
 		public async Task RegisterForPushNotifications()
 		{
 			var platformProvider = DependencyService.Get<IPlatformProvider>();
-			await platformProvider.RegisterForPushNotifications(client);   
+			await platformProvider.RegisterForPushNotifications(Client);   
 		}
 
-	}
+    }
 }

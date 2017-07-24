@@ -51,6 +51,7 @@ namespace MicrosoftHouse
 
             try
             {
+                await CloudService.SyncOfflineCacheAsync();
                 var identity = await CloudService.GetIdentityAsync();
                 if (identity != null)
                 {

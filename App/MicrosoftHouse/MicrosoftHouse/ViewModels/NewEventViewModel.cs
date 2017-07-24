@@ -86,9 +86,9 @@ namespace MicrosoftHouse
 				{
 					await tableEvent.UpdateEventAsync(SelectedEvent);
 				}
-				await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
-                MessagingCenter.Send<NewEventViewModel>(this, "ItemsChanged");
                 await CloudService.SyncOfflineCacheAsync();
+                await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
+                MessagingCenter.Send<NewEventViewModel>(this, "ItemsChanged");
             }
 			catch (Exception ex)
 			{

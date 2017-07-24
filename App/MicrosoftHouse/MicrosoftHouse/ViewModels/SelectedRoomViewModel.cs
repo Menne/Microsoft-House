@@ -53,6 +53,7 @@ namespace MicrosoftHouse
 
             try
             {
+                await CloudService.SyncOfflineCacheAsync();
                 var reservationTable = await CloudService.GetTableAsync<Reservation>();
                 var reservationList = await reservationTable.ReadAllReservationsAsync();
                 ReservationsOfSelectedRoom.Clear();
@@ -107,7 +108,6 @@ namespace MicrosoftHouse
                         NewReservation.User = name;
                         NewReservation.RoomName = SelectedRoom.Name;
                     }
-
                     await reservationTable.CreateReservationAsync(NewReservation);
                 }
                 else
@@ -116,8 +116,8 @@ namespace MicrosoftHouse
                 }
                 SelectedRoom = null;
                 await CloudService.SyncOfflineCacheAsync();
-                MessagingCenter.Send<SelectedRoomViewModel>(this, "ItemsChanged");
                 await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
+                MessagingCenter.Send<SelectedRoomViewModel>(this, "ItemsChanged");
             }
             catch (Exception ex)
             {

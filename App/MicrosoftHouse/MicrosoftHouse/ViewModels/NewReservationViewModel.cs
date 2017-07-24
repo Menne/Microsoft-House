@@ -146,9 +146,9 @@ namespace MicrosoftHouse
                     await reservationTable.UpdateReservationAsync(NewReservation);
                 }
                 SelectedRoom = null;
+                await CloudService.SyncOfflineCacheAsync();
                 await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PopAsync();
                 MessagingCenter.Send<NewReservationViewModel>(this, "ItemsChanged");
-                await CloudService.SyncOfflineCacheAsync();
             }
             catch (Exception ex)
             {
