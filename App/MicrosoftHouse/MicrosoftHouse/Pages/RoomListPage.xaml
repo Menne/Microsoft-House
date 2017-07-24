@@ -18,45 +18,53 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical"
+        
+            <StackLayout Orientation="Vertical"
                      VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand">
-            <StackLayout Orientation="Horizontal"
+                <StackLayout Orientation="Horizontal"
                      VerticalOptions="Start"
                      HorizontalOptions="FillAndExpand"
                      Padding="30,10,30,20">
-                <local:CustomEntry x:Name="searchEntry"
-                    Placeholder="Search a room by name or floor"
-					Keyboard="Text"
-					Text="{Binding SearchArgument, Mode=TwoWay}"
-					HorizontalOptions="FillAndExpand"
-					VerticalOptions="CenterAndExpand"
-					Font="14"
-					XAlign="Start"
-					TextColor="DarkGray"
-					FontFamily="Avenir"
-					PlaceholderTextColor="LightGray"/>
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="FillAndExpand"
+                             Spacing="0">
+                    <local:CustomEntry x:Name="searchEntry"
+                        Placeholder="Search a room by name or floor"
+					    Keyboard="Text"
+					    Text="{Binding SearchArgument, Mode=TwoWay}"
+					    HorizontalOptions="FillAndExpand"
+					    VerticalOptions="CenterAndExpand"
+					    Font="14"
+					    XAlign="Start"
+					    TextColor="DarkGray"
+					    FontFamily="Avenir"
+					    PlaceholderTextColor="LightGray"/>
+                    <BoxView Color="Black"
+								Opacity="0.05"
+								HeightRequest="1">
+                        <BoxView.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <OnPlatform.iOS>true</OnPlatform.iOS>
+                                <OnPlatform.Android>false</OnPlatform.Android>
+                                <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
+                            </OnPlatform>
+                        </BoxView.IsVisible>
+                    </BoxView>
+                </StackLayout>
+            
                 <Image VerticalOptions="Center"
-				   HorizontalOptions="End">
-                <Image.Source>
-                    <OnPlatform x:TypeArguments="ImageSource"
+				       HorizontalOptions="End">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource"
                                 iOS="SearchIcon.png"
                                 Android="SearchIcon.png"
                                 WinPhone="Images/SearchIcon.png" />
-                </Image.Source>
-            </Image>
-            <BoxView Color="Black"
-								Opacity="0.05"
-								HeightRequest="1">
-                <BoxView.IsVisible>
-                    <OnPlatform x:TypeArguments="x:Boolean">
-                        <OnPlatform.iOS>true</OnPlatform.iOS>
-                        <OnPlatform.Android>false</OnPlatform.Android>
-                        <OnPlatform.WinPhone>true</OnPlatform.WinPhone>
-                    </OnPlatform>
-                </BoxView.IsVisible>
-            </BoxView>
-        </StackLayout>
+                        </Image.Source>
+                    </Image>
+            </StackLayout>
+
+
             <ListView x:Name="displayedRooms"
 			    ItemsSource="{Binding DisplayedRooms, Mode=TwoWay}"
 	            SeparatorVisibility="None"

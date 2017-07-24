@@ -18,11 +18,10 @@ Bug
 - Il calendario ha problemi ad aggiornarsi
 
 Miglioramenti
-- UWP renderers dei picker
+- Renderer UWP
 - Aggiustare la schermata new event (titolo e descrizione dell'evento)
 - Rendere i picker coerenti (ending time > starting time)
 - Immagine notifiche Android
 - Disabilitare click in alcune listview
-- Aggiustare entry nella lista di stanze
 - Aggiustare colori
 - Cambiare nomi aule e locations nel db
