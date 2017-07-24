@@ -25,3 +25,4 @@ Miglioramenti
 - Disabilitare click in alcune listview
 - Aggiustare entry nella lista di stanze
 - Aggiustare colori
+- Cambiare nomi aule e locations nel db
