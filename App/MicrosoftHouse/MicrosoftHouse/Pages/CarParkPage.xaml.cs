@@ -14,20 +14,11 @@ namespace MicrosoftHouse
             BindingContext = new CarParkViewModel();
 
             InitializeStatistics();
+            OnPressed(DaysOfWeekButtonsGrid.Children[0], null);
         }
 
         private void InitializeStatistics()
         {
-       /*     for (int i = 0; i < 12; i++)
-            {
-                BoxView boxView = new BoxView
-                {
-                    Color = Color.FromHex("FF01A4EF"),
-                    VerticalOptions = LayoutOptions.End,
-                };
-                boxView.SetBinding(HeightRequestProperty, new Binding("SelectedDayStatistics", BindingMode.TwoWay, source: BindingContext));
-                StatisticsGrid.Children.Add(boxView, i + 1, 0);
-            }    */
 
             for (int i = 0; i < 13; i++)
             {
