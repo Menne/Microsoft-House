@@ -138,7 +138,7 @@
 						HorizontalOptions="FillAndExpand"
 						VerticalOptions="Center"
                         HeightRequest="45"
-						BackgroundColor="#FF01A4EF"
+						BackgroundColor="#2196F3"
 						Text="SEARCH"
 						Command="{Binding SearchAvailableRoomsCommand}"
 						TextColor="White"

@@ -18,7 +18,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackLayout BackgroundColor="#FF01A4EF" 
+            <StackLayout BackgroundColor="#2196F3" 
 						 Orientation="Horizontal"
 						 Grid.Row="0"
 						 Grid.Column="0"
@@ -228,7 +228,7 @@
 					<Button x:Name="searchButton"
 						HorizontalOptions="FillAndExpand"
 						VerticalOptions="FillAndExpand"
-						BackgroundColor="#FF01A4EF"
+						BackgroundColor="#2196F3"
 						Text="RESERVE"
 						Command="{Binding NewReservationCommand}"
 						TextColor="White"

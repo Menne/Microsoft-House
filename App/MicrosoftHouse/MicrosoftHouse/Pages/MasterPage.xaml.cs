@@ -34,7 +34,7 @@ namespace MicrosoftHouse
 				Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType))
 				{
 					BarTextColor = Color.White,
-					BarBackgroundColor = Color.FromHex("#FF01A4EF")
+					BarBackgroundColor = Color.FromHex("#2196F3")
 				};
 				hamburgerPage.ListView.SelectedItem = null;
                 if (Device.Idiom == TargetIdiom.Desktop)

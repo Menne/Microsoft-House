@@ -5,7 +5,7 @@
  				Padding="10"
 				Title="Hamburger"
 				Icon="HamburgerIcon.png"
-				BackgroundColor="#FF01A4EF">
+				BackgroundColor="#2196F3">
 	<ContentPage.Content>
 		<StackLayout VerticalOptions="FillAndExpand">
 			<StackLayout VerticalOptions="CenterAndExpand"
@@ -29,7 +29,7 @@
 						VerticalOptions="FillAndExpand" 
 						SeparatorVisibility="None"
 						ItemsSource="{Binding MasterPageItems}"
-						BackgroundColor="#FF01A4EF">
+						BackgroundColor="#2196F3">
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell>

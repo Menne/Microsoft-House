@@ -212,7 +212,7 @@
 									HeightRequest="1">
 						</BoxView>
 			</StackLayout>
-            <Button BackgroundColor="#FF00BAFF"
+            <Button BackgroundColor="#2196F3"
 						VerticalOptions="FillAndExpand"
 						HorizontalOptions="FillAndExpand"
 						Text="DELETE"

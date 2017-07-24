@@ -27,7 +27,7 @@ namespace MicrosoftHouse
             {
                 Name = "Home",
                 IconSource = Device.OnPlatform("HomeIconWhite.png","HomeIconWhite.png", "Images/HomeIconWhite.png"),
-                TargetType = typeof(HomePage)
+                TargetType = typeof(HomePage),
 			});
 			masterPageItems.Add(new MasterPageItem
 			{

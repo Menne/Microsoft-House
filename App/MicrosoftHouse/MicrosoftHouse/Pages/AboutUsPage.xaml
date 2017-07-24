@@ -12,7 +12,7 @@
                         VerticalOptions="FillAndExpand">
                 <Image VerticalOptions="Start"
 				       HorizontalOptions="FillAndExpand"
-                       BackgroundColor="#FF01A4EF">
+                       BackgroundColor="#2196F3">
                     <Image.Source>
                         <OnPlatform x:TypeArguments="ImageSource"
                                     iOS="LoginIcon180.png"

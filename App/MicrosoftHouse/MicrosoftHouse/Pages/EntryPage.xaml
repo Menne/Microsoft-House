@@ -3,7 +3,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			 xmlns:local="clr-namespace:MicrosoftHouse;assembly=MicrosoftHouse"
 			 x:Class="MicrosoftHouse.EntryPage"
-			 BackgroundColor="#FF01A4EF">
+			 BackgroundColor="#2196F3">
 	<ContentPage.Content>
 		<Grid HorizontalOptions="FillAndExpand" RowSpacing="0">
                 <Grid.RowDefinitions>
@@ -39,7 +39,7 @@
 							BackgroundColor="White"
 							Command="{Binding LoginCommand}"
 							Text="LOGIN WITH MICROSOFT ACCOUNT"
-							TextColor="#FF01A4EF"
+							TextColor="#2196F3"
 							FontFamily="Avenir"
 							BorderRadius="0">
                     <Button.Image>

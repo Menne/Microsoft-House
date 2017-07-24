@@ -36,7 +36,7 @@
 									VerticalOptions="FillAndExpand"
 									Orientation="Horizontal">
                     <Button x:Name="availableRoomsButton"
-                                BackgroundColor="#2079E6"
+                                BackgroundColor="#49A9F5"
 								HeightRequest="40"
 								Command="{Binding RoomCommand}"
 								WidthRequest="40"
@@ -98,7 +98,7 @@
 									Orientation="Horizontal">
                     <Button x:Name="availableSeatsButton"
 								Command="{Binding ParkDetailCommand}"
-								BackgroundColor="#2079E6"
+								BackgroundColor="#2196F3"
 								HeightRequest="40"
 								WidthRequest="40"
 								VerticalOptions="Center"
