@@ -16,6 +16,7 @@ Bug
 - Icone UWP sgranate
 - Le notifiche UWP hanno sempre il campo message vuoto, le notifiche Android spesso
 - Il calendario ha problemi ad aggiornarsi
+- Spesso il DB locale non riflette quello reale
 
 Miglioramenti
 - Renderer UWP
