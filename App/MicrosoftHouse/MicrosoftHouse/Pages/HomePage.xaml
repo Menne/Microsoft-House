@@ -19,7 +19,7 @@
 							VerticalOptions="FillAndExpand"
 							Orientation="Vertical"
 							Padding="20"
-							BackgroundColor="#FF01A4EF"
+							BackgroundColor="#2196F3"
 							Grid.Row="0"
 							Grid.Column="0">
 					<StackLayout HorizontalOptions="FillAndExpand"
@@ -36,7 +36,7 @@
 									VerticalOptions="FillAndExpand"
 									Orientation="Horizontal">
                     <Button x:Name="availableRoomsButton"
-                                BackgroundColor="#49A9F5"
+                                BackgroundColor="#2079E6"
 								HeightRequest="40"
 								Command="{Binding RoomCommand}"
 								WidthRequest="40"
@@ -80,7 +80,7 @@
 							VerticalOptions="FillAndExpand"
 							Orientation="Vertical"
 							Padding="20"
-							BackgroundColor="#FF01A4EF"
+							BackgroundColor="#2196F3"
 							Grid.Row="1"
 							Grid.Column="0">
 					<StackLayout HorizontalOptions="FillAndExpand"
@@ -98,7 +98,7 @@
 									Orientation="Horizontal">
                     <Button x:Name="availableSeatsButton"
 								Command="{Binding ParkDetailCommand}"
-								BackgroundColor="#2196F3"
+								BackgroundColor="#2079E6"
 								HeightRequest="40"
 								WidthRequest="40"
 								VerticalOptions="Center"
@@ -140,7 +140,7 @@
 							VerticalOptions="FillAndExpand"
 							Orientation="Vertical"
 							Padding="20"
-							BackgroundColor="#FF01A4EF"
+							BackgroundColor="#2196F3"
 							Grid.Row="2"
 							Grid.Column="0">
 					<StackLayout HorizontalOptions="FillAndExpand"
