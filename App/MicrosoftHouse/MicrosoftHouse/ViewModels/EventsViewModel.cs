@@ -39,7 +39,7 @@ namespace MicrosoftHouse.ViewModels
                 await ExecuteRefreshCommand();
             });
 
-            //Date = DateTime.Now;
+            SelectedDate = DateTime.Now;
 
             // Execute the refresh command
             RefreshCommand.Execute(null);
