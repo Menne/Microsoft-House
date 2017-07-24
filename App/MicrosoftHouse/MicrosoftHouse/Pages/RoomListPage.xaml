@@ -61,7 +61,15 @@
                                 Android="SearchIcon.png"
                                 WinPhone="Images/SearchIcon.png" />
                         </Image.Source>
-                    </Image>
+                    <Image.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                    </Image.WidthRequest>
+                    <Image.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                    </Image.HeightRequest>
+                </Image>
             </StackLayout>
 
 

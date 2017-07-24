@@ -37,10 +37,19 @@
 								<StackLayout Orientation="Horizontal"
 												Padding="10"
 												Spacing="15">
-									<Image Source="{Binding Path=IconSource}"
+                                    <Image Source="{Binding Path=IconSource}"
 											HorizontalOptions="Start"
-											VerticalOptions="Center"/>
-									<Label Text="{Binding Path=Name}"
+											VerticalOptions="Center">
+                                        <Image.WidthRequest>
+                                            <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                                        </Image.WidthRequest>
+                                        <Image.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                                        </Image.HeightRequest>
+                                    </Image>
+                                    <Label Text="{Binding Path=Name}"
 											FontSize="15"
 											TextColor="White"
 											VerticalOptions="Center"

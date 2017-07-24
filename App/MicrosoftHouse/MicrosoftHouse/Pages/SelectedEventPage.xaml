@@ -52,6 +52,14 @@
                                         Android="EventIcon.png"
                                         WinPhone="Images/EventIcon.png" />
                         </Image.Source>
+                        <Image.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                        </Image.WidthRequest>
+                        <Image.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                        </Image.HeightRequest>
                     </Image>
 						</StackLayout>
 						<Label Text="{Binding SelectedEvent.Name, Mode=TwoWay}"
@@ -86,6 +94,14 @@
                                         Android="EventIcon.png"
                                         WinPhone="Images/EventIcon.png" />
                         </Image.Source>
+                        <Image.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                        </Image.WidthRequest>
+                        <Image.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                        </Image.HeightRequest>
                     </Image>
 						</StackLayout>
 						<Label Text="{Binding SelectedEvent.Description}"
@@ -120,6 +136,14 @@
                                         Android="CalendarIcon.png"
                                         WinPhone="Images/CalendarIcon.png" />
                         </Image.Source>
+                        <Image.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                        </Image.WidthRequest>
+                        <Image.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                        </Image.HeightRequest>
                     </Image>
 						</StackLayout>
 						<Label Text="{Binding SelectedEvent.Date.Date, StringFormat='{0:MMMM dd, yyyy}'}"
@@ -154,6 +178,14 @@
                                         Android="TimeIcon.png"
                                         WinPhone="Images/TimeIcon.png" />
                         </Image.Source>
+                        <Image.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                        </Image.WidthRequest>
+                        <Image.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                        </Image.HeightRequest>
                     </Image>
 						</StackLayout>
 						<StackLayout Orientation="Horizontal">
@@ -198,6 +230,14 @@
                                         Android="ParkIcon.png"
                                         WinPhone="Images/ParkIcon.png" />
                         </Image.Source>
+                        <Image.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                        </Image.WidthRequest>
+                        <Image.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                                    WinPhone="24"/>
+                        </Image.HeightRequest>
                     </Image>
 						</StackLayout>
 						<Label Text="{Binding SelectedEvent.Location}"

@@ -47,7 +47,7 @@
                             <OnPlatform x:TypeArguments="FileImageSource"
                                 iOS="RoomIconWhite.png"
                                 Android="RoomIconWhite.png"
-                                WinPhone="Images/RoomIconWhite.png" />
+                                WinPhone="Images/RoomIconWhiteHome.png" />
                             </Button.Image>
                     </Button>
                     <Label Text="See a list of all rooms"
@@ -108,7 +108,7 @@
                             <OnPlatform x:TypeArguments="FileImageSource"
                                 iOS="ParkIconWhite.png"
                                 Android="ParkIconWhite.png"
-                                WinPhone="Images/ParkIconWhite.png" />
+                                WinPhone="Images/ParkIconWhiteHome.png" />
                         </Button.Image>
                     </Button>
                     <Label Text="See park statistics"
@@ -168,7 +168,7 @@
                             <OnPlatform x:TypeArguments="FileImageSource"
                                 iOS="CalendarIconWhite.png"
                                 Android="CalendarIconWhite.png"
-                                WinPhone="Images/CalendarIconWhite.png" />
+                                WinPhone="Images/CalendarIconWhiteHome.png" />
                         </Button.Image>
                     </Button>
                     <Label Text="See all the planned events"
