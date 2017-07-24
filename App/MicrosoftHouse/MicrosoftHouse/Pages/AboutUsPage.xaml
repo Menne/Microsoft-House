@@ -11,10 +11,10 @@
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand">
                 <StackLayout VerticalOptions="Start"
-				       HorizontalOptions="FillAndExpand"
-                    BackgroundColor="#2196F3">
+				            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#2196F3">
                     <Image VerticalOptions="Start"
-				       HorizontalOptions="Center">
+				           HorizontalOptions="Center">
                         <Image.Source>
                         <OnPlatform x:TypeArguments="ImageSource"
                                     iOS="LoginIcon180.png"
