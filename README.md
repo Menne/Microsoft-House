@@ -12,7 +12,6 @@ Da implementare
 - Icone 2.0
 
 Bug
-- In Android il refreshing delle listview non finisce mai
 - Icone UWP sgranate
 - Le notifiche UWP hanno sempre il campo message vuoto, le notifiche Android spesso
 - Il calendario ha problemi ad aggiornarsi
