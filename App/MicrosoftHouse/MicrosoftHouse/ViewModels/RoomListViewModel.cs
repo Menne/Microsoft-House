@@ -134,13 +134,7 @@ namespace MicrosoftHouse
 
         async Task ExecuteNewReservationCommand()
         {
-            if (IsBusy)
-                return;
-            IsBusy = true;
-
             await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewReservationPage());
-
-            IsBusy = false;
         }
 
         void Search(String searchArgument)
