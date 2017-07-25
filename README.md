@@ -19,6 +19,5 @@ Bug
 Miglioramenti
 - Renderer UWP
 - Aggiustare la schermata new event (titolo e descrizione dell'evento)
-- Rendere i picker coerenti (ending time > starting time)
 - Immagine notifiche Android
 - Cambiare nomi aule e locations nel db
