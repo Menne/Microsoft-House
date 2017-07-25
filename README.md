@@ -13,7 +13,6 @@ Da implementare
 
 Bug
 - Il calendario ha problemi ad aggiornarsi
-- Cache DB locale non si aggiorna
 
 Miglioramenti
 - Renderer UWP

@@ -166,6 +166,6 @@ namespace MicrosoftHouse.Services
 		{
 			string queryName = $"incsync_{typeof(T).Name}";
 			await table.PullAsync(queryName, table.CreateQuery());
-		}
+        }
 	}
 }

@@ -15,7 +15,7 @@ namespace Backend
 		{
 			base.Initialize(controllerContext);
 			MobileServiceContext context = new MobileServiceContext();
-			DomainManager = new EntityDomainManager<EventLocation>(context, Request);
+			DomainManager = new EntityDomainManager<EventLocation>(context, Request, enableSoftDelete: true);
 		}
 
 		// GET tables/TodoItem
