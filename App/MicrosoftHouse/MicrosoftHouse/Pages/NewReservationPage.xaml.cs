@@ -17,6 +17,8 @@ namespace MicrosoftHouse.Pages
         {
             InitializeComponent();
             BindingContext = new NewReservationViewModel();
+
+            datePicker.MinimumDate = DateTime.Now;
         }
 
         public void OnTimePicker(object sender, EventArgs e)

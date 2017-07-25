@@ -17,6 +17,8 @@ namespace MicrosoftHouse
                 if (e.SelectedItem == null) return;
                 ((ListView)sender).SelectedItem = null;
             };
+
+            datePicker.MinimumDate = DateTime.Now;
         }
 
 		public void OnStartingTimePicker(object sender, EventArgs e)

@@ -11,7 +11,9 @@ namespace MicrosoftHouse
 		{
 			InitializeComponent();
 			BindingContext = new NewEventViewModel();
-		}
+
+            datePicker.MinimumDate = DateTime.Now;
+        }
 
 		// Edit page
 		public NewEventPage(Event selectedEvent = null)
