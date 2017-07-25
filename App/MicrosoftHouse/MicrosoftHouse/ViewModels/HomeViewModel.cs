@@ -63,7 +63,7 @@ namespace MicrosoftHouse
 
             (Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new EventsPage())
 			{
-				//BarTextColor = Color.White,
+				BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#2196F3")
 			};
 
@@ -78,7 +78,7 @@ namespace MicrosoftHouse
 
             (Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new CarParkPage())
 			{
-				//BarTextColor = Color.White,
+				BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#2196F3")
 			};
 
@@ -104,7 +104,7 @@ namespace MicrosoftHouse
 
             (Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new RoomsPage())
 			{
-				//BarTextColor = Color.White,
+				BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#2196F3")
 			};
 
