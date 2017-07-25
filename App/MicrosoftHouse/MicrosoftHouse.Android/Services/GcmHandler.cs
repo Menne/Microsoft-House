@@ -69,7 +69,7 @@ namespace TaskList.Droid.Services
                 .SetContentIntent(pendingIntent)
                 .SetContentTitle(title)
                 .SetContentText(msg)
-                .SetSmallIcon(Android.Resource.Drawable.SymDefAppIcon)
+                .SetSmallIcon(MicrosoftHouse.Droid.Resource.Drawable.icon)
                 .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
                 .SetAutoCancel(true)
                 .Build();
