@@ -12,12 +12,10 @@ Da implementare
 - TK.CustomMap per calcolare il percorso
 
 Bug
-- Le notifiche UWP hanno sempre il campo message vuoto, le notifiche Android spesso
 - Il calendario ha problemi ad aggiornarsi
-- Spesso il DB locale non riflette quello reale
+- Cache DB locale non si aggiorna
 
 Miglioramenti
 - Renderer UWP
 - Aggiustare la schermata new event (titolo e descrizione dell'evento)
-- Immagine notifiche Android
 - Cambiare nomi aule e locations nel db
