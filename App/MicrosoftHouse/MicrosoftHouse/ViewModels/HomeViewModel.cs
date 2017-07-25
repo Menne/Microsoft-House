@@ -57,78 +57,44 @@ namespace MicrosoftHouse
 
 		async Task ExecuteCalendarCommand()
 		{
-            if (IsBusy)
-                return;
-            IsBusy = true;
-
             (Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new EventsPage())
 			{
 				BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#2196F3")
 			};
-
-            IsBusy = false;
 		}
 
 		async Task ExecuteParkDetailCommand()
 		{
-            if (IsBusy)
-                return;
-            IsBusy = true;
-
             (Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new CarParkPage())
 			{
 				BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#2196F3")
 			};
-
-            IsBusy = false;
         }
 
 		async Task ExecuteSearchRoomCommand()
 		{
-            if (IsBusy)
-                return;
-            IsBusy = true;
-
-            await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewReservationPage());
-
-            IsBusy = false;
+           await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewReservationPage());
         }
 
 		async Task ExecuteRoomCommand()
 		{
-            if (IsBusy)
-                return;
-            IsBusy = true;
-
             (Application.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new RoomsPage())
 			{
 				BarTextColor = Color.White,
 				BarBackgroundColor = Color.FromHex("#2196F3")
 			};
-
-            IsBusy = false;
         }
 
 		async Task ExecuteNewEventCommand()
 		{
-            if (IsBusy)
-                return;
-            IsBusy = true;
-
             await (Application.Current.MainPage as MasterDetailPage).Detail.Navigation.PushAsync(new NewEventPage());
-
-            IsBusy = false;
         }
 
         // QRCODE
         async Task ExecuteParkCommand()
         {
-            if (IsBusy)
-                return;
-            IsBusy = true;
-
             var customOverlay = new StackLayout
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -240,8 +206,6 @@ namespace MicrosoftHouse
             };
 
             await Application.Current.MainPage.Navigation.PushModalAsync(scanPage);
-
-            IsBusy = false;
         }
     }
 }
