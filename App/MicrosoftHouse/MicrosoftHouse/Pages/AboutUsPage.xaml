@@ -14,21 +14,16 @@
 				            HorizontalOptions="FillAndExpand"
                             BackgroundColor="#2196F3">
                     <Image VerticalOptions="Start"
-				           HorizontalOptions="Center">
+				           HorizontalOptions="Center"
+                           HeightRequest="180"
+                           WidthRequest="180">
                         <Image.Source>
                         <OnPlatform x:TypeArguments="ImageSource"
                                     iOS="LoginIcon180.png"
                                     Android="LoginIcon180.png"
                                     WinPhone="Images/LoginIcon180.png" />
                     </Image.Source>
-                    <Image.WidthRequest>
-                        <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="180"/>
-                    </Image.WidthRequest>
-                    <Image.HeightRequest>
-                        <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="180"/>
-                    </Image.HeightRequest>
+                
                 </Image>
                 </StackLayout>
                 <StackLayout Orientation="Vertical"
