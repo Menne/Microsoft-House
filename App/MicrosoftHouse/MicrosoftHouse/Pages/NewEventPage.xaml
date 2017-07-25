@@ -192,7 +192,9 @@
 										VerticalOptions="Center">
                     </local:CustomPicker>
                     <Image VerticalOptions="Center"
-						   HorizontalOptions="Start">
+						   HorizontalOptions="Start"
+                           HeightRequest="22"
+                               WidthRequest="22">
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource"
                                         iOS="ParkIcon.png"

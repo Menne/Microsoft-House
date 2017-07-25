@@ -36,7 +36,10 @@
 							Grid.Column="0"
 							Padding="30,10,30,10"
 							Orientation="Vertical">
-						<StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand">
 						<Label	Text="EVENT NAME"
 								TextColor="Black"
 								Opacity="0.5"
@@ -44,8 +47,19 @@
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-						<Image VerticalOptions="Center"
-								HorizontalOptions="Start">
+                    <Label Text="{Binding SelectedEvent.Name, Mode=TwoWay}"
+								TextColor="Black"
+								FontSize="14"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center">
+                    </Label>
+                </StackLayout>
+
+                    <Image VerticalOptions="Start"
+								HorizontalOptions="Start"
+                               HeightRequest="22"
+                               WidthRequest="22">
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource"
                                         iOS="EventIcon.png"
@@ -55,13 +69,7 @@
                        
                     </Image>
 						</StackLayout>
-						<Label Text="{Binding SelectedEvent.Name, Mode=TwoWay}"
-								TextColor="Black"
-								FontSize="14"
-								FontFamily="Avenir"
-								HorizontalOptions="FillAndExpand"
-								VerticalOptions="Center">
-						</Label>
+						
 						<BoxView Color="Black"
 									Opacity="0.05"
 									HeightRequest="1">
@@ -71,16 +79,29 @@
 							Grid.Column="0"
 							Padding="30,10,30,10"
 							Orientation="Vertical">
-						<StackLayout Orientation="Horizontal">
-						<Label	Text="DESCRIPTION"
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand">
+                        <Label	Text="DESCRIPTION"
 								TextColor="Black"
 								Opacity="0.5"
 								FontSize="11"
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-						<Image VerticalOptions="Center"
-								HorizontalOptions="Start">
+                        <Label Text="{Binding SelectedEvent.Description}"
+								TextColor="Black"
+								FontSize="14"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center">
+                        </Label>
+                    </StackLayout>
+                    <Image VerticalOptions="Start"
+								HorizontalOptions="Start"
+                               HeightRequest="22"
+                               WidthRequest="22">
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource"
                                         iOS="EventIcon.png"
@@ -90,13 +111,7 @@
                         
                     </Image>
 						</StackLayout>
-						<Label Text="{Binding SelectedEvent.Description}"
-								TextColor="Black"
-								FontSize="14"
-								FontFamily="Avenir"
-								HorizontalOptions="FillAndExpand"
-								VerticalOptions="Center">
-						</Label>
+						
 						<BoxView Color="Black"
 									Opacity="0.05"
 									HeightRequest="1">
@@ -106,16 +121,29 @@
 							Grid.Column="0"
 							Padding="30,10,30,10"
 							Orientation="Vertical">
-						<StackLayout Orientation="Horizontal">
-						<Label	Text="DATE"
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand">
+                        <Label	Text="DATE"
 								TextColor="Black"
 								Opacity="0.5"
 								FontSize="11"
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-						<Image VerticalOptions="Center"
-								HorizontalOptions="Start">
+                        <Label Text="{Binding SelectedEvent.Date.Date, StringFormat='{0:MMMM dd, yyyy}'}"
+								TextColor="Black"
+								FontSize="14"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center">
+                        </Label>
+                    </StackLayout>
+                    <Image VerticalOptions="Start"
+								HorizontalOptions="Start"
+                               HeightRequest="22"
+                               WidthRequest="22">
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource"
                                         iOS="CalendarIcon.png"
@@ -125,13 +153,7 @@
                         
                     </Image>
 						</StackLayout>
-						<Label Text="{Binding SelectedEvent.Date.Date, StringFormat='{0:MMMM dd, yyyy}'}"
-								TextColor="Black"
-								FontSize="14"
-								FontFamily="Avenir"
-								HorizontalOptions="FillAndExpand"
-								VerticalOptions="Center">
-						</Label>
+						
 						<BoxView Color="Black"
 									Opacity="0.05"
 									HeightRequest="1">
@@ -141,40 +163,36 @@
 							Grid.Column="0"
 							Padding="30,10,30,10"
 							Orientation="Vertical">
-						<StackLayout Orientation="Horizontal">
-						<Label	Text="TIME"
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand">
+                        <Label	Text="TIME"
 								TextColor="Black"
 								Opacity="0.5"
 								FontSize="11"
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-						<Image VerticalOptions="Center"
-								HorizontalOptions="Start">
+                        <Label Text="{Binding SelectedEvent.StartingTime, StringFormat='{}{0:hh\\:mm} - '}"
+									TextColor="Black"
+									FontSize="14"
+									FontFamily="Avenir"
+									HorizontalOptions="Start"
+									VerticalOptions="Center">
+                        </Label>
+                    </StackLayout>
+                    <Image VerticalOptions="Start"
+								HorizontalOptions="Start"
+                               HeightRequest="22"
+                               WidthRequest="22">
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource"
                                         iOS="TimeIcon.png"
                                         Android="TimeIcon.png"
                                         WinPhone="Images/TimeIcon.png" />
                         </Image.Source>
-                        
                     </Image>
-						</StackLayout>
-						<StackLayout Orientation="Horizontal">
-							<Label Text="{Binding SelectedEvent.StartingTime, StringFormat='{}{0:hh\\:mm} - '}"
-									TextColor="Black"
-									FontSize="14"
-									FontFamily="Avenir"
-									HorizontalOptions="Start"
-									VerticalOptions="Center">
-							</Label>
-							<Label Text="{Binding SelectedEvent.EndingTime, StringFormat='{}{0:hh\\:mm}'}"
-									TextColor="Black"
-									FontSize="14"
-									FontFamily="Avenir"
-									HorizontalOptions="Start"
-									VerticalOptions="Center">
-							</Label>
 						</StackLayout>
 						<BoxView Color="Black"
 									Opacity="0.05"
@@ -185,17 +203,30 @@
 							Grid.Column="0"
 							Padding="30,10,30,10"
 							Orientation="Vertical">
-						<StackLayout Orientation="Horizontal">
-						<Label	Text="LOCATION"
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand">
+                        <Label	Text="LOCATION"
 								TextColor="Black"
 								Opacity="0.5"
 								FontSize="11"
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-						<Image Source="ParkIcon.png"
-								VerticalOptions="Center"
-								HorizontalOptions="Start">
+                        <Label Text="{Binding SelectedEvent.Location}"
+								TextColor="Black"
+								FontSize="14"
+								FontFamily="Avenir"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center">
+                        </Label>
+                    </StackLayout>
+                    <Image Source="ParkIcon.png"
+								VerticalOptions="Start"
+								HorizontalOptions="Start"
+                               HeightRequest="22"
+                               WidthRequest="22">
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource"
                                         iOS="ParkIcon.png"
@@ -205,13 +236,7 @@
                         
                     </Image>
 						</StackLayout>
-						<Label Text="{Binding SelectedEvent.Location}"
-								TextColor="Black"
-								FontSize="14"
-								FontFamily="Avenir"
-								HorizontalOptions="FillAndExpand"
-								VerticalOptions="Center">
-						</Label>
+						
 						<BoxView Color="Black"
 									Opacity="0.05"
 									HeightRequest="1">
