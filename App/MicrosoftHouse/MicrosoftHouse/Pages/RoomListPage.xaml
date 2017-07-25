@@ -54,21 +54,16 @@
                 </StackLayout>
             
                 <Image VerticalOptions="Center"
-				       HorizontalOptions="End">
+				       HorizontalOptions="End"
+                       HeightRequest="22"
+                       WidthRequest="22">
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource"
                                 iOS="SearchIcon.png"
                                 Android="SearchIcon.png"
                                 WinPhone="Images/SearchIcon.png" />
                         </Image.Source>
-                    <Image.WidthRequest>
-                        <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="24"/>
-                    </Image.WidthRequest>
-                    <Image.HeightRequest>
-                        <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="24"/>
-                    </Image.HeightRequest>
+                    
                 </Image>
             </StackLayout>
 

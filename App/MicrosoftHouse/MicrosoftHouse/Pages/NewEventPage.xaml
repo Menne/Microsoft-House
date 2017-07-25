@@ -202,14 +202,7 @@
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnLocationPicker"/>
                         </Image.GestureRecognizers>
-                        <Image.WidthRequest>
-                            <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="24"/>
-                        </Image.WidthRequest>
-                        <Image.HeightRequest>
-                            <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="24"/>
-                        </Image.HeightRequest>
+
                     </Image>
                 </StackLayout>
                 <BoxView Color="Black"

@@ -39,15 +39,9 @@
 												Spacing="15">
                                     <Image Source="{Binding Path=IconSource}"
 											HorizontalOptions="Start"
-											VerticalOptions="Center">
-                                        <Image.WidthRequest>
-                                            <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="24"/>
-                                        </Image.WidthRequest>
-                                        <Image.HeightRequest>
-                                            <OnPlatform x:TypeArguments="x:Double"
-                                                    WinPhone="24"/>
-                                        </Image.HeightRequest>
+											VerticalOptions="Center"
+                                            HeightRequest="22"
+                                            WidthRequest="22">
                                     </Image>
                                     <Label Text="{Binding Path=Name}"
 											FontSize="15"
