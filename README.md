@@ -9,6 +9,7 @@ Da implementare
 - Abilitare/disabilitare le notifiche nella schermata settings
 - Controllare se un utente è già loggato prima di mostrare la schermata di login
 - La homepage dovrebbe essere sempre la prima pagina della navigation stack
+- TK.CustomMap per calcolare il percorso
 
 Bug
 - Le notifiche UWP hanno sempre il campo message vuoto, le notifiche Android spesso
@@ -20,5 +21,4 @@ Miglioramenti
 - Aggiustare la schermata new event (titolo e descrizione dell'evento)
 - Rendere i picker coerenti (ending time > starting time)
 - Immagine notifiche Android
-- Disabilitare click in alcune listview
 - Cambiare nomi aule e locations nel db

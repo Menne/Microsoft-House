@@ -11,7 +11,13 @@ namespace MicrosoftHouse
 		{
 			InitializeComponent();
 			BindingContext = new SelectedRoomViewModel(room);
-		}
+
+            reservationListView.ItemSelected += (object sender, SelectedItemChangedEventArgs e) =>
+            {
+                if (e.SelectedItem == null) return;
+                ((ListView)sender).SelectedItem = null;
+            };
+        }
 
 		public void OnStartingTimePicker(object sender, EventArgs e)
 		{

@@ -174,7 +174,8 @@
                          Grid.Row="4"
 						 Grid.Column="0"
                          Padding="30,0,30,0">
-                <ListView ItemsSource="{Binding ReservationsOfSelectedRoom, Mode=TwoWay}"
+                <ListView x:Name="reservationListView"
+                          ItemsSource="{Binding ReservationsOfSelectedRoom, Mode=TwoWay}"
                           RowHeight="100"
 						  SeparatorVisibility="None"
                    		  CachingStrategy="RecycleElement"
