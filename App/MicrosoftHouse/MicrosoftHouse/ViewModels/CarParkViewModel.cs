@@ -126,6 +126,8 @@ namespace MicrosoftHouse
 
                 Distance = calculateDistance(position.Latitude, position.Longitude, 45.481739, 9.183140, 'K');
                 TimeToArrival = (Math.Round((Distance / 30)*60, 1));
+                // Per aggiustare il tempo
+                TimeToArrival = TimeToArrival * 2;
             }
             catch (Exception ex)
             {
@@ -140,6 +142,8 @@ namespace MicrosoftHouse
             dist = Math.Acos(dist);
             dist = rad2deg(dist);
             dist = dist * 60 * 1.1515;
+            // Per aggiustare la distanza
+            dist = dist * 2;
             if (unit == 'K')
             {
                 dist = dist * 1.609344;
