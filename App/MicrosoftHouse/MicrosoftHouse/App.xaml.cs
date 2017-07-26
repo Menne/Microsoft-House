@@ -32,17 +32,13 @@ namespace MicrosoftHouse
                 {
                     if (loadParameter == "eventsync")
                     {
-                        MainPage = new NavigationPage(new EntryPage())
-                        {
-                            BarBackgroundColor = Color.FromHex("#2196F3")
-                        };
+                        cloudService.LoginAsync();
+                        MainPage = new MasterPage();
                     }
                     else
                     {
-                        MainPage = new NavigationPage(new EntryPage())
-                        {
-                            BarBackgroundColor = Color.FromHex("#2196F3")
-                        };
+                        cloudService.LoginAsync();
+                        MainPage = new MasterPage();
                     }
                 }
             }
