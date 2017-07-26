@@ -41,7 +41,7 @@
                             HeightRequest="45"
 							BackgroundColor="White"
 							Command="{Binding LoginCommand}"
-							Text="LOGIN WITH MICROSOFT ACCOUNT"
+							Text="LOGIN WITH MICROSOFT"
 							TextColor="#2196F3"
 							FontFamily="Avenir"
 							BorderRadius="0">
