@@ -27,7 +27,8 @@
 						 VerticalOptions="FillAndExpand">
                 <StackLayout Orientation="Vertical" 
 								Padding="10"
-								HorizontalOptions="CenterAndExpand">
+								HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand">
                     <Label FontSize="26"
 							FontFamily="Avenir"
 							Text="{Binding SelectedRoom.Floor}"
@@ -41,7 +42,8 @@
                 </StackLayout>
                 <StackLayout Orientation="Vertical"
 								Padding="10"
-								HorizontalOptions="CenterAndExpand">
+								HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand">
                     <Label FontSize="26"
 							HorizontalOptions="Center"
 							FontFamily="Avenir"

@@ -8,7 +8,7 @@
                      Command="{Binding EditEventCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
-                            iOS="EditIconWhite.png"
+                            iOS="EditIcon.png"
                             Android="EditIconWhite.png"
                             WinPhone="Images/EditIconWhite.png" />
             </ToolbarItem.Icon>
@@ -174,13 +174,23 @@
 								FontFamily="Avenir"
 								HorizontalOptions="FillAndExpand"
 								VerticalOptions="Center"/>
-                        <Label Text="{Binding SelectedEvent.StartingTime, StringFormat='{}{0:hh\\:mm} - '}"
-									TextColor="Black"
+                        <StackLayout Orientation="Horizontal"
+                                        Spacing="0">
+                        <Label Text="{Binding SelectedEvent.StartingTime,StringFormat='{}{0:hh\\:mm} - '}"
+                                    TextColor="Black"
 									FontSize="14"
 									FontFamily="Avenir"
 									HorizontalOptions="Start"
 									VerticalOptions="Center">
                         </Label>
+                            <Label Text="{Binding SelectedEvent.EndingTime,StringFormat='{}{0:hh\\:mm} '}"
+                                    TextColor="Black"
+                                    FontSize="14"
+                                    FontFamily="Avenir"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center">
+                            </Label>
+                        </StackLayout>
                     </StackLayout>
                     <Image VerticalOptions="Start"
 								HorizontalOptions="Start"

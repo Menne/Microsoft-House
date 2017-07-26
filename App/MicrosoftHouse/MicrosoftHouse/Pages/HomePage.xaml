@@ -19,7 +19,7 @@
 							VerticalOptions="FillAndExpand"
 							Orientation="Vertical"
 							Padding="20"
-							BackgroundColor="#2196F3"
+							BackgroundColor="#5DB2F6"
 							Grid.Row="0"
 							Grid.Column="0">
 					<StackLayout HorizontalOptions="FillAndExpand"
@@ -80,7 +80,7 @@
 							VerticalOptions="FillAndExpand"
 							Orientation="Vertical"
 							Padding="20"
-							BackgroundColor="#2196F3"
+							BackgroundColor="#5DB2F6"
 							Grid.Row="1"
 							Grid.Column="0">
 					<StackLayout HorizontalOptions="FillAndExpand"
@@ -140,7 +140,7 @@
 							VerticalOptions="FillAndExpand"
 							Orientation="Vertical"
 							Padding="20"
-							BackgroundColor="#2196F3"
+							BackgroundColor="#5DB2F6"
 							Grid.Row="2"
 							Grid.Column="0">
 					<StackLayout HorizontalOptions="FillAndExpand"
