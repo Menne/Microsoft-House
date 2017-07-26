@@ -89,7 +89,7 @@ namespace MicrosoftHouse
 
         async Task ExecuteNewReservationCommand()
         {
-            if (NewReservation.StartingTime >= NewReservation.EndingTime)
+            if (NewReservation.StartingTime > NewReservation.EndingTime)
             {
                 await Application.Current.MainPage.DisplayAlert("Something is wrong", "A reservation cannot finish before it starts!", "OK");
                 SelectedRoom = null;

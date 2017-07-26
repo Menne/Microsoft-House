@@ -63,7 +63,7 @@ namespace MicrosoftHouse
 
         async Task ExecuteCreateEventCommand()
 		{
-            if (SelectedEvent.StartingTime >= SelectedEvent.EndingTime)
+            if (SelectedEvent.StartingTime > SelectedEvent.EndingTime)
             {
                 await Application.Current.MainPage.DisplayAlert("Something is wrong", "An event cannot finish before it starts!", "OK");
                 return;
