@@ -37,13 +37,13 @@
             </Grid.ColumnDefinitions>
             <controls:Calendar x:Name="calendar"
                 VerticalOptions="StartAndExpand" 
+                TitleRightArrowTextColor="White"
+                TitleLeftArrowTextColor="White"
                 TitleLabelTextColor="White"
                 TitleLabelFontFamily="Avenir"
                 MonthNavigationShow="true"
                 ShowNumberOfWeek="false"
                 StartDay="Monday"
-                TitleRightArrowText=""
-                TitleLeftArrowText=""
                 BorderWidth="0"
                 BorderColor="Transparent"
                 BackgroundColor="#2196F3"
@@ -62,6 +62,16 @@
                 SpecialDates="{Binding DatesWithEvents, Mode=TwoWay}"
                 Grid.Row="0"
 				Grid.Column="0">
+                <controls:Calendar.TitleLeftArrowText>
+                    <OnPlatform x:TypeArguments="x:String"
+                                iOS=""
+                                Android=""/>
+                </controls:Calendar.TitleLeftArrowText>
+                <controls:Calendar.TitleRightArrowText>
+                    <OnPlatform x:TypeArguments="x:String"
+                                iOS=""
+                                Android=""/>
+                </controls:Calendar.TitleRightArrowText>
                 <controls:Calendar.Padding>
                     <OnPlatform x:TypeArguments="Thickness"
                                 iOS="20,0,20,10"
