@@ -314,7 +314,7 @@
 					HorizontalOptions="FillAndExpand"
                     Grid.Row="2"
                     Grid.Column="0"
-                    Text="PARK NOW"
+                    Text="{Binding ParkButtonText, Mode=TwoWay}"
                     TextColor="White"
 					BorderRadius="0"
 					FontFamily="Avenir"

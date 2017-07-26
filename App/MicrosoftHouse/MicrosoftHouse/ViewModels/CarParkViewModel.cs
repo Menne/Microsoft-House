@@ -96,6 +96,14 @@ namespace MicrosoftHouse
             get { return timeToArrival; }
         }
 
+        String parkButtonText;
+        public String ParkButtonText
+        {
+            set { SetProperty(ref parkButtonText, value, "ParkButtonText"); }
+            get { return parkButtonText; }
+        }
+
+
         async Task ExecuteRefreshParkInfo()
         {
             try
@@ -103,6 +111,17 @@ namespace MicrosoftHouse
                 var carParkTable = await CloudService.GetTableAsync<CarPark>();
                 var park = await carParkTable.ReadAllParksAsync();
                 ParkingSpaces = 100-park.Count();
+
+                ParkButtonText = "PARK NOW";
+                var identity = await CloudService.GetIdentityAsync();
+                foreach (var slot in park)
+                {
+                    if (slot.Park == identity.UserClaims.FirstOrDefault(c => c.Type.Equals("urn:microsoftaccount:name")).Value)
+                    {
+                        ParkButtonText = "LEAVE THE PARK";
+                        break;
+                    }
+                }
             }
             catch (Exception ex)
             {
