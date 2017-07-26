@@ -43,8 +43,8 @@
                             HorizontalTextAlignment="Center"
 							TextColor="White"/>
                             <Label HorizontalOptions="Center"
-                               Text="Spaces"
-                               FontSize="15"
+                               Text="Slots"
+                               FontSize="14"
 							   FontFamily="Avenir"
                                HorizontalTextAlignment="Center"
 							   TextColor="White"/>
@@ -62,7 +62,7 @@
 							TextColor="White"/>
                             <Label HorizontalOptions="Center"
                                Text="Min to arrival"
-                               FontSize="15"
+                               FontSize="14"
 							   FontFamily="Avenir"
                                HorizontalTextAlignment="Center"
 							   TextColor="White"/>
@@ -80,7 +80,7 @@
 							TextColor="White"/>
                             <Label HorizontalOptions="Center"
                                Text="Km to arrival"
-                               FontSize="15"
+                               FontSize="14"
 							   FontFamily="Avenir"
                                HorizontalTextAlignment="Center"
 							   TextColor="White"/>
@@ -101,7 +101,7 @@
                         <Label Text="{Binding SelectedDayOfWeek}"
                            TextColor="Black"
                            FontSize="18"/>
-                        <Label Text="parking availability"
+                        <Label Text= "occupied slots"
                            TextColor="Black"
                            FontSize="18"/>
                     </StackLayout>

@@ -33,7 +33,7 @@
 							Text="{Binding SelectedRoom.Floor}"
 							HorizontalOptions="Center"
 							TextColor="White"/>
-                    <Label FontSize="15"
+                    <Label FontSize="14"
 							FontFamily="Avenir"
 							Text="Floor"
 							HorizontalOptions="Center"
@@ -47,7 +47,7 @@
 							FontFamily="Avenir"
 							Text="{Binding SelectedRoom.Seats}"
 							TextColor="White"/>
-                    <Label FontSize="15"
+                    <Label FontSize="14"
 							FontFamily="Avenir"
 							HorizontalOptions="Center"
 							Text="Seats"
