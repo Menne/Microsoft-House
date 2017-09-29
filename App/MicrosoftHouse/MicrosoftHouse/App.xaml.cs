@@ -18,35 +18,11 @@ namespace MicrosoftHouse
         {
             ServiceLocator.Add<ICloudService, AzureCloudService>();
 
-            if (loadParameter == null)
+            MainPage = new NavigationPage(new EntryPage())
             {
-                var cloudService = ServiceLocator.Instance.Resolve<ICloudService>();
-                if (cloudService.GetIdentityAsync() == null)
-                {
-                    MainPage = new NavigationPage(new EntryPage())
-                    {
-                        BarBackgroundColor = Color.FromHex("#2196F3")
-                    };
-                }
-                else
-                {
-                    if (loadParameter == "eventsync")
-                    {
-                        MainPage = new NavigationPage(new EntryPage())
-                        {
-                            BarBackgroundColor = Color.FromHex("#2196F3")
-                        };
-                    }
-                    else
-                    {
-                        MainPage = new NavigationPage(new EntryPage())
-                        {
-                            BarBackgroundColor = Color.FromHex("#2196F3")
-                        };
-                    }
-                }
-            }
-            
+                BarBackgroundColor = Color.FromHex("#2196F3")
+            };
+
         }
 
         protected override void OnStart()
